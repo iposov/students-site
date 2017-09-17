@@ -18,6 +18,10 @@
     function res = task2(x, a)
       res = x + a;
     endfunction
+    
+### Базовые задания `octave-1`
+
+Загрузите в папку octave-1 три файла `task1.m`, `task2.m`, `task3.m`, которые мы делали на практике.
 
 ### Создание матриц `octave-matrices`
 
