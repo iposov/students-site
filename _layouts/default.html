@@ -31,6 +31,41 @@
     </section>
     -->
 
+    <nav>
+      {% for item in site.data.navigation %}
+
+        {% if item.url %}
+        <a href="{{ item.url }}"><h3>{{ item.title }}</h3></a>
+        {% else %}
+        <h3>{{ item.title }}</h3>
+        {% endif %}
+
+        {% if item.sub[0] %}
+            <ul>
+                {% for item2 in item.sub %}
+                <li class="{% if item2.url == page.url %}active{% endif %}">
+                    {% if item.url %}
+                    <a href="{{ item2.url }}">{{ item2.title }}</a>
+                    {% else %}
+                    {{ item2.title }}
+                    {% endif %}
+                </li>
+
+                {% if item2.sub[0] %}
+                <ul>
+                    {% for item3 in item2.sub %}
+                    <li class="{% if item.url == page.url %}active{% endif %}">
+                        <a href="{{ item3.url }}">{{ item3.title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+      {% endfor %}
+    </nav>
+
     <section class="main-content">
       {{ content }}
 

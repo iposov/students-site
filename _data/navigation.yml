@@ -1,0 +1,9 @@
+- title: Главная
+  ulr: /
+- title: Осень 2017
+  url: /17fall
+  sub:
+    - title: Математические пакеты
+      url: /17fall/mathematical-packages.html
+    - title: Основы программирования
+      url: /17fall/programming-basics.html
