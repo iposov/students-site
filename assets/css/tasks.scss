@@ -7,22 +7,31 @@
 
   ol {
     list-style: none;
+    counter-reset: task-item;
 
     > li {
-      counter-increment: item;
+      counter-increment: task-item;
       margin-bottom: 1.5em;
     }
 
     > li:before {
       display: inline-block;
       margin-right: 0.6em;
-      content: counter(item);
+      content: counter(task-item);
       background: $header-bg-color;
       border-radius: 100%;
       color: white;
       width: 1.5em;
       font-weight: bold;
       text-align: center;
+    }
+
+    ol {
+      li:before {
+        background: none;
+        color: $body-text-color;
+        width: auto;
+      }
     }
   }
 }
