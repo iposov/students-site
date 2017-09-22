@@ -1,0 +1,35 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.main-content {
+
+  ol {
+    list-style: none;
+
+    > li {
+      counter-increment: item;
+      margin-bottom: 0.5em;
+    }
+
+    > li:before {
+      display: inline-block;
+      margin-right: 0.6em;
+      content: counter(item);
+      background: $header-bg-color;
+      border-radius: 100%;
+      color: white;
+      width: 1.5em;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}
+
+/*
+@media screen and (min-width: 42em) {
+  .main-content {
+    font-size: 0.8rem;
+  }
+}*/
