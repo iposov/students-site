@@ -3,6 +3,10 @@ type: tasks
 ---
 # Технологии программирования
 
+## Примеры кода
+
+[Репозитроий с программами](https://bitbucket.org/iposov/iposov-programming/src/default/JavaCourse/2017-2018)
+
 ## Задачи
 
 1. Создайте функцию `void suicide(int n)`, которая для

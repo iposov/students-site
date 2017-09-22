@@ -1,5 +1,3 @@
-http://goo.gl/CQ8eno
-
 # Ввод и вывод в Java
 
 InputStream / OutputStream - абстрактные потоки байт.
