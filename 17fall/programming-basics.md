@@ -32,7 +32,7 @@ type: tasks
 
 ## Некоторые лекции
 
-Лекция от [29 сентября](programming-basics/null-cycle-array.html)
+Лекция от [29 сентября](programming-basics/null-cycle-array.md)
 
 ## Задания
 ### Типы и условные операторы
