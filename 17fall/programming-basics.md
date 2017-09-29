@@ -30,6 +30,10 @@ type: tasks
     "путь до java.exe" -Dfile.encoding=CP866 %~n0
     pause
 
+## Некоторые лекции
+
+Лекция от [29 сентября](programming-basics/null-cycle-array.html)
+
 ## Задания
 ### Типы и условные операторы
 1. Дан год, определить, високосный или нет.
