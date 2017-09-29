@@ -11,11 +11,6 @@
       url: /17fall/programming-basics.html
     - title: Технологии программирования
       url: /17fall/programming-technology
-      sub:
-        - title: Исключения
-          url: /17fall/programming-technology/exceptions.html
-        - title: Ввод вывод
-          url: /17fall/programming-technology/io.html
     - title: Алгоритмы комьютерной графики
       url: /17fall/computer-graphics.html
     - title: Математическая логика и теория алгоритмов
