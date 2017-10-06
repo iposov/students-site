@@ -11,6 +11,7 @@ type: tasks
 * [Исключения](exceptions.md)
 * [Ввод вывод](io.md)
 * [JavaFX введение](javafx.md)
+* [JavaFX панели](javafx-panes.md)
 
 ## Задачи
 
