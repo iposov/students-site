@@ -136,6 +136,9 @@ http://codingbat.com/prob/p297521 (усложненный вариант http://
     1. `fillFirstAndLastLines` Воспользуйтесь Arrays.fill(), чтобы заполнить первую и последнюю строки массива символами '#'.
     1. `fillFirstAndLastColumns` Заполните первый и последний столбец массива символами '#'.
         
+## Задачи посложнее
+Для тех, кому скучно решать стандартные задачи: [programming-basics/harder-tasks.md](сюда)
+
 ## Результаты
 
 [Таблица результатов](https://docs.google.com/spreadsheets/d/1Ax4SXSHXWT-gvpYOV8-KPGSFvHnSx7h7tIqfrpi5lKE/edit?usp=sharing)
