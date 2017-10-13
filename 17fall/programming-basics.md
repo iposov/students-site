@@ -137,7 +137,7 @@ http://codingbat.com/prob/p297521 (усложненный вариант http://
     1. `fillFirstAndLastColumns` Заполните первый и последний столбец массива символами '#'.
         
 ## Задачи посложнее
-Для тех, кому скучно решать стандартные задачи: [programming-basics/harder-tasks.md](сюда)
+Для тех, кому скучно решать стандартные задачи: [сюда](programming-basics/harder-tasks.md).
 
 ## Результаты
 
