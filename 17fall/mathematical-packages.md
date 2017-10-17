@@ -18,3 +18,7 @@
     endfunction
 
 ## Задачи по Octave: [сюда](octave.md)
+
+## Результаты
+
+https://docs.google.com/spreadsheets/d/12WaltRX8ZLwUiFwUkqk8EhN-9EOEQqBNFfAmR2zli8c/view
