@@ -21,4 +21,4 @@
 
 ## Результаты
 
-https://docs.google.com/spreadsheets/d/12WaltRX8ZLwUiFwUkqk8EhN-9EOEQqBNFfAmR2zli8c/view
+[Google документ](https://docs.google.com/spreadsheets/d/12WaltRX8ZLwUiFwUkqk8EhN-9EOEQqBNFfAmR2zli8c/view)
