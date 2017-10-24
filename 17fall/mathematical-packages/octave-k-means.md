@@ -72,7 +72,7 @@
                 clusters = [1 2 1 1 3]; # задаем номера кластеров
                 markers = "+o*.xsd^<>vph"; # список из всех возможных маркеров, их 13 штук
                 colors = "krgbmckrgbmck"; # список из 13 цветов, их 6 штук, поэтому повторяем
-                for i = 1:k
+                for i = 1 : k
                   plot(x(clusters==i), y(clusters==i), [markers(i) colors(i)]);
                 endfor
                 
