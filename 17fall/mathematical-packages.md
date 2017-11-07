@@ -18,7 +18,7 @@
     endfunction
 
 ## Задачи по Octave: [сюда](octave.md)
-## Задачи по R: [сюда](mathematical-packages/octave.md)
+## Задачи по R: [сюда](mathematical-packages/R.md)
 
 ## Результаты
 
