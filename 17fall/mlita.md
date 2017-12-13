@@ -164,3 +164,6 @@ int main() {
     return 0;
 }
 ```
+
+## ИДЗ 3
+[Индивидуальное домашнее задание №3](https://github.com/iposov/site/raw/master/17fall/idz3.pdf)
