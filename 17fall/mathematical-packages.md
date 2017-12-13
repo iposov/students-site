@@ -19,6 +19,8 @@
 
 ## Задачи по Octave: [сюда](octave.md)
 ## Задачи по R: [сюда](mathematical-packages/R.md)
+## Задачи по Sage: [сюда](mathematical-packages/sage.md)
+
 
 ## Результаты
 
