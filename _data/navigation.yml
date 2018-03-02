@@ -6,8 +6,8 @@
   url: /18spring
   sub:
     - title: Основы программирования
-      url: /18spring/brog-basics-ii/
-    - title: Основы программирования
+      url: /18spring/prog-basics-ii/
+    - title: Дискретная математика
       url: /18spring/dm/
 - title: Осень 2017
   url: /17fall
