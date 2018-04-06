@@ -38,9 +38,39 @@ type: tasks
    * Потом исправьте программу так, чтобы она использовала все три вида массивов: HashMap, TreeMap, LinkedHashMap. Соответственно, выведите ответ три раза. Не дублируйте код.
    * Выведите слова в порядке уменьшения частот. Вам потребуется отсортировать список List<Map.Entry<String, Integer>>
    
+# Потоки (Streams)
+
+Следующая функция возвращает бесконечный поток случайных целых чисел от 0 до max - 1. Попробуйте понять, как она работает.
+
+        public static IntStream randomStream(int max) {
+            Random r = new Random();
+            return IntStream.generate(() -> r.nextInt(max));
+        }
+        
+Следующая функция возвращает бесконечный поток натуральных чисел 1, 2, 3 и т.д. Попробуйте понять, как она работает
+
+        public static IntStream integersStream() {
+            return IntStream.iterate(1, x -> x + 1);
+        }
+        
+Следующая функция возвращает поток слов из файла. Попробуйте примерно понять, как она работает:
+
+        public static Stream wordsStream(File f) {
+            try {
+                byte[] fileAsBytes = Files.readAllBytes(f.toPath());
+                String fileAsText = new String(fileAsBytes, "UTF-8");
+                return Arrays.stream(fileAsText.split("\\s+"));
+            } catch (Exception e) {
+                System.out.println("Failed to read file " + f);
+                return Stream.of();
+            }
+        }
+
+1. 
+
 # Объекты
 
-# Класс Rational
+## Класс Rational
 Сделаем класс Rational, это рациональные числа, для которых хранится их числитель и знаменатель. С рациональными числами можно совершать арифметические операции.
 
 1. Создайте класс и добавьте поля n и d (numerator, denominator - числитель, знаменатель). Убедитесь, что поля приватные.
