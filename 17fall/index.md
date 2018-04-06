@@ -2,7 +2,7 @@
 
 * СПбГУ
   * [Основы программирования](programming-basics.md)
-  * [Технологии программирования](mathematical-packages.md)
+  * [Технологии программирования](programming-technology/)
   * [Алгоритмы компьютерной графики](computer-graphics.md)
 * СПбГЭТУ
   * [Математические пакеты](mathematical-packages.md)
