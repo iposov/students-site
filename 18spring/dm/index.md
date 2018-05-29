@@ -12,7 +12,7 @@
 
 [Счастливые билеты](happy%20tickets.pdf)
 
-[Алгоритмы Дейкстры и Флойда](dijkstra%20and%20floyd%20algorithms.pdf)
+[Алгоритмы Дейкстры и Флойда](dijkstra%20and%20floyd%20algorithms.pdf) ___(NEW!)___
 
 ## ИДЗ
 
