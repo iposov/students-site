@@ -1,5 +1,11 @@
 # Дискретная математика
 
+## Результаты
+
+[Таблица результатов](https://docs.google.com/spreadsheets/d/1txkn9s4l-pHeLYdun0n4NzyaljyhPu51BeqzcvVifmw/edit?usp=sharing)
+
+Разные группы в разных вкладках. Для 7363 итоговое количество баллов в столбце «ИТОГ».
+
 ## Разборы задач
 
 [Комбинаторная вероятность](combinatorial%20probability.pdf)
