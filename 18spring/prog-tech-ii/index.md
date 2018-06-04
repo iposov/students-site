@@ -2,6 +2,10 @@
 type: tasks
 ---
 
+## Экзамен
+
+[Вопросы к экзамену](https://docs.google.com/document/d/e/2PACX-1vR-I8QpPWCgE68r9tEUn8poOJS9uIHlsJ6azr8Ls7QNIx_ZqZG10x0bJ0Wx36I0TNauLmKqHSEpWfGF/pub)
+
 ## Многопоточное программирование
 
 1. Используйте `AtomicInteger` вместо synchronized блока для решения задачи про бананы и мартышек.
