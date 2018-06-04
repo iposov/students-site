@@ -7,8 +7,6 @@ type: tasks
 
 [Задача с экзамена в прошлом году](https://docs.google.com/document/d/e/2PACX-1vQRI7RqB2PbI8swcQEFdN2Ldlq-q_oJ5-kZvCZe5L9EGUW3Xuhw6Hor4Zvnf5a2pliTnnUZvk1mVMXW/pub)
 
-В прошлогодней задаче используются CSV файлы, вы можете представить, что вместо них я прошу пользоваться json файлом с данными.
-
 # Двоичный поиск
 
 Реализуйте двоичный поиск.
