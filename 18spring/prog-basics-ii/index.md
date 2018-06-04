@@ -1,6 +1,14 @@
 ---
 type: tasks
 ---
+## Экзамен
+
+[Вопросы к экзамену](https://docs.google.com/document/d/e/2PACX-1vR0vD3KNDtZ-cpTZKpnqnWi7yWv9Gwykvi_0KGgvzaqeTAfQZC-_ofOOwCH5dqIkAB9Cy7r83Pn00HI/pub)
+
+[Задача с экзамена в прошлом году](https://docs.google.com/document/d/e/2PACX-1vQRI7RqB2PbI8swcQEFdN2Ldlq-q_oJ5-kZvCZe5L9EGUW3Xuhw6Hor4Zvnf5a2pliTnnUZvk1mVMXW/pub)
+
+В прошлогодней задаче используются CSV файлы, вы можете представить, что вместо них я прошу пользоваться json файлом с данными.
+
 # Двоичный поиск
 
 Реализуйте двоичный поиск.
