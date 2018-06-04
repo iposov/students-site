@@ -6,6 +6,10 @@ type: tasks
 
 [Вопросы к экзамену](https://docs.google.com/document/d/e/2PACX-1vR-I8QpPWCgE68r9tEUn8poOJS9uIHlsJ6azr8Ls7QNIx_ZqZG10x0bJ0Wx36I0TNauLmKqHSEpWfGF/pub)
 
+[Задача с экзамена в прошлом году](https://docs.google.com/document/d/1lHQQzDnGQGYhm7xdds-NjUGCiVi_71Q_v1fHmhfqFhI/edit?usp=sharing)
+
+В прошлогодней задаче используются CSV файлы, вы можете представить, что вместо них я прошу пользоваться json файлом с данными.
+
 ## Многопоточное программирование
 
 1. Используйте `AtomicInteger` вместо synchronized блока для решения задачи про бананы и мартышек.
