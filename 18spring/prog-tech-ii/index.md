@@ -8,6 +8,8 @@ type: tasks
 
 [Задача с экзамена в прошлом году](https://docs.google.com/document/d/e/2PACX-1vTUs7QlOEg4tR8sv3A6kZkgaI10iml--UeN29IslKyjgxGv0-E5I7GOwVeCVcEQD4o_YdyEdTRWXmcW/pub)
 
+[Задача экзамена 2018](https://docs.google.com/document/d/e/2PACX-1vQHEMq-b6Eln8t-X3VAWudg6jKpzrnkfhNZismkQDsvR9d6Hrk1nudYJEi0DztRV9NE6VOI1Y0xKsHr/pub)
+
 В прошлогодней задаче используются CSV файлы, вы можете представить, что вместо них я прошу пользоваться json файлом с данными.
 
 ## Многопоточное программирование
