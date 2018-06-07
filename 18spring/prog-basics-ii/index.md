@@ -7,6 +7,8 @@ type: tasks
 
 [Задача с экзамена в прошлом году](https://docs.google.com/document/d/e/2PACX-1vQRI7RqB2PbI8swcQEFdN2Ldlq-q_oJ5-kZvCZe5L9EGUW3Xuhw6Hor4Zvnf5a2pliTnnUZvk1mVMXW/pub)
 
+[Задача для экзамена](https://docs.google.com/document/d/e/2PACX-1vQwGJaP9GoSThw9aXLcsMpOqrhY-xjO-kTShJPv9v2Tmne0qN0JGLaTtw57JLCCMSNUL44MUTuLvhzj/pub)
+
 # Двоичный поиск
 
 Реализуйте двоичный поиск.
