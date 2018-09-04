@@ -2,16 +2,16 @@
 
 - title: Главная
   url: /
-- title: Осень 2017
-  url: /17fall
+- title: Осень 2018
+  url: /18fall
   sub:
     - title: Математические пакеты
-      url: /17fall/mathematical-packages.html
+      url: /18fall/mathematical_packages
     - title: Основы программирования
-      url: /17fall/programming-basics.html
+      url: /18/fall/programming-basics.html
     - title: Технологии программирования
-      url: /17fall/programming-technology
+      url: /18fall/programming-technology
     - title: Алгоритмы комьютерной графики
-      url: /17fall/computer-graphics.html
+      url: /18fall/computer-graphics
     - title: Математическая логика и теория алгоритмов
-      url: /17fall/mlita.html
+      url: /18fall/mlita
