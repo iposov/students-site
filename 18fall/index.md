@@ -7,4 +7,4 @@
   * [Функциональное программирование](functional-programming)
 * СПбГЭТУ
   * [Математическая логика и теория алгоритмов](mlita)
-  * [Computer tools in education](computer_tools)
+  * [Computer Tools in Education (Mathematical Packages)](mathematical_packages)
