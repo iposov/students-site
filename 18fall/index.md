@@ -2,9 +2,9 @@
 
 * СПбГУ
   * [Основы программирования](programming_basics)
-  * [Технологии программирования](programming-technology)
-  * [Алгоритмы компьютерной графики](computer-graphics)
-  * [Функциональное программирование](functional-programming)
+  * [Технологии программирования](programming_technology)
+  * [Алгоритмы компьютерной графики](computer_graphics)
+  * [Функциональное программирование](functional_programming)
 * СПбГЭТУ
   * [Математическая логика и теория алгоритмов](mlita)
   * [Computer Tools in Education (Mathematical Packages)](mathematical_packages)

@@ -8,11 +8,11 @@
   - title: Computer Tools in Education (Mathematical Packages)
     url: /18fall/mathematical_packages
   - title: Основы программирования
-    url: /18/fall/programming-basics.html
+    url: /18fall/programming_basics
   - title: Технологии программирования
-    url: /18fall/programming-technology
+    url: /18fall/programming_technology
   - title: Алгоритмы комьютерной графики
-    url: /18fall/computer-graphics
+    url: /18fall/computer_graphics
   - title: Математическая логика и теория алгоритмов
     url: /18fall/mlita
 #- title: Весна 2018
