@@ -4,3 +4,5 @@ Gemfile.lock
 
 #generated files
 _site/
+
+.ipynb_checkpoints
