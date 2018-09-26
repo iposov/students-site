@@ -53,14 +53,11 @@ that has two columns, correspondingly, `k` и `b`, that define the same lines, b
 1. ***all2dets(x)***. You are given a matrix `x` of two columns. Return a new square matrix with the size equal to the number of rows in `x`. An element in the row number \\(i\\) and the column
 number \\(j\\) should be equal to \\(a_{i,j} = \\left|\\begin{matrix}x_{i,1}&x_{i,2}\\\\x_{j,1} &x_{j,2}\\end{matrix}\\right|\\).
 This is a determinant of a matrix composed from the i-th and the j-th rows of `x`. I remind that
-\\(\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=ad - bc\\).
-1. Функция `all_lines_intersections(a)`. Дана матрица `а` из трех столбцов, описывающая набор прямых
-(см. предыдущее задание). Если кратко сформулировать условие, то нобходимо пересечь каждую прямую с каждой.
-Подробней так: каждое пересечение прямой из строки i с прямой из строки j дает две координаты пересечения x и y.
-Функция должна вернуть две матрицы `x` и `y`. Первая содержит x координату этого пересечения в строчке i
-и столбце j, вторая содержит, соответственно, y координату. Не обрабатывайте отдельно случаи параллельных прямых,
-пусть для параллельных прямых получается произвольный ответ, скорее всего, у вас это будет NaN из-за деления 0 на 0.
-Напомню формулу пересечения прямых \\(a_1x+b_1y+c_1\\) = 0 и \\(a_2x+b_2y+c_2 = 0\\):
+\\(\\left|\\begin{matrix}a&b\\\\c&d\\end{matrix}\\right|=ad - bc\\).
+1. ***all_lines_intersections(a)***.
+You are given a matrix `а` of three columns, it describes a set of lines (cf. previously). The short task statement is: intersect each line with each line. To be more specific: the intersection of the line from the i-th row and the line from j-th row has two coordinates \\(x\\) and \\(y\\). The function should return two matrices `x` and `y`. The first contains the x-coordinate of this intersection in the row \\(i\\) and the column \\(j\\). The second one contains, correspondingly, the y-coordinate. Don't consider the case of parallel lines.
+
+Here is the formula for intersection of lines \\(a_1x+b_1y+c_1\\) = 0 and \\(a_2x+b_2y+c_2 = 0\\):
     ```
     Δ = det([a1 b1; a2 b2])
     Δx = det([-c1 b1; -c2 b2])
@@ -68,4 +65,4 @@ This is a determinant of a matrix composed from the i-th and the j-th rows of `x
     x = Δx / Δ
     y = Δy / Δ
     ```
-Соответственно, пользуйтесь задачей 4 для решения.
+So, you will need a prevously implemented `all2dets` function.
