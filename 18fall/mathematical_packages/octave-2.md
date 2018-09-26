@@ -55,14 +55,14 @@ number \\(j\\) should be equal to \\(a_{i,j} = \\left|\\begin{matrix}x_{i,1}&x_{
 This is a determinant of a matrix composed from the i-th and the j-th rows of `x`. I remind that
 \\(\\left|\\begin{matrix}a&b\\\\c&d\\end{matrix}\\right|=ad - bc\\).
 1. ***all_lines_intersections(a)***.
-You are given a matrix `а` of three columns, it describes a set of lines (cf. previously). The short task statement is: intersect each line with each line. To be more specific: the intersection of the line from the i-th row and the line from j-th row has two coordinates \\(x\\) and \\(y\\). The function should return two matrices `x` and `y`. The first contains the x-coordinate of this intersection in the row \\(i\\) and the column \\(j\\). The second one contains, correspondingly, the y-coordinate. Don't consider the case of parallel lines.
+You are given a matrix `а` of three columns, it describes a set of lines (as previously). The short task statement is: intersect each line with each line. To be more specific: the intersection of the line from the i-th row and the line from j-th row has two coordinates \\(x\\) and \\(y\\). The function should return two matrices `x` and `y`. The first one contains the x-coordinate of this intersection in the row \\(i\\) and the column \\(j\\). The second one contains, correspondingly, the y-coordinate. Don't consider the case of parallel lines.
 
-Here is the formula for intersection of lines \\(a_1x+b_1y+c_1\\) = 0 and \\(a_2x+b_2y+c_2 = 0\\):
-    ```
-    Δ = det([a1 b1; a2 b2])
-    Δx = det([-c1 b1; -c2 b2])
-    Δy = det([a1 -c1; a2 -c2])
-    x = Δx / Δ
-    y = Δy / Δ
-    ```
-So, you will need a prevously implemented `all2dets` function.
+    Here is the formula for intersection of lines \\(a_1x+b_1y+c_1\\) = 0 and \\(a_2x+b_2y+c_2 = 0\\):
+        ```
+        Δ = det([a1 b1; a2 b2])
+        Δx = det([-c1 b1; -c2 b2])
+        Δy = det([a1 -c1; a2 -c2])
+        x = Δx / Δ
+        y = Δy / Δ
+        ```
+    So, you will need a prevously implemented `all2dets` function.
