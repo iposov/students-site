@@ -4,7 +4,7 @@ type: tasks
 
 ## Indexing
 
-1. ***task1***
+1. ***0task1***
 You are given a square matrix of even size. (you are not supposed to test that the matrix is actually even and square, just
 use it). Imagine we split a matrix vertically and horizontally through the center. Return the matrix at the left-top.
 1. ***task2*** You are given a matrix with an even number of rows. Return a new matrix where the top half is exchanged with the bottom half of the
@@ -36,19 +36,16 @@ The third one contains a mean height excluding those who a higher than 2 meters 
 
 (this text will be translated)
 
-1. Дана матрица строка, например, `a = [1, 2, -2, 4]` и число `x`, например 1.
-Строка `a` задает коэффициенты многочлена, начиная с младшего, т.е. она соответствует многочлену
-\\(1 + 2x - 2x^2 + 4x^3\\). Посчитайте значение многочлена в точке `x`.
-Для приведенного примера ответ будет 5. Т.е. необходимо написать выражение через `a` и `x`,
-которое считает значение многочлена `a` в точке `x`.
-__Замечание__: в Octave есть функция `polyval`, делающая аналогичные действия, но у нее иначе интерпретируются
-аргументы. Не пользуйтесь этой функцией при решении задачи.
-1. Дана матрица-столбец x. Создать квадратную матрицу такого же размера, которая в i-ой строке
-и j-ом столбце содержит разность `x(i) – x(j)`.
-1. Дана матрица, состоящая из трех столбцов. Предположим, что каждая строка задает прямую вида \\(ax + by + c = 0\\),
-где столбцы — это, соответственно, числа `a`, `b`, `c`. Создайте матрицу, состоящую из двух столбцов с числами,
-соответственно, `k` и `b`, которые описывает эти же прямые, только в виде \\(y = kx + b\\). Например, строка `[1 1 1]`
-должна превратиться в строку `[-1 -1]`.
+1. You are given a row matrix, for example, `a = [1, 2, -2, 4]` and a number `x`, for example, 1.
+The row `a` specifies coefficients of a polinomial, starting from the lowest degree, that is, the row from
+the example specifies the polynomial
+\\(1 + 2x - 2x^2 + 4x^3\\). Compute the value of the polinomial at the point `x`.
+The answer in the example is 5.
+1. You are given a column matrix \\(x\\). Create a square matrix of the same size, its value in the row number \\(i\\) and the column
+number \(j\\) should be equal to \\(a_{i,j} = x_i – x_j\\).
+1. You are given a three columns matrix. Imagine, that each row specifies a line of the form \\(ax + by + c = 0\\),
+whith the columns being, correspondingly, `a`, `b`, `c`. Return a matrix,
+that has two columns, correspondingly, `k` и `b`, that define the same lines, but in the form \\(y = kx + b\\). For example, the row `[1 1 1]` should be converted to the row `[-1 -1]`.
 1. Функция `all2dets(x)`. Дана матрица `x` из двух столбцов. Создать квадратную матрицу,
 размером в количество строчек исходной.
 Элемент в i-ой строке j-ом столбце должен быть равен определителю матрицы `[x(i,:); x(j,:)]`, т.е. матрицы 2x2,
