@@ -13,3 +13,4 @@ Please, answer the questions and send answers to me: [introductionary questions]
 
 ## Octave tasks
 1. [Create matrices](octave-1.md). Deadline: __01 October__
+1. [Indexing and vectorization](octave-2.md). Deadline: __01 October__
