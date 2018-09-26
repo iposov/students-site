@@ -59,12 +59,10 @@ You are given a matrix `а` of three columns, it describes a set of lines (as pr
 
     Here is the formula for intersection of lines \\(a_1x+b_1y+c_1\\) = 0 and \\(a_2x+b_2y+c_2 = 0\\):
     
-            ```
-            Δ = det([a1 b1; a2 b2])
-            Δx = det([-c1 b1; -c2 b2])
-            Δy = det([a1 -c1; a2 -c2])
-            x = Δx / Δ
-            y = Δy / Δ
-            ```
+        Δ = det([a1 b1; a2 b2])
+        Δx = det([-c1 b1; -c2 b2])
+        Δy = det([a1 -c1; a2 -c2])
+        x = Δx / Δ
+        y = Δy / Δ
             
     So, you will need a prevously implemented `all2dets` function.
