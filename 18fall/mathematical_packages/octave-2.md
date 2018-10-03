@@ -14,17 +14,21 @@ initial matrix.
 You are given a vector with integer numbers. Return a vector that contains only that numbers of the initial vector, that are
 divisible by 3. Use the `mod` function to test divisibilty.
 1. Create two functions ***filter_multiples*** and ***seive***. The first one is `filter_multiples(a, k)`, it removes all numbers from the vector `a` that are divisible
-by `k`. The second one is `sieve()` and it is as follows:
+by `k` and are strictly greater than `k`. For example, `filter_multiples([1 5 10], 5)` yields `[1 5]`
+
+    The second one is `sieve()` and it is as follows:
+  
     ```
-    function a = sieve(n)
-      a = 1:n;
-      i = 2;
-      while i < length(a)
-        a = filter_multiples(a, a(i));
-        i++
-      endwhile
-    endfunction
+        function a = sieve(n)
+          a = 1:n;
+          i = 2;
+          while i < length(a)
+            a = filter_multiples(a, a(i));
+            i++;
+          endwhile
+        endfunction
     ```
+        
     Explain in comments, what does `sieve(n)` do and how.
 1. ***task5*** You are given a matrix with two columns. Each row describes a person: his or her height and a type.
 There are two types of people: 1 and 2. Return three column-matrices of size 2.  
