@@ -40,8 +40,6 @@ The third one contains a mean height excluding those who a higher than 2 meters 
     
 ## Vectorization
 
-(this text will be translated)
-
 1. ***task7***
 You are given a row matrix, for example, `a = [1, 2, -2, 4]` and a number `x`, for example, 1.
 The row `a` specifies coefficients of a polinomial, starting from the lowest degree, that is, the row from
