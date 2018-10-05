@@ -40,3 +40,11 @@
 | \\(0 \Leftrightarrow 1 = ?\\) | \\(1 \Leftrightarrow 1 = ?\\) | \\(X \Leftrightarrow 1 = ?\\) | \\(\overline X \Leftrightarrow 1 = ?\\) |
 | \\(0 \Leftrightarrow X = ?\\) | \\(1 \Leftrightarrow X = ?\\) | \\(X \Leftrightarrow X = ?\\) | \\(\overline X \Leftrightarrow X = ?\\) |
 | \\(0 \Leftrightarrow \overline X = ?\\) | \\(1 \Leftrightarrow \overline X = ?\\) | \\(X \Leftrightarrow \overline X = ?\\) | \\(\overline X \Leftrightarrow \overline X = ?\\) |
+
+
+# ИДЗ 1
+
+[ИДЗ1 для 7363](idz1_7363.pdf)
+[ИДЗ1 для 7302](idz1_7302.pdf)
+
+Номер варианта = 
