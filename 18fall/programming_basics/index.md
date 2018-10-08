@@ -120,4 +120,4 @@ print(example())  # тестируем результат
 
 ### Операции со строками
 
-Лекция: [Операции со строками, операции с типами-последовательностями](python-strings-sequences.ipynb)
+Лекция: [Операции со строками, операции с типами-последовательностями](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/python-strings-sequences.ipynb)
