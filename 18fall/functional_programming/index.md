@@ -22,6 +22,12 @@
 1. Функции высшего порядка: например `map f list` и `filter pred list`
 1. Диапазоны: `[1..10]`, `[1,3..10]`, `[1..]`, `[1,3..]`
 
+На третьей лекции мы обсудили
+1. Карринг и частичное применение функций.
+2. Функции foldl и foldr
+
+Четвертая лекция: [Функции `.` и `$`, Алгебраические типы данных](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/functional_programming/11oct.ipynb)
+
 Вы можете найти необходимые знания, например, в этом учебнике: [Haskell Wikibook](https://en.wikibooks.org/wiki/Haskell).
 Читайте разделы в Haskell Basics: `Variables and functions`, `Truth values`, `Type basics`, `Lists and tuples`, `Next steps`.
 В разделе Elementary Haskell: всё без `Types declarations` и без разделов о чем-то непонятном, что мы еще не прошли.
