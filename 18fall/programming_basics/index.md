@@ -155,3 +155,7 @@ n = 3     [0 1 0 2 0 1 0 3 0 1 0 2 0 1 0]
     [0, 0, 1]
 ]    
 ```
+
+### Операции со списками, продолжение
+
+Лекция [Продвинутые операции с последовательностями](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/advanced-seq-types.ipynb)
