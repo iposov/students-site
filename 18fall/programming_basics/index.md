@@ -118,9 +118,9 @@ print(example())  # тестируем результат
         └─┴─┴─┘
     ```
 
-### Операции со строками
+### Операции со строками и другими последовательностями
 
-Лекция: [Операции со строками, операции с типами-последовательностями](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/python-strings-sequences.ipynb)
+Лекция: [Операции со строками, операции с последовательностями](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/python-strings-sequences.ipynb)
 
 При решении следующих задач не пользуйтесь ничем, что мы еще не проходили. Например, мы еще не умеем еще полноценно пользоваться циклами, мы только можем перебирать натуральные числа. Старайтесь не пользоваться циклами там, где они не нужны.
 
