@@ -2,7 +2,7 @@
 type: tasks
 ---
 
-### Решение уравнений `octave-equations` ___понедельник 30 октября 23:59___
+### Solve equations 
 1. ***task1*** You are given  `n`, find roots of the polynomial
 \\(x^n + x^{n - 1} + \\cdots + x + 1\\), that is a polynomial of degree \\(n\\),
 that has all coefficints equal to 1. Return roots as one row-matrix.

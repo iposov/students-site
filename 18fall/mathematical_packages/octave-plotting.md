@@ -4,7 +4,6 @@ type: tasks
 
 ## Plotting
 
-### Графика в Ocatave `octave-graphics` ___понедельник 16 октября 23:59___
 Don't use loops, unless the opposite is explicitly stated.
 
 1. ***task1*** Plot the function \\(\\sin(x) + \\sin(3x)\\) from \\(-2\\pi\\) to \\(2\\pi\\). The function `task1` should
