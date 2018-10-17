@@ -7,7 +7,7 @@
 Издательство Юрайт, 2018. — 126 с. — (Серия : Бакалавр. Прикладной курс).
 — ISBN 978-5-534-04479-9. —
 Режим доступа :
-[www.biblio-online.ru/book/1EE056CF-F11A-4C18-8D33-40B703D49AC5](www.biblio-online.ru/book/1EE056CF-F11A-4C18-8D33-40B703D49AC5).
+[www.biblio-online.ru/book/1EE056CF-F11A-4C18-8D33-40B703D49AC5](http://www.biblio-online.ru/book/1EE056CF-F11A-4C18-8D33-40B703D49AC5).
 
 Для чтения книги, зайдите на сайт издательства по ссылке
 [http://cufts.library.spbu.ru/CRDB/SPBGU/resource/306/goto](http://cufts.library.spbu.ru/CRDB/SPBGU/resource/306/goto)
