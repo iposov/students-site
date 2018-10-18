@@ -5,6 +5,12 @@
 1. [haskell.org](haskell.org) для установки
 1. [wiki.haskell.org](wiki.haskell.org) много материалов для изучения
 
+## Учебники
+
+1. [Кубенский А.А. Функциональное программирование](https://biblio-online.ru/book/658E3C89-AAD5-498B-8B34-A29E1750D810/funkcionalnoe-programmirovanie)
+
+для доступа к сайту издательства Юрайт перейдите по ссылке [http://cufts.library.spbu.ru/CRDB/SPBGU/resource/306/goto](http://cufts.library.spbu.ru/CRDB/SPBGU/resource/306/goto) и введите свои университетские логин и пароль.
+
 ## Лекции
 
 Что мы успели изучить на двух первых лекциях:
