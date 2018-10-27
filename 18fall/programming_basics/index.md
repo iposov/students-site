@@ -33,7 +33,8 @@
     и треугольники из букв)
     1. [краткая информация о циклах](loops.md)
 1. Лекция: [Операции со строками, операции с последовательностями](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/python-strings-sequences.ipynb)
-1. Лекция [Продвинутые операции с последовательностями](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/advanced-seq-types.ipynb)
+1. Лекция: **обновлено** [Продвинутые операции с последовательностями](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/advanced-seq-types.ipynb)
+1. Лекция: **новая** [Множества и словари](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/sets-and-dicts.ipynb)
 
 ## Как сдавать задания
 
