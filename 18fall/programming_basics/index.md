@@ -15,7 +15,7 @@
 
 ## Лекции
 
-Что мы успели изучить
+Учебный план
 
 1. Вводная лекция (без конспекта, ищите в учебнике):
     1. Переменные и присваивания переменным
@@ -35,6 +35,14 @@
 1. Лекция: [Операции со строками, операции с последовательностями](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/python-strings-sequences.ipynb)
 1. Лекция: **обновлено** [Продвинутые операции с последовательностями](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/advanced-seq-types.ipynb)
 1. Лекция: **новая** [Множества и словари](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/sets-and-dicts.ipynb)
+1. Работа с файлами
+1. Обработка исключений
+1. Рабора в среде разработки IntelliJ IDEA (PyCharm)
+1. Функкции в Python: области видимости переменных, передача аргументов в функции
+1. Лямбда выражения и элементы функционального программирования
+1. Генераторы
+1. Модули
+1. Базовое объектно-ориентированное программирование.
 
 ## Как сдавать задания
 
