@@ -34,6 +34,8 @@
 
 Четвертая лекция: [Функции `.` и `$`, Алгебраические типы данных](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/functional_programming/11oct.ipynb?asdf)
 
+Пятая лекция (начинается с текста четвертой): [Работа с отсутствующими значениями, классы типов](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/functional_programming/01nov.ipynb)
+
 Вы можете найти необходимые знания, например, в этом учебнике: [Haskell Wikibook](https://en.wikibooks.org/wiki/Haskell).
 Читайте разделы в Haskell Basics: `Variables and functions`, `Truth values`, `Type basics`, `Lists and tuples`, `Next steps`.
 В разделе Elementary Haskell: всё без `Types declarations` и без разделов о чем-то непонятном, что мы еще не прошли.
