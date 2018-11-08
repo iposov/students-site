@@ -32,9 +32,11 @@
 1. Карринг и частичное применение функций.
 2. Функции foldl и foldr
 
-Четвертая лекция: [Функции `.` и `$`, Алгебраические типы данных](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/functional_programming/11oct.ipynb?asdf)
+Четвертая лекция: Функции `.` и `$`, Алгебраические типы данных
 
-Пятая лекция (начинается с текста четвертой): [Работа с отсутствующими значениями, классы типов](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/functional_programming/01nov.ipynb)
+Пятая лекция: Работа с отсутствующими значениями, классы типов
+
+[Тексты четвертой и пятой лекций](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/functional_programming/01nov.ipynb)
 
 Вы можете найти необходимые знания, например, в этом учебнике: [Haskell Wikibook](https://en.wikibooks.org/wiki/Haskell).
 Читайте разделы в Haskell Basics: `Variables and functions`, `Truth values`, `Type basics`, `Lists and tuples`, `Next steps`.

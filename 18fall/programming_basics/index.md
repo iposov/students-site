@@ -36,7 +36,6 @@
 1. Лекция: [Продвинутые операции с последовательностями](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/advanced-seq-types.ipynb)
 1. Лекция: **обновлено** [Множества и словари](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/sets-and-dicts.ipynb?asdf)
 1. Лекция: **новая** [Чтение и запись текстовых файлов](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/files.ipynb)
-1. Работа с файлами
 1. Обработка исключений
 1. Рабора в среде разработки IntelliJ IDEA (PyCharm)
 1. Функкции в Python: области видимости переменных, передача аргументов в функции
