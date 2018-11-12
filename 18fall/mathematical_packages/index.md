@@ -22,4 +22,4 @@ Please, answer the questions and send answers to me: [introductionary questions]
 1. [Vectorization](octave-vectorization.md). Deadline: __23 October__
 1. [Plotting](octave-plotting.md). Deadline: __30 October__
 1. [Equations](octave-equations.md). Deadline: __30 October__
-1. ODE. No tasks by now
+1. [ODE](octave-ode.md) Still not translated. Dearline: __26 November___
