@@ -34,11 +34,11 @@
     1. [краткая информация о циклах](loops.md)
 1. Лекция: [Операции со строками, операции с последовательностями](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/python-strings-sequences.ipynb)
 1. Лекция: [Продвинутые операции с последовательностями](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/advanced-seq-types.ipynb)
-1. Лекция: **обновлено** [Множества и словари](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/sets-and-dicts.ipynb?asdf)
-1. Лекция: **новая** [Чтение и запись текстовых файлов](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/files.ipynb)
+1. Лекция:  [Множества и словари](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/sets-and-dicts.ipynb?asdf)
+1. Лекция: [Чтение и запись текстовых файлов](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/files.ipynb)
+1. Лекция: [Функции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/programming_basics/functions.ipynb)
+1. Лекция: [Рабора в среде разработки IntelliJ IDEA (PyCharm)](jetbrains.md)
 1. Обработка исключений
-1. Рабора в среде разработки IntelliJ IDEA (PyCharm)
-1. Функкции в Python: области видимости переменных, передача аргументов в функции
 1. Лямбда выражения и элементы функционального программирования
 1. Генераторы
 1. Модули
