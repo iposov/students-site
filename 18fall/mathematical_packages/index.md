@@ -22,7 +22,7 @@ Please, answer the questions and send answers to me: [introductionary questions]
 1. [Vectorization](octave-vectorization.md). Deadline: __23 October__
 1. [Plotting](octave-plotting.md). Deadline: __30 October__
 1. [Equations](octave-equations.md). Deadline: __30 October__
-1. [ODE](octave-ode.md). Deadline: __03 December___
+1. [ODE](octave-ode.md). Deadline: __03 December__
 1. [K-means](octave-kmeans.md). Not obligatory, no deadline
 
 ## R tasks
