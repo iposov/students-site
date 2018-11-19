@@ -27,4 +27,4 @@ Please, answer the questions and send answers to me: [introductionary questions]
 
 ## R tasks
 1. [Basics](r-basics.md). Deadline: __03 December__
-1. [Data frames](r-data-frames.md). Deadline: __01 December__
+1. [Data frames](r-data-frames.md). Deadline: __10 December__
