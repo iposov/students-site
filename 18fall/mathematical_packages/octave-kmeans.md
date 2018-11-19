@@ -14,7 +14,7 @@ The height of the result matrix is the sae as a height of the initial matrix.
 
 Test your clasterization with the points that are randomly created by the following code:
 
-                # функция создает k кластеров
+                # generates k clusters
                 function xy = k_means_generate_clusters(k)
                   xy = [];
                   for i = 1 : k
@@ -22,10 +22,10 @@ Test your clasterization with the points that are randomly created by the follow
                   endfor
                 endfunction
 
-                # фукнция создает один кластер со случайным центром и размером
+                # generates one cluster with random size and center
                 function xy = generate_cluster(n)
-                  m = rand(1, 2) * 50; # случайный центр
-                  s = rand * 3 + 1; # случайный размер
+                  m = rand(1, 2) * 50; # random center
+                  s = rand * 3 + 1; # random size
                   xy = randn(n, 2) .* s + m;
                 endfunction
                 
