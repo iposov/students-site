@@ -1,7 +1,43 @@
-translating...
+---
+type: tasks
+---
 
-1. Даны целые числа `n` и `size`, создайте вектор из повторяющихся чисел от `1` до `n` размера `size`, например,
-  `task1(3, 10)` должно вернуть `c(1, 2, 3, 1, 2, 3, 1, 2, 3, 1)`.
+# R basics.
+
+Please, create functions for each of the tasks. Functions shouls be named as task names, usually, as `task1`, `task2`, etc.
+Here are some function examples:
+
+```R
+fun1 <- function(x, y) { # here are arguments in the brackets
+  x + y # the result of the function is its last expression
+}
+
+# let's now call the function
+fun1(10, 20) # this is 30
+
+# another example
+fun2 <- function(n) {
+   c(1:n, n:1)
+}
+
+# let's test the function
+fun2(5) # this is a vector 1, 2, 3, 4, 5, 5, 4, 3, 2, 1
+
+fun3 <- function() {
+    x <- rbinom(20, size=1, prob=0.5)  # toss a coin 20 times
+    mean(x) # this is the result of a function, because this is the last expression
+}
+
+fun3() # the result is always different, but it should be about 0.5
+
+
+```
+
+1. **task1** Read help about the `rep` function (type `help(rep)`). Then use it to produce a vector of repeating numbers 1, 2, and 3: \\(1, 2, 3, 1, 2, 3, 1, 2, 3, \\ldots\\). The length of the vector should be 40.
+    1. **task1a**  You are given integers `n` and `size`, create a vector of repeating numbers from `1` to `n` of size `size`, for example, `task1a(3, 10)` should return `c(1, 2, 3, 1, 2, 3, 1, 2, 3, 1)`.
+    
+...translating
+    
 1. Даны целые числа `n` и `size`. С помощью функции `sample` сгенерируйте вектор из случайных целых чисел от `1` до `n` и верните его.
    С помощью функций `table` и `print` выведите на экран, сколько раз сгенирировалась какое число.
 1. Дан вектор и число `k`. Удалите из вектора все вхождения этого числа.
