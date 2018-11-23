@@ -29,34 +29,18 @@ fun3 <- function() {
 }
 
 fun3() # the result is always different, but it should be about 0.5
-
-
 ```
 
 1. **task1** Read help about the `rep` function (type `help(rep)`). Then use it to produce a vector of repeating numbers 1, 2, and 3: \\(1, 2, 3, 1, 2, 3, 1, 2, 3, \\ldots\\). The length of the vector should be 40.
-    1. **task1a**  You are given integers `n` and `size`, create a vector of repeating numbers from `1` to `n` of size `size`, for example, `task1a(3, 10)` should return `c(1, 2, 3, 1, 2, 3, 1, 2, 3, 1)`.
-    
-...translating
-    
-1. Даны целые числа `n` и `size`. С помощью функции `sample` сгенерируйте вектор из случайных целых чисел от `1` до `n` и верните его.
-   С помощью функций `table` и `print` выведите на экран, сколько раз сгенирировалась какое число.
-1. Дан вектор и число `k`. Удалите из вектора все вхождения этого числа.
-1. Дано целое число `steps`, сгенерируйте вектор длины `steps` состоящий из чисел 1 и -1. Верните сумму чисел.
-1. Смешанное распределение. Дано число `size`. Сгенерируйте вектор размера `size` по следующему алгоритму: чтобы получить очередное число,
-   вектора сначала бросается монетка, в одном случае нужно сгенерировать число из распределения \\(N(0, 1)\\). Во втором случае из
-   экспоненциального распределения с \\(\\lambda=1\\)
-1. Сгенерируйте числовые вектора размера 1000, они указаны в конце задания. Для каждого вектора с помощью t-теста проверьте,
-   верно ли, что матожидание равно нулю. Используйте функцию `t.test`. Потом сравните с помощью двухвыборочного t-теста
-   (это та же самая функция t.test) каждую пару векторов и проверьте верно ли, что матожидания этих векторов совпадают.
-   Функция ничего не должна возвращать, но должна печатать информацию на экране с помощью `print`.
-   Разберитесь с информацией, которую выводит функция t.test, т.е. поймите всё, что она выводит.
-   Не забудьте посмотреть помощь по этой функции, чтобы правильно выбрать набор аргументов.
-   Необязательное задание, попробуйте разобраться, как в программе извлечь результат вызова t.test и автоматически проверить,
-   попадает ли выборочное матожидание в доверительный интервал, т.е. можно ли принять гипотезу о равенстве матожиданий.
-     * x = равномерно распределенные числа в отрезке от -1 до 1
-     * y = нормально распределенные числа со средним 0 и стандартным отклонением 1
-     * z = нормально распределенные числа со средним 0 и стандартным отклонением 10
-     * t = нормально распределенные числа со средним 0.01 и стандартным отклонением 1
+    * **task1a**  You are given integers `n` and `size`, create a vector of repeating numbers from `1` to `n` of size `size`, for example, `task1a(3, 10)` should return `c(1, 2, 3, 1, 2, 3, 1, 2, 3, 1)`.
+1. **task2** You are given integers `n` and `size`. Using the function `sample` (read help if needed) generate a vector of size `size` consisting of random integers from `1` to `n`, and return it. For example, `task2(3, 5)` may return `1, 3, 2, 3, 3`.
+    * **task2a** call task2a with the arguments n=5 and size=100, then use functions `table` to find out, how many times each number was generated, use print to print the table from inside the function.
+1. **filter.k** You are given a vector `x` and a number `k`. Return a new vector, that is a copy of `x` but without elements equal to `k`. For example, `filter.k(c(1, 2, 3, 4, 3, 2, 1), 3)` should return `1, 2, 4, 2, 1`.
+1. **random.walk.1d** You are given an integer `steps`, generate a random vector of size `steps` consisting of numbers 1 and -1. Return the sum of its elements.
+1. **mixed.distribution**. You are given an integer `size`. Generate a vector of size `size` using the following algorithm: to generate the next number, toss a coin (50%/50% of head and tails). If you get heads, generate a number from distribution\\(N(0, 1)\\). Otherwise, from a uniform distribution with `min=-1` and `max=1`.
+
+translating...
+
 1. А теперь случайное блуждание на плоскости. Дано целое число steps. Сгенерируйте матрицу размера 2 на steps.
    Каждый столбик может быть одним из четырех вариантов: (1 0), (-1 0), (0 1), (0 -1). Теперь получите сумму чисел в первой
    строке, и сумму чисел во второй строке. Это координаты того, куда приблуждало блуждание. Верните вектор из двух этих чисел
