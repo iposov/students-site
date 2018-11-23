@@ -38,10 +38,6 @@ fun3() # the result is always different, but it should be about 0.5
 1. **filter.k** You are given a vector `x` and a number `k`. Return a new vector, that is a copy of `x` but without elements equal to `k`. For example, `filter.k(c(1, 2, 3, 4, 3, 2, 1), 3)` should return `1, 2, 4, 2, 1`.
 1. **random.walk.1d** You are given an integer `steps`, generate a random vector of size `steps` consisting of numbers 1 and -1. Return the sum of its elements.
 1. **mixed.distribution**. You are given an integer `size`. Generate a vector of size `size` using the following algorithm: to generate the next number, toss a coin (50%/50% of head and tails). If you get heads, generate a number from distribution\\(N(0, 1)\\). Otherwise, from a uniform distribution with `min=-1` and `max=1`.
-
-translating...
-
-1. А теперь случайное блуждание на плоскости. Дано целое число steps. Сгенерируйте матрицу размера 2 на steps.
-   Каждый столбик может быть одним из четырех вариантов: (1 0), (-1 0), (0 1), (0 -1). Теперь получите сумму чисел в первой
-   строке, и сумму чисел во второй строке. Это координаты того, куда приблуждало блуждание. Верните вектор из двух этих чисел
-1. Дано целое число n, запустите предыдущую задачу n раз, получите n точек и изобразите их на графике.
+1. **random.walk.2d** Random walk on a plane. You are given an integer `steps`. Generate `steps` times a pair of numbers, this pair may be either (1 0), (-1 0), (0 1), or (0 -1). Put all this pairs in one vector, so you get a vector of size `2 * size`. This pairs correspond to movements of a point on a plane, a pair is a change for x and y coordinates correspondingly. That is a point moves either up, left, right or down. Finally, sum all x coordinates (all odd indexes), then sum all y coordinates (all even indexes), and you will get two coordinates of where a point had come after its random walk.
+    * **plot.random.walk** You are given interers `n` and `size`. Call the previous function with the `size` argument `n` times. Plot all the `n` points.
+1. **kinder.surprise** There are `n` possible toys inside a kinder surprise. How many kinder surprises should one buy in avarage to get all the toys? Make 10000 experiments, where you repeat opening kinder surprises untill you get all the toys. Then compute an avarage number of steps you needed to finish.
