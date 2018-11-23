@@ -11,6 +11,7 @@ Please, answer the questions and send answers to me: [introductionary questions]
     1. [Matrix operations. Vectorization. Logical indexing](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/mathematical_packages/octave1-matrices-operations.ipynb)
     1. [Octave plotting and equations solving](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/mathematical_packages/8okt.ipynb)
     1. [Octave ODE solving](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/mathematical_packages/octave-ode.ipynb)
+    1. **(NEW!)** [R Basics and dataframes](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/18fall/mathematical_packages/r.ipynb)
 
 1. Full documentation: [octave documentation](https://octave.org/octave.pdf)
 1. Short reference card: [octave refcard](https://web.ti.bfh.ch/~sha1/Octave/refcard-a4.pdf)
@@ -26,5 +27,5 @@ Please, answer the questions and send answers to me: [introductionary questions]
 1. [K-means](octave-kmeans.md). Not obligatory, no deadline
 
 ## R tasks
-1. [Basics](r-basics.md). Deadline: __03 December__
+1. **(NEW!)** [Basics](r-basics.md). Deadline: __03 December__
 1. [Data frames](r-data-frames.md). Deadline: __10 December__
