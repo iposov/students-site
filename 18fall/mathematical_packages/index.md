@@ -16,6 +16,7 @@ Please, answer the questions and send answers to me: [introductionary questions]
 1. Full documentation: [octave documentation](https://octave.org/octave.pdf)
 1. Short reference card: [octave refcard](https://web.ti.bfh.ch/~sha1/Octave/refcard-a4.pdf)
 1. Books [A list of books. Password: the the room name](https://yadi.sk/d/jVorBlW1ANh_OA)
+1. R refcards: [Long and precise](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf), [short and beautiful](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf)
 
 ## Octave tasks
 1. [Create matrices](octave-create-matrices.md). Deadline: __03 October__
