@@ -1,5 +1,16 @@
 # Математическая логика и теория алгоритмов
-## Домашнее задание
+
+# ИДЗ 1
+
+[ИДЗ1 для 7363](idz1.pdf)
+
+[ИДЗ1 для 7302](idz1_0371.pdf)
+
+# ИДЗ 2
+[Разбор решения ИДЗ 2 для 7302](cfg.md)
+[ИДЗ 2 для 7363](idz2_7363.pdf)
+
+### Домашнее задание
 
 Во всех равенствах замените вопросительный знак на одно из четырех
 значений 0, 1, \\(X\\), \\(\overline X\\). Например, \\(\overline X \vee X = 1\\), а
@@ -40,15 +51,4 @@
 | \\(0 \Leftrightarrow 1 = ?\\) | \\(1 \Leftrightarrow 1 = ?\\) | \\(X \Leftrightarrow 1 = ?\\) | \\(\overline X \Leftrightarrow 1 = ?\\) |
 | \\(0 \Leftrightarrow X = ?\\) | \\(1 \Leftrightarrow X = ?\\) | \\(X \Leftrightarrow X = ?\\) | \\(\overline X \Leftrightarrow X = ?\\) |
 | \\(0 \Leftrightarrow \overline X = ?\\) | \\(1 \Leftrightarrow \overline X = ?\\) | \\(X \Leftrightarrow \overline X = ?\\) | \\(\overline X \Leftrightarrow \overline X = ?\\) |
-
-
-# ИДЗ 1
-
-[ИДЗ1 для 7363](idz1.pdf)
-
-[ИДЗ1 для 7302](idz1_0371.pdf)
-
-# ИДЗ 2
-[Разбор решения ИДЗ 2 для 7302](cfg.md)
-[ИДЗ 2 для 7363](idz2_7363.pdf)
 
