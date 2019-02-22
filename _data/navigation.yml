@@ -6,9 +6,9 @@
   url: /19spring
   sub:
   - title: Основы программирования
-    url: /18spring/prog-basics-i/
+    url: /18spring/prog-basics-ii/
   - title: Технологии программирования
-    url: /18spring/prog-tech-i/
+    url: /18spring/prog-tech-ii/
   - title: Статистические методы обработки языка и речи
     url: /18spring/stat-lang/
   - title: Дискретная математика
