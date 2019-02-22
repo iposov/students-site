@@ -2,21 +2,34 @@
 
 - title: Главная
   url: /
-- title: Осень 2018
-  url: /18fall
+- title: Весна 2019
+  url: /19spring
   sub:
-  - title: Computer Tools in Education (Mathematical Packages)
-    url: /18fall/mathematical_packages
   - title: Основы программирования
-    url: /18fall/programming_basics
+    url: /18spring/prog-basics-ii/
   - title: Технологии программирования
-    url: /18fall/programming_technology
-  - title: Алгоритмы комьютерной графики
-    url: /18fall/computer_graphics
-  - title: Функциональное программирование
-    url: /18fall/functional_programming
-  - title: Математическая логика и теория алгоритмов
-    url: /18fall/mlita
+    url: /18spring/prog-tech-ii/
+  - title: Статистические методы обработки языка и речи
+    url: /18spring/stat-lang/
+  - title: Дискретная математика
+    url: /18spring/dm/
+  - title: Дискретная математика - практика
+    url: /18spring/dm-practice/
+# - title: Осень 2018
+#  url: /18fall
+#  sub:
+#  - title: Computer Tools in Education (Mathematical Packages)
+#    url: /18fall/mathematical_packages
+#  - title: Основы программирования
+#    url: /18fall/programming_basics
+#  - title: Технологии программирования
+#    url: /18fall/programming_technology
+#  - title: Алгоритмы комьютерной графики
+#    url: /18fall/computer_graphics
+#  - title: Функциональное программирование
+#    url: /18fall/functional_programming
+#  - title: Математическая логика и теория алгоритмов
+#    url: /18fall/mlita
 #- title: Весна 2018
 #  url: /18spring
 #  sub:
