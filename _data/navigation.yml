@@ -6,15 +6,15 @@
   url: /19spring
   sub:
   - title: Основы программирования
-    url: /18spring/prog-basics-ii/
+    url: /19spring/prog-basics-ii/
   - title: Технологии программирования
-    url: /18spring/prog-tech-ii/
+    url: /19spring/prog-tech-ii/
   - title: Статистические методы обработки языка и речи
-    url: /18spring/stat-lang/
+    url: /19spring/stat-lang/
   - title: Дискретная математика
-    url: /18spring/dm/
+    url: /19spring/dm/
   - title: Дискретная математика - практика
-    url: /18spring/dm-practice/
+    url: /19spring/dm-practice/
 # - title: Осень 2018
 #  url: /18fall
 #  sub:
