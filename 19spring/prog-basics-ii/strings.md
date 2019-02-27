@@ -50,3 +50,20 @@ Objects.equals(s, "abc")
 
 # Некоторые методы класса String
 Список всех методов можно найти по ссылке [https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html).
+
+```java
+// символ по индексу
+"abcdef".charAt(2) // получается 'c'
+// проверить, начинается ли, кончается ли на заданную строку
+"abcdef".startsWith("abc") // true
+"abcdef".endsWith("def") //true
+// вырезать подстроку
+"abcdef".substring(2, 5) // "cde": со второго по пятый индекс, не включительно
+"abcdef".substring(2) // "cdef": со второго индекса до конца
+// удалить пробельные символы с обеих сторон, или в начале, или в конце
+"   xyz    ".strip() // "xyz"
+"   xyz    ".stripLeading() // "xyz    " 
+"   xyz    ".stripTrailing() // "   xyz"
+//разбить по указанному символу. На самом деле, нужно указывать регулярное выражение. См. позже.
+"one two three".split(" ") // массив из слов "one", "two", "three"
+```
