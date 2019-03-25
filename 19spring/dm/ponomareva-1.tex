@@ -1,0 +1,194 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{chronology}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Дискретная математика}
+\author{Лектор - Посов И.А.}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section{Алгоритмы с целыми числами}
+\noindent Опр.: (Деление с остатком)
+
+Поделить $a \in \mathbb{Z}$ \Russian на $b\in \mathbb{Z} \backslash \{0\}$ \Russian - это найти $q, r\in \mathbb{Z}$.
+
+\[ a = bq + r,\hspace{28pt} 0\leq r<|b|\]
+
+а - делимое, b - делитель, q - неполное частное, r - остаток
+
+\noindent Примеры:
+
+$\pm$ 7 \Russian на 3
+
+7 = 3 * 2 + 1, $\;$ q = 2, r = 1 \hspace{28pt} 7 = 3 * 4 + (-5) \Russian т.к. -5<0, то $-5\neq r$
+
+-7 = 3 * (-3) + 2, 2 - \Russian остаток \hspace{20pt}
+-7 = 3 * (-2) + (-1), \Russian т.к. -1<0, то $-1\neq r$
+	
+~\
+
+\noindent Остатки при делении на 3:
+	
+~\
+
+\noindent\begin{chronology}[1]{-10}{7}{\textwidth}
+\event{-9}{0}
+\event{-8}{1}
+\event{-7}{2}
+\event{-6}{0}
+\event{-5}{1}
+\event{-4}{2}
+\event{-3}{0}
+\event{-2}{1}
+\event{-1}{2}
+\event{0}{0}
+\event{1}{1}
+\event{2}{2}
+\event{3}{0}
+\event{4}{1}
+\event{5}{2}
+\event{6}{0}
+\event{7}{1}
+\end{chronology}
+
+~\
+
+\noindentОстатки циклически повторяются для $\mathbb{Z}$
+
+Утв.: деление с остатком единственно.
+
+Док-во: 
+
+\begin{equation*}
+ \begin{cases}
+   $$a = bq_1 + r_1$$ &\text{$0\leq r_1<|b|$}
+   \\
+   $$a = bq_2 + r_2$$ &\text{$0\leq r_2<|b|$}
+ \end{cases}
+\end{equation*}
+
+\[0 = b(q_1 - q_2) + (r_1 - r_2) \Leftrightarrow b(q_2 - q_1) = r_1 - r_2\]
+
+$-|b| < r_1 - r_2 < |b|$
+
+1)
+\begin{equation*}
+ \begin{cases}
+   r_1 < |b|
+   \\
+   r_2 \geq 0 
+ \end{cases}
+\end{equation*}
+
+$r_1 - r_2 < |b| - 0$
+
+2)
+\begin{equation*}
+ \begin{cases}
+   r_2 < |b| 
+   \\
+   r_1 \geq 0 
+ \end{cases}
+\end{equation*}
+
+$r_1 - r_2 < 0 - |b| \Rightarrow\; q_1 = q_2 \Rightarrow 0 = r_1 - r_2 \Rightarrow r_1 = r_2$
+
+\noindentОпр.: $a \in \mathbb{Z}$  $b\in \mathbb{Z}$
+
+$a \vdots b$ \Russian $a$ кратно $b$, если остаток от деления $a$ на $b$ равен нулю.
+
+\noindent Перевормулировка:
+
+$a \vdots b$, если $\exists q \in \mathbb{Z}$.
+
+\noindentПримеры:
+
+9 \vdots 3, \hspace{10pt} 12 \vdots 4, \hspace{10pt} 0 \vdots 5
+
+\noindentСвойства делимости:
+
+1) $\forall x \in \mathbb{Z}\; x\vdots 1$;
+
+2) $\forall x \in \mathbb{Z} \backslash \{0\} \; x\vdots \pm x$;
+
+3) $\forall x, y, z \in \mathbb{Z} \; x\vdots y \; \; y\vdots z \Rightarrow x\vdots z$;
+
+4) Если $x \vdots y \Rightarrow \pm x \vdots \pm y$;
+
+5) Если $x_i \vdots y, \;\; \lambda_i \in \mathbb{Z}$, \Russian то \;
+$\lambda_1x_1 +\lambda_2x_2 + \dotsc + \lambda_nx_n \vdots y$
+
+План д-ва 5)
+
+I: $x\vdots y \Rightarrow \lambda x\vdots y$
+
+$x = y *q; \lambda x = y * (\lambda q)$
+
+II: $x_1\vdots y$ \Russian и $x_2\vdots y \Rightarrow x_1 + x_2 \vdots y$
+
+$x_1 = yq_1, x_2 = yq_2 \Rightarrow (x_1 + x_2) = y(q_1 + q_2)$
+
+\noindentОбозначим $a \; mod\; b$ - остаток от деления $a$ на $b$.
+
+\noindentПримеры:
+
+$7 \; mod\; 3 = 1$ \hspace{10pt} $-7 \; mod \; 3 = 2$
+
+\section{Системы счисления}
+
+\noindent$\mathbb{N}$ - множество натуральных чисел.
+
+\noindentОпр.: "пэичная" система счисления - $p$ с/сч.
+
+Числа записываются цифрами, их $p$ штук $(0, \dotsc, p-1)$.
+
+\noindentПример: в $3$-ой с/сч $0,1,2$.
+
+\noindentЧисло $x \in \mathbb{N} \cup \{0\}$ \hspace{20pt} $x = (\overline{c_nc_{n-1}\dotsc c_0})_p$,
+
+где $c_i$ - цифры, $p$ - основание с/сч.
+
+$x = c_n p^n + c_{n-1}p^{n-1} + \dotsc + c_1 p + c_0$
+
+$\overline{57121}_{10} = 5*10^4 + 7*10^3 + 1*10^2 + 2*10^1 + 1$
+
+\noindentУтв.: $\forall x \in \mathbb{N}$ и $p\in \mathbb{N} \; (p\geq 2)$
+
+1) $\exists$ \Russian представление в $p$ с/сч.
+
+2) Оно единственно (если запретить нулевые цифры в начале)
+
+\noindentД-во: 
+
+1) Поделим $n$ с остатком на $p$.
+
+$n = pn_1 + a_0, \;\; pn_1$ - частное, $a_0$ - остаток $\;\;\; 0\leq a_0 < p$
+
+Далее делим $n_1$ на $p$: $n_1 = pn_2 + a_1$
+
+Делаем, пока $n_i\neq 0$. Это произойдет, т.к. $n_k > n_{k+1}$.
+
+Поймем, что $a_i$ \Russian - цифры числа.
+
+$n = pn_1 + a_0 = p(pn_2 + a_1) + a_0 = p^2n_2 + pa_1 + a_0 = \dotsc = p^na_n + \dotsc + pa_1 + a_0$ - это определение $(\overline{a_na_{n-1}\dotsc a_0})_p$.
+
+\;
+
+2) [деление с остатком $x$ на $p$]
+
+x = $(\overline{c_nc_{n-1}\dotsc c_0})_p = c_n p^n + c_{n-1}p^{n-1} + \dotsc + c_1 p + c_0 = p(y_1) + c_0$
+
+x = $(\overline{d_md_{m-1}\dotsc d_0})_p = d_m p^m + d_{m-1}p^{m-1} + \dotsc + d_1 p + d_0 = p(y_2) + d_0$
+
+$y_1 = \overline{c_nc_{n-1} \dotsc c_1}$,\;\;
+$y_2 = \overline{d_md_{m-1}\dotsc d_1}$
+
+$0\leq c_0, d_0 < p \Rightarrow c_0 = d_0 \Rightarrow y_1 = y_2$
+
+Аналогично $c_1 = d_1$ и т.д. $\Rightarrow c_i = d_i$
+\end{document}
