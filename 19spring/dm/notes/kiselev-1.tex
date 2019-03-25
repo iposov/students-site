@@ -1,0 +1,165 @@
+% Этот шаблон документа разработан в 2014 году
+% Данилом Фёдоровых (danil@fedorovykh.ru) 
+% для использования в курсе 
+% <<Документы и презентации в \LaTeX>>, записанном НИУ ВШЭ
+% для Coursera.org: http://coursera.org/course/latex .
+% Вы можете изменять, использовать, распространять
+% этот документ любым способом по своему усмотрению. 
+% В качестве благодарности автору вы можете сохранить 
+% в начале документа данный текст или просто ссылку на
+% http://coursera.org/course/latex
+% Исходная версия Шаблона --- 
+% https://www.writelatex.com/coursera/latex/1.1
+
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{cmap}					% поиск в PDF
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} %AMS
+\usepackage{icomma} % умная запятая
+
+\usepackage{euscript}
+\usepackage{mathrsfs}
+
+
+\author{Киселев Д.А 8371}
+\title{Конспект по дискретной математике.}
+\date{\today}
+
+\begin{document} % Конец преамбулы, начало текста.
+
+\maketitle
+
+
+11.02.19
+
+\section{Алгоритмы с целыми числами.}
+
+Опр: Деление с остатком.
+
+Поделить $a \in Z$ на $b \in Z \backslash \{0\}$ - это найти $q,r\in Z:$
+
+1. $a=b\cdot q+r$ $\hspace{30pt}$2. $0\leqslant r \leqslant |b|$
+
+$a$ -Делимое $b$ -Делитель $q$ -неполное частное $r$ -остаток 
+
+Примеры:
+
+$\pm7$ поделить на $3$ 
+
+$7=3\cdot 2+1$  $\hspace{20pt}$ $a=b\cdot q+r$
+
+$7=3\cdot4+(-5)$ Не является делением с остатком, так как $r<0$
+
+$-7=3\cdot(-2)+(-1)$
+
+Утверждение: деление с остатком единственно
+
+Док-во:
+
+Пусть существуют 
+$a=b\cdot q_1 +r_1$ и $a=b\cdot q_2 +r_2$ при $0\leqslant r_1, r_2 \leqslant |b|$
+
+Вычтем из первого второе и получим: $0=b(q_1-q_2)+(r_1-r_2)$
+
+$b(q_2-q_1)=r_1-r_2$
+
+b может принимать значения 0 или $\pm b,\pm 2b, \pm 3b ...$ 
+
+$r_1-r_2$ принадлежит интервалу $(-|b|;|b|)$, значит b $\neq \pm b,\pm 2b, \pm 3b ...$ 
+
+$b=0$, когда $q_1=q_2$ $\Rightarrow$ $0=r_1-r_2$ $\Rightarrow$ $r_1=r_2$
+
+Доказано то, что и требовалось доказать.
+
+Определиние: $a\in Z$, $b\in Z$ 
+
+$a  \vdots  b$
+
+a делится на b (a кратно b), если остаток от деления a на b равен нулю
+
+Перефраз: $a  \vdots  b$, если существует $q\in Z$ и $a=b\cdot q$
+Примеры:
+
+$9 \vdots 3$ $12\vdots 4$ $0\vdots 5$
+
+Свойства делимости:
+
+1.$\forall x \in Z$ $ \hspace{30pt}$ $x\vdots 1$
+
+2.$\forall x\in Z \backslash \{0\}$  $ \hspace{20pt}$ $x\vdots x$
+
+3.$\forall x,y,z\in Z$ $x\vdots y $ $y\vdots z $ $ \Rightarrow $ $x\vdots z$ Транзитивность
+
+4.Если $x\vdots y $ $\Rightarrow$ $\pm x\vdots \pm y$ 
+
+5.Если $x_i\vdots y $, то $(\lambda_1x_1+\lambda_2x_2+\ldots +\lambda_n x_n)\vdots y$  при $\lambda_i \in Z$
+
+План док-ва 5 свойства:
+
+1. $x\vdots y \Rightarrow \lambda x\vdots y$
+
+$x\vdots y\lambda \Rightarrow \lambda x=y(\lambda q)$
+
+2. $x_1\vdots y$ и $x_2\vdots y \Rightarrow (x_1+x_2)\vdots y $
+
+$x_1=yq_1 x_2=yq_2 \Rightarrow(x_1+x_2)=y(q_1+q_2)$
+
+Обозначим:
+
+$a mod b$ -остаток от деления a на b
+
+Пример:
+$7 mod 3=1$ $-7 mod 3=2$
+
+Системы счисления:
+
+Определение:
+
+$P$ система счислений (пэичная система счислений)
+
+Числа записываются цифрами, цифр ровно p штук - от 0 до p-1.
+
+Пример цифр в различных с/сч:
+
+в 3ной: 0,1,2
+
+в 16ной: 0,1...9,A,B,C,D,E,F
+
+Число $x\in N$ записываеься $x=(C_n,C_{n-1} \ldots C_0)_P$, где $C_i$ -цифры. $P$ -основание с/сч
+
+$x=C_n\cdot P^n+C_{n-1} \cdot P^{n-1} +\ldots + C_1\cdot P+C_0$
+
+Пример:
+
+$57121_{10}=5\cdot10^4+7\cdot10^3+1\cdot10^2+2\cdot 10+1$
+
+Утверждение: Для любого $N$ и $p\in N$
+
+1. Существует представление в Pичной с/сч
+
+2. Это представление единственно, если запретить нулевые цифры в начале
+
+Док-во:
+
+2) Пусть
+
+$x=(C_n \ldots C_0) =C_n\cdot P^n \ldots +C_1\cdot P+C_0=P(Y_1)+C_0$
+
+$x=(d_n \ldots d_0) =d_n\cdot P^n \ldots +d_1\cdot P+d_0=P(Y_2)+d_0$
+
+Получисли деление с остатком x на p.  $0\leq  c_0,d_0<p$
+
+Т.к деление с остатком единственное, значит представление единственное
+
+$C_0=d_0 \Rightarrow Y_1=Y_2$
+
+Аналогично $C_1=d_1$ и т.д $\Rightarrow C_i=d_i$
+
+
+\end{document} % Конец текста.
+
