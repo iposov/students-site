@@ -4,6 +4,17 @@ type: tasks
 
 # Рисование SVG
 
+Пример SVG изображения:
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+    <rect x="10" y="10" height="100" width="100" style="stroke:#ff0000; fill: #0000ff"/>
+</svg>
+```
+
+[Справочник по элементам и атрибутам SVG](https://developer.mozilla.org/ru/docs/Web/SVG)
+
+## Условие задачи
+
 1. Вспомогательные классы для рисования
 SVG
     1. Класс SVG, содержит открытый
