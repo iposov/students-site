@@ -1,3 +1,5 @@
+[Все возможности регулярных выражений Java](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html)
+
 ```java
 import java.sql.SQLOutput;
 import java.util.Arrays;
@@ -56,6 +58,10 @@ public class Regexps {
             System.out.println(m.group(1));
             System.out.println(m.group(2));
         }
+        
+        //6) в методе replaceAll можно использовать $1, $2 и т.д. для ссылки на группы:
+        System.out.println("<hello>, some other <word>".replaceAll("<([a-z]+)>", "[$1]"));
+        //угловые скобки заменятся на квадратные: "[hello], some other [word]". $1 это ссылка на значение группы
     }
 
 }
