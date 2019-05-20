@@ -11,5 +11,9 @@
     * Дмитрий Сосновский, 8301, [docx](notes/sosnovsky-6.docx), [pdf](notes/sosnovsky-6.pdf)
 1. Лекция 9 (01.04.2019)
     * Иванова Екатерина, 8302, [docx](notes/ivanova-9.docx), [pdf](notes/ivanova-9.pdf)
+1. Лекция 10 (08.04.2019)
+    * Скороходов Владислав, 8302, [tex](notes/skorohodov-10.zip), [pdf](notes/skorohodov-10.pdf)
+1. Лекция 14 (06.05.2019)
+    * Скороходов Владислав, 8302, [tex](notes/skorohodov-14.zip), [pdf](notes/skorohodov-14.pdf)
 
 Рукописные конспекты: [от Осеневой Валерии, 8301](https://yadi.sk/d/kAM3sOXivn1jwA)
