@@ -4,6 +4,7 @@
 
   * [ИДЗ1](idz1.pdf)
   * [ИДЗ2](idz2.pdf)
+  * [ИДЗ3](idz3.pdf)
 
 ## Разборы задач
   * [Цепные дроби квадратичных иррациональностей](../../18spring/dm/continued%20fractions%20of%20quadratic%20irrationalities.pdf)
