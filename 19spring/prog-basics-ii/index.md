@@ -1,5 +1,8 @@
 # Основы программирования, Java
 
+## Задача для зачета
+[Задача для зачета](https://docs.google.com/document/d/1qg1zsVxYSUVkxUVHPDZqPkWS_q3E3xmrWOsZeyEROBg/edit?usp=sharing)
+
 ## Задачи
 [Базовые задачи](tasks-basic.md)
 
