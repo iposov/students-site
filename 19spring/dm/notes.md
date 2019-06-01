@@ -18,8 +18,8 @@
 1. Лекция 14 (06.05.2019)
     * Скороходов Владислав, 8302, [tex](notes/skorohodov-14.zip), [pdf](notes/skorohodov-14.pdf)
 1. Лекция 15 (13.05.2019)
-    * Саярова Аделия, 8302, [tex](notes/sayarova-15.zip), [pdf](notes/sayarova-15.pdf)
+    * Саярова Аделия, 8302, [tex](notes/sayarova-15.tex), [pdf](notes/sayarova-15.pdf)
 1. Лекция 17 (27.05.2019)
-    * Саярова Аделия, 8302, [tex](notes/sayarova-17.tex), [pdf](notes/sayarova-17.pdf)
+    * Саярова Аделия, 8302, [tex](notes/sayarova-17.zip), [pdf](notes/sayarova-17.pdf)
 
 Рукописные конспекты: [от Осеневой Валерии, 8301](https://yadi.sk/d/kAM3sOXivn1jwA)
