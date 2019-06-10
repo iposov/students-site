@@ -5,6 +5,8 @@
     * Дмитрий Киселев, 8371, [tex](notes/kiselev-1.tex), [pdf](notes/kiselev-1.pdf)
 1. Лекция 2 (18.02.2019)
     * Дмитрий Киселев, 8371, [tex](notes/kiselev-2.zip), [pdf](notes/kiselev-2.pdf)
+1. Лекция 4 (25.02.2019)
+    * Иванова Екатерина, 8302, [docx](notes/ivanova-4.docx), [pdf](notes/ivanova-4.pdf)
 1. Лекция 6 (11.03.2019)
     * Иванова Екатерина, 8302, [docx](notes/ivanova-6.docx), [pdf](notes/ivanova-6.pdf)
 1. Лекция 7 (18.03.2019)
