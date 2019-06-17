@@ -1,5 +1,11 @@
 # Основы программирования, Java
 
+## Задача для экзамена
+[Задача для экзамена](http://bit.do/posov-exam-19)
+
+Лучше всего решать по порядку, но вы
+Можете начать решать со второй части.
+
 ## Задача для зачета
 [Задача для зачета](https://docs.google.com/document/d/1qg1zsVxYSUVkxUVHPDZqPkWS_q3E3xmrWOsZeyEROBg/edit?usp=sharing)
 
