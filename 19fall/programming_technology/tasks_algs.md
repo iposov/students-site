@@ -4,7 +4,7 @@ type: tasks
 
 ## Задачи
 
-[Задачи на repl.it](https://repl.it/data/classrooms/share/2a34b0fa4509ced879c1de78f54f44a5)
+[Задачи на repl.it](https://repl.it/classroom/invite/egIgFVk)
 
 ### Динамическое программирование
 1. Дан список чисел. Необходимо найти в нем максимальную возврастающую подпоследовательность.
