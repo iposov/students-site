@@ -80,8 +80,10 @@ Set<String> wordsHashSet = new HashSet<>();
 Set<String> wordsLinkedHashSet = new LinkedHashSet<>();
 Set<String> wordsTreeSet = new TreeSet<>();
 
-// эта функция открывает указанный файл и читает все слова из него в указанную коллекцию.
-// Тип второго аргумента должен быть Collection<String>, это означает, что передать можно
+// Эта функция открывает указанный файл и читает все слова из него в указанную коллекцию.
+// Возьмите какой-нибудь большой текст на русском. Используйте Scanner для чтения слов, приводите слова к нижнему
+// регистру.
+// Тип второго аргумента функции должен быть Collection<String>, это означает, что передать можно
 // любую коллекцию, в частности, любые списки и множества
 readWordsFromFile("text.txt", wordsList);
 readWordsFromFile("text.txt", wordsHashSet);
