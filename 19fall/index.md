@@ -8,3 +8,4 @@
 * СПбГЭТУ
   * [Математическая логика и теория алгоритмов](mlita)
   * [Computer Tools in Education (Mathematical Packages)](mathematical_packages)
+  * [Математические пакеты](mathematical_packages_ru)
