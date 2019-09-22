@@ -1,0 +1,191 @@
+\documentclass{article}
+ 
+%Russian-specific packages
+%--------------------------------------
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{cancel}
+\usepackage{upgreek}
+\usepackage{ dsfont }
+\usepackage{ amssymb }
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{amsmath}
+%--------------------------------------
+ 
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{ма-те-ма-ти-ка вос-ста-нав-ли-вать}
+%--------------------------------------
+ 
+ \title{Лекция по дискретной математике}
+ \date{22 апреля 2019}
+ 
+\begin{document}
+ 
+\maketitle
+ 
+ 
+ \textbf{Задача интерполяции}
+ 
+Поле $\mathds{R},\mathds{C},\mathds{Q},\mathds{Z_{p}}$
+
+\underline{Задача интерполяции}
+
+Разложить $ X^4+x^3-x-1$ в $\mathds{R}$
+
+Найти мн-н p, такой что $p(x_{i})=y_{i}$, где $x_{i},y_{i} \in F$ $x_{i} \neq x_{j}$ при $i\neq j$
+
+Например: $p(0)=1,p(1)=1,p(2)=3$
+
+\textbf{Задача интерполяции}
+
+Для задачи интерполяции $p(x_{i})=y_{i}$, где $1\leq i \leq n \exists !$ мн-н p, решение $deg p\leq n-1$
+
+Д-во: 
+1)!
+
+p и q подходят $\underbrace{p(x)-q(x)}$ имеет корни $x_{i}$ $p(x_{i}=q(x{_i})=y_{i} \Rightarrow$
+
+$p(x)-q(x)=0$ (нулевой многочлен)
+
+Замечание: если степень не ограничить, то $p(x)-q(x)=(x-x_{1})(x-x_{1})...(\mathcal{Y}-x_{n})\mathcal{Y}(\lambda)$
+
+т.е. если p(x) подходит, то $p(x)=p_{0}(x)+\sqcap^n_{n=1}(x-x_{1})r(x)$ при этом $deg\leq n-1$
+
+2) $\exists$
+
+\textbf{1.Метод Лагранжа явная ф-ма:}
+ 
+$\Sigma^i_{i-1}$ $$\underbrace{ y_{i}\frac{\sqcap^n_{j=1, j\neq i}(x-x_{j})}{\sqcap^n_{j=1, j\neq i}(x-x_{j})}}_{p_{i}(x)}$$
+
+Пример: $p(0)=1; p(1)=1; p(2)=3$
+
+\begin{enumerate}
+
+\item $\underbrace{\frac{(x-1)(x-2)}{(0-1)(0-2)}}_{p_1(x)}+1\underbrace{\frac{(x-0)(x-2)}{(1-0)(1-2)}}_{p_2(x)}+3\underbrace{\frac{(x-0)(x-1)}{(2-0)(2-1)}}_{p_3(x)}$ 
+
+\end{enumerate}
+
+Ответ: $x^2-x+1$
+
+почему подходит условие? 
+
+$p_i(x),p_i(x_i)=1,p_i(x_j)=0$
+
+Ответ: $y_{1}P_1(x)+y_{2}P_2(x)+...+y_{n}P_n(x)$ подставим $x-x_i\Rightarrow$
+
+$y_{1}0+y_{2}0+...+y_{n}0\pm9$
+
+\textbf{2.Метод Ньютона:}
+
+Начинаем с мн-на $p_1(x)-y_1$ он подходит под $p_1(x_1)=y_1$-одно ур-ие
+
+$p_2(x)$-должен подойти под 2 ур-ия $(q+(x_1)=y_1,p_2(x_1)=y_2)$
+
+$p_2(x)-p_1(x)+(x-x_1)\alpha$ подбираем $\alpha$
+
+$p_{k+1}(x)=p_{k}+(x-x_1)...(x-x_k)\alpha$
+
+\underline{Определение}
+
+Нод-p(x) и q(x)-это мн-н d(x)
+
+1) $p(x)\vdots d(x)$ |
+
+   $q(x)\vdots d(x)$ | $p(x)=d(x+u(x))$
+
+2) d(x)-наиб степень
+
+Все старые Th. сокращаются
+
+Например: $d(x)\vdots d(x)$, если d(x)-общий делитель p(x) и q(x)
+
+Если $d_1(x)$ и $d_2(x)$ - НОД p(x) и q(x), то $d_1(x)\vdots d_2(x)$ и 
+$d_2(x)\vdots d_1(x) \Rightarrow d_1(x)=d_2(x)*u(x)$
+
+Все НОД отличаются умножением на const, т.е $d_1(x)\backsim d_2(x)$
+
+Можно расшифровать только d(x) со старшим коэф.=1 Нод$(...)=x+1$
+
+Алгоритм Евклида для мн-в не отличается от обычного.
+
+Пример: 
+
+$5x^2-6x+1$ $|$ $3x^2+2x-5$ в $\mathds{R}$
+
+Числитель: $5x^2-6x+1$
+
+Делитель: $3x^2+2x-5$
+
+Остаток: $\frac{28}{9}x+\frac{13}{9}$
+
+Ответ: $\frac{5}{3}$
+
+$5x^2-6x+1$(1,0) $3x^2+2x-5$(0,1)
+
+$-\frac{28}{3}x+\frac{28}{3}$(1,-(5/3) $3x^2+2x-5$(0,1)
+
+НОД (p(x),q(x))-НОД $(\alpha p(x),\beta q(x))$ $\alpha,\beta$-число
+
+$-x+1(3/28;-(5/28))$
+
+$-x+1(2/28;-(5/28))$
+
+Ответ: $-x+1=\frac{3}{28}$ $(5x^2-6x+1)$ $-\frac{5}{28}$ $(3x^2+2x-5)$
+
+Аналогично числам, есть простые мн-ны-неприводимые.
+
+Неприводимые мн-н нельзя представить в виде произведения двух мн-ов строго меньших степеней. 
+
+Неприводимость-трудно проверить в общем случае.
+
+$x^2+1$ над $\mathds{R}$ $x^2+1=(x+\alpha)(x+\beta)$
+
+$x^2+1$ над $\mathds{C}$ $x^2+1=(x+i)(x-i)$
+
+$x^2+1$ над $\mathds{Z_p}$ $x^2+1=(x+1)(x-1)$
+
+\underline{Утверждение 1.}
+
+НОД $\mathds{C}$ неприводимы только мн-ны первой степени $\alpha x+\beta$ $\alpha\neq 0$
+
+\underline{Утверждение 2.}
+
+НОД $\mathds{R}$ неприводимы только мн-ны $\alpha x+\beta$ и $\alpha x^2+\beta x+\gamma$, где $\beta^2-4\alpha\gamma=0$
+
+\underline{Утверждение 3.}
+
+Приводимость над $\mathds{Q}\Leftrightarrow \mathds{Z}$
+
+Д-во:
+
+$p(x)=q(x)*\gamma(x)$
+
+$p(x)=\frac{1}{MN}(M_p(x))(N_q(x))$
+
+рассмотреть k простой делитель из MN 
+
+\underline{Утверждение} $f(x)$ приводим в $ \mathds{Q}\Rightarrow f(x)$ приводим в $\mathds{Z_p}$
+
+Д-во: $f(x)=g(x)h(x)$ целый коэф. рассмотрим по mod p 
+
+$f(x)\stackrel{\mathrm{p}}{\equiv}g(x)h(x)$
+
+\textbf{Критерий Эйзенштейна}
+
+Приводимость над $\mathds{z(\mathds{c})}$
+
+$a_{n}x^n+a_{1}x+a_0$
+
+если $a_n\vdots d p$, $a_1\vdots p$, $a_0\vdots p^2$ мн-н неприводим
+
+Пример: $x^3+2x^2+4x-2$ непр.(при $p=2$)
+
+Д-во: $a_{n}x^x+\dots+a_0=b_{m}x^n+\dots+b_0=c_{k}x^x+\dots c_0$
+
+$b_{0}c_{0}+a_{0}ip\Rightarrow b_0$ или $c_0\vdots p$
+
+\end{document}

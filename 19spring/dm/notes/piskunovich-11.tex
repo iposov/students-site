@@ -1,0 +1,225 @@
+\documentclass{article}
+ 
+%Russian-specific packages
+%--------------------------------------
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{cancel}
+\usepackage{ dsfont }
+\usepackage{ amssymb }
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{amsmath}
+%--------------------------------------
+ 
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{ма-те-ма-ти-ка вос-ста-нав-ли-вать}
+%--------------------------------------
+ 
+ \title{Лекция по дискретной математике}
+ \date{15 апреля 2019}
+ 
+\begin{document}
+ 
+\maketitle
+
+$\pi(n)\sim n/log(n)$ 
+
+Сколько простых чисел от 1 до n?
+
+log(n)-кол-во цифр
+
+$\varphi(n)=\varphi(p)\varphi(q)=(p-1)(q-1)$
+
+$e-\forall$ от 2 до $\varphi(N)-2 (e;\varphi(n))=1$
+
+d-Находится, как решение ed$_{\varphi(n)}\equiv1$
+
+Почему работает?
+
+т.е. $m^{ed}_N\equiv m$
+
+Проверка:
+
+$ed\equiv 1 \Longrightarrow ed=1+k\varphi(N) \Longrightarrow
+m^{ed} _{N}\equiv m^{1+k\varphi(N)}_{N}\equiv m(m^{\varphi(n)})^k_{N} \equiv m*1^k_{N} \equiv m$
+
+Пример:
+
+$p=5$ $q=7$ $N=35$ $\varphi(W)=4*6=24$
+
+$e=5$  $d=19$ $5*5_{24}=1$
+
+Задача:
+
+1) $e=7$  $d=?$ $7d_{24}=1$
+
+N,e-откр. ключ 
+
+N,d-прив.кл.
+
+$(m^e)^d_{N}\equiv m$
+
+Шифрование: $\bar{m}=m^e mod N$
+
+Расшифрование: $m=\bar{m}^d mod N$
+
+в д-ве было $m^{\varphi(N)}_{N}\equiv1$ верно если $(N,m)=1$
+
+\underline{Теор.Эйлера}
+
+1) Можно д-ть иначе, идея $N=pq$
+
+$\varphi(N)=(p-1)(q-1)$
+
+2) Если $(m,N)\ne1 \Longrightarrow (m,N)=p$ или $q \Longrightarrow$ знач.
+$\varphi(N)  \Longrightarrow$ знач. d
+
+
+\underline{Электронная подпись}
+
+m-сообщение, хочет д-ть, что это его сообщение
+
+$(N,d)$-закр.ключ
+
+Эл.Подпись: $m^d mod N=\bar{m}$ 
+
+Проверка ЭП: $m=\bar{m}^e mod N$
+
+$[hash(m)]^d \mod N$-ср-ния сжимает биты
+
+Как убедиться, что никто не подлжолил открытый ключ? 
+
+Откр. ключ тоже подписывают (центр сертификации)
+
+\underline{Многочлены}
+
+Выражение вида $a_{n}x^n+a_{n-1}x^{n-1}+\dots+a_{0}x+a_{0}$
+
+$a_{i}$-эл-т НОТА $(\mathds{R},\mathds{C},\mathds{Q},\mathds{Z}_{p})$
+
+x-формальная переменная 
+
+$p(x)$-мн-н с переменной "x"
+
+$\deg p(x)=$ степень x при первом ненулевом коэф.
+
+если $a_{n}\ne0\Longrightarrow \deg(a_{n}x^n+\dots=n$
+
+$deg0=-\infty$ (нулевой многочлен)
+
+Пример:
+$deg(x^2+5)=2$
+
+$deg(o_{x}^4+o_{x}^2+x-5)=1$
+
+$deg(7)=0$
+
+Действия с многочленами:
+
+\begin{itemize}
+	\item $(x^3+x)+(x^3-x^2-x-1)=2x^3-x^2-1$
+	
+    \item $(x^2+2x+5)(x-1)=x^3+x^2+3x-5$
+\end{itemize}   
+
+В общем виде:
+
+Умножение:
+
+$(a_{n}x^p+...+a_{0})(b_{m}x^m+...+b_{0})=C_{n+m}x^{n+m}+...+C_{0}$
+
+$C_{i}=a_{0}b_{i}+a_{i}b_{i+1}+a_{i}b_{i+2}+...+a_{i}b_{0}=\Sigma^i_{k=0}a_{k}b_{i-k}$
+
+Деление:
+
+$x^2+1$ не делится на X т.к. $x^2+1=p(x)*x$
+
+Утв. deg $p(x)q(x)=$ $degp(x)+degq(x)$
+
+Д-во очевидно 
+
+Деление с остатком:
+
+Делитель: p(X),q(x)
+
+Деление $p(x)=q(x)\varphi(x)+\Psi(x^i)$ при этом $deg r(x)=deg q(x^i)$
+
+Утв.: Деление с остатком единственно
+
+Д-во: 
+
+$\sigma p(x)=q(x)\varphi_{1}(x)+r_{1}(x)$
+
+$p(x)=q(x)\varphi_{2}(x)+r_{2}(x)$
+
+$0=q(x)(\varphi_{1}(x)-\varphi_{2}(x))+(r_{1}(x)-r_{2}(x)\ne0=x^n$
+
+Пример:
+
+Частное: $2x^2+5x+3$
+
+Делитель: $3x+1$
+
+Остаток: $14/9$
+
+Итог: $2/3x+13/9$
+
+$2x^2+5x+3=(3x+1)(1/3x+13/9)+14/9$
+
+Замечание: если $p(x),q(x) \in Z[x]$ целый коэф.
+
+если $q(x)-x^n+...$-унит пр.
+
+Тогда при делении результата $(\varphi(x)+\psi(x)\in \mathds{Z}[x] $
+
+Корни мн-на:
+
+$x_{0}$-корень $p[x]$,если $p(x_{0})=0$
+
+Деление на $x-\varphi$
+
+$\supset p(x)=(x-\varphi)q(x)+r$
+
+Подставим вместо x a: $\supset x=a $
+
+Д-во:
+
+$p(a)=(a-a)\varphi(x)+\psi\Longrightarrow p(a)=r$ т.Безу
+
+Значение мн-на при $x=a$ равно остатку от деления его на $x-a$
+
+Следствие: $p(x);x-a\Leftrightarrow p(a)=0$ a-корень 
+
+Рассуждение:
+
+$\sqsupset$ есть мн-н $p(x)\sqsupset$ x-корень $\Longrightarrow p(x)=(x-x_{1}p_{1}(x)$
+
+$\sqsupset$ $x_{2}$-корень $p_{1}(x)\Longrightarrow p(x)=(x-x_{1})(x-x_{2})p_{2}(x)$ и т.д.
+
+$\Longrightarrow p(x)=(x-x_{1})(x-x_{2}...(x-x_{n}p_{x}(x)$ нет корней 
+
+$degp(x)\geqslant k$ $deg=0$
+
+Корни  p:-это корень p
+
+Итого корней у мн-на $\geqslant deg p(x)$ если $p(a)\ne0$
+
+Опр.: В общем случае $p(x)=(x-x_{1})^k...(x-x_{m})^{km}q(x)$
+
+$x_{i}$-корень $p_{i}$ кратности k
+
+Утв:$\sqsupset degp\leqslant r \sqsupset p(a_{1})=q(a_{1})$ т.е совпадает в n+1 точек
+
+$\sqsupset degp\leqslant n p(q_{n}+1) < (a_{n}+1)$
+
+Тогда: $p(x)=q(x)$
+
+Д-во: $\sqsupset p(x)=p(x)-q(x)$
+
+$degr(x)\leqslant n$ $r(a_{1})=0 \Longrightarrow n+1$ корня $\Longrightarrow r(x)=0\Longrightarrow p(x)-q(x)$
+
+\end{document}
