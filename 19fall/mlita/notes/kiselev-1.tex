@@ -1,0 +1,300 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{cmap}					% поиск в PDF
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} %AMS
+\usepackage{icomma} % умная запятая
+
+\usepackage{euscript}
+\usepackage{mathrsfs}
+
+\usepackage{graphicx}
+\graphicspath{{pictures/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+% новая команда \RNumb для вывода римских цифр
+\newcommand{\RNumb}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+\author{Киселев Д.А 8371}
+\title{Конспект по математической логике и теории алгоритмов.}
+\date{04.09.2019}
+
+\begin{document} % Конец преамбулы, начало текста.
+
+    \maketitle
+
+    %\tableofcontents
+
+    \section{Исчисление высказываний.}
+
+    Логическая формула - это выражение со значениями $(0,1)$, переменными $(x,y,z\ldots)$ и операциями $(\cdot,\vee,\Longrightarrow\ldots)$
+
+    Пример арифметического выражения:
+    $$\frac{(z+x)+y-10}{2}$$
+
+    Логическое выражение:
+
+    $$ (1+x)\Longrightarrow(xy\Longleftrightarrow\bar y \bar z)$$
+
+    \begin{center}
+        $1$ - Значение $\hspace{20pt}$ $x,xy,yz$ - Переменные $\hspace{20pt}$ $\Longrightarrow, \Longleftrightarrow,\bar y \bar z $ - Операции.
+    \end{center}
+
+    Значения: 0 - ложь, 1 - истина
+
+    \textbf{Операции:}
+    \begin{enumerate}
+        \item \textbf{Унарная операция:}
+
+        \begin{itemize}
+            \item Отрицание $\bar \cdot, \lnot$
+        \end{itemize}
+
+        \begin{table}[ht]
+            \centering
+            \begin{tabular}{|c|c|}
+                \hline
+                $x$ &$\bar x$ \\ \hline
+                0 & 1\\
+                1 & 0\\ \hline
+            \end{tabular}
+            \caption{Отрицание}
+        \end{table}
+
+        \item \textbf{Бинарные операции:}
+
+        \begin{table}[ht]
+            \centering
+            \begin{tabular}{|c|c|c|c|c|c|c|}
+                \hline
+                $x$ & $y$ & $xy$ & $x\vee y$ & $x\Longrightarrow y$ & $x\Longleftrightarrow y$ & $x \oplus y$  \\ \hline
+                0 & 0 & 0 & 0 & 1 & 1 & 0\\ \hline
+                0 & 1 & 0 & 1 & 1 & 1 & 0\\ \hline
+                1 & 0 & 0 & 1 & 0 & 0 & 1\\ \hline
+                1 & 1 & 1 & 1 & 1 & 1 & 0\\ \hline
+            \end{tabular}
+            \caption{Бинарные операции}
+        \end{table}
+
+        \begin{itemize}
+            \item Конъюнкция $\wedge, \&$
+
+            Логическое "И"
+
+            \item Дизъюнкция $\vee$
+
+            Логическое "Или"
+
+            \item Импликация $\Longrightarrow$
+
+            X влечет У, одно следует из другого
+
+            \item Иквивалентность $\Longleftrightarrow$
+
+            Проверка равносильности
+
+            \item Исключающее "или"
+
+            Сложение по mod 2
+        \end{itemize}
+
+        \item \textbf{Другие операции:}
+
+        \begin{table}[ht]
+            \centering
+            \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+                \hline
+                $x$ & $y$ & $\boldsymbol{0}$ & $x\bigtriangleup y$ & $x\bigtriangledown y$ & $x$ & $y$ & $x \downarrow y$ & $\bar y$ & $y \Longrightarrow x$ & $\bar x$& $x|y$ & $\boldsymbol{1}$   \\ \hline
+                0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
+                0 & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 \\ \hline
+                1 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 1 & 1 \\ \hline
+                1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 1 \\ \hline
+            \end{tabular}
+            \caption{Другие операции}
+        \end{table}
+
+        \begin{minipage}{0.4\textwidth}
+            \begin{itemize}
+                \item Ноль $\boldsymbol{0}$
+                \item Запрет по Y $x\bigtriangleup y$
+                \item Запрет по X $x\bigtriangledown y$
+                \item X
+                \item Y
+                \item Стрелка Пирса $x \downarrow y$
+            \end{itemize}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.4\textwidth}
+            \begin{itemize}
+                \item Отрицание Y $\bar y$
+                \item Импликация $y \Longrightarrow x$
+                \item Отрицание X $\bar x$
+                \item Штрих Шеффера $x|y$
+                \item Единица $\boldsymbol{1}$
+            \end{itemize}
+        \end{minipage}
+
+    \end{enumerate}
+
+    \textbf{Свойства операций:}
+    \begin{enumerate}
+        \item \textbf{Коммутативность}
+
+        $\&,\vee,\Longleftrightarrow,\oplus$ - коммутативны.
+
+        $xy=yx$ $\hspace{20pt}$ $x\vee y=y\vee x$ $\hspace{20pt}$ $ x\Longleftrightarrow y = y\Longleftrightarrow x$ $\hspace{20pt}$ $ x+y=y+x $
+
+        В данном случае, проверка может быть такой:
+
+        $xy=yx$ - Умножение. $ x\Longleftrightarrow y = y\Longleftrightarrow x$ - Равенство. $ x+y=y+x $ - Сумма в $Z_{2}$
+
+        Универсальный способ проверки: Проверить равенство двух логический выражений с помощью таблицы.
+
+        \begin{table}[ht]
+            \centering
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                $x$ & $y$ & $x\vee y$ & $y\vee x$ \\ \hline
+                0 & 0 & $0\vee 0=0$ & $0\vee 0=0$ \\ \hline
+                0 & 1 & $0\vee 1=1$ & $1\vee 0=1$ \\ \hline
+                1 & 0 & $1\vee 0=1$ & $0\vee 1=1$ \\ \hline
+                1 & 1 & $1\vee 1=1$ & $1\vee 1=1$ \\ \hline
+            \end{tabular}
+            \caption{Проверка равенства выражений по таблице}
+        \end{table}
+
+        \item \textbf{Некоммутативность}
+
+        $\Longrightarrow $ - некоммутативная операция.
+
+        $x\Longrightarrow y \neq y \Longrightarrow x$
+
+        Проверка:
+
+        \begin{table}[ht]
+            \centering
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                $x$ & $y$ & $x\Longrightarrow y$ & $y \Longrightarrow x$ & Проверка \\ \hline
+                0 & 0 & $0\vee 0=1$ & $0\vee 0=1$ & + \\ \hline
+                0 & 1 & $0\vee 1=1$ & $1\vee 0=0$ & - \\ \hline
+                1 & 0 & $1\vee 0=0$ & $0\vee 1=1$ & - \\ \hline
+                1 & 1 & $1\vee 1=1$ & $1\vee 1=1$ & + \\ \hline
+            \end{tabular}
+            \caption{Проверка коммутативности импликации}
+        \end{table}
+
+        В таблице видно, что импликация - некоммутативная операция.
+
+        \item \textbf{Ассоциативность}
+        \begin{itemize}
+            \item $(x\vee y)\vee z= x\vee (y\vee z)$ - Дизъюнкция.
+            \item $(xy)z=x(yz)$ - Конъюнкция.
+            \item $(x+y)+z=x+(y+z)$ - Исключающее "или".
+            \item $(x \Longleftrightarrow y)\Longleftrightarrow z = x\Longleftrightarrow (y \Longleftrightarrow z) $ - Иквивалентность.
+        \end{itemize}
+
+        \begin{table}[ht]
+            \centering
+            \begin{tabular}{|c|c|c|c|c|c|c|}
+                \hline
+                $x$ & $y$ & $z$ & $x\vee y$ & $\boldsymbol{(x\vee y)\vee z}$& $y\vee z$ & $\boldsymbol{x\vee (y\vee z)}$  \\ \hline
+                0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+                0 & 0 & 1 & 0 & 1 & 1 & 1 \\ \hline
+                0 & 1 & 0 & 1 & 1 & 1 & 1 \\ \hline
+                1 & 0 & 0 & 1 & 1 & 0 & 1 \\ \hline
+                0 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
+                1 & 0 & 1 & 1 & 1 & 1 & 1 \\ \hline
+                1 & 1 & 0 & 1 & 1 & 1 & 1 \\ \hline
+                1 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
+            \end{tabular}
+            \caption{Проверка ассоциативности дизъюнкции}
+        \end{table}
+
+        \textbf {Неассоциативность:} Импликация.
+
+        $(x\Longrightarrow y) \Longrightarrow z \neq x\Longrightarrow (y \Longrightarrow z)$
+
+        \item \textbf{Дистрибутивность}
+
+        \begin{itemize}
+            \item $x(y\vee z)= xy\vee xz$
+            \item $x(y+z)=xy+xz$
+            \item $x\vee (yz)=(x\vee y)(x\vee z)$
+        \end{itemize}
+
+        \textbf{Недистрибутивность}
+        $x+y\cdot z \neq (x+y)(x+z)$
+
+        \item \textbf{Приоритет операций}
+
+        \begin{description}
+            \item[1.] Отрицание.
+            \item[2.] Умножение, конъюнкция
+            \item[3.] Дизъюнкция, исключающее "или"
+            \item[4.] Импликация, иквивалентность
+        \end{description}
+
+        \item \textbf{Правила де Моргана}
+
+        \begin{itemize}
+            \item $ \overline{x\vee y} = \bar x \cdot \bar y $
+            \item $\overline{x\cdot y} = \bar x \vee \bar y$
+        \end{itemize}
+
+        \item \textbf{Другие свойства}
+
+        \begin{minipage}{0.4\textwidth}
+            \begin{itemize}
+                \item $\overline{\overline{x}}=x$
+                \item $0x=0$
+                \item $1x=x$
+            \end{itemize}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.4\textwidth}
+            \begin{itemize}
+                \item $0\vee x=x$
+                \item $1\vee x=1$
+                \item $x\Longrightarrow y = \bar x \vee y$
+            \end{itemize}
+        \end{minipage}
+
+    \end{enumerate}
+
+    \begin{center}
+        \textbf{Дизъюнктивная нормальная форма}
+    \end{center}
+
+    Нормальная форма - один из вариантов записи логического выражения.
+
+    $xy\vee z=(x\vee z)(y\vee z)=xy\vee z\vee 0$
+
+    $xy\vee z=(x\vee z)(y\vee z)$ - Дизъюнктивная нормальная форма (ДНФ) выражения.
+
+    \textbf{Определение:}
+
+    Выражение имеет ДНФ, если оно является дизъюнкцией нескольких конъюнктов.
+
+    Конъюнкт - это конъюнкция литералов.
+
+    Литерал - переменная или отрицание переменной.
+
+    Пример:
+    \begin{itemize}
+        \item $xy\vee z$ $\hspace{20pt}$ $xy,z$ - Конъюнкты $\hspace{20pt}$ $x,y,z$ - Литералы
+
+        \item $x\bar y z\vee x\bar y z\vee \bar y z$ $\hspace{20pt}$ 3 конъюнкта, 3 литерала
+
+        \item $x\vee \bar y \vee z$ $\hspace{20pt}$ 3 конъюнкта по 1 литералу
+
+        \item $\bar x$ $\hspace{20pt}$ 1 конъюнкт, 1 литерал
+    \end{itemize}
+
+    \textbf{Не ДНФ:} $x\vee 1$,$\hspace{20pt}$$(x\vee y)\cdot z$,$\hspace{20pt}$$x\vee y \vee z \vee x \Longrightarrow xy$
+
+\end{document} % Конец текста.
+
