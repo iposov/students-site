@@ -72,3 +72,8 @@ print(is_even(57121))
 
 1. [Вводные задачи](1_intro.md)
 2. [Псевдографика](2_tasks_pseudographics.md)
+
+## Лекции
+
+1. [Типы данных в python: числа, логические, строки](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python1-types.ipynb)
+1. [Структура программы: if, for, функции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python2-struct.ipynb)
