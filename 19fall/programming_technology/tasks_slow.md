@@ -59,6 +59,8 @@ System.out.println("ints without even = " + filterEven(ints)); //[11, 33, 55, 3]
 //функция должна удалить элементы с четными индексами, т.е. оставить только каждое второе число
 System.out.println("ints no even indices = " + filterEvenIndices(ints)); //[22, 55, 88, 3]
 
+//Необязательная часть
+
 //Теперь реализуйте in-place аналоги этих функций, т.е. они делают действия, изменяя переданный список
 //копируем список ints, создавая новый изменяемый (mutable) список intsMutable
 List<Integer> intsMutable = new ArrayList<>(ints);

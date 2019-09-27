@@ -4,6 +4,9 @@ type: tasks
 
 # Технологии программирования
 
+## Лекции
+ * [Коллекции](/19spring/prog-basics-ii/collections.md)
+
 ## Задачи
 
 [Задачи для группы в четверг](tasks_fast.md)
