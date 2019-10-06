@@ -31,4 +31,4 @@ You are given a matrix `а` of three columns, it describes a set of lines (as pr
         x = Δx / Δ
         y = Δy / Δ
             
-    So, you will need a prevously implemented `all2dets` function.
+    So, you will need a previously implemented `all2dets` function.

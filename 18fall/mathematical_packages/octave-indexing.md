@@ -5,7 +5,7 @@ type: tasks
 ## Indexing
 
 1. ***task1***
-You are given a square matrix of even size. (you are not supposed to test that the matrix is actually even and square, just
+You are given a square matrix of an even size. (you are not supposed to test that the matrix is actually even and square, just
 use it). Imagine we split a matrix vertically and horizontally through the center. Return the matrix at the left-top.
 1. ***task2***
 You are given a matrix with an even number of rows. Return a new matrix where the top half is exchanged with the bottom half of the
