@@ -1,0 +1,244 @@
+\documentclass{article}
+ 
+%Russian-specific packages
+%--------------------------------------
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{cancel}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{amsmath}
+%--------------------------------------
+ 
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{ма-те-ма-ти-ка вос-ста-нав-ли-вать}
+%--------------------------------------
+ 
+ \title{Лекция по математической логике и теории алгоритмов}
+ \date{4 сентября 2019}
+ 
+\begin{document}
+ 
+\maketitle
+$$\\$$
+ \textbf{Исчисление высказываний}
+ 
+ Логическая формула: выражение со значениями (0,1)
+ 
+                    \hspace{35mm} переменными (x,y, ...)
+
+    \hspace{35mm} и операциями (•,  $\vee$,  $\leftrightarrow$, ...)
+\newline
+\underline{Арифметические выражения.}
+
+Пример: ((z+x)•y-10)/z
+\newline
+\underline{Логические выражения.}
+
+Пример: (1+$\neg$x)$\rightarrow$(x*y $\leftrightarrow$ $\neg$y $\neg$z)
+
+где 1 - значение; x,y - переменные; $\leftrightarrow$ - операция.
+
+Значения: 0 - ложь(F), 1 - истина(T).
+\newline
+\underline{Операции. Унарная операция.}
+
+$\neg$ - отрицание.
+
+$\neg$1 = 0.
+
+\begin{tabular}{|c|c|c|}
+\hline
+x & $\neg$x \\\hline
+0 & 1 \\\hline
+1 & 0\\\hline
+\end{tabular}
+$$\\$$
+\underline{Бинарные операции(2*2*2*2=16 - всего операций.)}
+
+\begin{tabular}{|cc||*{7}{c|}}
+\hline
+x & y & x $\vee$ y & x $\wedge$ y & x $\oplus$ y &
+x $\rightarrow$ y & x $\equiv$ y & x | y & x $\downarrow$ y\\
+\hline
+0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 \\
+1 & 0 & 1 & 0 & 1 & 0 & 0 & 1 & 0 \\
+1 & 1 & 1 & 1 & 0 & 1 & 1 & 0 & 0 \\ \hline
+\end{tabular}
+\newline
+Пример импликации:
+
+1) 2*2=5 $\Longrightarrow$ сегодня суббота
+
+Верно
+
+2) $\lnot$ (1 $\Longrightarrow$ 0) *1 = $\lnot$ 0 *1= 1*1=1
+
+Свойства операций:
+
+$\wedge$,$\vee$,$\leftrightarrow$,+ - коньюктивны
+
+x*y=y*x - умножение
+
+x $\vee$ y = y $\vee$ x
+
+x $\leftrightarrow$ y = y $\leftrightarrow$ x - равенство
+
+x + y = y + x - Сумма в Z2
+
+Универсальный способ проверки равенства двух логических выражений, это сравнить значения выражений при всех возможных значениях переменных.
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+x & y & x $\vee$ y & y $\vee$ x \\\hline
+0 & 0 & 0 $\vee$ 0 = 0 & 0 $\vee$ 0= 0 \\\hline
+0 & 1 & 0 $\vee$ 1 = 1 & 1 $\vee$ 0 = 1\\\hline
+1 & 0 & 1 & 1\\\hline
+1 & 1 & 1 & 1\\\hline
+\end{tabular}
+$$\\$$
+Третий и четвертый столбцы совпадают.
+$$\\$$
+x $\Longrightarrow$ y - не коммутативно
+$$\\$$
+\begin{tabular}{|c|c|c|c|}
+\hline
+x & y & x $\Longrightarrow$ y & y $\Longrightarrow$ x \\\hline
+0 & 0 & 0 $\Longrightarrow$ 0 = 1 & 0 $\Longrightarrow$ 0= 1 \\\hline
+0 & 1 & 0 $\Longrightarrow$ 1 = 1 & 1 $\Longrightarrow$ 0 = 0\\\hline
+\end{tabular}
+$$\\$$
+Третий и четвертый столбцы не совпадают.
+$$\\$$
+Ассоциативность:
+
+(x $\vee$ y) $\vee$ z = x $\vee$ (y $\vee$ z)
+
+(x * y)*z = x*(y*z)
+$$\\$$
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+x & y & z & x $\vee$ y & (x $\vee$ y) $\vee$ z & y $\vee$ z & x $\vee$ (y $\vee$ z) \\\hline
+0 & 0 & 0 & 0 & 0 & 0 & 0 \\\hline
+0 & 0 & 1 & 0 & 1 & 1 & 1 \\\hline
+0 & 1 & 0 & 1 & 1 & 1 & 1 \\\hline
+0 & 1 & 1 & 1 & 1 & 1 & 1 \\\hline
+1 & 0 & 0 & 1 & 1 & 0 & 1 \\\hline
+1 & 0 & 1 & 1 & 1 & 1 & 1 \\\hline
+1 & 1 & 0 & 1 & 1 & 1 & 1 \\\hline
+1 & 1 & 1 & 1 & 1 & 1 & 1 \\\hline
+\end{tabular}
+$$\\$$
+Пятый и седьмой столбцы совпадают.
+
+(x $\leftrightarrow$ y) $\leftrightarrow$ z = x $\leftrightarrow$ (y $\leftrightarrow$ z)
+
+(x $\Longrightarrow$ y) $\Longrightarrow$ z $\neq$ x $\Longrightarrow$ (y $\Longrightarrow$ z), т.к.
+$$\\$$
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+x & y & z & (x $\Longrightarrow$ y) $\Longrightarrow$ z & x $\Longrightarrow$ (y $\Longrightarrow$ z)\\\hline
+0 & 0 & 0 & (0 $\Longrightarrow$ 0) $\Longrightarrow$ 0=0 & 0 $\Longrightarrow$ (0 $\Longrightarrow$ 0)=1 \\\hline
+\end{tabular}
+\newline
+\underline{Запись логических выражений.}
+
+У ассоциативных операций () можно не иметь.
+
+x+y+z - нормально.
+
+Пример: x$\rightarrow$y$\rightarrow$z
+
+Если скобок нет, имеется в виду x$\rightarrow$(y$\rightarrow$z).
+
+Приоритет операций x$\vee$y*z $\rightarrow$ $\neg$(x*y),
+
+1)$\neg$ 
+
+2) • $\wedge$
+
+3) $\vee$+ 
+
+4) $\leftrightarrow$ и $\rightarrow$
+\newline
+\underline{Правило Дэ Моргана}
+
+$\neg$(x$\vee$y) = $\neg$x $\wedge$ $\neg$y
+
+$\neg$(x$\wedge$y) = $\neg$x $\vee$ $\neg$y
+
+Проверка:
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+x & y & $\neg$(x$\wedge$y) & $\neg$x $\vee$ $\neg$y \\\hline
+0 & 0 & 1 & 1 \\\hline
+0 & 1 & 1 & 1\\\hline
+1 & 0 & 1 & 1\\\hline
+1 & 1 & 0 & 0\\\hline
+\end{tabular}
+\newline
+\underline{Дистрибутивность.}
+
+x•(y$\vee$z) = x•y $\vee$ x•z
+
+x•(y+z) = x•y + x•z
+
+x $\vee$ (y•z) = (x$\vee$y)•(x$\vee$z) - двойственная
+
+x + y•z $\neq$ (x+y)(x+z) неверно при x=1, y=1, z=0.
+\newline
+\underline{Ещё набор свойств:} 
+
+$\neg\neg$x = x
+
+x $\rightarrow$ y = $\neg$x $\vee$ y - см. таблицу истинности.
+
+x $\leftrightarrow$ y = (x$\rightarrow$y)(y$\rightarrow$x) - см. Мат. Анализ.
+\newline
+\underline{Дизъюктивно-нормальная форма.}
+
+Нормальная форма - один из вариантов записи логических выражений.
+
+x•y$\vee$z = (x$\vee$z)(y$\vee$z) = x•y$\vee$z$\vee$0 = x•y+z+x•y•z
+
+Здесь x•y$\vee$z - дизъюктивно-нормальная форма(ДНФ)
+
+Выражение имеет ДНФ, если оно является дизъюнкцией нескольких конъюктов. 
+
+Конъюнкт - это конъюнкция литералов.
+
+Литерал - переменная или отрицание переменной.
+
+Пример: x•y$\vee$z
+
+где z - литерал; x и y - конъюнкты.
+
+Ещё ДНФ: x•$\neg$y•z $\vee$ x•$\neg$y•$\neg$z $\vee$ $\neg$y•z - 3 конъюнкта.
+
+x•$\neg$y•z - 1 конъюнкт.
+
+$\neg$x $\vee$ $\neg$y $\vee$ z - 3 конъюнкта по 1 литералу.
+
+$\neg$x - ДНФ, 1 конъюнкт из 1 литерала.
+
+x•$\neg$y•z $\vee$ $\neg$y•z $\vee$x $\vee$ $\neg$y•$\neg$z
+
+Не ДНФ:
+
+x$\vee$1,
+
+x$\vee$y$\vee$z$\vee$x$\rightarrow$y,
+
+x$\vee$y•z,
+
+x+y.
+
+
+
+
+\end{document}

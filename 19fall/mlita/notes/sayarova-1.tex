@@ -1,0 +1,233 @@
+\documentclass{article}
+ 
+%Russian-specific packages
+%--------------------------------------
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+%--------------------------------------
+ 
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{ма-те-ма-ти-ка вос-ста-нав-ли-вать}
+%--------------------------------------
+ 
+ \title{Лекция по дискретной математике}
+ \date{4 сентября 2019}
+ 
+\begin{document}
+ 
+\maketitle
+
+\textbf{Исчисление высказываний}
+
+Логическая формула - выражение со значением (0, 1), переменными (х, y...) и операциями (*, v, $\Rightarrow$...)
+
+Арифметические выражения. Пример: $(2+x) + y - 10$
+
+Логические выражения. Пример: $(1 + \overline{x}) \Rightarrow (x y \Leftrightarrow \overline{y} \overline{z})$
+
+\underline{Операции:}
+
+Унарная операция отрицание
+
+\begin{center}
+\begin{tabular}{ |c|c| } 
+ \hline
+ x & $\overline{x}$  \\ 
+ 0 & 1 \\ 
+ 1 & 0 \\ 
+ \hline
+\end{tabular}
+\end{center}
+
+Бинарные операции
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ x & y & x $\centerdot$ y & x v y & x $\Rightarrow$ y & x $\Leftrightarrow$ y & x+y & 0 & x $\bigtriangleup$ y & x $\bigtriangledown$ y \\ 
+ 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\ 
+ 0 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 1 \\ 
+ 1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 1 & 0 \\
+ 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 \\
+ \hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ x & y & x & y & x $\downarrow$ y & $\overline{y}$ & y $\Rightarrow$ x & $\overline{x}$ & x $\mid$ y & 1  \\ 
+ 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\ 
+ 0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 \\ 
+ 1 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 1 & 1 \\
+ 1 & 1 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 1 \\
+ \hline
+\end{tabular}
+\end{center}
+
+\textbf{Свойства операций}
+
+$\&$, $ \centerdot$ , v, $\Leftrightarrow , + $ - коммутативны
+
+x $ \centerdot$ y = y $ \centerdot$ x умножение
+
+x $\Leftrightarrow$ y = y $\Leftrightarrow$ x равенство
+
+x v y = y v x
+
+x + y = y + x сумма в $Z_2$
+
+Универсальный способ проверить равенство двух логических выражений - это сравнить значения выражений при всех возможных значениях переменных
+
+x $\Rightarrow$ y не коммутативно. Проверка:
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c| } 
+ \hline
+ x & y & x $\Rightarrow$ y & y $\Rightarrow$ x  \\ 
+ 0 & 0 & 0 $\Rightarrow$ 0 = 1 & 0 $\Rightarrow$ 0 = 1 \\ 
+ 0 & 1 & 0 $\Rightarrow$ 1 = 1 & 1 $\Rightarrow$ 0 = 0 \\
+ \hline
+\end{tabular}
+\end{center}
+
+ Дальше можно не продолжать, т.к. результаты не совпали
+ 
+ \underline{Ассоциативность}
+ 
+ (x v y) v z = x v (y v z)
+ 
+ \begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c| } 
+ \hline
+ x & y & z & x v y & (x v y) v z & y v z & x v (y v z)  \\ 
+ 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 1 & 0 & 1 & 1 & 1 \\
+ 0 & 1 & 0 & 1 & 1 & 1 & 1 \\
+ 0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+ 1 & 0 & 0 & 1 & 1 & 0 & 1 \\
+ 1 & 0 & 1 & 1 & 1 & 1 & 1 \\
+ 1 & 1 & 0 & 1 & 1 & 1 & 1 \\
+ 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+ \hline
+\end{tabular}
+\end{center}
+
+( x $\centerdot$ y ) $\centerdot$ z = x $\centerdot$ (y $\centerdot$ z) умножение ассоциативно
+(x + y) + z = x + (y + z) сложение по $Z_2$ ассоциативно
+
+(x $\Leftrightarrow$ y) $\Leftrightarrow$ z = x $\Leftrightarrow$ (y $\Leftrightarrow$ z) 
+
+(x $\Rightarrow$ y) $\Rightarrow$ z ? x $\Rightarrow$ (y $\Rightarrow$ z)
+
+Проверка по таблице истинности:
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c| } 
+ \hline
+ x & y & z & (x $\Rightarrow$ y) $\Rightarrow$ z & x $\Rightarrow$ (y $\Rightarrow$ z)  \\ 
+ 0 & 0 & 0 & 0 & 1 \\
+ \hline
+\end{tabular}
+\end{center}
+
+Несовпадение в первой же строке, дальше можно не проверять.
+
+В записи логических выражений у ассоциативных операций ( ) не нужны
+
+\textbf{Приоритет}
+
+x v yz $\Rightarrow$ $\overline{xy}$
+
+1. Отрицание
+
+2. Умножение, конъюнкция
+
+3. Дизъюнкция
+
+4. v, +
+
+5. $\Rightarrow , \Leftrightarrow$
+
+\textbf{Правила де Моргана }
+
+$\overline{x v y}$ = $\overline{x} \centerdot \overline{y}$
+
+$\overline{x \centerdot y} = \overline{x}$ v $\overline{y}$ 
+
+Проверим второе правило с помощью таблицы истинности
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c| } 
+ \hline
+ x & y & $\overline{x \centerdot y}$ & $\overline{x}$ v $\overline{y}$  \\ 
+ 0 & 0 & 1 & 1 \\
+ 0 & 1 & 1 & 1 \\
+ 1 & 0 & 1 & 1 \\
+ 1 & 1 & 0 & 0 \\
+ \hline
+\end{tabular}
+\end{center}
+
+ \underline{Дистрибутивность}
+ 
+ x $\centerdot$ (y v z) = xy v xz
+ 
+ x $\centerdot$ (y + z) = xy + xz
+ 
+ x v (yz) = (x v y) $\centerdot$ (x v z)
+ 
+ x + (y $\centerdot$ z) \cancel = (x + y)(x + z)
+ 
+ Еще набор свойств:
+ 
+ $\overline{\overline{x}} = x$
+ 
+ 0x = 0
+ 
+ |x = x
+ 
+ 0 v x = x
+ 
+ 1 v x = 1
+ 
+ x $\Rightarrow$ y = $\overline{x}$ v y (см таблицу истинности)
+ 
+ \textbf{Дизъюнктивно-нормальная форма (ДНФ)}
+ 
+ Нормальная форма - один из вариантов записи логического выражения
+ 
+ xy v z = (x v z)(y v z) = xy v z v 0 = xy + z + xyz
+
+xy v z - ДНФ
+
+\underline{Определение}: Выражение имеет ДНФ, если оно является дизъюнкцией нескольких конъюнкций
+
+Конъюнкт - это конъюнкция литералов
+
+Литерал - переменная или отрицание переменной
+
+Пример: xy v z, где - xy и z конъюнкты, а x, y, z - литералы
+
+ $x\overline{y}z$  v  $x\overline{y} \overline{z}$ v $\overline{y}z$ - 3 конъюнкта 
+
+$\overline{x}$ - ДНФ, 1 конъюнкт из 1 литерала
+
+Не являются ДНФ:
+
+$\centerdot$ x v 1
+
+$\centerdot$ (x v y) $\centerdot$ z
+
+$\centerdot$ x v y v z v x $\Rightarrow$ y
+
+$\centerdot$ x + y
+ 
+\end{document}

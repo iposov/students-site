@@ -1,0 +1,168 @@
+\documentclass{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\begin{document}
+	\title{Лекция №1}
+	\author{Владислав Рожков}
+	\date{\today}
+	\maketitle
+\section{Исчисление высказываний}
+Логическая формула - это выражение с:
+
+\begin{itemize}
+	\item Переменными значениями ($0,1$)
+	\item Перенными ($x, y, ...$)
+	\item Операциями ($\cdot, \vee, \Rightarrow, ...$)
+	
+\end{itemize}
+
+Пример арифметического выражения: 
+
+\[(z+x)+y=10\]
+
+Пример логического выражения:
+
+\[(1+!x) \Rightarrow (xy \Leftrightarrow !y!x)\]
+
+Где 1 - это значение; x и y - переменные; $!, \Rightarrow, \Leftrightarrow$ - операции.
+
+Отрицание ($!$) - операция с одной переменной:
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{ | l | l |}
+		\hline
+		$x$ & $!x$      \\ \hline
+		0 & 1   \\ \hline
+		1 & 0  \\ \hline
+	\end{tabular}
+\end{table}
+
+Наиболее используемые логические операции с двумя переменными:
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{ | l | l | l | l | l | l |}
+		\hline
+		$x$ & $y$ & $xy$  & $x \vee y$  & $x \Rightarrow y$  & $x\Leftrightarrow y$    \\ \hline
+		0 & 0 & 0 & 0 & 1 & 1   \\ \hline
+		0 & 1 & 0 & 1 & 1 & 0   \\ \hline
+		1 & 0 & 0 & 1 & 0 & 0 \\
+		\hline
+		1 & 1 & 1 & 1 & 1 & 1 \\
+		\hline
+	\end{tabular}
+\end{table}
+Где:
+\begin{itemize}
+	\item $xy$ - конъюнкция ($x \cdot y$); 
+	\item $x \vee y$ - дизъюнкция; 
+	\item $x \Rightarrow y$ - импликация/следствие; 
+	\item $x \Leftrightarrow y$ - эквивалентность.
+\end{itemize}
+
+Остальные логические операции с двумя переменными:
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{ | l | l | l | l | l | l | l | l | l | l | l | l | l | l |}
+		\hline
+		$x$ & $y$ & $x + y$  & $0$  & $x \bigtriangleup y$  & $x \bigtriangledown y$ & $x$ & $y$ & $x \downarrow y$ & $!y$ & $y \Rightarrow x$ & $!x$ & $x | y$ & $1$  \\ \hline
+		0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+		\hline
+		0 & 1 & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 \\
+		\hline
+		1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 1 & 1 \\
+		\hline
+		1 & 1 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 1 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\section{Свойства операций}
+
+\textbf {Коммутативность} ($\cdot, \vee, \Leftrightarrow, +$):
+\[xy = yx\]
+\[x \vee y = y \vee x\]
+\[x \Leftrightarrow y = y \Leftrightarrow x\]
+\[ x + y = y + x\]
+
+Операция $\Rightarrow$ не коммутативна:
+\[ x \Rightarrow y \neq y \Rightarrow x\]
+
+\textbf {Ассоциативность} ($\cdot, \vee, \Leftrightarrow, +$)
+
+Проверим ассоциативность дизъюнкции:
+\[ (x \vee y) \vee z = x \vee (y \vee z)\]
+
+Универсальный способ проверить равенство двух логических выражений - это сравнить их результаты при всех возможных случаях:
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{ | l | l | l | l | l | l | l |}
+		\hline
+		$x$ & $y$ & $z$  & $x \vee y$  & $(x \vee y) \vee z$  & $y \vee z$ & $ x \vee (y \vee z)$   \\ \hline
+		0 & 0 & 0 & 0 & 0 & 0 & 0   \\ \hline
+		0 & 0 & 1 & 0 & 1 & 1 & 1   \\ \hline
+		0 & 1 & 0 & 1 & 1 & 1 & 1 \\
+		\hline
+		0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+		\hline
+		1 & 0 & 0 & 1 & 1 & 0 & 1 \\
+		\hline
+		1 & 0 & 1 & 1 & 1 & 1 & 1 \\
+		\hline
+		1 & 1 & 0 & 1 & 1 & 1 & 1 \\
+		\hline
+		1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Операция $\Rightarrow$ не ассоциативна
+
+\textbf {Приоритет операций} (От более важных к менее):
+
+1) $!$ - отрицание
+
+2) $\cdot$ - конъюнкция 
+
+3) $\vee$ - дизъюнкция и $+$ - строгая дизъюнкция (исключающее или)
+
+4) $\Rightarrow$ - импликация и $\Leftrightarrow$ - эквивалентность
+
+\textbf {Правила Де Моргана:}
+\[!(x \vee y) = !x \cdot !y\]
+\[!(x \cdot y) = !x \vee !y\]
+
+\textbf {Дистрибутивность:}
+\[ x \cdot (y \vee z) = xy \vee xz\]
+\[ x \cdot (y + z) = xy + xz\]
+\[ x \vee (yz) = (x \vee y)\cdot(x \vee z)\]
+
+\textbf {Другие свойства:}
+\[ !x = x \]
+\[ 0x = 0\]
+\[ 1x = x\]
+\[ 0 \vee x = x\]
+\[ 1 \vee x = 1\]
+
+\section{Дизъюнктивно-нормальная форма}
+
+Нормальная форма - один из вариантов записи выражений:
+\[ xy \vee z = (x \vee z)\cdot(y \vee z) = xy + z + xyz\]
+
+Литерал - переменная или отрицание переменной 
+
+Выражение имеет дизъюнктивно-нормальную форму если имеет дизъюнкцию множества конъюнкций:
+
+ $x \cdot !y \cdot z \vee x \cdot !y \cdot !z \vee z \cdot !y$ - данная ДНФ имеет 3 конъюна
+
+$x \cdot !y \cdot z$ - 1 конъюн
+
+$x \vee y \vee !z$ - 3 конъюна 
+
+$!x$ - 1 конъюн
+\end{document}
