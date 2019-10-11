@@ -72,6 +72,8 @@ print(is_even(57121))
 
 1. [Вводные задачи](1_intro.md)
 2. [Псевдографика](2_tasks_pseudographics.md)
+3. [Списки и строки](3_tasks_strings_and_lists.md)
+4. [Списки, множества, словари](4_tasks_lists_sets_dicts.md)
 
 ## Лекции
 
