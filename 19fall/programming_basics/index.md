@@ -77,3 +77,5 @@ print(is_even(57121))
 
 1. [Типы данных в python: числа, логические, строки](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python1-types.ipynb)
 1. [Структура программы: if, for, функции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python2-struct.ipynb)
+1. [Типы-последовательности](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python3-sequences.ipynb) (для утренней группы
+эта лекция была менее полной, выкладываю ее тут только для истории: [утренние типы-последовательности](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python3-sequences.ipynb))
