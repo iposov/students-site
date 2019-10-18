@@ -81,3 +81,5 @@ print(is_even(57121))
 1. [Структура программы: if, for, функции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python2-struct.ipynb)
 1. [Типы-последовательности](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python3-sequences.ipynb) (для утренней группы
 эта лекция была менее полной, выкладываю ее тут только для истории: [утренние типы-последовательности](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python3-sequences.ipynb))
+1. [Изменяемые, неизменяемые типы](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python4-mutability.ipynb)
+1. [List comprehension (генераторы списков)](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python5-list-comprehension.ipynb)
