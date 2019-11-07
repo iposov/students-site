@@ -18,6 +18,7 @@
 1. Лекция 8 (30.10.2019)
     * Богдан Бобков, 8301, [tex](notes/bobkov-8.tex), [pdf](notes/bobkov-8.pdf)
     * Вероника Пономарёва, 8301, [tex](notes/ponomareva-8.tex), [pdf](notes/ponomareva-8.pdf)
+    * Никита Алымов, 8301, [tex](notes/alymov-8.tex), [pdf](notes/alymov-8.pdf)
    
 ## Дополнительно 
 [Рукописные конспекты, Осенева Валерия, 8301](https://yadi.sk/d/K9IscajtkQdJuw)
