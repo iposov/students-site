@@ -18,6 +18,7 @@
 1. [List comprehension (генераторы списков)](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python5-list-comprehension.ipynb)
 1. [Файлы](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python6-files.ipynb)
 1. [Множства и словари](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python7-sets-dicts.ipynb)
+1. [Генераторы и чуть-чуть итераторы](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python8-generators.ipynb)
 
 ## Первое занятие
 [Задание для первого занятия](first_pair.md)
