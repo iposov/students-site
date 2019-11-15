@@ -6,6 +6,7 @@
 2. [Псевдографика](2_tasks_pseudographics.md)
 3. [Списки и строки](3_tasks_strings_and_lists.md)
 4. [Файлы, множества, словари](4_tasks_files_sets_dicts.md)
+5. [Генераторы и другие темы](5_tasks_extra_topics.md)
 
 ## Лекции
 
