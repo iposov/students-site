@@ -215,7 +215,7 @@ that has all coefficints equal to 1. Return roots as one row-matrix.
     * Solve with `fzero`, you will need to specify a segment where to search for the solution. 
     * Solve with an explicit expression. Think, how to express `x` in terms of `a`.
     * The difference between solutions with the explicit expression and with `fsolve`.
-    
+        
     test your function on `a = 1 000 000`.
 1. ***task_circles*** The circle is specified with a matrix of three values:
 `[x, y, r]`, that is its center and its radius. You are given two circles.
@@ -227,3 +227,16 @@ mark intersections. Don't use an explicit expression for evaluating intersection
 don't do any geometry. Just use `fsolve`.
     * To start, find at least one intersection point
     * Then find both points. Think, what initial points should be specified for `fsolve`.
+1. ***domino.m***. Based on [http://www.math.cornell.edu/~levine/18.312/alg-comb-lecture-18.pdf](http://www.math.cornell.edu/~levine/18.312/alg-comb-lecture-18.pdf)
+   
+   You are given natural numbers $m$ and $n$, they are the size of a rectangles made of
+   cells. There are $m\times n$ cells, they are numbered from $1$ to $m\cdot n$.
+   
+   Create a matrix $A$ of size $m\cdot n\times m\cdot n$, in which the element at $i,j$ contains:
+   
+   * 1, if cells $i$ and $j$ are next to each other horizontally,
+   * complex unit ($\texttt i$), if cells $i$ and $j$ are next to each other vertically,
+   * 0 otherwise
+   
+   Evaluate the determinant of $A$ and take the square root of it.
+   You will get the number of domino tilings of a $m\times n$ rectangle. 
