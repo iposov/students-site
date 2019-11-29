@@ -19,6 +19,9 @@
 1. [Файлы](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python6-files.ipynb)
 1. [Множства и словари](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python7-sets-dicts.ipynb)
 1. [Генераторы и чуть-чуть итераторы](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python8-generators.ipynb)
+1. [Аргументы функций, операторы распаковки и запаковки](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python9-function-arguments.ipynb)
+1. [Обработка исключений](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python10-exceptions-handling.ipynb)
+1. [Функции как значения, лямбда выражения](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python11-functions.ipynb)
 
 ## Первое занятие
 [Задание для первого занятия](first_pair.md)
