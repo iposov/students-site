@@ -199,7 +199,7 @@ $Answer = a^b \\cdot c$. Оно верное, если \\(a = x\\), \\(b = n\\),
 
 ## Функторы, Аппликативные функторы
 
-Лекция: [Функторы, Аппликативные функторы, Монады](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/functional_programming/functors-applicative-monads.ipynb)
+Лекция: [Функторы, Аппликативные функторы, Монады](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/functional_programming/functors-applicative-monads.ipynb?refresh=1)
 
 1. Сделайте деревья из прошлого раздела (хотя бы одно) функтром.
 1. __*__ Придумайте, как можно сделать листовое дерево аппликативным функтором
