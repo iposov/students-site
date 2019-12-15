@@ -15,6 +15,9 @@ Please, answer the questions and send answers to me: [introductionary questions]
 1. [Matrix operations. Vectorization. Logical indexing](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/mathematical_packages/octave-matrices-operations.ipynb)
 1. [Logical indexing again, plotting](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/mathematical_packages/octave-logic-plot.ipynb?flush_cache=true)
 1. [Solving equations](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/mathematical_packages/octave-solving-equations.ipynb?flush_cache=true)
+1. [2nd lecture on R](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/mathematical_packages/R.ipynb) and data in
+[students.csv](students.csv)
+1. [lecture on Sage](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/mathematical_packages/sage.ipynb)
 
 ## Tasks
 
