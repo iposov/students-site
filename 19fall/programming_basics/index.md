@@ -8,6 +8,11 @@
 4. [Файлы, множества, словари](4_tasks_files_sets_dicts.md)
 5. [Генераторы и другие темы](5_tasks_extra_topics.md)
 
+
+### Задача для зачета
+
+[http://po.st/HFnUcu](http://po.st/HFnUcu)
+
 ## Лекции
 
 1. [Типы данных в python: числа, логические, строки](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/programming_basics/python1-types.ipynb)
