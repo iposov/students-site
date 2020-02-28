@@ -1,0 +1,31 @@
+---
+---
+h1 {
+  @extend title;
+  @extend is-1;
+}
+
+h2 {
+  @extend title;
+  @extend is-2;
+}
+
+h3 {
+  @extend title;
+  @extend is-3;
+}
+
+h4 {
+  @extend title;
+  @extend is-4;
+}
+
+h5 {
+  @extend title;
+  @extend is-5;
+}
+
+h6 {
+  @extend title;
+  @extend is-6;
+}
