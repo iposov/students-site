@@ -2,8 +2,8 @@
 
 - title: Главная
   url: /
-- title: Весна 2019
-  url: /19spring
+- title: Весна 2020
+  url: /20spring
   sub:
   - title: Основы программирования
     url: /20spring/prog-basics/
