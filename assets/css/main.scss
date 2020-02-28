@@ -1,31 +1,30 @@
----
----
+h1, h2, h3, h4, h5, h6 {
+  color: #363636;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  line-height: 1.125;
+}
+
 h1 {
-  @extend .title;
-  @extend .is-1;
+  font-size: 2.5rem;
 }
 
 h2 {
-  @extend .title;
-  @extend .is-2;
+  font-size: 2rem;
 }
 
 h3 {
-  @extend .title;
-  @extend .is-3;
+  font-size: 1.5rem;
 }
 
 h4 {
-  @extend .title;
-  @extend .is-4;
+  font-size: 1.25rem;
 }
 
 h5 {
-  @extend .title;
-  @extend .is-5;
+  font-size: 1rem;
 }
 
 h6 {
-  @extend .title;
-  @extend .is-6;
+  font-size: 0.75rem;
 }
