@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: " en-US" }}">
+<html lang="{{ site.lang | default: "en-US" }}">
 <head>
     <meta charset="UTF-8">
 
     {% seo %}
-    <meta name="description"
-          content="{{ page.description | default: site.description | default: site.github.project_tagline }}"/>
+    <meta name="description" content="{{ page.description | default: site.description | default: site.github.project_tagline }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
-          integrity="sha256-D9M5yrVDqFlla7nlELDaYZIpXfFWDytQtiV+TaH6F1I=" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ '/assets/css/main.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     {% if page.type == "tasks" %}
     <link rel="stylesheet" href="{{ '/assets/css/tasks.css?v=' | append: site.github.build_revision | relative_url }}">
     {% endif %}
@@ -26,10 +23,6 @@
                 processEscapes: true
             }
         });
-
-
-
-
     </script>
 </head>
 <body>
@@ -47,78 +40,58 @@
 </section>
 -->
 
-<section class="section">
-    <div class="columns">
-        <div class="column is-narrow">
-            <div class="box">
-                <aside class="menu is-size-7">
-                    <ul class="menu-list">
-                        {% for item in site.data.navigation %}
+<nav>
+    {% for item in site.data.navigation %}
 
-                        <!--{ % if item.url %} -->
-                        <li><a href="{{ item.url }}"><h3>{{ item.title }}</h3></a>
-                            <!--<p class="menu-label">{{ item.title }}</p>-->
+    {% if item.url %}
+    <a href="{{ item.url }}"><h3>{{ item.title }}</h3></a>
+    {% else %}
+    <h3>{{ item.title }}</h3>
+    {% endif %}
 
-                            {% if item.sub[0] %}
-                            <ul>
-                                {% for item2 in item.sub %}
-                                <li class="{% if item2.url == page.url %}is-active{% endif %}">
-                                    <a href="{{ item2.url }}">{{ item2.title }}</a>
-                                </li>
+    {% if item.sub[0] %}
+    <ul>
+        {% for item2 in item.sub %}
+        <li class="{% if item2.url == page.url %}active{% endif %}">
+            {% if item.url %}
+            <a href="{{ item2.url }}">{{ item2.title }}</a>
+            {% else %}
+            {{ item2.title }}
+            {% endif %}
+        </li>
 
-                                {% if item2.sub[0] %}
-                                <ul>
-                                    {% for item3 in item2.sub %}
-                                    <li class="{% if item.url == page.url %}active{% endif %}">
-                                        <a href="{{ item3.url }}">{{ item3.title }}</a>
-                                    </li>
-                                    {% endfor %}
-                                </ul>
-                                {% endif %}
-                                {% endfor %}
-                            </ul>
-                            {% endif %}
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </aside>
-            </div>
-        </div>
-        <div class="column">
-            <div class="box">
-                <section class="section">
-                    <div class="container">
-                        {{ content }}
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-</section>
+        {% if item2.sub[0] %}
+        <ul>
+            {% for item3 in item2.sub %}
+            <li class="{% if item.url == page.url %}active{% endif %}">
+                <a href="{{ item3.url }}">{{ item3.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endfor %}
+</nav>
 
-<footer class="footer is-paddingless">
-    <div class="container">
+<section class="main-content">
+    {{ content }}
+
+    <footer class="site-footer">
         {% if site.github.is_project_page %}
-        <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a
-                href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+        <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
         {% endif %}
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
-    </div>
-</footer>
+    </footer>
+</section>
 
 {% if site.google_analytics %}
 <script type="text/javascript">
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
     ga('create', '{{ site.google_analytics }}', 'auto');
     ga('send', 'pageview');

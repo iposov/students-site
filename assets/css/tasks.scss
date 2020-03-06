@@ -1,5 +1,8 @@
 ---
 ---
+
+@import "{{ site.theme }}";
+
 .main-content {
 
   ol {
@@ -15,7 +18,7 @@
       display: inline-block;
       margin-right: 0.6em;
       content: counter(task-item);
-      //background: $header-bg-color;
+      background: $header-bg-color;
       border-radius: 100%;
       color: white;
       width: 1.5em;
@@ -26,7 +29,7 @@
     ol {
       li:before {
         background: none;
-        //color: $body-text-color;
+        color: $body-text-color;
         width: auto;
       }
     }
