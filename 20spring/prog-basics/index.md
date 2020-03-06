@@ -2,7 +2,7 @@
 
 ## Сайт с упражнениями
 
-[Codingbat](codingbat.com)
+[Codingbat](http://codingbat.com)
 
 Зарегистрируйтесь на этом сайте и решайте задачи из разделов
 `Warmup-*`, `String-*`, `Logic-*`, `String-*`, `Array-*`.
