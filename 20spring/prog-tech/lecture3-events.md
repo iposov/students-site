@@ -145,7 +145,154 @@ myTextField.textProperty().addListener((o, oldVal, newVal) -> {
 });
 ```
 
-см. код про метки
+## Связывание значений свойств
+
+```java
+package su.spbu.arts.java.javafx;
+
+import javafx.application.Application;
+import javafx.beans.binding.Bindings;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class JavaFxListenersBindings extends Application {
+
+    private TextField input;
+    private Label label1;
+    private Label label2;
+    private Label label3;
+    private Label label4;
+    private Label label5;
+    private Label label6;
+    private Label label7;
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setScene(new Scene(initInterface()));
+        primaryStage.show();
+
+        initInteraction();
+    }
+
+    private VBox initInterface() {
+        input = new TextField("Введите что-нибудь");
+        label1 = new Label();
+        label2 = new Label();
+        label3 = new Label();
+        label4 = new Label();
+        label5 = new Label();
+        label6 = new Label();
+        label7 = new Label();
+
+        VBox vBox = new VBox(
+                input,
+                label1,
+                label2,
+                label3,
+                label4,
+                label5,
+                label6,
+                label7
+        );
+        vBox.setStyle("-fx-font-size: 26px");
+        return vBox;
+    }
+
+    private void initInteraction() {
+        //1. Слушатель на свойство text.
+        //Такой слушатель знает только то, что значение изменилось
+        input.textProperty().addListener(
+                o -> {
+                    String newText = input.getText();
+                    label1.setText(newText);
+                }
+                //o -> label1.setText(input.getText())
+        );
+        //этот код выполняется один раз при запуске
+        label1.setText(input.getText());
+
+        //2. Слушатель на свойство text.
+        //Такой слушатель знает новое (и даже старое!) значение
+        input.textProperty().addListener(
+                (o, oldValue, newValue) -> label2.setText(newValue)
+        );
+        label2.setText(input.getText());
+
+        //3. Связывание значений (binding)
+        // Хотим, чтобы значение свойства text у метки label3
+        // всегда было равно значению свойства text у input.
+        //Метка, пусть твое св-во text будет привязано к значению
+        //свойства text у input
+        label3.textProperty().bind(input.textProperty());
+        //label3.setText("...") это приведет к ошибке
+
+        //4. Добавим в конец метки восклицательный знак.
+        //со слушателями это делается элементарно:
+        input.textProperty().addListener(o -> {
+            String newText = input.getText() + "!";
+            label4.setText(newText);
+        });
+        //TODO правда, надо чтобы при запуске тоже метка соответствовала
+
+        //5. Как вычислять с помощью bindings
+        label5.textProperty().bind(
+                input.textProperty() //см. ниже обсуждение
+                    .concat("!")
+        );
+        /*
+        input.textProperty() - это Observable, т.е. величина, за изменением
+        значений которой можно наблюдать.
+        String text = "hello";
+        ...
+        text = "buy"; //пердставьте, что в этот момент мы можем
+                      //узнать, что значение переменной изменилось
+                      //и сразу на это отреагировать.
+
+        По аналогии, input.textProperty() - это String, про который можно
+        сразу узнать, если он изменился.
+        input.textProperty() - класс ObservableString...., к нему
+        не приделать "!" через +.
+         */
+
+        //а если восклицательный знак в начале?
+        label6.textProperty().bind(
+                Bindings.concat( //см. ниже
+                        "!",
+                        input.textProperty()
+                )
+        );
+        /*
+        Вспомогательный класс Bindings, в нем есть много обычных
+        операций, но над Observable. В результате опять получается
+        Observable
+         */
+
+        //А если хочется сделать вычисление, которое не доступно
+        //через возможности Bindings. Допустим - привести к верхнему
+        //регистру
+        label7.textProperty().bind(
+                Bindings.createStringBinding( // (1)
+                        () -> input.getText().toUpperCase(),  // (2)
+                        input.textProperty() // (3)
+                )
+        );
+
+        /*
+        (1) create***Binging - это произвольное вычисление, создает
+        Observable из других Observable.
+        createStringBinding потому что textProperty() имеет тип String
+        (2) произвольное вычисление в виде лямбда выражения, без аргументов
+        Должно возвращать String (в данном случае)
+        (3) когда перевычилять наш новый Observable? Список других Observable,
+        на основе которых вычисляется наш.
+         */
+    }
+}
+```
 
 Еще раз про слушателей и bindings. Их не надо путать.
 Слушатели универсальны, с ними можно реализовать любую
