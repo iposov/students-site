@@ -6,8 +6,8 @@ type: tasks
 
 ## Ссылки
 
-* [haskell.org](haskell.org) для установки
-* [wiki.haskell.org](wiki.haskell.org) много материалов для изучения
+* [haskell.org](http://haskell.org) для установки
+* [wiki.haskell.org](http://wiki.haskell.org) много материалов для изучения
 * [Haskell Wikibook](https://en.wikibooks.org/wiki/Haskell).
 Читайте разделы в Haskell Basics: `Variables and functions`, `Truth values`, `Type basics`, `Lists and tuples`, `Next steps`.
 В разделе Elementary Haskell: всё без `Types declarations` и без разделов о непонятном.
