@@ -1,5 +1,4 @@
 #todo if Url does not start with http or with /, then concatenate
-
 - title: Главная
   url: /
 - title: Весна 2020
@@ -15,70 +14,70 @@
     url: /20spring/dm/
   - title: Алгоритмы
     url: /20spring/algs/
-#- title: Осень 2019
-#  url: /19fall
-#  sub:
-#  - title: Computer Tools in Education (Mathematical Packages)
-#    url: /19fall/mathematical_packages
-#  - title: Основы программирования
-#    url: /19fall/programming_basics
-#  - title: Технологии программирования
-#    url: /19fall/programming_technology
-#  - title: Алгоритмы комьютерной графики
-#    url: /19fall/computer_graphics
-#  - title: Функциональное программирование
-#    url: /19fall/functional_programming
-#  - title: Математическая логика и теория алгоритмов
-#    url: /19fall/mlita
-#  - title: Математические пакеты
-#    url: /19fall/mathematical_packages_ru
-# - title: Весна 2019
-#  url: /19spring
-#  sub:
-#  - title: Основы программирования
-#    url: /19spring/prog-basics-ii/
-#  - title: Технологии программирования
-#    url: /19spring/prog-tech-ii/
-#  - title: Статистические методы обработки языка и речи
-#    url: /19spring/stat-lang/
-#  - title: Дискретная математика
-#    url: /19spring/dm/
-#  - title: Дискретная математика - практика
-#    url: /19spring/dm-practice/
-# - title: Осень 2018
-#  url: /18fall
-#  sub:
-#  - title: Computer Tools in Education (Mathematical Packages)
-#    url: /18fall/mathematical_packages
-#  - title: Основы программирования
-#    url: /18fall/programming_basics
-#  - title: Технологии программирования
-#    url: /18fall/programming_technology
-#  - title: Алгоритмы комьютерной графики
-#    url: /18fall/computer_graphics
-#  - title: Функциональное программирование
-#    url: /18fall/functional_programming
-#  - title: Математическая логика и теория алгоритмов
-#    url: /18fall/mlita
-#- title: Весна 2018
-#  url: /18spring
-#  sub:
-#  - title: Основы программирования
-#    url: /18spring/prog-basics-ii/
-#  - title: Технологии программирования
-#    url: /18spring/prog-tech-ii/
-#  - title: Дискретная математика
-#    url: /18spring/dm/
-#- title: Осень 2017
-#  url: /17fall
-#  sub:
-#  - title: Математические пакеты
-#    url: /17fall/mathematical-packages.html
-#  - title: Основы программирования
-#    url: /17fall/programming-basics.html
-#  - title: Технологии программирования
-#    url: /17fall/programming-technology
-#  - title: Алгоритмы комьютерной графики
-#    url: /17fall/computer-graphics.html
-#  - title: Математическая логика и теория алгоритмов
-#    url: /17fall/mlita.html
+- title: Осень 2019
+  url: /19fall
+  sub:
+  - title: Computer Tools in Education (Mathematical Packages)
+    url: /19fall/mathematical_packages
+  - title: Основы программирования
+    url: /19fall/programming_basics
+  - title: Технологии программирования
+    url: /19fall/programming_technology
+  - title: Алгоритмы комьютерной графики
+    url: /19fall/computer_graphics
+  - title: Функциональное программирование
+    url: /19fall/functional_programming
+  - title: Математическая логика и теория алгоритмов
+    url: /19fall/mlita
+  - title: Математические пакеты
+    url: /19fall/mathematical_packages_ru
+- title: Весна 2019
+  url: /19spring
+  sub:
+  - title: Основы программирования
+    url: /19spring/prog-basics-ii/
+  - title: Технологии программирования
+    url: /19spring/prog-tech-ii/
+  - title: Статистические методы обработки языка и речи
+    url: /19spring/stat-lang/
+  - title: Дискретная математика
+    url: /19spring/dm/
+  - title: Дискретная математика - практика
+    url: /19spring/dm-practice/
+- title: Осень 2018
+  url: /18fall
+  sub:
+  - title: Computer Tools in Education (Mathematical Packages)
+    url: /18fall/mathematical_packages
+  - title: Основы программирования
+    url: /18fall/programming_basics
+  - title: Технологии программирования
+    url: /18fall/programming_technology
+  - title: Алгоритмы комьютерной графики
+    url: /18fall/computer_graphics
+  - title: Функциональное программирование
+    url: /18fall/functional_programming
+  - title: Математическая логика и теория алгоритмов
+    url: /18fall/mlita
+- title: Весна 2018
+  url: /18spring
+  sub:
+  - title: Основы программирования
+    url: /18spring/prog-basics-ii/
+  - title: Технологии программирования
+    url: /18spring/prog-tech-ii/
+  - title: Дискретная математика
+    url: /18spring/dm/
+- title: Осень 2017
+  url: /17fall
+  sub:
+  - title: Математические пакеты
+    url: /17fall/mathematical-packages.html
+  - title: Основы программирования
+    url: /17fall/programming-basics.html
+  - title: Технологии программирования
+    url: /17fall/programming-technology
+  - title: Алгоритмы комьютерной графики
+    url: /17fall/computer-graphics.html
+  - title: Математическая логика и теория алгоритмов
+    url: /17fall/mlita.html
