@@ -5,7 +5,7 @@ type: tasks
 # Технологии программирования
 
 ## Лекции
- * [Коллекции](/19spring/prog-basics-ii/collections.md)
+ * [Коллекции](/19spring/prog-basics-ii/collections.html)
 
 ## Задачи
 
