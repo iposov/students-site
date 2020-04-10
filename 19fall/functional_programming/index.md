@@ -12,6 +12,7 @@ type: tasks
 Читайте разделы в Haskell Basics: `Variables and functions`, `Truth values`, `Type basics`, `Lists and tuples`, `Next steps`.
 В разделе Elementary Haskell: всё без `Types declarations` и без разделов о непонятном.
 * [Кубенский А.А. Функциональное программирование](https://biblio-online.ru/book/658E3C89-AAD5-498B-8B34-A29E1750D810/funkcionalnoe-programmirovanie). Для доступа к сайту издательства Юрайт перейдите по ссылке [http://cufts.library.spbu.ru/CRDB/SPBGU/resource/306/goto](http://cufts.library.spbu.ru/CRDB/SPBGU/resource/306/goto) и введите свои университетские логин и пароль.
+* [**Наша лекция про функторы, аппликативные функторы и монады**](https://nbviewer.jupyter.org/github/iposov/students-site/blob/master/19fall/functional_programming/functors-applicative-monads.ipynb)
 
 ## Задачи
 
