@@ -1,3 +1,7 @@
+---
+youtube: on
+---
+
 # Установка среды разработки IntelliJ IDEA и Java
 
 ## Сначала Java
@@ -38,7 +42,7 @@ IDEA можно установить напрямую, но я прошу так
 
 ![jetbrains toolbox](toolbox.png)
 
-1. Справа сверху найдите шестеренку с настройками всей программы и уберите внутри "Run at login", чтобы программа
+1. Справа сверху найдите шестеренку с настройками всей программы, нажмите на нее и уберите "Run at login", чтобы программа
 не запускалась сама при старте. Закройте настройки
 1. Найдите в списке "IntelliJ IDEA Community" и установите ее кнопкой Install.
 1. Вы можете установить Ultimate версию вместо Community. В Ultimate больше возможностей, некоторые из них
@@ -47,4 +51,9 @@ IDEA можно установить напрямую, но я прошу так
 jetbrains студенческую лицензию, чтобы пользоваться IDEA бесплатно.
 1. При необходимости обновить среду разработки в будущем, открывайте toolbox и нажимайте "upgrade".
 
-Далее смотрите видео
+## Первый запуск IDEA
+
+
+<iframe id='video1' width="560" height="315" src="https://www.youtube.com/embed/7hfv4I-h8gs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Ссылка [4:05](youtube://#video1#4:05)
