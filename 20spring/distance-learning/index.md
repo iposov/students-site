@@ -30,8 +30,8 @@
 уделить время тому, как выглядит правильно настроенный проект. 
 
 1. [Установка среды разработки IntelliJ IDEA](intellij-idea-install)
-1. [Проект в IntelliJ IDEA](projects-in-idea.md)
-1. [Возможности среды разработки](idea-features.md)
+1. [Проект в IntelliJ IDEA](intellij-idea-configure)
+1. Возможности среды разработки
 
 ## Работа с Git и GitHub
 
