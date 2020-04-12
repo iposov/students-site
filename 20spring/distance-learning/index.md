@@ -31,7 +31,7 @@
 
 1. [Установка среды разработки IntelliJ IDEA](intellij-idea-install)
 1. [Проект в IntelliJ IDEA](intellij-idea-configure)
-1. Возможности среды разработки
+1. [Возможности среды разработки](idea-features)
 
 ## Работа с Git и GitHub
 
