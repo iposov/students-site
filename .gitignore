@@ -4,5 +4,5 @@ Gemfile.lock
 
 #generated files
 _site/
-
+latex-out/
 .ipynb_checkpoints
