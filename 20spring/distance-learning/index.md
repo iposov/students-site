@@ -35,4 +35,6 @@
 
 ## Работа с Git и GitHub
 
-1. [Система контроля версий Git и ее установка](git-basics)
+1. [Система контроля версий Git](git-basics)
+1. [Установка git](git-install)
+1. [Первая практика с git](git-first-practice)
