@@ -39,4 +39,5 @@
 1. [Установка git](git-install)
 1. [Первая практика с git](git-first-practice)
 1. [Выкладываем проект на GitHub](github)
+1. [Несколько копий репозитория](several-repos)
 1. Интерактивный учебник на русском: https://learngitbranching.js.org/?locale=ru_RU
