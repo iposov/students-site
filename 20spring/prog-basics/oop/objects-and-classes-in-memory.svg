@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8458"
    inkscape:version="0.92.4 (unknown)"
-   sodipodi:docname="objects-in-memory.svg">
+   sodipodi:docname="objects-and-classes-in-memory.svg">
   <defs
      id="defs8452">
     <marker
@@ -74,7 +74,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
      inkscape:cx="450.45034"
-     inkscape:cy="407.81038"
+     inkscape:cy="412.6618"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -106,136 +106,96 @@
        id="path8499"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ssssssssssssss" />
-    <g
-       id="g8532"
-       transform="translate(-11.339286,-33.035119)">
-      <g
-         style="stroke-width:0.94111598"
-         transform="matrix(1.1290514,0,0,1,-40.404346,-10.96131)"
-         id="g8519">
-        <rect
-           style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.56466961;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="rect8479"
-           width="69.458611"
-           height="43.595051"
-           x="132.03114"
-           y="70.889977" />
-        <path
-           style="fill:none;stroke:#000000;stroke-width:0.24900359px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 131.49661,83.184371 h 69.77172"
-           id="path8489"
-           inkscape:connector-curvature="0" />
-      </g>
-      <text
-         id="text8503"
-         y="69.080353"
-         x="111.15501"
-         style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="font-size:8.46666718px;stroke-width:0.26458332"
-           y="69.080353"
-           x="111.15501"
-           id="tspan8501"
-           sodipodi:role="line">Student</tspan></text>
-      <text
-         id="text8507"
-         y="80.041656"
-         x="111.07233"
-         style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="font-size:7.05555677px;stroke-width:0.26458332"
-           y="80.041656"
-           x="111.07233"
-           id="tspan8505"
-           sodipodi:role="line">name =</tspan></text>
-      <text
-         id="text8511"
-         y="88.745453"
-         x="111.50296"
-         style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="font-size:7.0555563px;stroke-width:0.26458332"
-           y="88.745453"
-           x="111.50296"
-           id="tspan8509"
-           sodipodi:role="line">yearOfBirth =</tspan></text>
-      <text
-         id="text8515"
-         y="97.428566"
-         x="111.50296"
-         style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="font-size:7.0555563px;stroke-width:0.26458332"
-           y="97.428566"
-           x="111.50296"
-           id="tspan8513"
-           sodipodi:role="line">yearOfStudy =</tspan></text>
-    </g>
-    <g
-       transform="translate(-5.6153519,18.197021)"
-       id="g8532-6">
-      <g
-         style="stroke-width:0.94111598"
-         transform="matrix(1.1290514,0,0,1,-40.404346,-10.96131)"
-         id="g8519-2">
-        <rect
-           style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.56466961;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="rect8479-1"
-           width="69.458611"
-           height="43.595051"
-           x="132.03114"
-           y="70.889977" />
-        <path
-           style="fill:none;stroke:#000000;stroke-width:0.24900359px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 131.49661,83.184371 h 69.77172"
-           id="path8489-7"
-           inkscape:connector-curvature="0" />
-      </g>
-      <text
-         id="text8503-8"
-         y="69.080353"
-         x="111.15501"
-         style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="font-size:8.46666718px;stroke-width:0.26458332"
-           y="69.080353"
-           x="111.15501"
-           id="tspan8501-5"
-           sodipodi:role="line">Student</tspan></text>
-      <text
-         id="text8507-7"
-         y="80.041656"
-         x="111.07233"
-         style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="font-size:7.05555677px;stroke-width:0.26458332"
-           y="80.041656"
-           x="111.07233"
-           id="tspan8505-4"
-           sodipodi:role="line">name =</tspan></text>
-      <text
-         id="text8511-1"
-         y="88.745453"
-         x="111.50296"
-         style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="font-size:7.0555563px;stroke-width:0.26458332"
-           y="88.745453"
-           x="111.50296"
-           id="tspan8509-8"
-           sodipodi:role="line">yearOfBirth =</tspan></text>
-      <text
-         id="text8515-5"
-         y="97.428566"
-         x="111.50296"
-         style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="font-size:7.0555563px;stroke-width:0.26458332"
-           y="97.428566"
-           x="111.50296"
-           id="tspan8513-9"
-           sodipodi:role="line">yearOfStudy =</tspan></text>
-    </g>
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.60000002;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8479"
+       width="78.42234"
+       height="33.973347"
+       x="97.326317"
+       y="26.893549" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 96.7228,39.187942 h 78.77586"
+       id="path8489"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="99.81572"
+       y="36.045235"
+       id="text8503"><tspan
+         sodipodi:role="line"
+         id="tspan8501"
+         x="99.81572"
+         y="36.045235"
+         style="font-size:8.46666718px;stroke-width:0.26458332">Person</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="99.73304"
+       y="47.006538"
+       id="text8507"><tspan
+         sodipodi:role="line"
+         id="tspan8505"
+         x="99.73304"
+         y="47.006538"
+         style="font-size:7.05555677px;stroke-width:0.26458332">name =</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="100.16367"
+       y="55.710335"
+       id="text8511"><tspan
+         sodipodi:role="line"
+         id="tspan8509"
+         x="100.16367"
+         y="55.710335"
+         style="font-size:7.0555563px;stroke-width:0.26458332">yearOfBirth =</tspan></text>
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.60000002;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8479-1"
+       width="78.42234"
+       height="33.438808"
+       x="103.05025"
+       y="78.125687" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 102.44673,90.420082 h 78.77586"
+       id="path8489-7"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="105.53966"
+       y="87.277374"
+       id="text8503-8"><tspan
+         sodipodi:role="line"
+         id="tspan8501-5"
+         x="105.53966"
+         y="87.277374"
+         style="font-size:8.46666718px;stroke-width:0.26458332">Person</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="105.45698"
+       y="98.238678"
+       id="text8507-7"><tspan
+         sodipodi:role="line"
+         id="tspan8505-4"
+         x="105.45698"
+         y="98.238678"
+         style="font-size:7.05555677px;stroke-width:0.26458332">name =</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="105.88761"
+       y="106.94247"
+       id="text8511-1"><tspan
+         sodipodi:role="line"
+         id="tspan8509-8"
+         x="105.88761"
+         y="106.94247"
+         style="font-size:7.0555563px;stroke-width:0.26458332">yearOfBirth =</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -277,26 +237,78 @@
        sodipodi:nodetypes="csc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.60000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker8610)"
-       d="m -21.991755,86.821038 c 0,0 9.087164,-8.018087 62.541068,3.207234 53.453905,11.225318 59.333834,14.432558 59.333834,14.432558"
+       d="m -21.991755,86.821038 c 0,0 9.087164,-8.018087 62.541068,3.207234 53.453905,11.225318 61.966397,10.845448 61.966397,10.845448"
        id="path8596"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="csc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.60000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-       d="m -22.526294,100.18451 c 0,0 38.486812,5.87993 58.799295,8.01809 20.312486,2.13815 61.053314,-37.713998 61.053314,-37.713998"
+       d="m -22.526294,100.18451 c 0,0 38.486812,5.87993 58.799295,8.01809 20.312486,2.13815 61.053316,-47.335702 61.053316,-47.335702"
        id="path8600"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="csc" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:8.46666718px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="70.483505"
-       y="171.27821"
+       x="64.603577"
+       y="16.261889"
        id="text8614"><tspan
          sodipodi:role="line"
          id="tspan8612"
-         x="70.483505"
-         y="171.27821"
+         x="64.603577"
+         y="16.261889"
          style="font-size:8.46666718px;stroke-width:0.26458332">Память</tspan></text>
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.60000002;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8479-7-5"
+       width="83.2332"
+       height="37.346104"
+       x="76.975418"
+       y="134.96536" />
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.60000002;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8479-7"
+       width="78.422348"
+       height="34.507885"
+       x="79.720123"
+       y="136.38448" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="82.414101"
+       y="145.08925"
+       id="text8503-3"><tspan
+         sodipodi:role="line"
+         id="tspan8501-8"
+         x="82.414101"
+         y="145.08925"
+         style="font-size:8.46666813px;stroke-width:0.26458332">Person</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 78.741564,149.01208 H 157.51742"
+       id="path8489-8"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="82.777901"
+       y="168.07097"
+       id="text8736"><tspan
+         sodipodi:role="line"
+         x="82.777901"
+         y="168.07097"
+         style="font-size:8.46666622px;stroke-width:0.26458332"
+         id="tspan8738">count =</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:14.11111164px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="82.686951"
+       y="157.91473"
+       id="text8744"><tspan
+         sodipodi:role="line"
+         id="tspan8742"
+         x="82.686951"
+         y="157.91473"
+         style="font-size:8.46666622px;stroke-width:0.26458332">SPECIES_NAME =</tspan></text>
   </g>
 </svg>
