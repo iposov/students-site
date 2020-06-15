@@ -4,6 +4,8 @@
 
 [Задачи](tasks.md)
 
+[Частые проблемы в решениях](common-mistakes.md)
+
 ## Материалы
 * [Базовый синтаксис](basic-syntax.md)
 * [Типы и литералы](lecture1-types-literals.md)
