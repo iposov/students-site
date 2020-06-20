@@ -1,5 +1,9 @@
 # Основы программирования, Java
 
+## Задача экзамена
+
+[Транслитерация](https://docs.google.com/document/d/e/2PACX-1vRwN9JYuqYm71BMPN8EzhOxQWHWnxQLfzY5E4bhJOsIbbvI6EgxkY2URyT1106_CbxRGUi0-bSWJwb3/pub)
+
 ## Задачи
 
 [Задачи](tasks.md)
