@@ -8,7 +8,7 @@
 
 [Вторая часть лекции](https://web.microsoftstream.com/video/a528822b-55cf-48ef-ae74-53be4b99db13)
 
-[Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-python-1.ipynb). В конспекте
+[Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-1.ipynb). В конспекте
 есть совсем чуть-чуть дополнительной информации к видео, и там есть примеры решения задач. Решайте задачи, пожалуйста, именно так, как предлагается в конспекте.
 
 [Практика](https://web.microsoftstream.com/video/4c63ef35-518e-4a4e-9433-6892c9d0b711) - это видео не очень содержательно, достаточно смотреть материалы ниже.
