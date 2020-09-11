@@ -6,18 +6,27 @@
 
 1. [Вводные](1_intro.md)
 
-## Первое занятие
+## Лекции
 
-[Первая часть лекции](https://web.microsoftstream.com/video/22bd04c1-9284-4995-9f96-7d1679913b93)
+1.  Введение
 
-[Вторая часть лекции](https://web.microsoftstream.com/video/a528822b-55cf-48ef-ae74-53be4b99db13)
+    [Первая часть лекции](https://web.microsoftstream.com/video/22bd04c1-9284-4995-9f96-7d1679913b93)
 
-[Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-1.ipynb). В конспекте
+    [Вторая часть лекции](https://web.microsoftstream.com/video/a528822b-55cf-48ef-ae74-53be4b99db13)
+ 
+    [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-1.ipynb). В конспекте
 есть совсем чуть-чуть дополнительной информации к видео, и там есть примеры решения задач. Решайте задачи, пожалуйста, именно так, как предлагается в конспекте.
+  
+    [Практика](https://web.microsoftstream.com/video/4c63ef35-518e-4a4e-9433-6892c9d0b711) - это видео не очень содержательно, достаточно смотреть материалы ниже.
+  
+    [Примеры кода для решения первых задач](basic_code_examples.md)
+1.  Типы и литералы: числовые, логические типы, строки, операции сравнения
 
-[Практика](https://web.microsoftstream.com/video/4c63ef35-518e-4a4e-9433-6892c9d0b711) - это видео не очень содержательно, достаточно смотреть материалы ниже.
+     [Первая часть лекции](https://web.microsoftstream.com/video/735688ef-c7c7-4830-adfa-f93dfd8e1063)
 
-[Примеры кода для решения первых задач](basic_code_examples.md)
+     [Вторая часть лекции](https://web.microsoftstream.com/video/4bab1099-2985-44ca-894e-cd23cb50d94d3)
+     
+     [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-2.ipynb). 
 
 ### Анкета
 
