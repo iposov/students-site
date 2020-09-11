@@ -4,15 +4,15 @@
 
 # Задачи
 
+Автоматическая проверка некоторых задач: [Задачи на repl.it](https://repl.it/classroom/invite/Y4lXO57)
+
 1. [Вводные](1_intro.md)
 
 ## Лекции
 
 1.  Введение
 
-    [Первая часть лекции](https://web.microsoftstream.com/video/22bd04c1-9284-4995-9f96-7d1679913b93)
-
-    [Вторая часть лекции](https://web.microsoftstream.com/video/a528822b-55cf-48ef-ae74-53be4b99db13)
+    [Первая часть лекции](https://web.microsoftstream.com/video/22bd04c1-9284-4995-9f96-7d1679913b93), [вторая часть лекции](https://web.microsoftstream.com/video/a528822b-55cf-48ef-ae74-53be4b99db13)
  
     [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-1.ipynb). В конспекте
 есть совсем чуть-чуть дополнительной информации к видео, и там есть примеры решения задач. Решайте задачи, пожалуйста, именно так, как предлагается в конспекте.
@@ -22,11 +22,9 @@
     [Примеры кода для решения первых задач](basic_code_examples.md)
 1.  Типы и литералы: числовые, логические типы, строки, операции сравнения
 
-     [Первая часть лекции](https://web.microsoftstream.com/video/735688ef-c7c7-4830-adfa-f93dfd8e1063)
-
-     [Вторая часть лекции](https://web.microsoftstream.com/video/4bab1099-2985-44ca-894e-cd23cb50d94d3)
+     [Первая часть лекции](https://web.microsoftstream.com/video/735688ef-c7c7-4830-adfa-f93dfd8e1063), [вторая часть лекции](https://web.microsoftstream.com/video/4bab1099-2985-44ca-894e-cd23cb50d94d3)
      
-     [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-2.ipynb). 
+     [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-2.ipynb)
 
 ### Анкета
 
