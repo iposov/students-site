@@ -29,7 +29,7 @@
      
 1. Форматирование кода, Функции
 
-    [Первая часть лекции](), [вторая часть лекции]()
+    [Первая часть лекции](https://web.microsoftstream.com/video/d0872b46-e18c-48c0-92ed-2039234e34d4), [вторая часть лекции](https://web.microsoftstream.com/video/1c9988f4-26c2-4b6e-9c00-bc5819450143) здесь долго не останавливалась запись после конца лекции, там ничего важного.
 
     [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-3.ipynb)
 
