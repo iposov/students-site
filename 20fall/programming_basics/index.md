@@ -25,6 +25,12 @@
      [Первая часть лекции](https://web.microsoftstream.com/video/735688ef-c7c7-4830-adfa-f93dfd8e1063), [вторая часть лекции](https://web.microsoftstream.com/video/4bab1099-2985-44ca-894e-cd23cb50d94d3)
      
      [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-2.ipynb)
+     
+1. Форматирование кода, Функции
+
+    [Первая часть лекции](), [вторая часть лекции]()
+
+    [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-3.ipynb)
 
 ### Анкета
 
