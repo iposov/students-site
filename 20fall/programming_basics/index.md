@@ -7,6 +7,7 @@
 Автоматическая проверка некоторых задач: [Задачи на repl.it](https://repl.it/classroom/invite/Y4lXO57)
 
 1. [Вводные](1_intro.md)
+2. [Псевдографика](2_tasks_pseudographics.md)
 
 ## Лекции
 
