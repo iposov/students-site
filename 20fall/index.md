@@ -6,6 +6,8 @@
 
 [Технологии программирования](programming_technology/)
 
+[Функциональное программирование](functional_programming/)
+
 ## ЛЭТИ
 
 [mathematical packages](mathematical_packages/)
