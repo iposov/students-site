@@ -13,8 +13,8 @@ type: tasks
 В разделе Elementary Haskell: всё без `Types declarations` и без разделов о непонятном.
 * Кубенский А.А. Функциональное программирование. Ищите на [library.spbu.ru](library.spbu.ru)
 
-###
-Что мы успели изучить на лекции [lectures1and2.hs](lectures1and2.hs)
+### Лекции
+Что мы успели изучить на лекции [lectures1and2.hs](helloworld.hs)
 
 ### Вводные
 
