@@ -13,6 +13,7 @@ Please, answer the questions and send answers to me: [introductionary questions]
 1. [Octave matrices - create](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/mathematical_packages/octave-matrices-create.ipynb)
 1. [Octave matrices - index](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/mathematical_packages/octave-matrices-index.ipynb)
 1. [Matrix operations. Vectorization. Logical indexing](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/mathematical_packages/octave-matrices-operations.ipynb)
+1. [Logical indexing again, plotting](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/mathematical_packages/octave-logic-plot.ipynb)
 
 ## Tasks
 
