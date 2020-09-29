@@ -11,3 +11,5 @@
 ## ЛЭТИ
 
 [mathematical packages](mathematical_packages/)
+
+[Дискретная математика и теория графов](graphs/)
