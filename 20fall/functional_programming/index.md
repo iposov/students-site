@@ -14,7 +14,11 @@ type: tasks
 * Кубенский А.А. Функциональное программирование. Ищите на [library.spbu.ru](library.spbu.ru)
 
 ### Лекции
-Что мы успели изучить на лекции [lectures1and2.hs](helloworld.hs)
+Что мы успели изучить на лекции
+
+[lectures1and2.hs](helloworld.hs)
+
+[lists.hs](lists.hs)
 
 ### Вводные
 
