@@ -22,6 +22,12 @@ type: tasks
 
 ![foldl и foldr](foldl.svg)
 
+[10 сентября часть 1](https://web.microsoftstream.com/video/58bd80a7-a57a-456a-a05d-fb7d7cc4855e)
+[10 сентября часть 2](https://web.microsoftstream.com/video/d7d45f19-2b86-410f-9bf6-36165a981567)
+[17 сентября часть 1](https://web.microsoftstream.com/video/d7d45f19-2b86-410f-9bf6-36165a981567)
+[17 сентября часть 2](https://web.microsoftstream.com/video/c4db63cc-93af-4507-9993-a791481151f1)
+[24 сентября](https://web.microsoftstream.com/video/5e1660a2-c8b0-46e0-9475-4f9b30e0b3d2)
+
 ### Вводные
 
 Операции со списками
