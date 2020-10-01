@@ -11,7 +11,7 @@ type: tasks
 * [Haskell Wikibook](https://en.wikibooks.org/wiki/Haskell).
 Читайте разделы в Haskell Basics: `Variables and functions`, `Truth values`, `Type basics`, `Lists and tuples`, `Next steps`.
 В разделе Elementary Haskell: всё без `Types declarations` и без разделов о непонятном.
-* Кубенский А.А. Функциональное программирование. Ищите на [library.spbu.ru](http://library.spbu.ru)
+* Кубенский А.А. Функциональное программирование. Ищите на [library.spbu.ru](http://library.spbu.ru) или старая версия [Кубенский А.А. Функциональное программирование 2010](https://books.ifmo.ru/file/pdf/702.pdf)
 
 ### Лекции
 Что мы успели изучить на лекции
