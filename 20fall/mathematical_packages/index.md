@@ -15,6 +15,10 @@ Please, answer the questions and send answers to me: [introductionary questions]
 1. [Matrix operations. Vectorization. Logical indexing](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/mathematical_packages/octave-matrices-operations.ipynb)
 1. [Logical indexing again, plotting](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/mathematical_packages/octave-logic-plot.ipynb)
 
+## Tasks submission info
+
+Please read about [how to submit tasks](submission.md).
+
 ## Tasks
 
 [Octave tasks](octave.md)
