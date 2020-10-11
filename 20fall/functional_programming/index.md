@@ -20,6 +20,8 @@ type: tasks
 
 [lists.hs](lists.hs)
 
+[carrying.hs Частичное применение, функции `$` и `.`](carrying.hs)
+
 ![foldl и foldr](foldl.svg)
 
 [10 сентября часть 1](https://web.microsoftstream.com/video/58bd80a7-a57a-456a-a05d-fb7d7cc4855e)
@@ -31,6 +33,8 @@ type: tasks
 [17 сентября часть 2](https://web.microsoftstream.com/video/c4db63cc-93af-4507-9993-a791481151f1)
 
 [24 сентября](https://web.microsoftstream.com/video/5e1660a2-c8b0-46e0-9475-4f9b30e0b3d2)
+
+[8 октября](https://web.microsoftstream.com/video/96239e16-026b-49fd-9454-487a2c39ac03)
 
 ### Вводные
 

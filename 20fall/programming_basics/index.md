@@ -39,6 +39,12 @@
     [Лекция](https://web.microsoftstream.com/video/2f654c3c-78ff-4ec2-8b49-78b782ba48ad)
     
     [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-4.ipynb)
+    
+1. Изменяемые и неизменяемые объекты
+
+   [Лекция](https://web.microsoftstream.com/video/711b1b14-e7a0-41cf-b3b1-763761163385)
+   
+   [Конспект лекции]((http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-5.ipynb)
 
 ### Анкета
 
