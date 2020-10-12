@@ -9,6 +9,7 @@
 1. [Вводные](1_intro.md)
 2. [Псевдографика](2_tasks_pseudographics.md)
 3. [Строки и списки](3_strings_lists.md)
+4. [Упражнения на слайсы](3A_slices.md)
 
 ## Лекции
 
