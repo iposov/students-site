@@ -15,7 +15,9 @@ Please, answer the questions and send answers to me: [introductionary questions]
 1. [Matrix operations. Vectorization. Logical indexing](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/mathematical_packages/octave-matrices-operations.ipynb)
 1. [Logical indexing again, plotting](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/mathematical_packages/octave-logic-plot.ipynb)
 1. [Scripts and functions](octave-files.md)
-1. [Basic vectorization (from the official documentation)](https://octave.org/doc/v5.2.0/Basic-Vectorization.html)
+1. [Basic vectorization (from the official documentation)](https://octave.org/doc/v5.2.0/Basic-Vectorization.html),
+read up to the `vectorize` function, excluding it, because we are not going to use it
+in our tasks.
 
 ## Tasks submission info
 
