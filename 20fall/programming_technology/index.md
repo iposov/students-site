@@ -10,10 +10,10 @@ type: tasks
 * [Лекция о типах обертках и ассоциативных массивах](lecture2_wrappers_maps.md)
 
 ## Код из лекций
-* [collections.CollectionsExample](src/collections/CollectionsExample.java)
-* [collections.CreateCollectionsExample](src/collections/CreateCollectionsExample.java)
-* [collections.MapsExample](src/collections/MapsExample.java)
+
+Весь код можно получить по ссылке [https://github.com/iposov/students-site/tree/master/20fall/programming_technology/code/src](https://github.com/iposov/students-site/tree/master/20fall/programming_technology/code/src)
 
 ## Задачи
 
-[Страница с задачами](tasks.md)
+ * [Задачи про коллекции](tasks-collections.md)
+ * [Задачи про ассоциативные массивы](tasks-maps.md)
