@@ -8,6 +8,8 @@
 
 [Функциональное программирование](functional_programming/)
 
+[Компьютерная графика](computer_graphics/)
+
 ## ЛЭТИ
 
 [mathematical packages](mathematical_packages/)
