@@ -17,3 +17,4 @@ type: tasks
 
  * [Задачи про коллекции](tasks-collections.md)
  * [Задачи про ассоциативные массивы](tasks-maps.md)
+ * [Задачи про наследование](tasks-inheritance.md)
