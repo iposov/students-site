@@ -57,11 +57,11 @@
    
 1. Файлы
 
-  [Лекции пока нет]()
+   [Лекции пока нет]()
  
-  [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-7.ipynb)
+   [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-7.ipynb)
   
-  [Файл из лекции](text_utf8.txt)
+   [Файл из лекции](text_utf8.txt)
 
 
 ### Анкета
