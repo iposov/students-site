@@ -10,6 +10,8 @@
 2. [Псевдографика](2_tasks_pseudographics.md)
 3. [Строки и списки](3_strings_lists.md)
 4. [Упражнения на слайсы](4_slices.md)
+5. [Изменяемые и неизменяемые объекты](5_mutable_objects.md)
+5. [Генераторы списков](6_list_generators.md)
 
 ## Лекции
 
