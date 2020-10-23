@@ -57,7 +57,7 @@
    
 1. Файлы
 
-   [Лекции пока нет]()
+   [Лекция](https://web.microsoftstream.com/video/99a2df56-2211-41dc-a01e-40e7bc9e2164)
  
    [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-7.ipynb)
   
