@@ -62,7 +62,15 @@
    [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-7.ipynb)
   
    [Файл из лекции](text_utf8.txt)
+   
+1. Словари и множества
 
+   [Лекция часть 1](https://web.microsoftstream.com/video/7e77874b-bc10-443b-934a-18c678b15e0b)
+   
+   [Лекция часть 2](https://web.microsoftstream.com/video/d3a37094-32df-4ce3-86cc-f54ad2981ccb)
+ 
+   [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-8.ipynb)
+   
 
 ### Анкета
 
