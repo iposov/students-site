@@ -75,7 +75,7 @@
    
 1. Запаковка и распаковка перечислений (деструктуризация при присваивании) 
 
-   [Лекция пока без ссылки]()
+   [Лекция](https://web.microsoftstream.com/video/76f7b137-e519-4e9a-822f-9a6b7af09d10)
  
    [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-9.ipynb)
 

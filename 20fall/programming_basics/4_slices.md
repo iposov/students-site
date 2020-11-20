@@ -33,7 +33,7 @@ s = "ABCDEF123456789"
 # print(s[??])  # 678
 # print(s[??])  # 987654321
 # print(s[??])  # 97531
-# print(s[??])  # 9753FEDCBA
+# print(s[??])  # FEDCBA
 # print(s[??])  # A17
 # print(s[??])  # 987654321FEDCBA
 # print(s[??])  # 987654321FEDCB
