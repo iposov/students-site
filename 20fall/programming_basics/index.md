@@ -73,6 +73,11 @@
  
    [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-8.ipynb)
    
+1. Запаковка и распаковка перечислений (деструктуризация при присваивании) 
+
+   [Лекция пока без ссылки]()
+ 
+   [Конспект лекции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/20fall/programming_basics/2020-lecture-9.ipynb)
 
 ### Анкета
 
