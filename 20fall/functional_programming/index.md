@@ -36,6 +36,8 @@ type: tasks
 
 [8 октября](https://web.microsoftstream.com/video/96239e16-026b-49fd-9454-487a2c39ac03)
 
+[22 октября](https://web.microsoftstream.com/video/bf6e5c2c-5a3d-4ab3-ab74-7a4feb60b5a4)
+
 ### Вводные
 
 Операции со списками
