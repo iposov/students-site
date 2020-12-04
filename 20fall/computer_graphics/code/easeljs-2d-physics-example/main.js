@@ -52,9 +52,14 @@ stage.addEventListener('tick', function(e) {
     //Движок пересчитывает положение объектов. Ему надо периодически
     //сообщать, что прошло сколько-то времени.
     Engine.update(engine, e.delta / 3); // e.delta примерно 1000 / 60 мс
+});
 
+rect1.addEventListener('tick', function(e) {
     rect1.x = xPhys2xStage(boxA.position.x);
     rect1.y = yPhys2yStage(boxA.position.y);
+});
+
+rect2.addEventListener('tick', function(e) {
     rect2.x = xPhys2xStage(boxB.position.x);
     rect2.y = yPhys2yStage(boxB.position.y);
 });
