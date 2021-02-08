@@ -1,7 +1,7 @@
 #todo if Url does not start with http or with /, then concatenate
 - title: Главная
   url: /
-- title: Весна 2020
+- title: Весна 2021
   url: /21fall
   sub:
     - title: Основы программирования
