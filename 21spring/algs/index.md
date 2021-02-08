@@ -37,3 +37,5 @@
 На первом практическом занятии я предлагаю ответить на вопросы анкеты, чтобы я мог правильно выстроить курс: [http://alpha.multivariant.ru/room/6021085db58dc4e3c252b7a1](http://alpha.multivariant.ru/room/6021085db58dc4e3c252b7a1)
 
 И для тренировки решить задачу про сложение чисел:
+
+[http://alpha.multivariant.ru/room/60210a48b58dc4e3c252bb8b](http://alpha.multivariant.ru/room/60210a48b58dc4e3c252bb8b)
