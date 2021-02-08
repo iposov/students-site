@@ -1,6 +1,23 @@
 #todo if Url does not start with http or with /, then concatenate
 - title: Главная
   url: /
+- title: Весна 2020
+  url: /21fall
+  sub:
+    - title: Основы программирования
+      url: /21spring/prog-basics
+    - title: Технологии программирования
+      url: /21spring/prog-tech
+    - title: Статистические методы анализа языка и речи
+      url: /21spring/stat-lang
+    - title: Дискретная математика и теоретическая информатика
+      url: /21spring/dm
+    - title: Дискретная математика и теоретическая информатика (Практика)
+      url: /21spring/dm-practice
+    - title: Математическая логика и теория алгоритмов
+      url: /21spring/ml
+    - title: Проектирование алгоритмов
+      url: /21spring/algs
 - title: Осень 2020
   url: /20fall
   sub:
