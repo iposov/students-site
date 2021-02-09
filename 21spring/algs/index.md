@@ -38,3 +38,6 @@
 И для тренировки решить задачу про сложение чисел:
 
 [http://alpha.multivariant.ru/room/60210a48b58dc4e3c252bb8b](http://alpha.multivariant.ru/room/60210a48b58dc4e3c252bb8b)
+
+## Лекция 1
+[Конспект](lecture1.md)
