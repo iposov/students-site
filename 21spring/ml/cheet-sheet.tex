@@ -1,0 +1,63 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{framed}
+\renewcommand{\c}[2]{$C_{#1}^{#2}$}
+\newcommand{\cc}[2]{C_{#1}^{#2}}
+\numberwithin{equation}{subsection}
+\renewcommand{\[}{\begin{equation}}
+\renewcommand{\]}{\end{equation}}
+
+\newenvironment{exercise}{%
+    \begin{framed}
+        \par\noindent\slshape%
+        }%
+        {
+    \end{framed}}
+
+\title{Шпаргалка по логике исчисления предикатов}
+\author{}
+\date{}
+
+\begin{document}
+
+    \section{Формулы с одной переменной}
+
+    См. прошлое задание
+
+    \section{Формулы с двумя переменными}
+
+    \subsection{Отрицание}
+    \[\overline{X\vee Y} = \overline{X}\cdot\overline{Y}\]
+    \[\overline{X\cdot Y} = \overline{X}\vee\overline{Y}\]
+    \[\overline{X\Leftrightarrow Y} = \overline{X}+\overline{Y}\]
+    \[\overline{X + Y} = \overline{X}\Leftrightarrow\overline{Y}\]
+
+    \subsection{Связки}
+    \[X\Rightarrow Y = \overline{X} \vee Y \]
+    \[X\Leftrightarrow Y = (X\Rightarrow Y)(Y\Rightarrow X)\]
+
+    \subsection{ДНФ и КНФ}
+    Здесь пока специально не указан ответ
+    \[X + Y = (? \vee ?)(? \vee ?)\]
+    \[X \Leftrightarrow Y = (? \vee ?)(? \vee ?)\]
+    \[X + Y = ?\cdot? \vee ?\cdot?\]
+    \[X \Leftrightarrow Y = ?\cdot? \vee ?\cdot?\]
+
+    \section{Формулы с тремя переменными}
+    \subsection{Ассоциативность операций}
+    \[(X \vee Y) \vee Z = X \vee (Y \vee Z)\]
+    \[(X \cdot Y) \cdot Z = X \cdot (Y \cdot Z)\]
+    \[(X + Y) + Z = X + (Y + Z)\]
+    \[(X \Leftrightarrow Y) \Leftrightarrow Z = X \Leftrightarrow (Y \Leftrightarrow Z)\]
+    \[(X \Rightarrow Y) \Rightarrow Z \ne X \Rightarrow (Y \Rightarrow Z)\]
+
+    \subsection{Дистрибутивность}
+    \[(X\vee Y)Z = XZ \vee YZ\]
+    \[XY \vee Z = (X \vee Z)(Y \vee Z)\]
+
+
+\end{document}
