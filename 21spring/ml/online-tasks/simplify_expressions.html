@@ -3,24 +3,88 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>SageMathCell</title>
+    <title>Генерация логических выражений</title>
     <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
     <script>
         // Make the div with id 'mycell' a Sage cell
-        sagecell.makeSagecell({inputLocation:  '#mycell',
-            template:       sagecell.templates.minimal,
-            evalButtonText: 'Activate'});
+        sagecell.makeSagecell({
+            inputLocation: '#mycell',
+            template: sagecell.templates.minimal,
+            evalButtonText: 'Начать решать'
+        });
         // Make *any* div with class 'compute' a Sage cell
-        sagecell.makeSagecell({inputLocation: 'div.compute',
-            evalButtonText: 'Evaluate'});
+        sagecell.makeSagecell({
+            inputLocation: 'div.compute',
+            evalButtonText: 'Evaluate'
+        });
     </script>
+    <style>
+        td {
+            border: 1px solid black;
+            padding: 4px;
+            text-align: center;
+        }
+        thead {
+            font-weight: bold;
+        }
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 <body>
-<h1>Embedded Sage Cells</h1>
+<h1>Генерация логических выражений</h1>
 
-<h2>Factorial</h2>
-Click the &ldquo;Activate&rdquo; button below to calculate factorials.
-<div id="mycell"><script type="text/x-sage">
+<p>
+    Нажмите на кнопку «начать решать», чтобы получить доступ к генератору формул.
+</p>
+<p>
+    Вы можете выбрать количество переменных в формуле и количество операций.
+</p>
+
+<table>
+    <thead>
+    <tr>
+        <td>Логическая операция</td>
+        <td>Обозначение для наших занятий</td>
+        <td>Обозначение на этом сайте</td>
+    </tr>
+    </thead>
+    <tr>
+        <td>логическое или</td>
+        <td>$\vee$</td>
+        <td>$\vee$</td>
+    </tr>
+    <tr>
+        <td>логическое и</td>
+        <td>$\cdot$</td>
+        <td>$\wedge$</td>
+    </tr>
+    <tr>
+        <td>исключающее или</td>
+        <td>${}+{}$</td>
+        <td>$\oplus$</td>
+    </tr>
+    <tr>
+        <td>импликация</td>
+        <td>$\Rightarrow$</td>
+        <td>$\rightarrow$</td>
+    </tr>
+    <tr>
+        <td>равносильность</td>
+        <td>$\Leftrightarrow$</td>
+        <td>$\leftrightarrow$</td>
+    </tr>
+</table>
+
+<p>
+    Обратите внимание, что в таблице истинности порядок переменных может быть не $a, b, c$.
+</p>
+
+
+<div id="mycell">
+    <script type="text/x-sage">
 f = propcalc.formula("a&((b|c)^a->c)<->b")
 g = propcalc.formula("a|a")
 
@@ -71,7 +135,8 @@ def _(
             str_row = ['1' if table_row[inds[v]] else '0' for v in all_vars]
             str_row.append('1' if table_row[variables] else '0')
             print(' '.join(str_row))
- </script>
+
+    </script>
 </div>
 
 <!--<h2>Your own computations</h2>
