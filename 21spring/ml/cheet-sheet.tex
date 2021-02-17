@@ -5,18 +5,20 @@
 \usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{framed}
+\usepackage{xcolor}
 \renewcommand{\c}[2]{$C_{#1}^{#2}$}
 \newcommand{\cc}[2]{C_{#1}^{#2}}
 \numberwithin{equation}{subsection}
 \renewcommand{\[}{\begin{equation}}
 \renewcommand{\]}{\end{equation}}
+\newcommand{\bx}[1]{\fcolorbox{white}{gray!20}{#1}}
 
 \newenvironment{exercise}{%
-    \begin{framed}
-        \par\noindent\slshape%
-        }%
-        {
-    \end{framed}}
+\begin{framed}
+\par\noindent\slshape%
+}%
+{
+\end{framed}}
 
 \title{Шпаргалка по логике исчисления предикатов}
 \author{}
@@ -24,39 +26,86 @@
 
 \begin{document}
 
-    \section{Формулы с одной переменной}
+\section{Формулы с одной переменной}
 
-    См. прошлое задание
+См. прошлое задание
 
-    \section{Формулы с двумя переменными}
+\section{Формулы с двумя переменными}
 
-    \subsection{Отрицание}
-    \[\overline{X\vee Y} = \overline{X}\cdot\overline{Y}\]
-    \[\overline{X\cdot Y} = \overline{X}\vee\overline{Y}\]
-    \[\overline{X\Leftrightarrow Y} = \overline{X}+\overline{Y}\]
-    \[\overline{X + Y} = \overline{X}\Leftrightarrow\overline{Y}\]
+\subsection{Симметричность}
+\[X \vee Y = Y \vee X\]
+\[XY = YX\]
+\[X + Y = Y + X\]
+\[X \Leftrightarrow Y = Y \Leftrightarrow X\]
+\[X \Rightarrow Y \ne Y \Rightarrow X\]
 
-    \subsection{Связки}
-    \[X\Rightarrow Y = \overline{X} \vee Y \]
-    \[X\Leftrightarrow Y = (X\Rightarrow Y)(Y\Rightarrow X)\]
+\subsection{Отрицание}
+\[\overline{X\vee Y} = \overline{X}\cdot\overline{Y}\]
+\[\overline{X\cdot Y} = \overline{X}\vee\overline{Y}\]
+\[\overline{X\Leftrightarrow Y} = \overline{X}+\overline{Y}\]
+\[\overline{X + Y} = \overline{X}\Leftrightarrow\overline{Y}\]
 
-    \subsection{ДНФ и КНФ}
-    Здесь пока специально не указан ответ
-    \[X + Y = (? \vee ?)(? \vee ?)\]
-    \[X \Leftrightarrow Y = (? \vee ?)(? \vee ?)\]
-    \[X + Y = ?\cdot? \vee ?\cdot?\]
-    \[X \Leftrightarrow Y = ?\cdot? \vee ?\cdot?\]
+\subsection{Связки}
+\[X\Rightarrow Y = \overline{X} \vee Y \]
+\[X\Leftrightarrow Y = (X\Rightarrow Y)(Y\Rightarrow X)\]
 
-    \section{Формулы с тремя переменными}
-    \subsection{Ассоциативность операций}
-    \[(X \vee Y) \vee Z = X \vee (Y \vee Z)\]
-    \[(X \cdot Y) \cdot Z = X \cdot (Y \cdot Z)\]
-    \[(X + Y) + Z = X + (Y + Z)\]
-    \[(X \Leftrightarrow Y) \Leftrightarrow Z = X \Leftrightarrow (Y \Leftrightarrow Z)\]
-    \[(X \Rightarrow Y) \Rightarrow Z \ne X \Rightarrow (Y \Rightarrow Z)\]
+\subsection{Выражение одних связок через другие}
 
-    \subsection{Дистрибутивность}
-    \[(X\vee Y)Z = XZ \vee YZ\]
-    \[XY \vee Z = (X \vee Z)(Y \vee Z)\]
+Ниже должны быть примеры вывода этих формул из других (пока нет)
 
+\[X + Y = (\overline{X} \vee \overline{Y})(X \vee Y)\]
+\[X \Leftrightarrow Y = (\overline{X} \vee Y)(X \vee \overline{Y})\]
+\[X + Y = \overline{X}Y + X\overline{Y}\]
+\[X \Leftrightarrow Y = \overline{X}\cdot\overline{Y} \vee XY\]
+\[X \vee Y = X + Y + XY\]
+\[X \Rightarrow Y = 1 + X + XY\]
+
+\section{Формулы с тремя переменными}
+\subsection{Ассоциативность операций}
+\[(X \vee Y) \vee Z = X \vee (Y \vee Z)\]
+\[(X \cdot Y) \cdot Z = X \cdot (Y \cdot Z)\]
+\[(X + Y) + Z = X + (Y + Z)\]
+\[(X \Leftrightarrow Y) \Leftrightarrow Z = X \Leftrightarrow (Y \Leftrightarrow Z)\]
+\[(X \Rightarrow Y) \Rightarrow Z \ne X \Rightarrow (Y \Rightarrow Z)\]
+
+\subsection{Дистрибутивность}
+\[(X\vee Y)Z = XZ \vee YZ\]
+\[XY \vee Z = (X \vee Z)(Y \vee Z)\]
+\[(X+ Y)Z = XZ + YZ\]
+
+\section{Примеры упрощений}
+\subsection{Пример 1.
+$(\overline {a\Leftrightarrow (bc+ c)} + c)\vee \overline {\overline b+\overline a}$
+}
+
+Сначала упростим $\overline {\overline b+\overline a}$ . Здесь мы будем пользоваться в первую очередь формулой $ X + 1 = \overline X$ . Заменим внутренние отрицания: $\overline {(b + 1) +(a + 1)}$, заменим внешнее отрицание: $ 1 + (b + 1) + (a + 1)$, дальше раскроем скобки, пользуясь симметричность и ассоциативностью сложения: $ a + b + 1 + 1 + 1 = a + b + 1 $ .
+
+Итого, $\overline {\overline b+\overline a} = a + b + 1 $
+
+Раскроем часть $\overline {a\Leftrightarrow (bc+ c)} + c $. Воспользуемся тем, что $ X\Leftrightarrow Y=\overline{X + Y} = 1 + X + Y $ :
+\begin{align}
+\overline {a\Leftrightarrow (bc+ c)} + c = \\
+\overline {\bx{1 + a + (bc + c)}} + c = \\
+\bx{1 + 1 + a + bc + c} + c = \\
+\bx{a + bc + c} + c = \\
+\bx{a + bc}
+\end{align}
+
+Объединяем обе части, получается:
+
+\begin{align}
+(\overline {a\Leftrightarrow (bc+ c)} + c)\vee \overline {\overline b+\overline a} = \\
+\bx{(a + bc)} \vee \bx{(a + b + 1)}
+\end{align}
+
+Теперь используем, что $X + Y = \overline{X}Y \vee X\overline{Y}$,
+$X \Leftrightarrow Y = \overline{X}\cdot\overline{Y} \vee XY$
+
+Продолжение следует
+%и после этого раскрываем скобки. Это обычное, привычное нам раскрытие скобок, оно работает, из-за того, что здесь выполнены все законы дистрибутивности и симметричности.
+%\begin{align}
+%{} = \bx{\overline{}bc \vee a\overline{}} \vee \overline{a + b} =
+%\overline{a}bc \vee a(\overline b \vee \overline c) \vee (a \Leftrightarrow b) = \\
+%\overline{a}bc \vee a\overline b \vee a\overline c \vee (\overline{a}\overline{b} \vee ab) =
+%\end{align}
 \end{document}
