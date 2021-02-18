@@ -12,6 +12,10 @@
 \renewcommand{\[}{\begin{equation}}
 \renewcommand{\]}{\end{equation}}
 \newcommand{\bx}[1]{\fcolorbox{white}{gray!20}{#1}}
+\newcommand{\NE}[1]{\overline{\vphantom{|} #1}}
+\newcommand{\IMPL}{\Rightarrow}
+\newcommand{\EQ}{\Leftrightarrow}
+\newcommand{\OR}{\vee}
 
 \newenvironment{exercise}{%
 \begin{framed}
@@ -40,23 +44,22 @@
 \[X \Rightarrow Y \ne Y \Rightarrow X\]
 
 \subsection{Отрицание}
-\[\overline{X\vee Y} = \overline{X}\cdot\overline{Y}\]
-\[\overline{X\cdot Y} = \overline{X}\vee\overline{Y}\]
-\[\overline{X\Leftrightarrow Y} = \overline{X}+\overline{Y}\]
-\[\overline{X + Y} = \overline{X}\Leftrightarrow\overline{Y}\]
-
-\subsection{Связки}
-\[X\Rightarrow Y = \overline{X} \vee Y \]
-\[X\Leftrightarrow Y = (X\Rightarrow Y)(Y\Rightarrow X)\]
+\[\NE{X\vee Y} = \NE{X}\cdot\NE{Y}\]
+\[\NE{X\cdot Y} = \NE{X}\vee\NE{Y}\]
+\[\NE{X\Leftrightarrow Y} = \NE{X}+\NE{Y}\]
+\[\NE{X + Y} = \NE{X}\Leftrightarrow\NE{Y}\]
 
 \subsection{Выражение одних связок через другие}
 
-Ниже должны быть примеры вывода этих формул из других (пока нет)
+\[X\Rightarrow Y = \NE{X} \vee Y \]
+\[X\Leftrightarrow Y = (X\Rightarrow Y)(Y\Rightarrow X)\]
 
-\[X + Y = (\overline{X} \vee \overline{Y})(X \vee Y)\]
-\[X \Leftrightarrow Y = (\overline{X} \vee Y)(X \vee \overline{Y})\]
-\[X + Y = \overline{X}Y + X\overline{Y}\]
-\[X \Leftrightarrow Y = \overline{X}\cdot\overline{Y} \vee XY\]
+Все следующие формулы в этом подразделе могут быть выведены из других формул этого документа. Примеры вывода приведены в разделе~\ref{sec:examples}.
+
+\[X + Y = (\NE{X} \vee \NE{Y})(X \vee Y)\]
+\[X \Leftrightarrow Y = (\NE{X} \vee Y)(X \vee \NE{Y})\]
+\[X + Y = \NE{X}Y + X\NE{Y}\]
+\[X \Leftrightarrow Y = \NE{X}\cdot\NE{Y} \vee XY\]
 \[X \vee Y = X + Y + XY\]
 \[X \Rightarrow Y = 1 + X + XY\]
 
@@ -74,18 +77,19 @@
 \[(X+ Y)Z = XZ + YZ\]
 
 \section{Примеры упрощений}
+\label{sec:examples}
 \subsection{Пример 1.
-$(\overline {a\Leftrightarrow (bc+ c)} + c)\vee \overline {\overline b+\overline a}$
+$(\NE {a\Leftrightarrow (bc+ c)} + c)\vee \NE {\NE b+\NE a}$
 }
 
-Сначала упростим $\overline {\overline b+\overline a}$ . Здесь мы будем пользоваться в первую очередь формулой $ X + 1 = \overline X$ . Заменим внутренние отрицания: $\overline {(b + 1) +(a + 1)}$, заменим внешнее отрицание: $ 1 + (b + 1) + (a + 1)$, дальше раскроем скобки, пользуясь симметричность и ассоциативностью сложения: $ a + b + 1 + 1 + 1 = a + b + 1 $ .
+Сначала упростим $\NE {\NE b+\NE a}$ . Здесь мы будем пользоваться в первую очередь формулой $ X + 1 = \NE X$ . Заменим внутренние отрицания: $\NE {(b + 1) +(a + 1)}$, заменим внешнее отрицание: $ 1 + (b + 1) + (a + 1)$, дальше раскроем скобки, пользуясь симметричность и ассоциативностью сложения: $ a + b + 1 + 1 + 1 = a + b + 1 $ .
 
-Итого, $\overline {\overline b+\overline a} = a + b + 1 $
+Итого, $\NE {\NE b+\NE a} = a + b + 1 $
 
-Раскроем часть $\overline {a\Leftrightarrow (bc+ c)} + c $. Воспользуемся тем, что $ X\Leftrightarrow Y=\overline{X + Y} = 1 + X + Y $ :
+Раскроем часть $\NE {a\Leftrightarrow (bc+ c)} + c $. Воспользуемся тем, что $ X\Leftrightarrow Y=\NE{X + Y} = 1 + X + Y $ :
 \begin{align}
-\overline {a\Leftrightarrow (bc+ c)} + c = \\
-\overline {\bx{1 + a + (bc + c)}} + c = \\
+\NE {a\Leftrightarrow (bc+ c)} + c = \\
+\NE {\bx{1 + a + (bc + c)}} + c = \\
 \bx{1 + 1 + a + bc + c} + c = \\
 \bx{a + bc + c} + c = \\
 \bx{a + bc}
@@ -94,18 +98,20 @@ $(\overline {a\Leftrightarrow (bc+ c)} + c)\vee \overline {\overline b+\overline
 Объединяем обе части, получается:
 
 \begin{align}
-(\overline {a\Leftrightarrow (bc+ c)} + c)\vee \overline {\overline b+\overline a} = \\
+(\NE {a\Leftrightarrow (bc+ c)} + c)\vee \NE {\NE b+\NE a} = \\
 \bx{(a + bc)} \vee \bx{(a + b + 1)}
 \end{align}
 
-Теперь используем, что $X + Y = \overline{X}Y \vee X\overline{Y}$,
-$X \Leftrightarrow Y = \overline{X}\cdot\overline{Y} \vee XY$
+Далее есть разные пути. Можно свести все сложения к дизъюнкциям. Или дизъюнкцию к сложению.
+Сначала пойдем по первому пути. Чтобы превратить сложения в дизъюнкции можно воспользоваться следующими формулами:
 
-Продолжение следует
-%и после этого раскрываем скобки. Это обычное, привычное нам раскрытие скобок, оно работает, из-за того, что здесь выполнены все законы дистрибутивности и симметричности.
-%\begin{align}
-%{} = \bx{\overline{}bc \vee a\overline{}} \vee \overline{a + b} =
-%\overline{a}bc \vee a(\overline b \vee \overline c) \vee (a \Leftrightarrow b) = \\
-%\overline{a}bc \vee a\overline b \vee a\overline c \vee (\overline{a}\overline{b} \vee ab) =
-%\end{align}
+Теперь используем, что $X + Y = \NE{X}Y \vee X\NE{Y}$,
+$X \Leftrightarrow Y = \NE{X}\cdot\NE{Y} \vee XY$.
+
+\begin{align}
+\bx{(a + bc)} \vee \bx{(a + b + 1)} = \\
+\NE{a}bc \OR a\NE{bc} \vee a\EQ b =
+%\NE{a}bc \vee a(\NE b \vee \NE c) \vee (a \Leftrightarrow b) = \\
+%\NE{a}bc \vee a\NE b \vee a\NE c \vee (\NE{a}\NE{b} \vee ab) =
+\end{align}
 \end{document}
