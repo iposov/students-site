@@ -1,6 +1,8 @@
 package javafxexamples;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import java.util.List;
 
 public class ControlsAndPanes extends Application {
     @Override
@@ -34,9 +38,9 @@ public class ControlsAndPanes extends Application {
 
         //у grid pane метод add добавляет один элемент на сетку
         mainGridPain.add(vb1, 0, 0);
-        mainGridPain.add(vb2, 1, 0);
+        mainGridPain.add(vb2, 1, 1);
         mainGridPain.add(hb, 0, 1);
-        mainGridPain.add(bp, 1, 1);
+        mainGridPain.add(bp, 1, 0);
         mainGridPain.setStyle("-fx-font-size: 3em");
 
         // изменение цвета панелей
@@ -62,10 +66,11 @@ public class ControlsAndPanes extends Application {
         );
 
         // Теперь настроим vb2
+        final Button smallButton = new Button("?!");
         vb2.getChildren().addAll(
                 new Button("Первая кнопка"),
                 new ColorPicker(),
-                new Button("?!"),
+                smallButton,
                 new Label("Это метка с текстом")
         );
 
@@ -95,6 +100,44 @@ public class ControlsAndPanes extends Application {
         row2.setVgrow(Priority.ALWAYS); //указываем для второй строки растягиваемость по вертикали
         //ALWAYS - растягивай всегда
         mainGridPain.getRowConstraints().addAll(row1, row2);
+
+        //Ограничения для правого VBox, немного настроим его отображение
+        //setAlignment мы указываем для всех элементов сразу
+        //все элементы будут выровнены именно так
+        vb2.setAlignment(Pos.BOTTOM_RIGHT); //выравнивание по правому низу
+                                            // Ctrl + Shift + Space
+        //как задать расположение конкретного элемента. Нужно добавить
+        //ограничение, связанное с элементом. Универсальный способ добавлять
+        //ограничения на элементы интерфейса.
+        VBox.setVgrow(smallButton, Priority.ALWAYS);
+        //Не растягивается кнопка !!
+        //Возможно, дело в том, что у кнопки установлена максимальная ширина
+        smallButton.setMaxWidth(Double.MAX_VALUE); //это самое большое число
+        VBox.setMargin(vb2.getChildren().get(2),
+                new Insets(8) // отступы со всех сторон
+        );
+        //Класс контейнера.setОграничение(элемент-интерфейса, значения ограничения)
+        //Само vb2 мы даже не упоминаем. vb2, позиционируя элемент, обнаружит
+        //его ограничение и воспользуется им.
+
+        //Border pane
+        final Button bottom = new Button("снизу");
+        final Button left = new Button("слева");
+        final Button right = new Button("справа");
+        final Button top = new Button("сверху");
+        final Button center = new Button("в центре");
+
+        BorderPane.setAlignment(bottom, Pos.CENTER);
+        bp.setBottom(bottom);
+        bp.setLeft(left);
+        bp.setRight(right);
+        bp.setTop(top);
+        bp.setCenter(center);
+
+        for (Button b : List.of(bottom, left, right, top, center)) {
+            b.setMaxWidth(Double.MAX_VALUE);
+            b.setMaxHeight(Double.MAX_VALUE);
+        }
 
         return mainGridPain; //возвращаем созданный grid pane (ui из start())
     }

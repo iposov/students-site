@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="379.8129mm"
+   height="206.38275mm"
+   viewBox="0 0 379.8129 206.38275"
    version="1.1"
    id="svg933"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
@@ -24,8 +24,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="456.80552"
-     inkscape:cy="560"
+     inkscape:cx="415.81092"
+     inkscape:cy="473.26587"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -44,14 +44,15 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      inkscape:label="Слой 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-10.846489,-22.948405)">
     <rect
        style="fill:none;stroke:#000000;stroke-width:1.365"
        id="rect1496"
@@ -123,24 +124,24 @@
     <text
        xml:space="preserve"
        style="font-size:14.1111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="129.72107"
-       y="75.474701"
+       x="128.51181"
+       y="180.28969"
        id="text1540"><tspan
          sodipodi:role="line"
          id="tspan1538"
-         x="129.72107"
-         y="75.474701"
+         x="128.51181"
+         y="180.28969"
          style="stroke-width:0.264583">VBox</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:14.1111px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-       x="110.56343"
-       y="179.06854"
+       x="112.27316"
+       y="77.938751"
        id="text1544"><tspan
          sodipodi:role="line"
          id="tspan1542"
-         x="110.56343"
-         y="179.06854"
+         x="112.27316"
+         y="77.938751"
          style="stroke-width:0.264583">BorderPane</tspan></text>
   </g>
 </svg>
