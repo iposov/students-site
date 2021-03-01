@@ -18,3 +18,7 @@
 [Разбор задачи об алгоритме Евклида](euclid.pdf)
 
 Задача и место для выкладывания решений: [http://alpha.multivariant.ru/room/6021493fb58dc4e3c252ea6f](http://alpha.multivariant.ru/room/6021493fb58dc4e3c252ea6f)
+
+# Практика 2. Диофантовы уравнения, классы вычетов
+
+[http://alpha.multivariant.ru/rooms-create/UiCreated_823f3026-d518-47a6-b41a-7058a3a81bf3](http://alpha.multivariant.ru/rooms-create/UiCreated_823f3026-d518-47a6-b41a-7058a3a81bf3)
