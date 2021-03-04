@@ -20,8 +20,14 @@
     
     [Код](https://github.com/iposov/students-site/blob/master/21spring/prog-tech/code/src/javafxexamples/ControlsAndPanes.java)
 
-2. Лекция 3 Слушатели
+3. Лекция 3 Слушатели
 
-   [Конспект](lecture2.md)
+   [Конспект](lecture3.md)
 
    [Код](https://github.com/iposov/students-site/blob/master/21spring/prog-tech/code/src/javafxexamples/ListenersExamples.java)
+
+4. Лекция 4 Наблюдаемые значения и свойства
+
+[Код наблюдаемых значений](https://github.com/iposov/students-site/blob/master/21spring/prog-tech/code/src/javafxexamples/ObservablesExample.java)
+
+[Код про свойства](https://github.com/iposov/students-site/blob/master/21spring/prog-tech/code/src/javafxexamples/ObservablesInTheInterfaceExample.java)
