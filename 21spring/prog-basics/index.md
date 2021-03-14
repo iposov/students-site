@@ -2,7 +2,7 @@
 
 ## Задания
 
-Часть 1. [Вспоминаем python, генераторы, функции и лямбда выражения](tasks-recall-generators-funcs-lambdas.md)
+Часть 1. [Вспоминаем python, генераторы, функции и лямбда выражения](tasks-recall-generators-funcs-lambdas.md). **Дедлайн 19 марта, 11:00 (кроме задач с codingbat.com)**.
 
 Часть 2. [Пакеты и модули](packages-and-modules.md)
 
