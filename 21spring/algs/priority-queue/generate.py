@@ -26,14 +26,17 @@ def generate(f, N, M):
 
         print(len(nums_filtered), file=fin)
         for x in nums_filtered:
-            print(x, file=fin)
+            if x == -1:
+                print("GET", file=fin)
+            else:
+                print(x, file=fin)
 
         queue = PriorityQueue()
         for x in nums_filtered:
             if x != -1:
-                queue.put(x)
+                queue.put(-x)
             else:
-                y = queue.get()
+                y = -queue.get()
                 print(y, file=fout)
 
 
