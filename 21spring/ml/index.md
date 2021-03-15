@@ -53,3 +53,8 @@
 
 [http://alpha.multivariant.ru/room/602a6330b58dc4e3c259f3db](http://alpha.multivariant.ru/room/602a6330b58dc4e3c259f3db)
 
+# Задание 3. Минимизация ДНФ
+
+Загрузите, пожалуйста, решения заданий с практического занятия, когда была минимизация ДНФ, сюда:
+
+[http://alpha.multivariant.ru/room/604efe65b58dc4e3c273b3ce](http://alpha.multivariant.ru/room/604efe65b58dc4e3c273b3ce)
