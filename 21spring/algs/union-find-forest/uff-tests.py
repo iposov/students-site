@@ -6,7 +6,7 @@ from uff import UFF
 seed(123)
 
 os.makedirs("tests", exist_ok=True)
-with ZipFile('tests.zip', mode="w", compression=ZIP_DEFLATED, compresslevel=9) as tests_zip:
+with ZipFile('uff-tests.zip', mode="w", compression=ZIP_DEFLATED, compresslevel=9) as tests_zip:
     for deg in (2, 3, 4, 7, 10, 15, 17, 18, 19, 20):
         infile = f"tests/2to{deg}.in"
         outfile = f"tests/2to{deg}.out"
