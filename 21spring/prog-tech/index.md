@@ -2,7 +2,7 @@
 
 ## Задания
 
-[Список задач](tasks.md)
+[Список задач](tasks-interface.md)
 
 ## Лекции
 
@@ -26,8 +26,8 @@
 
    [Код](https://github.com/iposov/students-site/blob/master/21spring/prog-tech/code/src/javafxexamples/ListenersExamples.java)
 
-4. Лекция 4 Наблюдаемые значения и свойства
+4. Лекция 4, 5 Наблюдаемые значения и свойства
 
-[Код наблюдаемых значений](https://github.com/iposov/students-site/blob/master/21spring/prog-tech/code/src/javafxexamples/ObservablesExample.java)
-
-[Код про свойства](https://github.com/iposov/students-site/blob/master/21spring/prog-tech/code/src/javafxexamples/ObservablesInTheInterfaceExample.java)
+   [Код наблюдаемых значений](https://github.com/iposov/students-site/blob/master/21spring/prog-tech/code/src/javafxexamples/ObservablesExample.java)
+   
+   [Код про свойства](https://github.com/iposov/students-site/blob/master/21spring/prog-tech/code/src/javafxexamples/ObservablesInTheInterfaceExample.java)

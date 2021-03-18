@@ -1,6 +1,9 @@
 package javafxexamples;
 
 import javafx.application.Application;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -8,8 +11,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.Locale;
 
 public class ObservablesInTheInterfaceExample extends Application {
 
@@ -19,6 +25,7 @@ public class ObservablesInTheInterfaceExample extends Application {
     private Label label3;
     private Label label4;
     private Label label5;
+    private Label label6;
     private ListView<String> listView; //компонент для показывания элементов списка
 
     @Override
@@ -37,8 +44,9 @@ public class ObservablesInTheInterfaceExample extends Application {
         label3 = new Label();
         label4 = new Label();
         label5 = new Label();
+        label6 = new Label();
         listView = new ListView<>();
-        final VBox vBox = new VBox(textInput, label1, label2, label3, label4, label5, listView);
+        final VBox vBox = new VBox(textInput, label1, label2, label3, label4, label5, label6, listView);
         vBox.setStyle("-fx-font-size: 2em");
         return vBox;
     }
@@ -107,6 +115,31 @@ public class ObservablesInTheInterfaceExample extends Application {
 
         //дальше надо научиться связывать так, чтобы можно было чуть поменять значение,
         //например, показывать в метке введенный текст в верхнем регистре.
+
+        //нужно внутри bind написать наблюдаемое значение, которое вычисляется
+        //как свойство text у textInput, где буквы переведены в верхний регистр.
+        //Для создания наблюдаемых значений есть вспомогательный класс Bindings.
+        //Иначе пришлось бы реализовывать интерфейс
+
+        //createStringBinding - создать строковое наблюдаемое значение
+        label5.textProperty().bind(/* ??? */ Bindings.createStringBinding(
+                () -> textInput.getText().toUpperCase(),
+                textInput.textProperty() // можно 1 или несколько значений
+        ));
+        // созданное нами наблюдаемое значение устроено так:
+        // - оно следит за свойством text у textInput
+        // - при каждом изменении этого свойства вычисляется заданная функция
+        // - сообщает, что значение изменено.
+
+        //Bindings.create???Binding() - универсальный способ, часто можно проще
+        label6.textProperty().bind(Bindings.concat( // соединение строк
+                "Вы написали «",
+                textInput.textProperty(),
+                "»."
+        ));
+
+        //Bindings.min(o1, o2) - это наблюдаемое значение, min из двух других
+        //Bindings.divide(x, y) - это наблюдаемое значение, отношение значения x на y
     }
 
 }
