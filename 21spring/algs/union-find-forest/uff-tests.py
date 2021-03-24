@@ -11,7 +11,7 @@ with ZipFile('uff-tests.zip', mode="w", compression=ZIP_DEFLATED, compresslevel=
         infile = f"tests/2to{deg}.in"
         outfile = f"tests/2to{deg}.out"
         with open(infile, "w") as finput, open(outfile, "w") as foutput:
-            finput.write(f"{2 ** deg} {2 ** deg - 1}\n")
+            finput.write(f"{2 ** deg} {2 ** deg}\n")
             n = 2 ** deg
             # 0-1 2-3 4-5 6-7 8-9 10-11 12-13 14-15
             # 0-2 4-6 8-10 12-14
@@ -26,7 +26,10 @@ with ZipFile('uff-tests.zip', mode="w", compression=ZIP_DEFLATED, compresslevel=
 
                 delta *= 2
 
-            for t in range(n - 2):
+            x1, x2 = sample(range(n), 2)
+            finput.write(f"{x1} {x2}\n")
+
+            for t in range(n - 1):
                 foutput.write("NO\n")
             foutput.write("YES\n")
         tests_zip.write(infile)
