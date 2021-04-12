@@ -30,7 +30,7 @@
 
     [запись часть 2](https://studentspburu.sharepoint.com/sites/Python/Shared%20Documents/General/Recordings/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B5%D0%B8%D1%8F%20%D0%BB%D0%B5%D0%BA%D1%86%D0%B8%D1%8F-20210305_120625-%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%81%D0%BE%D0%B1%D1%80%D0%B0%D0%BD%D0%B8%D1%8F.mp4?web=1)
 
-1. Лекция 5,
+1. Лекция 5, пример класса «Многочлен»
 
     [Запись](https://studentspburu.sharepoint.com/sites/Python/Shared%20Documents/General/Recordings/%D0%A1%D0%BE%D0%B1%D1%80%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B2%20%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B5%20_General_-20210319_111435-%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%81%D0%BE%D0%B1%D1%80%D0%B0%D0%BD%D0%B8%D1%8F.mp4?web=1)
    

@@ -31,3 +31,7 @@
    [Код наблюдаемых значений](https://github.com/iposov/students-site/blob/master/21spring/prog-tech/code/src/javafxexamples/ObservablesExample.java)
    
    [Код про свойства](https://github.com/iposov/students-site/blob/master/21spring/prog-tech/code/src/javafxexamples/ObservablesInTheInterfaceExample.java)
+
+6. Лекция 6, изображения и цвета
+   
+    [Код про изображения и цвета](https://github.com/iposov/students-site/blob/master/21spring/prog-tech/code/src/javafxexamples/ImagesExample.java)

@@ -1,0 +1,57 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{framed}
+\usepackage{wasysym}
+\usepackage{graphicx}
+\usepackage{svg}
+
+\newcommand{\ephi}[1]{\varphi(#1)}
+
+\newenvironment{exercise}{%
+    \begin{framed}\par\noindent\slshape%
+    }%
+    {\end{framed}}
+
+\title{Функция Эйлера и Теорема Эйлера}
+\author{}
+\date{}
+
+\begin{document}
+    \maketitle
+
+    \section{Функция Эйлера}
+    Функция Эйлера $\ephi{n}$ считает количество чисел от $1$ до $n$, которые взаимно просты с $n$.
+    Например,
+    \begin{itemize}
+        \item $\ephi{10}=4$, потому что 10 взаимно просто с 1, 3, 7, 9.
+        \item $\ephi{12}=4$, потому что 12 взаимно просто с 1, 5, 7, 11.
+        \item $\ephi7=6$, потому что 7 взаимно просто с 1, 2, 3, 4, 5, 6.
+        \item $\ephi1=1$, потому что 1 взаимно просто с 1.
+    \end{itemize}
+
+    Для функции Эйлера есть формулы, которые упрощают ее вычисление для больших значений.
+
+    \begin{itemize}
+        \item $\ephi{p}=p-1$, если $p$~--- простое.
+              Например, $\ephi{13}=12$.
+        \item $\ephi{p^k}=(p-1)p^{k-1}$, если $p$~--- простое.
+              Например, $\ephi{125}=\ephi{5^3}=4\cdot 5^2=100$.
+        \item $\ephi{ab}=\ephi{a}\ephi{b}$, если $\mathop{\text{НОД}}(a, b)=1$.
+              Например, $\ephi{28}=\ephi4\ephi7=\ephi{2^2}\cdot6=1\cdot2^1\cdot6=12$.
+              Но, $\ephi{28}\ne\ephi{2}\ephi{14}$, потому что 2 и 14 не взаимно просты.
+              Если досчитать, то $\ephi{2}\ephi{14}=1\cdot\ephi{2\cdot7}=1\cdot1\cdot6=6$.
+    \end{itemize}
+
+    В общем случае, чтобы посчитать функцию Эйлера для числа, его сначала раскладывают на простые множители, потому что именно при таком разложении получаются степени простых чисел, для которых мы знаем формулу вычисления. Кроме того, степени разных простых чисел взаимно просты.
+
+    Например, $\ephi{100}=\ephi{10\cdot10}=\ephi{2\cdot5\cdot2\cdot5}=\ephi{2^25^2}=\ephi{2^2}\ephi{5^2}=
+    1\cdot2^1\cdot4\cdot5^1=40$.
+
+    Или. $\ephi{840}=\ephi{4\cdot21\cdot10}=\ephi{4\cdot3\cdot7\cdot2\cdot5}=\ephi{2^4\cdot3\cdot5\cdot7}=
+    \ephi{2^4}\ephi3\ephi5\ephi7=1\cdot2^3\cdot2\cdot4\cdot6=384$.
+\end{document}
