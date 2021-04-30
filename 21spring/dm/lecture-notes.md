@@ -2,9 +2,38 @@
 
 ## Список существующих конспектов на данный момент
 
-[Лекция 1](lecture1.txt)
+15 Февраля<br>
+[Лекция 1 конспект](lecture1.txt)<br>[Лекция 1 видео](https://youtu.be/5rM4IMoCUp0)
 
-[Лекция 2](lecture2.txt)
+1 Марта<br>
+[Лекция 2 конспект](lecture2.txt)<br>[Лекция 2 видео](https://youtu.be/YekuOMwglG4)
+
+15 Марта<br>
+[Лекция 3 конспект](lecture-3-dmcs.pdf)<br>[Лекция 3 видео](https://youtu.be/euhNCsh19o0)
+
+22 Марта<br>
+[Лекция 4 конспект](lecture-4-dmcs.pdf)<br>[Лекция 4 видео](https://youtu.be/Vj2YbI3odW8)
+
+29 Марта<br>
+[Лекция 5 конспект](lecture-5-dmcs.pdf)<br>[Лекция 5 видео](https://youtu.be/uXO_KFXBQ40)
+
+5 Апреля<br>
+[Лекция 6 конспект](lecture-6-dmcs.pdf)<br>[Лекция 6 видео часть 1](https://youtu.be/damaihap_gg) <br>
+[Лекция 6 видео часть 2](https://youtu.be/e7nWBIrSALg)
+
+12 Апреля<br>
+[Лекция 7 конспект](lecture-7-dmcs.pdf)<br>[Лекция 7 видео](https://youtu.be/8Ki620Ys9og)
+
+19 Апреля<br>
+[Лекция 8 конспект](lecture-8-dmcs.pdf)<br>[Лекция 8 видео](https://youtu.be/V2DEFy7Qqks)
+
+23 Апреля<br>
+[Лекция 9 конспект](lecture-9-dmcs.pdf)<br>[Лекция 9 видео часть 1](https://youtu.be/3_E1UskHI98) <br>
+[Лекция 9 видео часть 2](https://youtu.be/lYCDmaRih4Y)
+
+26 Апреля<br>
+[Лекция 10 конспект](lecture-10-dmcs.pdf)<br>[Лекция 10 видео](https://youtu.be/LXAnogEZ2TM)
+
 
 ## Информация для желающих улучшить конспекты
 
