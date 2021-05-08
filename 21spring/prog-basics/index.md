@@ -8,6 +8,10 @@
 
 Часть 3. [Объектно-ориентированное программирование, основы](oop1.md)
 
+Часть 4. [Еще задачи на основы python](more-recall-tasks.md)
+
+Часть 5. [Объектно-ориентированное программирование, наследование](oop2.md)
+
 ## Лекции:
 
 1. Лекция 1, [конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21spring/prog-basics/lecture1.ipynb) или [конспект по другой ссылке](https://github.com/iposov/students-site/blob/master/21spring/prog-basics/lecture1.ipynb)
