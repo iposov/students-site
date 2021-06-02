@@ -19,11 +19,16 @@
 
 [Ссылка для выкладывания решений](http://alpha.multivariant.ru/room/6059a797b58dc4e3c27b4677)
 
+[Разбор задачи о делении многочленов над полем](../../18spring/dm/polynomial%20division%20over%20finite%20fields.pdf)
+
 # ИДЗ 2
 
 [Индивидуальное домашнее задание № 2](idz2-0370.pdf)
 
 [Ссылка для выкладывания решений](http://alpha.multivariant.ru/room/60b76438b58dc4e3c2af0b59)
+
+[Разбор задачи о счастливых билетах](../../18spring/dm/happy%20tickets.pdf)
+[Разбор задачи о комбинаторной вероятности](../../18spring/dm/combinatorial%20probability.pdf)
 
 # Практика 1
 
