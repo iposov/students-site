@@ -27,6 +27,7 @@ def shuffle_words_in_file(filename):
         words = f.read().split()
 
     shuffled_words = [shuffle_middle_letters(word) for word in words]
+    # shuffled_words = [shuffle_middle_letters(words[i]) for i in range(len(words))]
 
     # дальше три способа распечатать, выбирайте любой
     # 1. собираем все слова в одну строку через пробелы. Это ожидаемый способ, который вы выберете
@@ -57,7 +58,7 @@ def shuffle_words_in_file_full(filename):
     # выделим распечатку перемешанного слова в отдельную функцию, потому что нам это надо делать несколько раз
     def print_last_word():
         if last_word != []:  # или просто if last_word: Или можно вообще не проверять, распечатается пустая строка
-            print(shuffle_middle_letters(last_word), end='')
+            print(shuffle_middle_letters("".join(last_word)), end='')
             # если надо не распечатывать ответ, а наполнять им строку, то надо делать что-то типа
             # result += shuffle_middle_letters(last_word), где result - это список символов, который сначала пустой
 
