@@ -8,6 +8,8 @@
       url: /21fall/prog_basics
     - title: Технологии программирования
       url: /21fall/prog_tech
+    - title: Функциональное программирование
+      url: /21fall/func_prog
 - title: Весна 2021
   url: /21spring
   sub:
