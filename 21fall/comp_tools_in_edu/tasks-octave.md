@@ -6,9 +6,9 @@ type: tasks
 
 ## Create matrices
 
-Solve tasks from this block in a folder named `octave-matrices`.
+Solve tasks from this block in a folder named `octave-matrices`. Name files as written in the beginning of each task, files should have the `.m` extension.
 
-Please, use only methods that were discussed at the lecture or in lecture notes available on this site. That is, for example, don't  use loops and functions such as `repmat`. And try to find a short solution, especially, don't  enter all the values manually.
+Each task asks you to create a certain matrix. Please, use only methods that were discussed at the lecture or in lecture notes available on this site. That is, for example, don't use loops and functions such as `repmat`. And try to find a short solution, especially, don't enter all the values manually.
 
 1. **task_10x10**
 
