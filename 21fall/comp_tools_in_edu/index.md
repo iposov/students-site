@@ -10,7 +10,7 @@ Please, answer the questions and send answers to me: [introductionary questions]
 
 ## Lecture notes
 
-1. Our first lecture: [lecture notes 1](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/mathematical_packages/lecture1-octave-basics.ipynb)
+1. Our first lecture: [lecture notes 1](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/comp_tools_in_edu/lecture1-octave-basics.ipynb)
 
 ## Tasks
 
