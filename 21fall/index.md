@@ -16,4 +16,4 @@
 
 [Структуры данных и алгоритмы](/404/)
 
-[Computer tools in education](/404/)
+[Computer tools in education](comp_tools_in_edu/)
