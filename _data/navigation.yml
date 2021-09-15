@@ -12,6 +12,8 @@
       url: /21fall/func_prog
     - title: Computer tools in education
       url: /21fall/comp_tools_in_edu
+    - title: Алгоритмы и структуры данных
+      url: /21fall/algs_and_ds
 - title: Весна 2021
   url: /21spring
   sub:
