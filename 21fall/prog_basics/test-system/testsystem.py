@@ -14,14 +14,18 @@ def test(function, filename):
     for [*args, correct_answer] in test_cases:
         student_answer = function(*args)
         if student_answer != correct_answer:
-            print(f"Ошибка при проверке. Получен ответ:\n    {student_answer}\nожидался:\n    {correct_answer}\nАргументы:")
-            for arg in args:
-                print("    ", arg, sep="")
+            print(f"{function.__name__}: Ошибка при проверке. Получен ответ:\n    {student_answer}\n    ожидался:\n    {correct_answer}\n    Аргументы:")
+            print(f"    {function.__name__}(", end="")
+            print(*args, sep=", ", end="")
+            print(')')
             return
-    print("Все тесты пройдены")
+    print(f"{function.__name__}: Все тесты пройдены")
 
 
-def create_tests(function, filename, arguments_lists):
+def create_tests(function, arguments_lists, filename=None):
+    if not filename:
+        filename = f'tests/{function.__name__}.json.gz'
+
     test_cases = [[*arguments, function(*arguments)] for arguments in arguments_lists]
 
     if filename[-3:] == '.gz':
