@@ -9,4 +9,6 @@
 
 ## Задачи
 
+Тестовая система: [testsystem.py](test-system/testsystem.py)
+
 [Вводные задачи](tasks-1-intro.md)
