@@ -72,7 +72,7 @@ def quadratic_equation(a, b, c):
     else:
         x1 = (-b - d ** 0.5) / (2 * a)
         x2 = (-b + d ** 0.5) / (2 * a)
-        if x1 < x2:
+        if x1 > x2:
             x1, x2 = x2, x1
         return f"два решения x1 = {x1:.2f}, x2 = {x2:.2f}"
 
