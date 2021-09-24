@@ -8,7 +8,7 @@
 
 Лекция 3. Операторы сравнения, строки, функции. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/prog_basics/lecture3.ipynb)
 
-Лекция 4. Циклы для решения задач. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/prog_basics/lecture4-prev.ipynb)
+Лекция 4. Циклы, операции со строками, типы-последовательности, слайсы. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/prog_basics/lecture4.ipynb)
 
 ## Задачи
 
