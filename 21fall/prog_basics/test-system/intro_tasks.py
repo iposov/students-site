@@ -128,11 +128,12 @@ def number_to_string(n):
         res = []
         if a > 0:
             res.append(hundreds[a])
+
         if b > 1:
             res.append(tens[b])
         if b == 1:
             res.append(teens[c])
-        else:
+        elif c != 0:
             res.append(ones[c])
 
         return res
@@ -169,6 +170,5 @@ nums += [[x] for x in range(1, 1_000_000_000, 479909)]  # 40000th prime
 triplets = list(range(0, 30)) + list(range(100, 130)) + [111 * x for x in range(1, 10)]
 nums += [[1_000_000 * t1 + 1_000 * t2 + t3] for t1 in triplets for t2 in triplets for t3 in triplets if t1 != 0 or t2 != 0 or t3 != 0]
 
-# create_tests(number_to_string, nums)
+create_tests(number_to_string, nums)
 create_tests(number_to_string, [[x] for x in range(0, 1000)], filename="tests/number_to_string_short.json.gz")
-
