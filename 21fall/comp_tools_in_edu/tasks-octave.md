@@ -145,3 +145,19 @@ Create a border-matrix \\(10\\times10\\), it should have 0s everywhere except 1s
     Try to avoid loops.
     Additional question. What is a determinant of this matrix? Can you explain,
     why the determinant is as it is?
+
+13. **domino.m**. Based on [http://www.math.cornell.edu/~levine/18.312/alg-comb-lecture-18.pdf](http://www.math.cornell.edu/~levine/18.312/alg-comb-lecture-18.pdf)
+
+   **Additional task**. You may use loops in this task. 
+
+   You are given natural numbers $m$ and $n$, they are the size of a rectangles made of
+cells. There are $m\times n$ cells, they are numbered from $1$ to $m\cdot n$.
+
+   Create a matrix $A$ of size $m\cdot n\times m\cdot n$, in which the element at $i,j$ contains:
+   
+    * 1, if cells $i$ and $j$ are next to each other horizontally,
+    * complex unit ($\texttt i$), if cells $i$ and $j$ are next to each other vertically,
+    * 0 otherwise
+
+    Evaluate the determinant of $A$ and take the square root of it.
+    You will get the number of domino tilings of a $m\times n$ rectangle. 
