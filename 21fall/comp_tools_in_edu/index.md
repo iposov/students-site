@@ -11,6 +11,10 @@ Please, answer the questions and send answers to me: [introductionary questions]
 ## Lecture notes
 
 1. Our first lecture: [lecture notes 1](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/comp_tools_in_edu/lecture1-octave-basics.ipynb)
+2. [Octave matrices - create](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/mathematical_packages/octave-matrices-create.ipynb)
+3. [Octave matrices - index](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/mathematical_packages/octave-matrices-index.ipynb)
+4. [Matrix operations. Vectorization. Logical indexing](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/mathematical_packages/octave-matrices-operations.ipynb)
+
 
 ## Tasks
 

@@ -146,7 +146,7 @@ Create a border-matrix \\(10\\times10\\), it should have 0s everywhere except 1s
     Additional question. What is a determinant of this matrix? Can you explain,
     why the determinant is as it is?
 
-13. **domino.m**. Based on [http://www.math.cornell.edu/~levine/18.312/alg-comb-lecture-18.pdf](http://www.math.cornell.edu/~levine/18.312/alg-comb-lecture-18.pdf)
+13. **task_domino**. Based on [http://www.math.cornell.edu/~levine/18.312/alg-comb-lecture-18.pdf](http://www.math.cornell.edu/~levine/18.312/alg-comb-lecture-18.pdf)
 
    **Additional task**. You may use loops in this task. 
 
@@ -161,3 +161,34 @@ cells. There are $m\times n$ cells, they are numbered from $1$ to $m\cdot n$.
 
     Evaluate the determinant of $A$ and take the square root of it.
     You will get the number of domino tilings of a $m\times n$ rectangle. 
+
+## Indexing `octave-indexing`
+
+1. ***task_left_top***
+   You are given a square matrix of an even size. (you are not supposed to test that the matrix is actually even and square, just
+   use it). Imagine we split a matrix vertically and horizontally through the center. Return the matrix at the left-top.
+1. ***task_bottom_half***
+   You are given a matrix with an even number of rows. Return a new matrix where the top half is exchanged with the bottom half of the
+   initial matrix.
+1. ***task_mod_3***
+   You are given a vector with integer numbers. Return a vector that contains only that numbers of the initial vector, that are
+   divisible by 3. Use the `mod` function to test divisibilty.
+1. ***task_div_by_2*** Given a vector of integer numbers, return a vector with the same
+   numbers, but where even numbers are divided by 2. Will your solution work if
+   the matrix is 2 dimensional?
+1. Create two functions ***filter_multiples*** and ***seive***. The first one is `filter_multiples(a, k)`,
+   it removes all numbers from the vector `a` that are divisible
+   by `k` and are strictly greater than `k`. For example, `filter_multiples([1 5 10], 5)` yields `[1 5]`
+
+   The second one is `sieve(n)`, and it implements [the Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes).
+   You will probably need to use the while loop.
+1. ***task_animals*** You are given a matrix with two columns. Each column describes
+   an animal: its height in meters and weight in kg.
+   Return the following set of answers:
+   * sum of animals' heights
+   * mean height of animals
+   * mean height of animals that are higher than 100 kg
+   * one column matrix with the body mass index (BMI) of animals. BMI is equal to
+     weight divided by the square of height.
+   * two columns matrix with animals, that are higher than 10 meters, and heaver than 100 kg.
+
