@@ -6,7 +6,11 @@
 
 Лекция 2. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture2.ipynb)
 
-Лекция 3. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture2.ipynb)
+Лекция 3. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture3.ipynb)
+
+Лекция 4. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture4.ipynb)
+
+Лекция 5. Функции `flip`, `$`, `.`, алгебраические типы[Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture5.ipynb)
 
 ## Задачи
 
@@ -27,7 +31,7 @@
 7. `rev1` перевернуть список;
 8. `take1` вернуть список, состоящий из указанного количества начальных элементов списка;
 9. `filter1` — это аналог встроенной функции `filter`;
-10. `map1` — это аналог встроенной функции `filter`;
+10. `map1` — это аналог встроенной функции `map`;
 
 ## Теория чисел
 
@@ -49,9 +53,9 @@
 
 Следуюшие задачи нужно решить с помощью встроенной функции `concatMap`
 
-3. Дан список, повторите каждый его элемент два раза.
-1. Опять реализуйте `filter`
-2. Реализуйте `map`
+1. Дан список, повторите каждый его элемент два раза.
+2. Опять реализуйте `filter`
+3. Реализуйте `map`
 
 
 ### `zip`, `zipWith` и `unzip`
