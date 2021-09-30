@@ -221,3 +221,5 @@ System.out.println(s1.equals(s2)); // совпало !! true
 System.out.println(s1.equals(s3)); // не совпало!! false
 System.out.println("abc".equals("a" + "bc")); //true
 ```
+
+Итого, `==` в Java это `is` в Python.
