@@ -1,5 +1,3 @@
-import math
-
 from testsystem import create_tests
 
 
