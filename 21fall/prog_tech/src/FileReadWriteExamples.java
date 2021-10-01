@@ -1,6 +1,8 @@
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.Scanner; // аналогично import в Python
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class FileReadWriteExamples {
