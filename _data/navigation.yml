@@ -14,6 +14,8 @@
       url: /21fall/comp_tools_in_edu
     - title: Алгоритмы и структуры данных
       url: /21fall/algs_and_ds
+    - title: Основы языковой инженерии
+      url: /21fall/nlp
 - title: Весна 2021
   url: /21spring
   sub:
