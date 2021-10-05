@@ -16,8 +16,8 @@
       url: /21fall/algs_and_ds
     - title: Основы языковой инженерии
       url: /21fall/nlp
-    - title: Основы языковой инженерии
-      url: /21fall.combinatorics_and_graph_theory
+    - title: Комбинаторика и теория графов
+      url: /21fall/combinatorics_and_graph_theory
 - title: Весна 2021
   url: /21spring
   sub:
