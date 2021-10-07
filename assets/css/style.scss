@@ -13,6 +13,19 @@ nav {
   max-width: 20rem;
   display: inline-block;
   vertical-align: top;
+  font-size: 0.8em;
+}
+
+nav ul {
+  margin: 0;
+}
+
+nav h3 {
+  margin: 0
+}
+
+nav a {
+  color: #b6c6d9;
 }
 
 .main-content {
