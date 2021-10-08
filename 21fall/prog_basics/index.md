@@ -12,6 +12,7 @@
 
 Лекция 5. Еще слайсы и другие операции с последовательностями. Изменяемые, неизменяемые объекты. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/prog_basics/lecture5.ipynb)
 
+Лекция 6. Пример функции с побочным эффектом и чистой функции. Значение None. Деструктуризация. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/prog_basics/lecture6.ipynb)
 
 ## Задачи
 
