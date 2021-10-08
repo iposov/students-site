@@ -10,6 +10,9 @@
 
 Лекция 4. Циклы, операции со строками, типы-последовательности, слайсы. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/prog_basics/lecture4.ipynb)
 
+Лекция 5. Еще слайсы и другие операции с последовательностями. Изменяемые, неизменяемые объекты. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/prog_basics/lecture5.ipynb)
+
+
 ## Задачи
 
 Описание системы тестирования: [система тестирования](test-system/test-system.md)
