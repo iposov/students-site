@@ -21,3 +21,9 @@
 [Вводные задачи](tasks-1-intro.md)
 
 [Псевдографика](tasks-2-pseudographics.md)
+
+[Слайсы](tasks-3-slices.md)
+
+[Строки](tasks-4-strings.md)
+
+[Списки](task-5-lists.md)
