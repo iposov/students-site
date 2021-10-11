@@ -49,7 +49,7 @@
             )</td></tr>
     <tr><td>chi_sq</td><td>потом впишем</td></tr>
     <tr><td>fisher</td><td>потом впишем</td></tr>
-    <tr><td>dice</td><td>2 * n_ii / (n_ix + n_xi)</td></tr>
+    <tr><td>dice</td><td>$\frac{2n_{ii}}{n_{ix} + n_{xi}}$</td></tr>
     <tr><td>raw_freq</td><td>n_ii / n_xx</td></tr>
     <tr><td>student_t</td><td>(n_ii
                 - n_ix*n_xi / n_xx
