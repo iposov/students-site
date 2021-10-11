@@ -1,6 +1,6 @@
 # Introductionary questions
 
-Please, send me an email (to [iposov+mp@gmail.com](mailto://iposov@gmail)) with answers to the following questions.
+Please, send me an email (to [iposov@gmail.com](mailto://iposov@gmail)) with answers to the following questions.
 Mandatory questions are in bold, you may skip any other questions, if you don't feel like answering them.
 
 1. **What is your name**, your country, your city? What languages do you speak?

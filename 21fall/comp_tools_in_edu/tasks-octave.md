@@ -177,8 +177,7 @@ cells. There are $m\times n$ cells, they are numbered from $1$ to $m\cdot n$.
    numbers, but where even numbers are divided by 2. Will your solution work if
    the matrix is 2 dimensional?
 1. Create two functions ***filter_multiples*** and ***seive***. The first one is `filter_multiples(a, k)`,
-   it removes all numbers from the vector `a` that are divisible
-   by `k` and are strictly greater than `k`. For example, `filter_multiples([1 5 10], 5)` yields `[1 5]`
+   it removes all numbers from the vector `a` that both are divisible by `k` and are strictly greater than `k`. For example, `filter_multiples([1 2 3 4 5 6 7 8 9 10], 3)` yields `[1 2 3 4 5 7 8 10]`.
 
    The second one is `sieve(n)`, and it implements [the Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes).
    You will probably need to use the while loop.
