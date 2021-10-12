@@ -44,17 +44,17 @@
     <thead>
     <tr><td>метрика</td><td>формула</td></tr>
     </thead>
-    <tr><td>phi_sq</td><td>(n_ii * n_oo - n_io * n_oi) ** 2 / (
-                (n_ii + n_io) * (n_ii + n_oi) * (n_io + n_oo) * (n_oi + n_oo)
-            )</td></tr>
+    <tr><td>phi_sq</td><td>$\frac{(n_{ii} * n_{oo} - n_{io} * n_{oi})^2}{
+                (n_{ii} + n_{io}) * (n_{ii} + n_{oi}) * (n_{io} + n_{oo}) * (n_{oi} + n_{oo})
+            }$</td></tr>
     <tr><td>chi_sq</td><td>потом впишем</td></tr>
     <tr><td>fisher</td><td>потом впишем</td></tr>
     <tr><td>dice</td><td>$\frac{2n_{ii}}{n_{ix} + n_{xi}}$</td></tr>
-    <tr><td>raw_freq</td><td>n_ii / n_xx</td></tr>
-    <tr><td>student_t</td><td>(n_ii
-                - n_ix*n_xi / n_xx
-            ) / (n_ii + 1e-20) ** 0.5</td></tr>
-    <tr><td>mi_like</td><td>n_ii ** 3 / (n_ix * n_xi)</td></tr>
+    <tr><td>raw_freq</td><td>$\frac{n_ii}{n_xx}</td></tr>
+    <tr><td>student_t</td><td>$\frac{n_{ii}
+                - \frac{n_{ix}n_{xi}}{n_{xx}}
+            }{\sqrt{n_{ii} + 10^{-20}}}$</td></tr>
+    <tr><td>mi_like</td><td>$\frac{n_{ii}^3}{n_{ix}n_{xi}}$</td></tr>
     <tr><td>pmi</td><td>log2(n_ii * n_xx) - log2(n_ix*n_xi)</td></tr>
     <tr><td>likelihood_ratio</td><td>потом впишем</td></tr>
     <tr><td>poisson_stirling</td><td>n_ii * (log2(n_ii / (n_ix*n_xi / n_xx)) - 1)</td></tr>
