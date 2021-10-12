@@ -50,14 +50,14 @@
     <tr><td>chi_sq</td><td>потом впишем</td></tr>
     <tr><td>fisher</td><td>потом впишем</td></tr>
     <tr><td>dice</td><td>$\frac{2n_{ii}}{n_{ix} + n_{xi}}$</td></tr>
-    <tr><td>raw_freq</td><td>$\frac{n_ii}{n_xx}$</td></tr>
+    <tr><td>raw_freq</td><td>$\frac{n_{ii}}{n_{xx}}$</td></tr>
     <tr><td>student_t</td><td>$\frac{n_{ii}
                 - \frac{n_{ix}n_{xi}}{n_{xx}}
             }{\sqrt{n_{ii} + 10^{-20}}}$</td></tr>
     <tr><td>mi_like</td><td>$\frac{n_{ii}^3}{n_{ix}n_{xi}}$</td></tr>
     <tr><td>pmi</td><td>$\log_2(n_{ii}n_{xx}) - \log_2(n_{ix}n_{xi})$</td></tr>
     <tr><td>likelihood_ratio</td><td>потом впишем</td></tr>
-    <tr><td>poisson_stirling</td><td>$n_{ii}(\log_2(\frac{n_{ii}n_{xx}}{ n_{ix}n_{xi}} - 1)$</td></tr>
+    <tr><td>poisson_stirling</td><td>$n_{ii}(\log_2(\frac{n_{ii}}{ n_{ix}n_{xi}/n_{xx}}) - 1)$</td></tr>
     <tr><td>jaccard</td><td>$\frac{n_{ii}}{n_{ii} + n_{oi} + n_{io}}$</td></tr>
     </table>
 
