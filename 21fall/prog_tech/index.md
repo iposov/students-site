@@ -6,7 +6,8 @@
 2. Лекция 2. Типы данных в Java, шаблон программы. [Конспект](lecture2.md)
 3. Лекция 3. Переменные, оператор if, функции. [Конспект](lecture3.md)
 4. Лекция 4. Циклы, строки.  [Конспект](lecture4.md)
-4. Лекция 5. Массивы, null, чтение и запись в файлы.  [Конспект](lecture5.md), [FileReadWriteExamples.java](src/FileReadWriteExamples.java)
+5. Лекция 5. Массивы, null, чтение и запись в файлы.  [Конспект](lecture5.md), [FileReadWriteExamples.java](src/FileReadWriteExamples.java)
+6. Лекция 6. Регулярные выражения. [Конспект](lecture6-regexps.md)
 
 # Задания
 
