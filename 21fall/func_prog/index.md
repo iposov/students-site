@@ -10,9 +10,11 @@
 
 Лекция 4. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture4.ipynb)
 
-Лекция 5. Функции `flip`, `$`, `.`, алгебраические типы[Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture5.ipynb)
+Лекция 5. Функции `flip`, `$`, `.`, алгебраические типы. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture5.ipynb)
 
 Лекция 6. Рисование дерева, ленивые вычисления. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture6.ipynb)
+
+Лекция 7. Классы типов. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture6.ipynb)
 
 ## Задачи
 
