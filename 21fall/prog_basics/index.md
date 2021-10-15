@@ -26,4 +26,4 @@
 
 [Строки](tasks-4-strings.md)
 
-[Списки](task-5-lists.md)
+[Списки](tasks-5-lists.md)
