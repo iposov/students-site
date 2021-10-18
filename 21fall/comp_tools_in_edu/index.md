@@ -15,6 +15,7 @@ Please, answer the questions and send answers to me: [introductionary questions]
 3. [Octave matrices - index](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/comp_tools_in_edu/octave-matrices-index.ipynb)
 4. [Matrix operations. Vectorization. Logical indexing](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/comp_tools_in_edu/octave-matrices-operations.ipynb)
 5. lecture 3 about functions: [lecture notes 3](lecture3-functions.md)
+6. lecture 4 also about function and testing [lecture notes 4](lecture4.md)
 
 ## Tasks
 
