@@ -2,6 +2,8 @@ import json
 import gzip
 
 
+# TODO add number of tests that are allowed to fail
+
 def test(function, filename):
     if filename[-3:] == '.gz':
         f = gzip.open(filename, "rb")
@@ -11,10 +13,11 @@ def test(function, filename):
     with f:
         test_cases = json.load(f)
 
-    for [*args, correct_answer] in test_cases:
+    for *args, correct_answer in test_cases:
         student_answer = function(*args)
         if student_answer != correct_answer:
-            print(f"{function.__name__}: Ошибка при проверке. Получен ответ:\n    {student_answer}\n    ожидался:\n    {correct_answer}\n    Аргументы:")
+            print(
+                f"{function.__name__}: Ошибка при проверке. Получен ответ:\n    {student_answer}\n    ожидался:\n    {correct_answer}\n    Аргументы:")
             print(f"    {function.__name__}(", end="")
             print(*args, sep=", ", end="")
             print(')')
@@ -36,3 +39,17 @@ def create_tests(function, arguments_lists, filename=None):
     with f:
         json.dump(test_cases, f)
 
+
+# testcase: {'in': '', args: [], checker: code}
+
+"""
+[
+    [arg1, arg2, result],
+    [arg1, arg2, result]
+]
+
+{
+    type: "checker",
+    code: "def check(args, result)"
+}
+"""
