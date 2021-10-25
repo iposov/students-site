@@ -21,3 +21,4 @@ Please, answer the questions and send answers to me: [introductionary questions]
 ## Tasks
 
 [Tasks about octave](tasks-octave.md)
+[Tasks about geogebra](tasks-geogebra.md)

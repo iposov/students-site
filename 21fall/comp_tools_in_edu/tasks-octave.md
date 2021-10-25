@@ -283,7 +283,7 @@ anything.
    Remember, that you have already implemented evaluating of intersections
    in the block octave-vectorization.
 
-## Some fun with random numbers
+## Some fun with random numbers `octave-random`
 
 1. **task_random_walk_2d** Random walk on a plane. You are given an integer `steps`. Generate `steps` times a pair of numbers, this pair may be either (1 0), (-1 0), (0 1), or (0 -1). Put all this pairs in one matrix with two columns, so you get a matrix of size $size \times 2$. This pairs correspond to movements of a point on a plane, a pair is a change for x and y coordinates correspondingly. That is a point moves either up, left, right or down. Finally, sum all x coordinates, then sum all y coordinates, and you will get two coordinates of where a point had come after its random walk.
     
