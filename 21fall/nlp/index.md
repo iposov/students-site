@@ -11,4 +11,4 @@
 
 1. [Закон Ципфа](tasks/zipf.md)
 2. [Поиск коллокаций](tasks/collocations.md)
-3. [Построение и оценка n-грамм моделей](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/nlp/tasks/ngrams.ipynb)
+3. [Построение и оценка n-грамм моделей](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/nlp/tasks/n_grams.ipynb)
