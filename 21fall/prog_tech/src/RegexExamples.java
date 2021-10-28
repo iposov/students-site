@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,6 +46,62 @@ public class RegexExamples {
             System.out.println(m3.start()); // индекс начала
             System.out.println(m3.end()); // индекс конца
         }
+
+        //Проверим работу групп
+        Pattern wordNumber = Pattern.compile("([a-z]+)(\\d+)");
+        String text2 = """
+            Какой-то текст a23 со словами xyz42 с цифрами.
+            И еще таких слов немного pqr111.
+            """;
+        Matcher wordNumberMatcher = wordNumber.matcher(text2);
+        while (wordNumberMatcher.find()) {
+            System.out.println("Найдено " + wordNumberMatcher.group(0));
+            System.out.println("Буквы   " + wordNumberMatcher.group(1));
+            System.out.println("Цифры   " + wordNumberMatcher.group(2));
+            System.out.println();
+        }
+
+        // функция replaceAll
+        //заменим буквыцифры на символ точки
+        System.out.println("a23 xx bc42".replaceAll("([a-z]+)(\\d+)", "."));
+        //если в замене есть символ доллара, он указывает номер группы
+        System.out.println("a23 xx bc42".replaceAll("([a-z]+)(\\d+)", "$1"));
+        System.out.println("a23 xx bc42".replaceAll("([a-z]+)(\\d+)", "-$1-"));
+        System.out.println("a23 xx bc42".replaceAll("([a-z]+)(\\d+)", "$1$2$1"));
+        //0 группа = вся найденная подстрока
+        System.out.println("a23 xx bc42".replaceAll("([a-z]+)(\\d+)", "[$0]"));
+
+        // Напомним
+        // Pattern wordNumber = Pattern.compile("([a-z]+)(\\d+)");
+        Matcher m4 = wordNumber.matcher("a23 xx bc42");
+        // нужно запомнить кусок кода:
+        StringBuilder sb = new StringBuilder(); //Аналог String, но изменяемый
+        while (m4.find()) {
+            // Выясняем, на что заменять
+            String letters = m4.group(1); // "a"
+            String digits = m4.group(2); // "23"
+            String replacement = letters.toUpperCase() + digits;
+            // даем команду на замену
+            m4.appendReplacement(sb, replacement);
+        }
+        m4.appendTail(sb);
+        System.out.println(sb.toString()); // Преобразуем результат замен в строку
+
+        Scanner in = new Scanner("""
+                     Первое предложение.
+                     Второе предложение! Еще 1 (одно), предложение, с запятыми.""");
+        System.out.println(in.next()); // Первое
+        System.out.println(in.next()); // предложении.
+        System.out.println(in.next()); // Второе
+
+        // по-умолчанию Scanner считает разделителями любые пробельные символы.
+        // но можно задать другой разделитесь
+        in.useDelimiter("[^а-яА-Я0-9]+"); //^ означает всё, кроме укзанных символов
+        System.out.println(in.next()); //предложение (без !)
+        System.out.println(in.next()); //Еще
+        System.out.println(in.hasNextInt()); //проверям, что дальше число
+        System.out.println(10 * in.nextInt()); //читаем это как число
+
     }
 
 }
