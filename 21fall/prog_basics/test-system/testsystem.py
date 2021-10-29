@@ -3,9 +3,28 @@ import json
 import gzip
 import io
 import sys
-from colorama import Fore, Back, Style, init as colorama_init
 
-colorama_init()
+
+# from colorama import Fore, Back, Style, init as colorama_init
+#
+# colorama_init()
+
+class Fore:
+    RED = '\033[31m'
+    GREEN = '\033[32m'
+    RESET = '\033[39m'
+
+
+class Back:
+    LIGHTGREEN_EX = '\033[102m'
+    LIGHTRED_EX = '\033[101m'
+    LIGHTCYAN_EX = '\033[106m'
+    LIGHTYELLOW_EX = '\033[31m'
+    RESET = '\033[49m'
+
+
+class Style:
+    RESET_ALL = '\033[49m'
 
 
 # TODO add number of tests that are allowed to fail
