@@ -4,27 +4,36 @@ import gzip
 import io
 import sys
 
-
 # from colorama import Fore, Back, Style, init as colorama_init
 #
 # colorama_init()
 
+USE_COLORS = False
+
+
+def color(text):
+    if USE_COLORS:
+        return text
+    else:
+        return ""
+
+
 class Fore:
-    RED = '\033[31m'
-    GREEN = '\033[32m'
-    RESET = '\033[39m'
+    RED = color('\033[31m')
+    GREEN = color('\033[32m')
+    RESET = color('\033[39m')
 
 
 class Back:
-    LIGHTGREEN_EX = '\033[102m'
-    LIGHTRED_EX = '\033[101m'
-    LIGHTCYAN_EX = '\033[106m'
-    LIGHTYELLOW_EX = '\033[31m'
-    RESET = '\033[49m'
+    LIGHTGREEN_EX = color('\033[102m')
+    LIGHTRED_EX = color('\033[101m')
+    LIGHTCYAN_EX = color('\033[106m')
+    LIGHTYELLOW_EX = color('\033[31m')
+    RESET = color('\033[49m')
 
 
 class Style:
-    RESET_ALL = '\033[49m'
+    RESET_ALL = color('\033[49m')
 
 
 # TODO add number of tests that are allowed to fail
@@ -48,6 +57,10 @@ class FunctionWrapper:
         self.kwargs = kwargs
         self.stdin = stdin
         self.result = None
+
+        previous_stdin = sys.stdin
+        previous_stdout = sys.stdout
+
         if stdin is not None:
             sys.stdin = io.StringIO(stdin)
         sys.stdout = io.StringIO()
@@ -62,8 +75,8 @@ class FunctionWrapper:
         finally:
             self.stdout = sys.stdout.getvalue()
             # self.stderr = sys.stderr.getvalue()
-            sys.stdin = sys.__stdin__
-            sys.stdout = sys.__stdout__
+            sys.stdin = previous_stdin
+            sys.stdout = previous_stdout
 
     def print_call_information(self):
         if self.args is not None or self.kwargs is not None:

@@ -1,6 +1,5 @@
 from testsystem import test, create_tests, write_test_suites, TestSuite
 
-
 def even_list(n):
     r = []
     for i in range(1, n + 1):
