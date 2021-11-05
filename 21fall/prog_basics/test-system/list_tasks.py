@@ -1,9 +1,8 @@
 from testsystem import test, create_tests, write_test_suites, TestSuite
 
+
 def even_list(n):
-    r = []
-    for i in range(1, n + 1):
-        r.append(2 * i)
+    return list(range(2, 2 * n + 1, 2))
 
 
 create_tests(even_list, [[n] for n in range(1, 10)])
