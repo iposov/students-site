@@ -1,5 +1,5 @@
 ---
-type: tasks
+type:tasks
 ---
 
 # Генераторы списков

@@ -14,6 +14,12 @@
 
 Лекция 6. Пример функции с побочным эффектом и чистой функции. Значение None. Деструктуризация. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/prog_basics/lecture6.ipynb)
 
+Лекция 7. Генераторы списков [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/prog_basics/lecture7.ipynb)
+
+Лекция 8. Еще об изменяемых и неизменяемых объектах. Множества. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/prog_basics/lecture8.ipynb)
+
+Лекция 9. Словари. Генераторы. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/prog_basics/lecture9.ipynb)
+
 ## Задачи
 
 Описание системы тестирования: [система тестирования](test-system/test-system.md)
@@ -27,3 +33,7 @@
 [Строки](tasks-4-strings.md)
 
 [Списки](tasks-5-lists.md)
+
+[Изменяемые и неизменяемые объекты](tasks-6-mutability.md)
+
+[Генераторы списков](tasks-7-list-set-comprehension.md)
