@@ -20,6 +20,8 @@
 
 Лекция 9. Словари. Генераторы. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/prog_basics/lecture9.ipynb)
 
+Лекция 10. Кодировки, чтение, запись в файл. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/prog_basics/lecture10.ipynb)
+
 ## Задачи
 
 Описание системы тестирования: [система тестирования](test-system/test-system.md)
