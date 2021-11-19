@@ -1,3 +1,5 @@
+import ru.spbu.arts.posov.Book;
+
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -19,6 +21,9 @@ public class FileReadWriteExamples {
         writeFileExample();
 
         //Files.writeString() - записать строку как один файл с этой строкой
+
+//        Book b = new Book();
+//        b.title //нет доступа!!! другой пакет
     }
 
     private static void writeFileExample() throws Exception {
