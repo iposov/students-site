@@ -312,3 +312,90 @@ public class Book {
 
 А пустым модификатором доступа я прошу не пользоваться.
 
+## get- и set- методы
+
+Проблема. Если создать книгу, которая описана в прошлом примере, мы не имеем доступа к ее полям:
+
+```
+var b = new Book("Java", "Posov", 2021); // Book b = 
+System.out.println(b.title); // title приватный, доступа нет
+b.title = "Java 17"; // доступа нет
+```
+
+Иногда это то поведение, которое нужно. Мы не разрешаем пользоваться нашими полями. Вспомним рациональные числа. Было бы хорошо делать так?
+```
+var r = new Rational(10, 20); // 1/2
+r.numerator = 2; //получится дробь 2/2, несокращенная
+```
+Нарушили важное условие данных в классе, что дробь всегда несократима.
+
+Или хорошо ли делать так?
+
+```
+String s = "abc";
+s.hashIsZero = true; //нельзя, это поле в String приватно
+```
+
+Принцип *Инкапсуляции* говорит, что при использовании объекта мы не должны знать детали
+его реализации. Мы должны знать только его публичные методы, т.е. только те возможности
+по использованию объекта, которые заложены автором.
+
+В старых Java этого поля не было, в будущих версиях, возможно, оно исчезнет. Принцип инкапсуляции позволяет изменять реализацию класса (объекта), не требуя изменять
+реализацию того, что его использует.
+
+Как же все-таки разрешить узнавать заголовок книги?
+
+```
+public class Book {
+
+    // это так же, как было
+    private String title;
+    private String author;
+    private int year;
+
+    public Book(String title, String author, int year) {
+        this.title = title; 
+        this.author = author;
+        this.year = year;
+    }
+    
+    //добавляем get- методы, чтобы узнать значение полей
+    //public ТИП getИМЯ(БЕЗ АРГУМЕНТОВ)
+    public String getTitle() {
+        return title; // return this.title;
+    }
+    
+    public String getAuthor() {
+        return author;
+    }
+    
+    public int getYear() {
+        return year;
+    }
+    
+    //можно делать get- методы для того, что не хранится напрямую
+    public String getReferenceItem() {
+        return "%s: %s, %d".formatted(author, title, year);
+    }
+   
+    //-set методы устанавливают данные
+    // public void setИмя(ТИП ИМЯ)
+    public void setTitle(String title) {
+        this.title = title;
+    }
+}
+```
+
+Как пользоваться?
+
+```
+var b = new Book("Java", "Posov", 2021);
+System.out.println(b.getTitle()); //Java
+System.out.println(b.getYear()); //2021
+System.out.println(b.getReferenceItem()); //Posov: Java, 2021
+
+b.setTitle("Java 17"); // можно изменить заголовок
+b.setAuthor("..."); // автора не поменять. Нет такого метода.
+```
+
+Перерыв (до 13:43)

@@ -1,3 +1,5 @@
+#TODO 'a', 'lowercase', 'UPPERCASE' to test task3
+
 from testsystem import write_test_suites, create_tests, test, TestSuite
 
 

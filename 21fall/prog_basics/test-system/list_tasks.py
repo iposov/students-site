@@ -1,3 +1,5 @@
+# TODO test changing every empty list
+
 from testsystem import test, create_tests, write_test_suites, TestSuite
 
 
