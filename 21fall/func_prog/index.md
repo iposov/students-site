@@ -14,7 +14,22 @@
 
 Лекция 6. Рисование дерева, ленивые вычисления. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture6.ipynb)
 
-Лекция 7. Классы типов. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture6.ipynb)
+Лекция 7. Классы типов. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture7.ipynb)
+
+Лекция 8. Классы типов, Фигуры. Maybe [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture8.ipynb)
+
+Лекция 9. Числовые типы и классы. Создание проекта STACK. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture9.ipynb)
+
+Лекция 10. Map. Функторы. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture10.ipynb)
+
+Лекция 11. Алгебраические типы с именованными полями. Аппликативные функторы
+[Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture11.ipynb).
+Рисованные картинки [стр1](fun-1.png), [стр2](fun-2.png).
+
+Лекция 12. Ввод/Вывод. Монады. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture12.ipynb).
+Рисованные картинки [стр](fun2.png).
+
+Лекция 13. Продолжение. Монада Random. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture13.ipynb)
 
 ## Задачи
 
