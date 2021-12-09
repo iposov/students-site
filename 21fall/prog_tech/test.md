@@ -1,3 +1,61 @@
+# Задача для зачёта
+
+Дан файл с положительными числами, и в начале
+сказано, сколько этих чисел. Т.е. первое число — это количество чисел дальше.
+
+```
+10
+42 234
+3245 342 540
+34
+234
+44 44 55
+```
+
+Надо прочитать все числа в массив, записать
+их в другой файл, выровняв по правому краю (по длине самого большого числа).
+
+```
+  42
+ 234
+3245
+ 342
+ 540
+  34
+ 234
+  44
+  44
+  55
+```
+
+(упрощение — просто выведите в столбик)
+
+Крайний срок: 15.30. Решение пошлите в чате, в виде одного файла с классом.
+
+Идентификаторы в Java. Переменные с маленькой буквы:
+```
+myVariable
+x
+x2
+variableOfSeveralWords
+```
+Классы правильно с большой:
+```
+Main
+Test
+MyTest
+```
+
+Неправильно:
+переменная с большой буквы
+X
+int Hello = 123;
+через подчеркивания
+variable_of_several_words = 321;
+
+Пример чтения файлов:
+
+```java
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
@@ -9,18 +67,7 @@ public class FileReadWriteExamples {
     // которые работают с файлами
     public static void main(String[] args) throws Exception {
         readFileExample(); // прочитай пример файла
-
-        //еще возможности по чтению. Вспомогательный класс `Files`
-//        Files.readAllBytes() - прочитать как массив byte
-//        Files.readString() - прочитать как строку весь файл
-//        Files.readAllLines() - прочитать все строки
-
         writeFileExample();
-
-        //Files.writeString() - записать строку как один файл с этой строкой
-
-//        Book b = new Book();
-//        b.title //нет доступа!!! другой пакет
     }
 
     private static void writeFileExample() throws Exception {
@@ -68,3 +115,5 @@ public class FileReadWriteExamples {
         }
     }
 }
+
+```
