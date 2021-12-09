@@ -39,7 +39,7 @@ x
 x2
 variableOfSeveralWords
 ```
-Классы правильно с большой:
+Классы правильно с называть с заглавной буквы:
 ```
 Main
 Test
@@ -47,11 +47,15 @@ MyTest
 ```
 
 Неправильно:
-переменная с большой буквы
+переменная не должна быть с заглавной буквы:
+```
 X
 int Hello = 123;
+```
 через подчеркивания
+```
 variable_of_several_words = 321;
+```
 
 Пример чтения файлов:
 
@@ -101,13 +105,15 @@ public class FileReadWriteExamples {
             System.out.println(x);
             //int y = in.nextInt(); //ошибка, там уже не число
 
+            // Проверка, что дальше в файле находится число
             if (in.hasNextInt()) {
-                int y = in.nextInt();
+                int y = in.nextInt(); // чтение числа из файла
                 System.out.println("прочитали число " + y);
             } else {
                 System.out.println("в файле дальше не число");
             }
 
+            // проверка, что дальше в файле есть слово для чтения
             while (in.hasNext()) {
                 String word = in.next();
                 System.out.println("Прочитано слово " + word);
