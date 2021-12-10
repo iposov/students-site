@@ -39,3 +39,12 @@
 [Изменяемые и неизменяемые объекты](tasks-6-mutability.md)
 
 [Генераторы списков](tasks-7-list-set-comprehension.md)
+
+[Файлы](tasks-8-files.md)
+
+[Множества](tasks-9-sets.md)
+
+[Словари](tasks-10-dicts.md)
+
+[Генераторы, аргументы функций, лямбда-выражения](tasks-11-extra.md)
+
