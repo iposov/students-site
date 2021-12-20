@@ -2,5 +2,5 @@
 
 ## Практические занятия
 
-* ИДЗ 1. [Бинарные отношения](IHW-bin-relations.pdf)
-* ИДЗ 2. [Остовные деревья и вычисление расстояний](IHW-graph-distances.pdf)
+* ИДЗ 1. [Бинарные отношения](practice/IHW-bin-relations.pdf)
+* ИДЗ 2. [Остовные деревья и вычисление расстояний](practice/IHW-graph-distances.pdf)
