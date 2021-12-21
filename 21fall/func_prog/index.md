@@ -31,6 +31,8 @@
 
 Лекция 13. Продолжение. Монада Random. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture13.ipynb)
 
+Лекция 14. Готовая монада Random. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/21fall/func_prog/lecture14.ipynb)
+
 ## Задачи
 
 ### Вводные
