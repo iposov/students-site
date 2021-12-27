@@ -11,6 +11,11 @@
 1. [Эмиль Штейнберг](lecture-notes/shteinberg.pdf), 0302, полный конспект. [Исходный код](lecture-notes/shteinberg.tex)
 2. [Ле Туан Ань](lecture-notes/le_tuan_an.pdf), 0302, полный конспект. Фотографии бумажного конспекта.
 3. Елизавета Кузнецова, 0371, лекции [1](lecture-notes/kuznetsova1.pdf), [3](lecture-notes/kuznetsova3.pdf), [4](lecture-notes/kuznetsova4.pdf), [5](lecture-notes/kuznetsova5.pdf), [8](lecture-notes/kuznetsova8.pdf), [9](lecture-notes/kuznetsova9.pdf). [Исходный код](lecture-notes/kuznetsova.zip).
+4. [Алексей Спиридонов](lecture-notes/spiridonov.pdf), 0301, полный конспект. [Исходный код](lecture-notes/spiridonov.tex).
+5. Анна Жук, в процессе выкладывания
+6. Кристина Сулейманова, в процессе выкладывания
+7. Андрей Блюдин, в процессе выкладывания
+8. Игорь Карпий, в процессе выкладывания
 
 Примеры заданий: в процессе подготовки.
 
