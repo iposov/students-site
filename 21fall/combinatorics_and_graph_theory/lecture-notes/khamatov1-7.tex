@@ -1,0 +1,1794 @@
+\documentclass{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage[russian]{babel}
+\usepackage{hyphenat}
+\usepackage{tikz}
+\PassOptionsToPackage{draft}{graphics} 
+\usepackage{amsfonts} % для букв с двойными штрихами (знак натуральных чисел)
+\usepackage[normalem]{ulem}
+\usepackage{cancel} % для зачеркивания слова
+\title{Комбинаторика и теория графов}
+\date{2021}
+\author{Конспектировал: cтудент группы 0302 Хаматов Вадим}
+\begin{document}
+\maketitle
+\begin{center}
+		\tableofcontents
+	\end{center}
+
+\section{Бинарные отношения}
+
+\textbf{Лекция 1}
+
+\textbf{Определение} М - множество $\neq \oslash$
+
+    R $\subset$ M x M - бинарные отношения
+Пояснение
+    M x M - множество пар из элементов R.
+Допустим M $=$ { a,b,c }
+
+    M x M $=$ [ (a,a), (a,b), (a,c), (b,a), (b,b), (b,c), (c,a), (c,b), (c,c) ] 
+    
+    или
+    
+    M = N $\rightarrow$ M x M = N x N = [ (1,1), (1,2), (2,1), (1,3), (2,2), (3,1), (1,4), (2,3)...$\infty$ ]
+    
+    отношения R - это подмножество пар.
+    
+    Обозначение (x,y) $\in$ R - пара (x,y) принадлежит отношению.
+    
+    Иначе xRy
+    
+    вместо (x,y) $\notin$ R будем писать \sout{xRy}
+    
+    \textbf{Примеры}
+    
+    \textbf{1}. М $=$ R $\succ$ R = [(x,y) :x > y ]
+
+    (3,2) $\in{R}$  $ $ $ $ 3R2 $ $ $ $   3>2
+
+    (3,4) $\notin$ R $ $ $ $  $\sout{3R4 }$ \quad \quad  $\sout{3>4}$
+
+
+    \textbf{2}. M $=$ R отношение "$\geq$" $ $ $ $ $ $  7$\geq$6 $ $ $ $ 7$\geq$7 
+    
+    \qquad \qquad  \qquad  \qquad  \qquad  \quad \qquad  \sout{7$\geq$8} 
+    
+    
+    \textbf{3}. M $=$ R отношение $=$ \qquad 7$=$7
+
+\qquad \qquad  \qquad  \qquad  \qquad  \quad \qquad  \sout{7$=$8} 
+
+    \textbf{4}. M $=$ R : $\approx (x,y) \in \approx \quad x \approx y \leftrightarrow |x - y| < 1$
+    
+    \textbf{5}. M $=$ R : @ x@y $\leftrightarrow$ x * x > y
+    
+ \qquad \qquad  \qquad  \qquad  \qquad  \quad \qquad  \sout{2@2} т.к. 2*2 > 2 
+ 
+ 
+  \qquad \qquad  \qquad  \qquad  \qquad  \quad \qquad  \sout{1@2}  
+  
+  
+  \textbf{6}. M = N $\vdots x\vdots y \leftrightarrow \ni k \in Z : x = ky$
+  
+  
+  \qquad \qquad 4 \vdots 2
+  
+  
+  \qquad \qquad \sout{2\vdots4}
+  
+  
+ \textbf{7}. M $=$ Z  \qquad   $  \equiv_3$ \qquad  0 $\equiv_3$ 3 \qquad 1 $\equiv_3$ 4 \qquad \sout{1 $\equiv_3$8}
+  
+  \qquad \qquad \qquad \qquad \quad \sout{0 $\equiv_3$ 2} \qquad 1 $\equiv_3$ 7
+  
+  \textbf{8}. M $=$ N \qquad \qquad Ц
+  
+  a Ц b, если в числе a "b" цифр
+  
+  
+  100 Ц 3
+  
+  
+  \sout{238 Ц 3}
+  
+    \textbf{9}. M $=$ прямые на $R^{2}$    
+    
+    || - $e_{1}$ || $e_{2}$, если $l_{1}$ не пересек $l_{2}$ при $l_{1} = l_{2}$ 
+    
+   \textbf{10}. $\perp e_{1} \perp e_{2}$ перпендикулярны
+    
+    с || d \qquad b $\perp$ c
+    
+    a || a
+    
+    
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=black, line width=0.625pt, draw=black] at (75.0pt, -75.0pt) {\textcolor{black}{1}};
+\node (2) [circle, minimum size=12.5pt, fill=black, line width=0.625pt, draw=black] at (300.0pt, -75.0pt) {\textcolor{black}{2}};
+\node (3) [circle, minimum size=12.5pt, fill=black, line width=0.625pt, draw=black] at (75.0pt, -137.5pt) {\textcolor{black}{3}};
+\node (4) [circle, minimum size=12.5pt, fill=black, line width=0.625pt, draw=black] at (300.0pt, -137.5pt)  {};
+\node (5) [circle, minimum size=12.5pt, fill=black, line width=0.625pt, draw=black] at (250.0pt, -37.5pt)  {};
+\node (6) [circle, minimum size=12.5pt, fill=black, line width=0.625pt, draw=black] at (250.0pt, -175.0pt) {\textcolor{black}{6}};
+\node (7) [circle, minimum size=12.5pt, fill=black, line width=0.625pt, draw=black] at (200.0pt, -62.5pt) {\textcolor{black}{7}};
+\node (8) [circle, minimum size=12.5pt, fill=black, line width=0.625pt, draw=black] at (125.0pt, -162.5pt) {\textcolor{black}{8}};
+\draw [line width=6.25, color=black] (4) to  (3);
+\draw [line width=6.25, color=black] (1) to  (2);
+\draw [line width=6.25, color=black] (5) to  (6);
+\draw [line width=6.25, color=black] (7) to  (8);
+\node at (75.0pt, -89.375pt) {\textcolor{black}{c}};
+\node at (65.625pt, -148.75pt) {\textcolor{black}{d}};
+\node at (240.625pt, -48.75pt) {\textcolor{black}{b}};
+\node at (200.0pt, -48.125pt) {\textcolor{black}{a}};
+\end{tikzpicture}
+    
+    \textbf{11}. Студенты ЛЭТИ
+    
+    x$\succ$y средник балл за последнюю сессию больше у х
+    
+    \textbf{12}. M=пользователи одноклассники
+    
+    x$\rightarrow$y, если 'y' в друзьях у 'x'
+    
+    Иванов $\rightarrow$ Петров
+    
+    \sout{Петров $\rightarrow$ Посов}
+    
+    \underline{Свойства бинарных отношений}
+    
+    \textbf{Определение}
+    
+    Бинарное отношение R на V называют рефлексивным,если $\forall x\in M$ \quad x R x (x,x)$\in R$
+    
+    
+    \underline{Замечание}: Отношение не рефлексивно $\leftrightarrow \exists$ \sout{xRx} - контрпример.
+    
+    $=$ - рефлексивно $\qquad \forall$ x: x=x
+    
+    $\geq \qquad \qquad \qquad \forall$ x : x $\geq$ x
+    
+    $>$ - не рефлексивно 2>2
+    
+    Ц - не рефлексивно \sout{3Ц3}
+    
+    \textbf{Определение}
+    
+    Бинарное отношение R на множестве R называетсяантирефлексивным,
+    если $\forall$ x x R x
+    
+    \underline{Замечание} : R - не антирефлексивно $\leftrightarrow \exists$ x : x R x - контрпример
+    
+    \textbf{Примеры} $> \qquad \qquad $x>x$ \qquad \qquad (>$ - антирефлексивно)
+    
+    Ц - не антирефлексивно контрпример 1ц1
+    
+    \underline{Замечание}
+    
+    1) Ц - не рефлексивно \qquad \qquad не антирефлексивно
+    
+    2) Не бывает R, которое и рефлекторно, и антирефлексивно (рассмотрим а $\in$ M $\rightarrow$ a R a $\rightarrow$ не антирефлексивно $\rightarrow $ \sout{a R a}$  \rightarrow$ не рефлексивно
+    
+    Определение Бинарное отношение R, на множестве М симметрично, если $\forall$ x,y x R y $\leftrightarrow$ y R x
+    
+    Замечание R не симметрично $\leftrightarrow \exists$ x,y : xRy $\quad$ \sout{yRx}
+    
+    Пример: $=$ - симметрично x=y $\leftrightarrow$ y=x
+    
+    $\qquad \qquad \approx$ -  симметрично x $\approx$ y $\leftrightarrow $ y $\approx$ x
+    
+    $\qquad \qquad$ |x-y| < 1 $\qquad \qquad$ |y-x| < 1
+    
+    
+    $\vdots$  - не симметрично $\qquad$  4 $\vdots$ 2 $\qquad \qquad$
+    
+    \sout{$2\vdots4$}(контрпример)
+    
+    
+    $\parallel$ , $\perp $ - симметрично. a $\parallel$ b $\leftrightarrow $ b $\parallel$ a
+    
+    Ц - не симметрично. 100 Ц 3 $\qquad$ \sout{3 Ц 100}
+    
+    Определение Бинарное отношение R на множестве M антисимметрично, если $\forall$ x $\neq$ y 
+    x R y $\rightarrow$ \sout{yRx}
+    
+    \underline{Замечание}: R - не антисимметрично, если $\exists$ x $\neq$ y  x R y, y R x - контрпример.
+    
+     >: $\qquad \qquad$ x $\neq$ y , $\rightarrow$ y > x
+     
+     $ x \neq y $, x > y, y > x - невозможно\\
+     
+     $\geq$ - $\qquad$ x $\neq$ y $\qquad $ x $\geq$ y $, $ y $\geq$ x - нет кнтр примера
+     
+     = - антисимметрично (x $\neq$ y ) x=y, y=x - такое невозможно
+     
+     $\equiv_3$ - симметрично ( 1 $\neq$ 4  ) 1 $ \equiv_3$ 4, 4 $\equiv_3$ 1
+     
+     $\vdots$ над N - антисимметрично ( x $\neq$ y ) $\quad$ x $\vdots$ y , y $\vdots$ x  - невозможно при N
+     
+     
+     
+     $\vdots$ над Z - не антисимметрично ( 4 $\neq$ -4 ) $\quad$ 4 $\vdots$ -4, -4 $\vdots$ 4
+    \textbf{Лекция 2}
+    \section{Антисимметричность}
+
+$\vdots$ на $Z$ - не антисимметрично\\
+\quad \quad \quad $ -2 \vdots 2$ - контрпример
+
+2 $\neq$ -2 
+
+$\vdots$ на N - антисимметрично x $\neq$ y x $\vdots$ y y $\vdots$ x $\Rightarrow$ невозможно
+
+x $\neq$ y x $\vdots$ y $\Rightarrow$  x \sout{$\vdots$} y
+
+\textbf{Определение} R - бинарное отношение на М- ассиметричность, если
+$\forall$ x, y xRy $\Rightarrow$ yRx
+(x 6= y- у антисимметричность)
+контрпример - xRy, yRx
+
+\textbf{Утверждение}
+R- симметрично <=> R-антисимметрично и антирефлексивно
+
+\textbf{Пример}
+
+>- асиметрично $\forall$ x, y x>y=> \sout{y>x}
+(пустое)- асиметрично (пусто, когда R=0)
+"выше асиметрично
+"начальник"x нач y => \sout{y нач x}
+R-бинарное отношение транзитивно, если
+$\forall$ x, y, z x xRy, yRz => xRz
+
+\underline{Контрпример} > трназитивно x>y, y>z=> x>z
+$\geq$ транзитивно
+
+$\vdots$ транзитивно x $\vdots$ y, y $\vdots$ z => x $\vdots$ z
+
+$\perp$ не транзитивно x $\perp$ y, y $\perp$ z, \sout{$x \perp z $}
+
+y
+
+z
+\tikz \draw (0,0) --  +(0,0) --  +(0,1)  --  +(1,1) -- +(1,0);
+x
+
+Ц( кол-во цифр) 100Ц3 3Ц1
+
+не транзитивно 100Ц1
+
+\textbf{Определение}
+Отношение R называется отношением эквивалентности, если
+R-рефлексивно, симметрично, транзитивно
+
+\textbf{Пример}
+
+= на R(или $\forall$ другом множестве)
+
+$\forall$x x=x- рефлексивно
+
+$\forall$x,y x=y => y=x- симметрично
+
+$\forall$x,y,z x=y, y=z => x=z- транзитивно
+
+= -это ОЭ
+
+||- параллельность
+
+$\equiv$-сравнение
+
+$\geq$ - не ОЭ
+т.к. не симметрично
+
+$x \geq y=> y \geq x$
+
+$z \geq 1, 1 \geq z$
+
+$\approx$- не ОЭ(по транзитивности)
+
+$\uparrow$
+
+отношение $\uparrow$ на N x$\uparrow$y, если у x и y поровну цифр
+
+2 $\uparrow$ 5 35 $\uparrow$ 100
+
+12 $\uparrow$ 42
+
+ОЭ x $\uparrow$ x- рефлексивно
+
+x $\uparrow$ y => y $\uparrow$ x- симметричность
+
+x $\uparrow$ y, y $\uparrow$ z=> x 
+
+=,||,$\equiv$,$\uparrow$ - ОЭ
+
+R - ОЭ на множестве M
+
+x $\in$ M, класс элемента х
+
+$M_{x}=y|x Ry$
+
+\textbf{Пример}
+
+$= M_5=5$
+$\equiv_{3} M_2=2,5,8,11...$
+$// M_{e}=////////...$
+
+\textbf{Утверждение}
+
+R-ОЭ на M
+
+$\forall$ x, y $\in$ M $M_{x} = M_{y}$ или MX $\cap M_{y}=0$
+
+\textbf{Доказательство}
+
+$\supset$ MX $\cap$ $M_{y}$ 6= 0=> $\ni$ z $\in$ $M_{x}, z \in M_{y} =>xRz,$
+
+yRz=>(симм.)=>zRy=>(транз.)=>xRy
+
+Теперь проверим, что класс Mx = My
+Возьмем u $\in$ $M_{x}$, проверим, что u $\in M_{y}$
+
+u $\in M_{x} => xRu$
+
+xRy => yRx => yRu => u $\in M_{y}$
+
+Следствие R-ОЭ не М
+тогда M разбито на несколько классов эквивалентности
+$M=M_{1u}...uM_{n}$
+$M_{i} \cap M_{j}=0$
+= на N=1 и 2 и 3...
+$\equiv_{3}$ на N=0,3,6,9,...1,4,7,10,...2,5,8,11,...
+\textbf{Замечание}
+
+Если есть M=0 разбитое на $M_{i}=0$
+$M=M_{1u}...u M_{n}$ и $M_{i} \cap M_{j}$
+Тогда можно ввести отношение R
+x R y, если $\supset M_{i}$
+: x,y $\in M_{i}$
+a b c d e f g
+
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=35.0pt, fill=white, line width=1.25pt, draw=black] at (87.5pt, -75.0pt)
+{\textcolor{black}{a }{b }{c }};
+\end{tikzpicture}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=35.0pt, fill=white, line width=1.25pt, draw=black] at (87.5pt, -75.0pt)
+{\textcolor{black}{d }{f }{e }};
+\end{tikzpicture}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=35.0pt, fill=white, line width=1.25pt, draw=black] at (87.5pt, -75.0pt)
+{\textcolor{black}{ g }};
+\end{tikzpicture}
+
+aRb bRc \sout{$aRd$} gRy \sout{$gRa$}
+
+Отношения порядка
+(выше, лучше, сильнее, важнее)
+\textbf{Определение}
+
+R-бинарное отношение
+
+R- транзитивно, антисимметрично
+
+1)рефлексивно-нестрогий порядок
+
+2)антирефлексивно- строгий порядок
+
+обозначения обычно $\succeq$ нестрогий $\succ$ строгий
+
+$a \succ b b \succ c => a \succ c$
+
+антисимметрично $a \succ b$
+b $\succ$ a
+
+\textbf{Примеры}
+
+> на R- строий порядок
+
+$\geq$ R- не строгий порядок
+
+$\vdots$ на N- не строгий порядок
+
+нач
+
+a нач b
+
+a нач c
+
+b нач f
+
+c нач f
+
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=35.0pt, fill=teal, line width=1.25pt, draw=black] at (212.5pt, -50.0pt) {\textcolor{black}{a}};
+\node (2) [circle, minimum size=35.0pt, fill=teal, line width=1.25pt, draw=black] at (125.0pt, -112.5pt) {\textcolor{black}{b}};
+\node (3) [circle, minimum size=35.0pt, fill=teal, line width=1.25pt, draw=black] at (225.0pt, -125.0pt) {\textcolor{black}{c}};
+\node (4) [circle, minimum size=35.0pt, fill=teal, line width=1.25pt, draw=black] at (337.5pt, -112.5pt) {\textcolor{black}{d}};
+\node (5) [circle, minimum size=35.0pt, fill=teal, line width=1.25pt, draw=black] at (75.0pt, -175.0pt) {\textcolor{black}{e}};
+\node (6) [circle, minimum size=35.0pt, fill=teal, line width=1.25pt, draw=black] at (187.5pt, -187.5pt) {\textcolor{black}{f}};
+\node (7) [circle, minimum size=35.0pt, fill=teal, line width=1.25pt, draw=black] at (287.5pt, -187.5pt) {\textcolor{black}{g}};
+\node (8) [circle, minimum size=35.0pt, fill=teal, line width=1.25pt, draw=black] at (387.5pt, -187.5pt) {\textcolor{black}{h}};
+\node (9) [circle, minimum size=35.0pt, fill=teal, line width=1.25pt, draw=black] at (37.5pt, -250.0pt) {\textcolor{black}{i}};
+\node (10) [circle, minimum size=35.0pt, fill=teal, line width=1.25pt, draw=black] at (162.5pt, -250.0pt) {\textcolor{black}{j}};
+\node (11) [circle, minimum size=35.0pt, fill=teal, line width=1.25pt, draw=black] at (237.5pt, -250.0pt) {\textcolor{black}{k}};
+\draw [line width=0.625, color=black] (1) to  (2);
+\draw [line width=0.625, color=black] (1) to  (3);
+\draw [line width=0.625, color=black] (1) to  (4);
+\draw [line width=0.625, color=black] (2) to  (5);
+\draw [line width=0.625, color=black] (2) to  (6);
+\draw [line width=0.625, color=black] (5) to  (9);
+\draw [line width=0.625, color=black] (6) to  (10);
+\draw [line width=0.625, color=black] (6) to  (11);
+\draw [line width=0.625, color=black] (3) to  (6);
+\draw [line width=0.625, color=black] (3) to  (7);
+\draw [line width=0.625, color=black] (4) to  (8);
+\end{tikzpicture}
+
+\textbf{Определение}
+
+$\supset$ R-строгий или нестрогий порядок
+R-линейный, если $\forall$ x 6= y xRy или yRx
+
+R- частичный иначе $(\supset x 6= y x R y y R x)$
+
+Примеры >, $\geq$ -линейный порядок
+
+$\vdots$ - частичный
+\sout{$2\vdots3$} \sout{$3\vdots2$}
+
+нач- частичный
+
+\textbf{Утверждение}
+
+R- порядок( строй или нестрогий) на М- конечное |M|< $\infty$
+
+Тогда $\ni$ x - минимальный, т.е. $\forall$ y : x $\succ$ y
+    \textbf{Лекция 3}
+    	\section{Топологическая сортировка}
+    	\textbf{Определение}
+	    Отношение $R_1$ на множестве $\mathbb{M}$ \textit{расширяет} $R_2$ на $\mathbb{M}$, если $R_2 \subset R_1$.
+		$R_1$ добавляет пары где $xRy$. То есть из $xR_2y$ следует, что $xR_1y$.
+	
+	    \textbf{Теорема о топологической сортировке}
+	
+		Если отношение порядка $\succ$ --- строгое или нестрогое на конечном множестве $\mathbb{M}$, то существует $\gg$ --- отношение линейного порядка на $\mathbb{M}$, такое что $\gg$ расширяет $\succ$.
+	\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (62.5pt, -37.5pt) {\textcolor{black}{ГД}};
+\node (2) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (37.5pt, -112.5pt) {\textcolor{black}{О1}};
+\node (3) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (112.5pt, -112.5pt) {\textcolor{black}{О2}};
+\node (4) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -175.0pt) {\textcolor{black}{С1}};
+\node (5) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (75.0pt, -175.0pt) {\textcolor{black}{С2}};
+\node (6) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -25.0pt) {\textcolor{black}{гд}};
+\node (7) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -75.0pt) {\textcolor{black}{О1}};
+\node (8) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -125.0pt) {\textcolor{black}{О2}};
+\node (9) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -175.0pt) {\textcolor{black}{С1}};
+\node (10) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -225.0pt) {\textcolor{black}{О2}};
+\node (11) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (287.5pt, -37.5pt) {\textcolor{black}{ГД}};
+\node (12) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (287.5pt, -112.5pt) {\textcolor{black}{О1}};
+\node (13) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (287.5pt, -175.0pt) {\textcolor{black}{С1}};
+\node (14) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (287.5pt, -225.0pt) {\textcolor{black}{С2}};
+\node (15) [circle, minimum size=31.25pt, fill=white, line width=0.625pt, draw=teal] at (287.5pt, -275.0pt) {\textcolor{black}{О2}};
+\draw [line width=0.625, ->, color=black] (1) to  (3);
+\draw [line width=0.625, ->, color=black] (1) to  (2);
+\draw [line width=0.625, ->, color=black] (2) to  (4);
+\draw [line width=0.625, ->, color=black] (2) to  [in=127, out=297] (5);
+\draw [line width=0.625, ->, color=black] (1) to  [in=124, out=203] (4);
+\draw [line width=0.625, ->, color=black] (1) to  (5);
+\draw [line width=0.625, ->, color=black] (6) to  (7);
+\draw [line width=0.625, ->, color=black] (7) to  [in=85, out=275] (8);
+\draw [line width=0.625, ->, color=black] (8) to  (9);
+\draw [line width=0.625, ->, color=black] (9) to  (10);
+\draw [line width=0.625, ->, color=black] (11) to  [in=85, out=275] (12);
+\draw [line width=0.625, ->, color=black] (12) to  (13);
+\draw [line width=0.625, ->, color=black] (13) to  (14);
+\draw [line width=0.625, ->, color=black] (14) to  (15);
+\end{tikzpicture}
+
+        \textbf{ не линейный порядок} \qquad \qquad \textbf{топологическая сортировка}
+        
+		где ГД - генеральный директор, О - начальник отдела, С - сотрудник.
+	
+	\textbf{Доказательство}
+		Найдем минимальный элемент отношения $\succ$ (пусть это $x_1 \in \mathbb{M}$) и удалим его из множества. Теперь имеем ограниченное отношение $\succ |_{\mathbb{M}-\{x_1\}}$. Очевидно, что это новое отношение имеет те же свойства, что и изначальное (антисимметрично, транзитивно и рефлексивно/антирефлексивно). В нем тоже есть минимальный элемент $x_2$, который мы удаляем и получаем ограниченное множество $\succ |_{\mathbb{M}-\{x_1, x_2\}}$. Продолжаем...
+		
+		В какой-то момент по свойству конечности множество $\mathbb{M}-\{\forall x_i\}$ станет пустым. Итого, имеем последовательность $\{x_1, x_2, \dots, x_n\}$, где $n = |M|$ --- размер исходного множества $\mathbb{M}$.
+		
+		Вводим новый порядок $x_i \ll x_j$ для $i < j$:
+		$$x_1 \ll x_2 \ll \cdots \ll x_n$$
+		
+		\textbf{Почему $\ll$ расширяет $\prec$~?} 
+		Если $x \prec y$, то $x$ был удален из множества раньше $y$, следовательно $x \ll y$.
+	
+	\underline{Замечание}
+		Алгоритм поиска минимума и удаления не самый эффективный. Более эффективно будет сделать поиск в глубину и построить обратную нумерацию.
+	
+	
+	\underline{Замечание}
+		Топологическая сортировка - практически важная задача. Как пример зависимостей: нельзя расдать листовки, пока они не напечатаны, при этом нельзя распечатать листовки, пока нет чернил и бумаги.
+	
+		\section{Транзитивное замыкание}
+	По решению задачи топологической сортировки мы расширяли порядок до линейности. Теперь перед нами стоит задача расширить отношение до транзитивности.
+	
+        \textbf{Пример}
+		Пусть есть отношение подчиненности:
+		\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=37.5pt, fill=white, line width=0.625pt, draw=teal] at (112.5pt, -62.5pt) {\textcolor{black}{ГД}};
+\node (2) [circle, minimum size=37.5pt, fill=white, line width=0.625pt, draw=teal] at (75.0pt, -125.0pt) {\textcolor{black}{О2}};
+\node (3) [circle, minimum size=37.5pt, fill=white, line width=0.625pt, draw=teal] at (150.0pt, -125.0pt) {\textcolor{black}{О2}};
+\node (4) [circle, minimum size=37.5pt, fill=white, line width=0.625pt, draw=teal] at (37.5pt, -200.0pt) {\textcolor{black}{С1}};
+\node (5) [circle, minimum size=37.5pt, fill=white, line width=0.625pt, draw=teal] at (112.5pt, -200.0pt) {\textcolor{black}{С2}};
+\draw [line width=0.625, ->, color=black] (1) to  (2);
+\draw [line width=0.625, ->, color=black] (1) to  (3);
+\draw [line width=0.625, ->, color=black] (2) to  (4);
+\draw [line width=0.625, ->, color=black] (2) to  (5);
+\draw [line width=0.625, ->, color=magenta] (1) to  [in=122, out=182] (4);
+\draw [line width=0.625, ->, color=magenta] (1) to  (5);
+\end{tikzpicture}
+
+		где ГД - генеральный директор, О - начальник отдела, С - сотрудник.
+		
+		Черным цветом показана изначальная связь. Мы можем сказать, что $\text{ГД}R\text{О1}$ и $\text{О1}R\text{С1}$, но отсюда не следует, что $\text{ГД}R\text{С1}$.
+		
+		Для этого в множество необходимо добавить пару $\text{ГД}R\text{С1}$, чтобы отношение стало транзитивным (розовый цвет). Аналогично для $\text{ГД}R\text{С2}$.
+	
+	
+	\textbf{Теорема}
+		Пусть $R$ - отношение на множестве $\mathbb{M}$ и существует такое отношение $\overline R$ на том же множестве, что:
+		\begin{enumerate}
+			\item $\overline R$ расширяет $R$ ($R \subset \overline R$).
+			\item $\overline R$ - транзитивно
+			\item $\overline R$ - минимальное транзитивное расширение, то есть если $\tilde R$ - транзитивное расширение $R$, то $\tilde R \supset \overline R$.
+	\end{enumerate}
+	\textbf{Доказательство условное}
+		Рассмотрим все транзитивные расширения отношения $\{\overline{R_i}\}$ и посчитаем $R$ как пересечение всех $\overline{R_i}$ (берем те ребра, которые есть только у транзитивного расширения).
+		
+		\textbf{Пример}
+			Пусть множество $\mathbb{M} = \{a,b,c,d\}$ и на нем есть отношения $aRb, bRc, bRd$. Мы можем его любым способом достроить до транзитивного (к примеру, достроим отношения $aRc,aRd,cRd$). Минимальным элементом $\overline R$ будет являться пересечение всех таких транзитивных отношений, и оно подходит под все условия:
+			\begin{enumerate}
+				\item $\overline R$ расширяет $R$ (пусть $xRy$, тогда $\forall \overline{R_i}~x \overline{R_i} y$, значит $x \overline R y$).
+				\item $\overline R$ --- транзитивно (пусть $x \overline R y$, а $y \overline R z$, то $\forall \overline{R_i}~x \overline{R_i} y, y \overline{R_i} z$, значит $x \overline{R_i} z$, то есть $x \overline R z$).
+				\item $\overline R$ --- минимальное транзитивное расширение (так как пересечение находится $\forall \overline{R_i}$).
+				\item Существует ли $\overline{R_i}$?\\
+				Скажем, что $R_1$ --- полное отношение = $\mathbb{M} \times \mathbb{M}$. Получили, что расширить можно в любом случае.
+			\end{enumerate}
+	
+		\section{Графы}
+	\subsection{Неориентированный граф}
+            G $=$ ($\mathbb{V}$,E), \quad где $\mathbb{V}$ - множество вершин
+            
+            E $\subset$ (u,v), \quad где u,v $\in \mathbb{V}$ - пара неупорядочения
+            
+		Как рисовать:
+		\begin{enumerate}
+			\item Вершины обозначаются точками $\cdot$ или кругами $\circ$.
+			\item Ребра - линии между узлами.
+			\item Важен только факт соединения.
+		\end{enumerate}
+	\textbf{Пример}
+	
+	\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=37.5pt, fill=white, line width=0.625pt, draw=teal] at (62.5pt, -50.0pt)  {};
+\node (2) [circle, minimum size=37.5pt, fill=white, line width=0.625pt, draw=teal] at (62.5pt, -150.0pt)  {};
+\node (3) [circle, minimum size=37.5pt, fill=white, line width=0.625pt, draw=teal] at (162.5pt, -100.0pt)  {};
+\node (4) [circle, minimum size=37.5pt, fill=white, line width=0.625pt, draw=teal] at (287.5pt, -50.0pt)  {};
+\node (5) [circle, minimum size=37.5pt, fill=white, line width=0.625pt, draw=teal] at (287.5pt, -125.0pt)  {};
+\node (6) [circle, minimum size=37.5pt, fill=white, line width=0.625pt, draw=teal] at (287.5pt, -212.5pt)  {};
+\node (7) [circle, minimum size=37.5pt, fill=white, line width=0.625pt, draw=teal] at (50.0pt, -225.0pt)  {};
+\node (8) [circle, minimum size=37.5pt, fill=white, line width=0.625pt, draw=teal] at (137.5pt, -262.5pt)  {};
+\node (9) [circle, minimum size=37.5pt, fill=white, line width=0.625pt, draw=teal] at (50.0pt, -312.5pt)  {};
+\draw [line width=0.625, color=black] (3) to  (1);
+\draw [line width=0.625, color=black] (3) to  (2);
+\draw [line width=0.625, color=black] (4) to  (5);
+\draw [line width=0.625, color=black] (5) to  (6);
+\draw [line width=0.625, color=black] (7) to  [in=98, out=37] (8);
+\draw [line width=0.625, color=black] (8) to  [in=354, out=244] (9);
+\end{tikzpicture}
+
+		Граф $G$ называется \textit{полным}, если $\forall u,v \in \mathbb{V}~(u,v) \in \mathbb{E}$.
+    		
+    		\textbf{Пример полного графа}
+    		
+		\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -37.5pt) {\textcolor{black}{1}};
+\node (2) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (162.5pt, -37.5pt) {\textcolor{black}{2}};
+\node (3) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -175.0pt) {\textcolor{black}{3}};
+\node (4) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (162.5pt, -175.0pt) {\textcolor{black}{4}};
+\draw [line width=0.625, color=black] (1) to  (2);
+\draw [line width=0.625, color=black] (2) to  (4);
+\draw [line width=0.625, color=black] (3) to  (4);
+\draw [line width=0.625, color=black] (1) to  (3);
+\draw [line width=0.625, color=black] (1) to  [in=131, out=319] (4);
+\draw [line width=0.625, color=black] (3) to  (2);
+\end{tikzpicture}
+		
+		
+	
+	
+	\textbf{Пример пустого графа}
+	
+	    \usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -37.5pt) {\textcolor{black}{1}};
+\node (2) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (162.5pt, -37.5pt) {\textcolor{black}{2}};
+\node (3) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -175.0pt) {\textcolor{black}{3}};
+\node (4) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (162.5pt, -175.0pt) {\textcolor{black}{4}};
+\end{tikzpicture}
+	
+	
+	
+	$\mathbb{V}$ - \textit{vertex}, $\mathbb{E}$ - \textit{edge}.
+	
+	\textbf{Определение}
+		\textit{Размер} (порядок) графа определяется как количество вершин:$|G| = |\mathbb{V}| = n$
+		
+		$|\mathbb{E}| = m$
+		
+		G - это (n,m) граф
+	
+        \textbf{Определение}
+		\textit{Степень вершины} $v \in \mathbb{V}$ - это количество ребер c этой вершиной.
+		
+		\textbf{Обозначается как:} $\deg v$
+	
+		\textbf{Определение}\textit{k-регулярным графом} называется граф, $\deg v = k$
+		\textbf{Лекция 4}
+		
+		\textbf{Степень графа}
+		
+		\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (75.0pt, -37.5pt) {\textcolor{black}{ст 2}};
+\node (2) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (37.5pt, -100.0pt) {\textcolor{black}{ст 3}};
+\node (3) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (112.5pt, -100.0pt) {\textcolor{black}{ст 3}};
+\node (4) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (75.0pt, -150.0pt) {\textcolor{black}{ст 3}};
+\node (5) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (125.0pt, -200.0pt) {\textcolor{black}{ст 1}};
+\draw [line width=0.625, color=black] (1) to  (2);
+\draw [line width=0.625, color=black] (1) to  (3);
+\draw [line width=0.625, color=black] (4) to  [in=303, out=131] (2);
+\draw [line width=0.625, color=black] (4) to  (3);
+\draw [line width=0.625, color=black] (2) to  (3);
+\draw [line width=0.625, color=black] (4) to  [in=125, out=325] (5);
+\end{tikzpicture}
+
+		\subsection{Путь в графе}
+		\textbf{Определение}
+		\textit{Путь в графе} --- последовательность вершин-ребер $v_1, e_1, v_2, e_2, \dots, v_n$ Причем, каждый $e$ ведет от вершины $v_i$ к $v_i+1$.
+	
+		$a,b,c,d$ --- подразумевается путь в графе от a к b, от b к c, и так далее.
+	
+		\textit{Замкнутый путь} - где начался, там и закончался. $V_{1} = V_{n}$
+		
+		\textit{Незамкнутый путь(открытый)} - начало и конец в разных точках. $V_{1} \neq V_{n}$
+		
+		\textit{Простой путь} - такой путь, в котором только различные ребра.
+	
+		\textbf{Пример}
+		\begin{enumerate}
+			\item $b,e,d,c,e$ - простой путь (нет повторов).
+			\item $a,b,c,d,e,c,d,e,b,a$ - замкнутый путь.
+		\end{enumerate}
+	
+        \textbf{Определение}
+		\textit{Циклом} называется замкнутый путь в графе, все вершины которого разные.
+		
+		\textbf{Определение}
+		\textit{Цепью} называется открытый путь в графе, все вершины которого разные (кроме первой с последней).
+
+	
+	\textbf{Пример}
+	
+	
+		\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (62.5pt, -75.0pt) {\textcolor{black}{1}};
+\node (2) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (87.5pt, -150.0pt) {\textcolor{black}{2}};
+\node (3) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (150.0pt, -187.5pt) {\textcolor{black}{3}};
+\node (4) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (262.5pt, -175.0pt) {\textcolor{black}{4}};
+\node (5) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (275.0pt, -100.0pt) {\textcolor{black}{5}};
+\node (6) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (37.5pt, -262.5pt) {\textcolor{black}{6}};
+\node (7) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (87.5pt, -312.5pt) {\textcolor{black}{7}};
+\node (8) [circle, minimum size=25.0pt, fill=white, line width=0.625pt, draw=teal] at (150.0pt, -262.5pt) {\textcolor{black}{8}};
+\draw [line width=0.625, color=black] (1) to  [in=169, out=229] (2);
+\draw [line width=0.625, color=black] (2) to  [in=90, out=30] (3);
+\draw [line width=0.625, color=black] (4) to  [in=200, out=139] (5);
+\draw [line width=0.625, color=black] (5) to  [in=20, out=319] (4);
+\draw [line width=0.625, color=black] (6) to  [in=195, out=255] (7);
+\draw [line width=0.625, color=black] (8) to  [in=99, out=160] (7);
+\end{tikzpicture}
+		
+		\textbf{Простые графы} $\quad \qquad \qquad \qquad \qquad \qquad \qquad$ \textbf{Замкнутый граф}
+	
+	\textbf{Теорема}
+		Если между вершинами $u$ и $v$ существует путь, то существует и цепь между этими вершинами.
+	
+	\textbf{Доказательство}
+		Пусть есть путь $u, e_1, v_1, e_2, v_2, \dots, e_n, v$. Рассмотрим все такие возможные пути и возьмем самый короткий. Поймем, что это и есть \textit{цепь}. Представим, что какие то вершины совпали:
+		$$u \dots v_i \dots v_j \dots v,~v_i = v_j$$
+		Тогда среднюю часть можно убрать, и тогда это не самый короткий путь. Противоречие.
+	
+	\textbf{Теорема}
+		Если есть простой замкнутый путь через ребро $e$, то есть и \textit{цикл} через это ребро.
+	
+	\textbf{Доказательство}
+		Аналогично предыдущей теореме, можно найти самый короткий путь, где ребро не повторяется.
+	
+	\subsection{Связность графа}
+	   
+	  \textbf{Определение}: Граф связан, если $\forall$ u,v $\in$ $\mathbb{V}$. $\exists$ цепь (путь) из u в v
+	  
+	  \textbf{Пример}
+	  
+\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (12.5pt, -25.0pt)  {};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (12.5pt, -75.0pt)  {};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (87.5pt, -25.0pt)  {};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (87.5pt, -75.0pt)  {};
+\node (5) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (125.0pt, -50.0pt)  {};
+\node (6) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (187.5pt, -25.0pt)  {};
+\node (7) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (187.5pt, -75.0pt)  {};
+\node (8) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (275.0pt, -75.0pt)  {};
+\node (9) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (275.0pt, -25.0pt)  {};
+\node (10) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (212.5pt, -50.0pt)  {};
+\node (11) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (262.5pt, -50.0pt)  {};
+\node (12) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (325.0pt, -25.0pt)  {};
+\node (13) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (325.0pt, -75.0pt)  {};
+\node (14) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (400.0pt, -25.0pt)  {};
+\node (15) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (400.0pt, -75.0pt)  {};
+\node (16) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (325.0pt, -100.0pt)  {};
+\node (17) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (400.0pt, -100.0pt)  {};
+\node (18) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (362.5pt, -137.5pt)  {};
+\draw [line width=0.625, color=black] (3) to  (1);
+\draw [line width=0.625, color=black] (1) to  (2);
+\draw [line width=0.625, color=black] (4) to  (2);
+\draw [line width=0.625, color=black] (3) to  (4);
+\draw [line width=0.625, color=black] (4) to  [in=217, out=29] (5);
+\draw [line width=0.625, color=black] (5) to  [in=315, out=156] (3);
+\draw [line width=0.625, color=black] (6) to  (7);
+\draw [line width=0.625, color=black] (6) to  (9);
+\draw [line width=0.625, color=black] (9) to  (8);
+\draw [line width=0.625, color=black] (8) to  (7);
+\draw [line width=0.625, color=black] (10) to  (11);
+\draw [line width=0.625, color=black] (12) to  (13);
+\draw [line width=0.625, color=black] (15) to  (14);
+\draw [line width=0.625, color=black] (14) to  (12);
+\draw [line width=0.625, color=black] (13) to  (15);
+\draw [line width=0.625, color=black] (17) to  (16);
+\draw [line width=0.625, color=black] (16) to  (18);
+\draw [line width=0.625, color=black] (18) to  [in=233, out=37] (17);
+\end{tikzpicture}
+	
+	1) \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad  2)  \qquad \qquad \qquad \qquad 3)
+	
+	\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -37.5pt)  {};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -100.0pt)  {};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (87.5pt, -62.5pt)  {};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (112.5pt, -25.0pt)  {};
+\node (5) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (137.5pt, -62.5pt)  {};
+\node (6) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (125.0pt, -100.0pt)  {};
+\draw [line width=0.625, color=black] (1) to  (2);
+\draw [line width=0.625, color=black] (3) to  [in=0, out=135] (1);
+\draw [line width=0.625, color=black] (2) to  [in=204, out=37] (3);
+\draw [line width=0.625, color=black] (4) to  [in=45, out=246] (3);
+\draw [line width=0.625, color=black] (6) to  [in=307, out=143] (3);
+\draw [line width=0.625, color=black] (5) to  (3);
+\end{tikzpicture}
+	
+	4)
+	
+	1,4 - связаны
+	2,3 - не связаны
+	
+	Введем отношение $\equiv$ на вершинах графа:
+	
+	$u \equiv v$, если $\exists$ путь из u в v
+	
+	\textbf{Пример}
+	
+	\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -37.5pt) {\textcolor{black}{a}};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -87.5pt) {\textcolor{black}{b}};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (87.5pt, -37.5pt) {\textcolor{black}{c}};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (87.5pt, -87.5pt) {\textcolor{black}{d}};
+\node (5) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (150.0pt, -37.5pt) {\textcolor{black}{e}};
+\node (6) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (150.0pt, -87.5pt) {\textcolor{black}{f}};
+\node (7) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -62.5pt) {\textcolor{black}{g}};
+\draw [line width=0.625, color=black] (3) to  (1);
+\draw [line width=0.625, color=black] (1) to  (2);
+\draw [line width=0.625, color=black] (2) to  (4);
+\draw [line width=0.625, color=black] (4) to  (3);
+\draw [line width=0.625, color=black] (6) to  (5);
+\draw [line width=0.625, color=black] (5) to  [in=156, out=331] (7);
+\draw [line width=0.625, color=black] (7) to  (6);
+\end{tikzpicture}
+	
+	$a\equiv c $ \qquad $e \equiv g$
+	
+	$a \equiv d$ \qquad \sout{$a \equiv e$}
+	
+	Проверим, что $\equiv$ - это отношение эквивалентности.
+	
+	1) Рефлективность u $\equiv$ u - верно, путь u
+	
+	2) Симметричность u $\equiv $ v $\Rightarrow$ v $\equiv$ u путь $u,e_{1},v_{1} \dots v$, путь $v \dots v_{1},e_{1},u$
+	
+	3)Транзитивность $u \equiv v$, $v \equiv \omega$ путь $u,e_{1},v_{1}...vv...\omega$ не повторяется, а входит в 2 пути.
+	
+	\subsection{Компонент связности графа}
+	
+	\textbf{Определение}: Классы эквивалентости $\equiv$ - это компоненты свзяности
+	
+	\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -37.5pt) {\textcolor{black}{1}};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -87.5pt) {\textcolor{black}{2}};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (87.5pt, -37.5pt) {\textcolor{black}{3}};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (87.5pt, -87.5pt) {\textcolor{black}{4}};
+\node (5) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (150.0pt, -37.5pt) {\textcolor{black}{5}};
+\node (6) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (150.0pt, -87.5pt) {\textcolor{black}{6}};
+\node (7) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -62.5pt) {\textcolor{black}{7}};
+\draw [line width=0.625, color=black] (3) to  (1);
+\draw [line width=0.625, color=black] (1) to  (2);
+\draw [line width=0.625, color=black] (2) to  (4);
+\draw [line width=0.625, color=black] (4) to  (3);
+\draw [line width=0.625, color=black] (6) to  (5);
+\draw [line width=0.625, color=black] (5) to  [in=156, out=331] (7);
+\draw [line width=0.625, color=black] (7) to  (6);
+\end{tikzpicture}
+
+    \textbf{2 компонент связности}
+
+\textbf{Определение} $G_{1}$ = ($\mathbb{V_{1},}\mathbb{E_{1}}$ - подграф G, если $\mathbb{V_{1}} \subset \mathbb{V}$, $\mathbb{E_{1}} \subset \mathbb{E}$ 
+
+\textbf{Пример}
+
+\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (50.0pt, -37.5pt) {\textcolor{black}{O}};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (50.0pt, -100.0pt) {\textcolor{black}{O}};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (125.0pt, -62.5pt) {\textcolor{black}{O}};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -62.5pt) {\textcolor{black}{}};
+\draw [line width=0.625, color=black] (1) to  (2);
+\draw [line width=0.625, color=black] (1) to  (3);
+\draw [line width=0.625, color=black] (3) to  [in=24, out=209] (2);
+\draw [line width=0.625, color=black] (3) to  (4);
+\end{tikzpicture}
+
+    Помечение "O" - является подграфом
+    
+    \underline{Замечание}
+    
+    G - свой подграф
+    
+    O - пусой граф - подграф чего угодно.
+    
+    \subsection{Мост}
+    
+    \textbf{Определение} G ребро e называется мостом, если компонент свзяности G
+
+
+    \textbf{Пример}
+    
+    \usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -62.5pt)  {};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (75.0pt, -25.0pt)  {};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (125.0pt, -62.5pt)  {};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (175.0pt, -62.5pt)  {};
+\node (5) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (212.5pt, -25.0pt)  {};
+\node (6) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (212.5pt, -87.5pt)  {};
+\node (7) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (250.0pt, -62.5pt)  {};
+\node (8) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (125.0pt, -125.0pt)  {};
+\node (9) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (62.5pt, -125.0pt)  {};
+\node (10) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (62.5pt, -187.5pt)  {};
+\node (11) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (125.0pt, -187.5pt)  {};
+\node (12) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (187.5pt, -162.5pt)  {};
+\draw [line width=0.625, color=black] (1) to  [in=212, out=45] (2);
+\draw [line width=0.625, color=black] (2) to  [in=151, out=315] (3);
+\draw [line width=0.625, color=black] (1) to  (3);
+\draw [line width=0.625, color=black] (4) to  (5);
+\draw [line width=0.625, color=black] (5) to  (7);
+\draw [line width=0.625, color=black] (4) to  [in=162, out=311] (6);
+\draw [line width=0.625, color=black] (6) to  [in=225, out=24] (7);
+\draw [line width=3.75, color=black] (3) to  (4);
+\draw [line width=4.375, color=black] (3) to  [in=101, out=259] (8);
+\draw [line width=0.625, color=black] (8) to  (9);
+\draw [line width=0.625, color=black] (9) to  (10);
+\draw [line width=0.625, color=black] (10) to  (11);
+\draw [line width=0.625, color=black] (11) to  (8);
+\draw [line width=0.625, color=black] (9) to  (11);
+\draw [line width=0.625, color=black] (10) to  (8);
+\draw [line width=5.0, color=black] (11) to  [in=209, out=17] (12);
+\end{tikzpicture}
+
+
+Жирными линиями выделены мосты
+
+    \textbf{Определение} Cтепень связности графа G - это количество ребер, которые надо выкинуть чтобы G стал несвязным.
+    
+    \textbf{Определение} Двусвязный граф - надо выкинуть больше 2 ребер, чтобы он стал связным.
+    
+    \underline{Замечание} двусвязный значит нет мостов и связи.
+    
+    \textbf{Определение} Вершина V $\in$ $\mathbb{V}$ называется точкой сочленения, если количество компонента свзяности G < количества компонента связности G'
+    
+    G' $= (\mathbb{V}_{v},E'(u,v) | (v,u) \in E)$
+    
+    \textbf{Пример}
+    
+    \usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -50.0pt)  {};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -112.5pt)  {};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (100.0pt, -112.5pt)  {};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=6.25pt, draw=teal] at (100.0pt, -50.0pt)  {};
+\node (5) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (175.0pt, -50.0pt)  {};
+\node (6) [circle, minimum size=12.5pt, fill=white, line width=6.25pt, draw=teal] at (175.0pt, -112.5pt)  {};
+\node (7) [circle, minimum size=12.5pt, fill=white, line width=6.25pt, draw=teal] at (225.0pt, -112.5pt)  {};
+\node (8) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (225.0pt, -50.0pt)  {};
+\node (9) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (287.5pt, -50.0pt)  {};
+\node (10) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (287.5pt, -112.5pt)  {};
+\draw [line width=0.625, color=black] (1) to  (2);
+\draw [line width=0.625, color=black] (1) to  (4);
+\draw [line width=0.625, color=black] (2) to  (3);
+\draw [line width=0.625, color=black] (3) to  (4);
+\draw [line width=0.625, color=black] (4) to  (5);
+\draw [line width=0.625, color=black] (4) to  [in=135, out=323] (6);
+\draw [line width=0.625, color=black] (5) to  (6);
+\draw [line width=0.625, color=black] (6) to  [in=184, out=356] (7);
+\draw [line width=0.625, color=black] (7) to  (8);
+\draw [line width=0.625, color=black] (8) to  (9);
+\draw [line width=0.625, color=black] (10) to  (9);
+\draw [line width=0.625, color=black] (7) to  (10);
+\end{tikzpicture}
+    
+    \textbf{Теорема} В графе G $=$ ($\mathbb{V}$,E), если $\deg$ (u) - степень вершины u
+    
+    |E| = 1/2 $\sum \deg $(v)
+    
+    \textbf{Пример}
+    
+    \usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (100.0pt, -37.5pt)  {2};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (62.5pt, -75.0pt)  {3};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (137.5pt, -75.0pt)  {4};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (100.0pt, -112.5pt)  {2};
+\node (5) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -75.0pt)  {1};
+\draw [line width=0.625, color=black] (2) to  (1);
+\draw [line width=0.625, color=black] (1) to  (3);
+\draw [line width=0.625, color=black] (2) to  (4);
+\draw [line width=0.625, color=black] (4) to  (3);
+\draw [line width=0.625, color=black] (3) to  (2);
+\draw [line width=0.625, color=black] (3) to  (5);
+\end{tikzpicture}
+
+
+Рёбер: 6=1/2(3+2+2+4+1) $\Rightarrow$ Верно
+
+\textbf{Доказательство}
+
+$\deg$ (v) = количество ребер, выходящих из вершин.
+
+$\sum \deg$ (v) $=$ все ребра посчитали дважды $=$ 2|E|
+
+\underline{Следствие}:
+
+1) Сумма степеней вершин всегда четна.
+
+2) Вершин нечетной степени четно.
+
+\textbf{Пример}
+
+15 инопланетян, по 3 руки у каждого, могут ли они взятся за руки, чтобы не было свободных рук?
+
+\textbf{Решение} Нет, это граф из 15 нечетных вершин степени 3.
+
+\subsection{Висячая вершина}
+
+\textbf{Определение} Висячая вершина - это вершина степени 1.
+
+\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (50.0pt, -37.5pt)  {};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (150.0pt, -37.5pt)  {};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (150.0pt, -100.0pt)  {};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (225.0pt, -100.0pt)  {висяч.};
+\draw [line width=0.625, color=black] (1) to  (2);
+\draw [line width=0.625, color=black] (1) to  (3);
+\draw [line width=0.625, color=black] (2) to  (3);
+\draw [line width=0.625, color=black] (3) to  (4);
+\end{tikzpicture}
+
+\textbf{Теорема} Если в графе есть ребра, но нет висячих вершин, то $\exists$ цикл.
+
+\textbf{Доказательство}
+
+Берем ребро e = ($u_{1}, u_{2}$)
+
+$u_{2}$ - не висячая вершнина $\rightarrow$ из нее есть еще ребро.
+
+Продолжаем, пока очередность $u_{n}$ не будет равна $u_{i} 1\leq i \leq n$
+
+Путь $u_{i},u_{i+1}...u{n}$ - цикл (ребра разные, вершины разные)
+
+\subsection{Дерево}
+
+\textbf{Определение: Дерево - связный граф без циклов}
+
+\textbf{Пример}
+
+\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (25.0pt, -62.5pt)  {};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (75.0pt, -62.5pt)  {};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (137.5pt, -62.5pt)  {};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -62.5pt)  {};
+\node (5) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (250.0pt, -62.5pt)  {};
+\draw [line width=0.625, color=black] (1) to  [in=119, out=61] (2);
+\draw [line width=0.625, color=black] (2) to  [in=119, out=61] (3);
+\draw [line width=0.625, color=black] (3) to  [in=241, out=299] (4);
+\draw [line width=0.625, color=black] (4) to  [in=143, out=37] (5);
+\end{tikzpicture}
+
+\textbf{Теорема} В любом дереве $\leq$ 2 висячих вершины
+
+\textbf{Доказательство} Берем $\forall$ вершину, если она не висячая, идем по ребру, если опять не висячая, есть ребро и т.д.
+
+Циклов нет $\rightarrow$ Конец.
+
+Чтобы найти вторую, надо начать из первой.
+
+\textbf{Теорема} Если G-дерево, то |V| = 1 + |E|
+
+
+\textbf{Лекция 5}
+
+\subsection{Планарные графы}
+    \textbf{Определение}
+		Планарные графы - это те графы, которые можно нарисовать на плоскости так, чтобы ребра не пересекались.
+	
+	
+	\textbf{Пример}
+		Пример "правильного" и "неправильного" планарных графов:
+		
+		\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (37.5pt, -37.5pt)  {};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (37.5pt, -112.5pt)  {};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (125.0pt, -37.5pt)  {};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (125.0pt, -112.5pt)  {};
+\node (5) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -37.5pt)  {};
+\node (6) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (287.5pt, -37.5pt)  {};
+\node (7) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -112.5pt)  {};
+\node (8) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (287.5pt, -112.5pt)  {};
+\draw [line width=0.625, color=black] (1) to  (3);
+\draw [line width=0.625, color=black] (3) to  (4);
+\draw [line width=0.625, color=black] (4) to  (2);
+\draw [line width=0.625, color=black] (2) to  (1);
+\draw [line width=0.625, color=black] (5) to  (6);
+\draw [line width=0.625, color=black] (6) to  (7);
+\draw [line width=0.625, color=black] (5) to  (8);
+\draw [line width=0.625, color=black] (8) to  (7);
+\end{tikzpicture}
+	
+     	Правильный граф \qquad \qquad \qquad \qquad \qquad Неправильный граф
+	
+	\textbf{Теорема}
+	\textbf{Формула Эйлера}
+		Если связный планарный граф $G = (\mathbb{V}, \mathbb{E})$ нарисован на плоскости, то у него можно посчитать \textit{грани} $f$. Пусть $|\mathbb{V}| = n, |\mathbb{E}| = m$. Тогда: $n-m+f = 2$
+	
+		Посчитать грани следующих графов:
+		\begin{center}
+			\begin{tikzpicture}[every node/.style={circle, draw=teal, thick}, every path/.style={draw=black, thick}]
+			\node (a) at (0,0){};
+			\node (b) at (0,2){};
+			\node (c) at (2,2){};
+			\node (d) at (2,0){};
+			\node (e) at (1,1){};
+			\node (f) at (1,-0.75){};
+			
+			\node[draw=white] (f1) at (0.5,1.5){1};
+			\node[draw=white] (f2) at (1,-0.3){2};
+			\node[draw=white] (f3) at (2.25,1){3};
+			
+			\path (a) edge (b);
+			\path (b) edge (c);
+			\path (c) edge (d);
+			\path (d) edge (a);
+			\path (a) edge (e);
+			\path (d) edge (f);
+			\path (a) edge (f);
+			\end{tikzpicture}
+			~~~~~~~~~~
+			\begin{tikzpicture}[every node/.style={circle, draw=teal, thick}, every path/.style={draw=black, thick}]
+			\node (a) at (0,0){};
+			\node (b) at (0,1.5){};
+			\node (c) at (1.5,1.5){};
+			\node (d) at (1.5,0){};
+			\node (e) at (3,1.5){};
+			\node (f) at (3,0){};
+			\node (g) at (3,3){};
+			
+			\node[draw=white] (f1) at (0.75,0.75){1};
+			\node[draw=white] (f2) at (2.25,0.75){2};
+			\node[draw=white] (f3) at (2.5,2){3};
+			\node[draw=white] (f3) at (1.25,2.25){4};
+			
+			\path (a) edge (b);
+			\path (b) edge (c);
+			\path (c) edge (d);
+			\path (c) edge (e);
+			\path (e) edge (f);
+			\path (f) edge (d);
+			\path (d) edge (a);
+			\path (c) edge (g);
+			\path (g) edge (e);
+			\end{tikzpicture}
+		\end{center}
+	
+	\textbf{Доказательство}
+		Индукция по количеству ребер.
+		
+		\textbf{База:} $G$ - дерево.
+		$m-n+f=n-(n-1)+1=2$
+		
+		\begin{center}
+			\begin{tikzpicture}[every node/.style={circle, draw=teal, thick}, every path/.style={draw=black, thick}]
+			\node (a) at (0,0){};
+			\node (b) at (-0.5,1.5){};
+			\node (c) at (0.5,1){};
+			\node (d) at (2,1.5){};
+			\node (e) at (2.5,2.5){};
+			\node (f) at (3,1){};
+			
+			\node[draw=white] (f1) at (1.125,1.75){1};
+			
+			\path (c) edge (b);
+			\path (a) edge (c);
+			\path (c) edge (d);
+			\path (d) edge (e);
+			\path (d) edge (f);
+			
+			\node[rectangle, draw=white] (math) at (5,1.25){};
+			\end{tikzpicture}
+		\end{center}
+		
+		\textbf{Переход:} $G$ - не знаем, верно ли  ($G,G'$ - связные планарные), если G' имеет меньше ребер $\rightarrow$ верно
+		
+		G - не дерево $\rightarrow$ есть цикл, берем ребро цикла.
+		
+		
+		\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (112.5pt, -62.5pt)  {};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (175.0pt, -37.5pt)  {};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (262.5pt, -50.0pt)  {};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (175.0pt, -125.0pt)  {};
+\node (5) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (237.5pt, -100.0pt)  {};
+\draw [line width=0.625, color=black] (1) to  [in=143, out=307] (4);
+\draw [line width=0.625, color=black] (4) to  [in=209, out=17] (5);
+\draw [line width=0.625, color=black] (5) to  (3);
+\draw [line width=0.625, color=black] (1) to  (2);
+\draw [line width=0.625, color=black] (3) to  (2);
+\draw [line width=0.625, dashed, color=black] (4) to  [in=217, out=45] (3);
+\end{tikzpicture}
+	
+	Вокруг него 2 грани, удалим ребро, получим G' - тоже связан и планарен.
+		
+		n',m',f' - вершины, ребра, грани G'
+		
+		
+		n'$=$ n
+		
+		m' $= m-1$
+		
+		f' $=f-1$
+		
+		По индукции предположим:
+		
+		n' - m' - f' = 2 $\Rightarrow$ $f_{n} - (m-1) + (f-1) = 2 \Rightarrow n - m + f =2$ 
+	
+		\textbf{Следствия} из формулы Эйлера:
+		\begin{enumerate}
+			\item Не важно, как рисовать планарный граф, количество граней постоянно.
+			\item Теорема про многогранники. 
+			$8-12+6 = 2$
+			\begin{center}
+				
+				\begin{tikzpicture}[every node/.style={circle, draw=teal, thick, scale=0.6}, every path/.style={draw=black, thick}]
+				\node (a) at (0,0){};
+				\node (b) at (0,1.5){};
+				\node (c) at (1.5,1.5){};
+				\node (d) at (1.5,0){};
+				\node (e) at (0.5,2){};
+				\node (f) at (2,2){};
+				\node (g) at (2,0.5){};
+				\node (h) at (0.5,0.5){};
+				
+				\path (a) edge (b);
+				\path (b) edge (c);
+				\path (c) edge (d);
+				\path (d) edge (a);
+				\path (b) edge (e);
+				\path (e) edge (f);
+				\path (f) edge (g);
+				\path (c) edge (f);
+				\path (d) edge (g);
+				\path[dotted] (a) edge (h);
+				\path[dotted] (e) edge (h);
+				\path[dotted] (g) edge (h);
+				
+				\node[draw = white, rectangle, scale = 3.5] (text) at (3.5, 1){};
+				\end{tikzpicture}
+				~~~
+				\begin{tikzpicture}[every node/.style={circle, draw=teal, thick, scale=0.8}, every path/.style={draw=black, thick}]
+				\node (a) at (0,0){};
+				\node (b) at (0,2){};
+				\node (c) at (2,2){};
+				\node (d) at (2,0){};
+				\node (e) at (0.6,0.6){};
+				\node (f) at (0.6,1.4){};
+				\node (g) at (1.4,1.4){};
+				\node (h) at (1.4,0.6){};
+				
+				\path (a) edge (b);
+				\path (b) edge (c);
+				\path (c) edge (d);
+				\path (d) edge (a);
+				\path (e) edge (f);
+				\path (f) edge (g);
+				\path (g) edge (h);
+				\path (h) edge (e);
+				\path (a) edge (e);
+				\path (b) edge (f);
+				\path (c) edge (g);
+				\path (d) edge (h);
+				
+				\node[draw = none, scale = 1.25] (f1) at (0.25, 1){};
+				\node[draw = none, scale = 1.25] (f1) at (1, 1.75){};
+				\node[draw = none, scale = 1.25] (f1) at (1, 0.25){};
+				\node[draw = none, scale = 1.25] (f1) at (1.75, 1){};
+				\node[draw = none, scale = 1.25] (f1) at (1, 1){};
+				\node[draw = none, scale = 1.25] (f1) at (2.3, 1){};
+				\end{tikzpicture}
+			\end{center}
+			\item Если граф $G$ планарен (не обязательно связан), то:$n-m+f = 1+|\text{компоненты связности}|$
+			\item У каждой грани вокруг $\geq$ 3 ребра
+			
+			\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (100.0pt, -87.5pt)  {};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (150.0pt, -50.0pt)  {};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -87.5pt)  {};
+\draw [line width=0.625, color=black] (2) to  [in=32, out=225] (1);
+\draw [line width=0.625, color=black] (2) to  [in=135, out=331] (3);
+\end{tikzpicture}
+
+3f $\leq \sum$ кол-во ребер вокруг g $\leq$ 2m (у каждого ребро посчитана 1 или 2 раза)
+
+$\Rightarrow$ 3f $\leq$ 2m
+
+но n - m + F = 2
+
+3n-3m+3f = 6 $\Rightarrow$ 3n - 3m + 2m $\geq$ 6
+
+$\Rightarrow$ 3n - m $\geq$ 6 $\Rightarrow$ m $\leq$ 3n - 6
+
+Итого m $\leq$ 3n-6 в связном планарном графе.
+
+		
+					\begin{tikzpicture}[every node/.style={circle, draw=teal, thick}, every path/.style={draw=black, thick}]
+					\node (a) at (0,0){};
+					\node (b) at (-0.2,1.3){};
+					\node (c) at (1,2){};
+					\node (d) at (2,1){};
+					\node (e) at (1.4,-0.1){};
+					
+					\node[draw=white] (f1) at (2.05,0.3){5};
+					
+					\path (a) edge (b);
+					\path (b) edge (c);
+					\path (c) edge (d);
+					\path (b) edge node [draw=none, above]{3} node [draw=none, below]{4} (d);
+					\path (d) edge (e);
+					\path (e) edge (a);
+					\end{tikzpicture}
+			
+			\item Полный граф при $n \geq 5$ не планарен.
+			
+			\begin{center}
+				\begin{tikzpicture}[every node/.style={circle, draw=teal, thick}, every path/.style={draw=black, thick}]
+				\node (a) at (0,0){};
+				\node (b) at (0,1.5){};
+				\node (c) at (1.5,1.5){};
+				\node (d) at (1.5,0){};
+				\node[scale = 0.01, draw = none] (h) at (1.8,1.8){};
+				
+				\node[draw=white, rectangle] (text) at (0.75,-0.75){граф планарен};
+				
+				\path (a) edge (b);
+				\path (a) edge (c);
+				\path (b) edge (c);
+				\path (b) edge[bend left = 50] (h);
+				\path (h) edge[bend left = 50] (d);
+				\path (c) edge (d);
+				\path (d) edge (a);
+				\end{tikzpicture}
+				
+			\end{center}
+			
+	\textbf{Доказательство}
+			n=5, m = 5*4/2 = 10, 10 $\geq$ 3*5 - 6 = 9 ??
+		\end{enumerate}
+	\underline{Замечание}
+		Пусть $K_5$ --- полный граф с количеством вершин, равным 5. 
+	
+	
+		Граф $K_{3,3}$ --- тоже не планарен.
+		
+		\begin{center}
+			\begin{tikzpicture}[every node/.style={circle, draw=teal, thick}, every path/.style={draw=black, thick}]
+			\node (a1) at (0,0){};
+			\node (a2) at (0,1.5){};
+			\node (a3) at (0,3){};
+			\node (b1) at (2,0){};
+			\node (b2) at (2,1.5){};
+			\node (b3) at (2,3){};
+			
+			\path (a1) edge (b1);
+			\path (a1) edge (b2);
+			\path (a1) edge (b3);
+			\path (a2) edge (b1);
+			\path (a2) edge (b2);
+			\path (a2) edge (b3);
+			\path (a3) edge (b1);
+			\path (a3) edge (b2);
+			\path (a3) edge (b3);
+			\end{tikzpicture}
+		\end{center}
+	
+	\underline{Замечание} $K_{5}$ - полный граф n = 5
+	
+	\textbf{Утверждение} граф $K_{3,3}$ тоже не планарный
+	
+	\textbf{Доказательство} n=6, m=9 $9 \geq 3*6 - 6$ (верно) нет противоречия.
+	
+	Сколько граней, если полярный: 6 - 9 + f = 2 $\Rightarrow$ f = 5 граней
+	
+	В $K_{3}$ все циклы четные ( ходим лево - право или право - лево) $\Rightarrow$ У грани $\leq$ 4 ребра
+	
+	\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (100.0pt, -87.5pt)  {};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (150.0pt, -50.0pt)  {};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -87.5pt)  {};
+\draw [line width=0.625, color=black] (2) to  [in=32, out=225] (1);
+\draw [line width=0.625, color=black] (2) to  [in=135, out=331] (3);
+\draw [line width=0.625, color=black] (3) to  (1);
+\end{tikzpicture}
+
+НЕВОЗМОЖНО
+
+4f $\geq \sum $ ребер грани g $\geq$ 2m $\Rightarrow$ m $\leq$ 2 f $g \leq 2*5$ 
+	
+		
+		
+	
+	\textbf{Теорема Понтрягина-Куратовского}
+		Граф $G$ планарен только, если он не содержит полуграфов G', стягивающихся к $K_5$ и к $K_{3,3}$.
+		
+			Пример стягивающихся графов:
+			\begin{center}
+				\begin{tikzpicture}[every node/.style={circle, draw=teal, thick}, every path/.style={draw=black, thick}]
+				\node (a1) at (0,0){};
+				\node (a2) at (0,1.5){};
+				\node (a3) at (0,3){};
+				\node (b1) at (2,0){};
+				\node (b2) at (2,1.5){};
+				\node (b3) at (2,3){};
+				\node (c) at (1,-0.7){};
+				
+				\node[draw=none, rectangle] (text) at (1,-1.25){стягивается к $K_{3,3}$};
+				
+				\path (a1) edge (c);
+				\path (c) edge (b1);
+				\path (a1) edge (b2);
+				\path (a1) edge (b3);
+				\path (a2) edge (b1);
+				\path (a2) edge (b2);
+				\path (a2) edge (b3);
+				\path (a3) edge (b1);
+				\path (a3) edge (b2);
+				\path (a3) edge (b3);
+				\end{tikzpicture}
+				~~~~~~~~~~
+				\begin{tikzpicture}[every node/.style={circle, draw=teal, thick}, every path/.style={draw=black, thick}]
+				\node (a1) at (0.15,0){};
+				\node (a2) at (2.85,0){};
+				\node (a3) at (3.5,2){};
+				\node (a4) at (1.5,3.75){};
+				\node (a5) at (-0.5,2){};
+				
+				\node (b1) at (1,1){};
+				\node (b2) at (2,1){};
+				\node (b3) at (2.25,1.85){};
+				\node (b4) at (1.5,2.5){};
+				\node (b5) at (0.75,1.85){};
+				
+				\node[draw = none, rectangle] (text) at (1.5, -0.5){стягивается к $K_5$};
+				
+				\path (a1) edge (a2);
+				\path (a2) edge (a3);
+				\path (a3) edge (a4);
+				\path (a4) edge (a5);
+				\path (a5) edge (a1);
+				
+				\path (b1) edge (b3);
+				\path (b3) edge (b5);
+				\path (b5) edge (b2);
+				\path (b2) edge (b4);
+				\path (b4) edge (b1);
+				
+				\path (a1) edge (b1);
+				\path (a2) edge (b2);
+				\path (a3) edge (b3);
+				\path (a4) edge (b4);
+				\path (a5) edge (b5);
+				\end{tikzpicture}
+			\end{center}
+			
+			\section{Темы: Хроматизм}
+			
+			\textbf{Определение}  раскраска графа G в К цветов это функция  G : V $\rightarrow$ [1...k](целое) причем, если есть ребра (u,v), то C(u) $\neq$ C(v)
+			
+\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (62.5pt, -37.5pt) {\textcolor{black}{1}};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (37.5pt, -62.5pt) {\textcolor{black}{2}};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (62.5pt, -87.5pt) {\textcolor{black}{1}};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (87.5pt, -62.5pt) {\textcolor{black}{2}};
+\node (5) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (87.5pt, -112.5pt) {\textcolor{black}{2}};
+\node (6) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (112.5pt, -87.5pt) {\textcolor{black}{3}};
+\node (7) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (175.0pt, -37.5pt)  {};
+\node (8) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (150.0pt, -62.5pt)  {};
+\node (9) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (175.0pt, -87.5pt)  {};
+\node (10) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -62.5pt)  {};
+\node (11) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (212.5pt, -112.5pt)  {};
+\node (12) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (237.5pt, -87.5pt)  {};
+\draw [line width=0.625, color=black] (1) to  (2);
+\draw [line width=0.625, color=black] (3) to  (2);
+\draw [line width=0.625, color=black] (3) to  (5);
+\draw [line width=0.625, color=black] (5) to  (6);
+\draw [line width=0.625, color=black] (6) to  (4);
+\draw [line width=0.625, color=black] (1) to  (4);
+\draw [line width=0.625, color=black] (3) to  [in=217, out=53] (4);
+\draw [line width=0.625, color=black] (7) to  (8);
+\draw [line width=0.625, color=black] (8) to  (9);
+\draw [line width=0.625, color=black] (11) to  (9);
+\draw [line width=0.625, color=black] (11) to  [in=246, out=24] (12);
+\draw [line width=0.625, color=black] (10) to  (12);
+\draw [line width=0.625, color=black] (7) to  [in=143, out=307] (10);
+\draw [line width=0.625, dashed, color=black] (9) to  [in=233, out=37] (10);
+\end{tikzpicture}
+
+			Раскраска \qquad \qquad \qquad \qquad \qquad не раскраска
+			
+		\textbf{Определение} Граф G двудолен, если его можно раскрасить в 2 цвета.
+		
+		\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (12.5pt, -25.0pt) {\textcolor{black}{1}};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (112.5pt, -25.0pt) {\textcolor{black}{2}};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (12.5pt, -87.5pt) {\textcolor{black}{3}};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (112.5pt, -87.5pt) {\textcolor{black}{4}};
+\node (5) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -87.5pt) {\textcolor{black}{5}};
+\node (6) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (287.5pt, -87.5pt) {\textcolor{black}{6}};
+\node (7) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (250.0pt, -25.0pt) {\textcolor{black}{7}};
+\draw [line width=0.625, color=black] (1) to  (2);
+\draw [line width=0.625, color=black] (2) to  (4);
+\draw [line width=0.625, color=black] (4) to  (3);
+\draw [line width=0.625, color=black] (3) to  (1);
+\draw [line width=0.625, color=black] (7) to  (5);
+\draw [line width=0.625, color=black] (5) to  (6);
+\draw [line width=0.625, color=black] (6) to  (7);
+\end{tikzpicture}
+			
+		$K_{3,3}$ - двудольный \qquad \qquad \qquad \qquad \qquad \qquad не двудолен
+		
+			\underline{Замечание} Двудольные графы часто рисуют из вторых частей (долей).
+			
+			\textbf{Теорема} G - двудолен $\Leftrightarrow$ все циклы G имеют четную длину.
+			
+			\textbf{Доказательство} 1) Двудолен $\Rightarrow$ циклы четные
+			
+			2) циклы четные $\Rightarrow$ двудолен "подвесим граф за вершину"
+			
+			$\forall$ вершин
+			
+			\textbf{Лекция 6}
+			
+			\textbf{Теорема} Граф двудолен $\Rightarrow$ все циклы четные.
+			
+			\textbf{Определение} G $=$ (V,E) - граф
+			
+			$\chi(g)$ - хроматическое число графа минимальное количество цветов, в которые его можно раскрасить.
+			
+			\textbf{Пример}
+			
+			\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (62.5pt, -37.5pt) {\textcolor{black}{}};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (62.5pt, -100.0pt) {\textcolor{black}{}};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (150.0pt, -100.0pt) {\textcolor{black}{}};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (150.0pt, -37.5pt) {\textcolor{black}{}};
+\node (5) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (262.5pt, -37.5pt) {\textcolor{black}{}};
+\node (6) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (262.5pt, -100.0pt) {\textcolor{black}{}};
+\node (7) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (350.0pt, -100.0pt) {\textcolor{black}{}};
+\node (8) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (350.0pt, -37.5pt) {\textcolor{black}{}};
+\draw [line width=0.625, color=black] (1) to  (2);
+\draw [line width=0.625, color=black] (3) to  (2);
+\draw [line width=0.625, color=black] (3) to  (4);
+\draw [line width=0.625, color=black] (4) to  (2);
+\draw [line width=0.625, color=black] (5) to  (8);
+\draw [line width=0.625, color=black] (8) to  (7);
+\draw [line width=0.625, color=black] (7) to  (6);
+\draw [line width=0.625, color=black] (6) to  (5);
+\end{tikzpicture}
+		
+		$\chi = 3$ \qquad	\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad $\chi = 2$
+		
+		\underline{Замечание} Если $\leq \chi (g) $, то G можно покрасить в к цветов
+		
+		\textbf{Утверждение} $\chi (g) \geq max \deg$ v + 1 
+		
+	\subsection{Хроматические многочлены}
+	
+	\textbf{Определение} $\sqsupset$ $\chi (G,K) $ - это функция "сколько способов раскрасить G в К цветов"
+	
+    \qquad \qquad \qquad \qquad \qquad K=0 \qquad 0
+    
+    \qquad \qquad \qquad \qquad \qquad  K=1 \qquad 0
+    
+	$\chi (0---0,k)$ = \qquad K=2 \qquad 2
+	
+	\qquad \qquad \qquad \qquad \qquad K=3 \qquad 6
+	
+	 \qquad \qquad \qquad \qquad \qquad K=4 \qquad 12
+	 
+	 иначе k(k-1)
+	 
+	 $\chi (0---0,k) = k(k-1)$
+	 
+	 $\chi (0 \qquad 0, k) = k^{2}$
+	 
+	 \textbf{Утверждение} 
+	 
+	 1)$\chi(\phi_{n},k) = k^{n}$ ($\phi_{n}$граф из n вершин без ребер) 
+	 
+	 2)$\chi(K_{n}, k) = k(k-1)(k-2)...(k-n+1)$
+	 
+	 3)$\chi(T_{n},k = k(k-1)^{n}$ подвесим дерево за $\forall$ вершину k-1 цвет возможен
+	 
+	 4)$\overline{G}$ - граф; u,v вершин с ребром (u,v)
+	 
+	 G = G : (u,v) (без ребр)
+	 
+	 $G^(0) = G$, где u,v станут в вершину
+	 
+	 $\chi (G,K) = \chi (\underline{G},K) + \chi(G^{0},K)$ $\leftarrow$ способы раскрасить G,где u,v - один цвет
+	 
+	 \qquad \qquad \qquad \qquad $\uparrow$
+	 
+	 \qquad \qquad  способы  раскрасить G, 
+			
+	\qquad \qquad		где u и v - разный цвет
+	
+	Следствие: $\chi (\underline{G},k) = \chi(G,k) - \chi(G_{0},k)$
+	
+	\textbf{Лекция  7}
+	
+	\textbf{Утверждение} $\chi$ (G,K) - это многочлен
+	
+	1)Старший коэффициент  = 1
+	
+	2) Степень = n (количество вершин)
+	
+	3) Знаки чередуются
+	
+	4) Младший коэффициент = 0
+	
+	5) Коэффициент при $k^{n-1}$ = +-m (количество ребер)
+	
+	\textbf{Доказательство} Индукция по количеству вершин, при равном количестве вершин: количество ребер
+	
+	\textbf{База} Пустой граф из n вершин $\chi$(пуст.граф,k) = $k^{n}$ = переход $\overline{G}$
+	
+	1) Старший коэффициент (1*$k^{n}$) - ($k^{n-1}$)...
+	
+	2) Степень = n
+	
+	3) ($k^{n} - k^{n-1} + k^{n-2}) - (k^{n-1} - k^{n-2} + k^{n-3}+...)$
+	
+	4) Младший коэффициент = 0 - 0 = 0
+	
+	5) Ребер G*$k^{n-1}$ - $k^{n-1}$ = -(количество ребер G + 1)$k^{n-1}$
+	
+	\textbf{Утверждение} $\chi (g) $ - хром число ( мин. число цветов для раскраски)
+	
+	$\chi (G,k)$ k=0,1,2.... $\chi(G) - 1 $ корни многочленов $\chi(g)$ - не корень
+	
+		\section{Эйлеровы графы}
+		Нарисовать данный граф, не проводя по одному ребру дважды:
+		\begin{center}
+			\begin{tikzpicture}[every node/.style={circle, draw=teal, thick}, every edge/.style={draw=black, thick}]
+			\node (a) at (0,0){};
+			\node (b) at (-1,-1.5){};
+			\node (c) at (1,-1.5){};
+			\node (d) at (-1,-3.5){};
+			\node (e) at (1,-3.5){};
+			
+			\path (a) edge (b);
+			\path (b) edge (c);
+			\path (a) edge (c);
+			\path (c) edge (e);
+			\path (c) edge (d);
+			\path (b) edge (e);
+			\path (b) edge (d);
+			\path (e) edge (d);
+			\end{tikzpicture}
+		\end{center}
+		
+	\textbf{Определение}
+		Эйлеров путь - простой путь, содержащий все ребра, не проходящий дважды по одному ребру.
+	
+	\textbf{Определение}
+		Эйлеров цикл - цикл, содержащий все ребра, не проходим дважды по 1 ребру.
+	
+	\textbf{Утверждение}
+		Пусть $G$ содержит эйлеров цикл, тогда $G$ связен, и $\deg v$ --- четная $\forall v \in \mathbb{V}$. 
+	
+	\begin{center}
+		\begin{tikzpicture}[every node/.style={circle, draw=teal, thick}, every edge/.style={draw=black, thick}]
+		\node (a1) at (0,-0.55){2};
+		\node (b1) at (-1,-2){4};
+		\node (c1) at (1,-2){4};
+		\node (d1) at (-1,-4){3};
+		\node (e1) at (1,-4){3};
+		
+		\path (a1) edge (b1);
+		\path (b1) edge (c1);
+		\path (a1) edge (c1);
+		\path (c1) edge (e1);
+		\path (c1) edge (d1);
+		\path (b1) edge (e1);
+		\path (b1) edge (d1);
+		\path (e1) edge (d1);
+		
+		\node (a2) at (5,0){2};
+		\node (b2) at (4,-1.5){4};
+		\node (c2) at (6,-1.5){4};
+		\node (d2) at (4,-3.5){4};
+		\node (e2) at (6,-3.5){4};
+		\node (f2) at (5,-5){2};
+		
+		\path (a2) edge (b2);
+		\path (b2) edge (c2);
+		\path (a2) edge (c2);
+		\path (c2) edge (e2);
+		\path (c2) edge (d2);
+		\path (b2) edge (e2);
+		\path (b2) edge (d2);
+		\path (e2) edge (d2);
+		\path (e2) edge (f2);
+		\path (f2) edge (d2);
+		
+		\node[rectangle, draw=none] (text1) at (0,0.2){нет эйлеров циклов};
+		\node[rectangle, draw=none] (text2) at (5,0.7){есть эйлеров цикл};
+		\end{tikzpicture}
+	\end{center}
+	
+	\textbf{Доказательство}
+		Если граф $G$ связен, кол-во входов = кол-во выходов. $\deg$ четно
+		
+		
+	\textbf{Доказательство обратное}
+		Начнем строить цикл. Идем из $\forall$ вершины, выбираем ребро, которое еще не использовалось. В каждой вершине по пути использовано четное количество ребер (к входов, к выходов) +1 ребро, через которое вошли. Использовали нечетное количество ребер, есть еще одно, по нему можно уйти, кроме начальное из нее вышли на 1 раз больше. $\rightarrow$ мы закончили ходить в начальной вершине.
+
+	\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (37.5pt, -50.0pt) {\textcolor{black}{2}};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (37.5pt, -125.0pt) {\textcolor{black}{4}};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (112.5pt, -125.0pt) {\textcolor{black}{4}};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -125.0pt) {\textcolor{black}{4}};
+\node (5) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (200.0pt, -50.0pt) {\textcolor{black}{4}};
+\node (6) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (112.5pt, -50.0pt) {\textcolor{black}{2}};
+\draw [line width=0.625, color=black] (2) to  (1);
+\draw [line width=0.625, color=black] (1) to  (6);
+\draw [line width=0.625, color=black] (6) to  (3);
+\draw [line width=0.625, color=black] (2) to  (3);
+\draw [line width=0.625, color=black] (2) to  (6);
+\draw [line width=0.625, color=black] (3) to  [in=217, out=45] (5);
+\draw [line width=0.625, color=black] (4) to  (3);
+\draw [line width=0.625, color=black] (4) to  (5);
+\draw [line width=0.625, color=black] (6) to  (5);
+\draw [line width=0.625, color=black] (2) to  [in=264, out=323] (5);
+\end{tikzpicture}
+
+обошли не все, выкинем просмотренные ребра
+
+    \textbf{Теорема}
+		Если граф связан, из начальной точки все вершины x можно попасть в $\forall$ вершину и ребро.
+	
+		Повторим процесс из $\forall$ $\in$ 1 циклу, из которой ведет ребро.
+		
+		\textbf{Объеденим 2 цикла}
+		
+		
+	
+    
+	
+	\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}
+[every node/.style={inner sep=0pt}]
+\node (1) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (162.5pt, -75.0pt) {\textcolor{black}{}};
+\node (2) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (62.5pt, -125.0pt) {\textcolor{black}{}};
+\node (3) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (275.0pt, -75.0pt) {\textcolor{black}{}};
+\node (4) [circle, minimum size=12.5pt, fill=white, line width=0.625pt, draw=teal] at (137.5pt, -87.5pt) {\textcolor{black}{}};
+\draw [line width=0.625, color=black] (2) to  [in=143, out=84] (1);
+\draw [line width=0.625, color=black] (2) to  [in=264, out=323] (1);
+\draw [line width=0.625, color=black] (4) to  [in=127, out=66] (3);
+\draw [line width=0.625, color=black] (4) to  [in=246, out=307] (3);
+\end{tikzpicture}
+	
+	Продолжать пока все ребра не объединятся в 1 цикл.
+	
+	\textbf{Теорема} Граф содержит Эйлеров путь $\Leftrightarrow$
+	
+	1) Граф связан.
+	
+	2) Степени всех вершин четны, степени всех вершин кроме двух четны (в этом случае нечетные вершины - это начало и конец)
+	
+	\section{Гамильтонов путь/цикл}
+	
+	\textbf{Определение} Гамильтоновы пути или циклы - простые цепи/циклы по всем вершинам.
+	
+\end{document}

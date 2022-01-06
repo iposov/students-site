@@ -1,0 +1,362 @@
+\documentclass[a4paper,12pt]{article}   % форма бумаги, базовый размер шрифта
+\usepackage{cmap}                       % поиск в PDF
+\usepackage{tikz}
+\usepackage[T2A]{fontenc}               % кодироввка
+\usepackage[utf8]{inputenc}             % кодировка исходного текста
+\usepackage[english,russian]{babel}     % локализация и переносы
+\usepackage{graphicx}                   % поддержка картинок
+\usepackage{amsmath}                    % поддердка математических символов
+\usepackage{color}                      % поддержка цвета
+\usepackage{amssymb}                    % поддержка знаков
+\usepackage{amsfonts}                   % буквы с двойными штрихами
+\usepackage{ulem}                       % зачеркивания
+
+\title{Комбинаторика и теория графов}
+\author{Карпий Игорь Юрьевич студент группы 0371}
+\date{} 
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\textbf{Бинарные отношения} \\
+\textcolor{blue}{Определение:} \\
+M - множество $\neq \varnothing$ \\
+R $\subset$ M$\times$M - бинарное отношение. \\
+\textcolor{blue}{Пояснение:} \\
+M$\times$M - множество пар из элементов R \\
+Допустим M = $\{a,b,c\}$ \\
+M$\times$M = $\{(a,a)(a,b)(a,c)(b,a)(b,b)(b,c)(c,a)(c,b)(c,c)\}$ \\
+или M = $\mathbb{N}$ \\
+M$\times$M = $\mathbb{N}$$\times$$\mathbb{N}$ = $\{(1,1)(1,2)(2,1)(1,3)(2,2)(3,1)(4,4)(2,3)...(42,15)...\}$ \\
+отношение R - это подмножество пар \\
+\textcolor{blue}{Обозначение:} \\
+вместо: (x,y)$\in$R - пара (x,y) принадлежит отношению \\
+будем писать: xRy \\
+вместо: (x,y)$\notin$R \\
+будем писать: \sout{xRy} \\
+\textcolor{blue}{Примеры:} \\
+\textbf{1.} M = $\mathbb{R}$ \\ 
+R = $\left\{(x,y): x > y\right\}$ \\
+3R2 3>2 \\
+\sout{3R4} \sout{3>4} \\
+\textbf{2.} M = $\mathbb{R}$ \\ 
+отношение ($\geq$) \\
+7$\geq$6 \\
+7$\geq$7 \\
+\sout{7$\geq$8} \\
+\textbf{3.} M = $\mathbb{R}$ \\
+отношение (=) \\
+7=7 \\
+7$\neq$8 \\
+\textbf{4.} M = $\mathbb{R}$ \\
+отношение ($\approx$) \\
+x$\approx$y $\iff$ |x-y|<1 \\
+\textbf{5.} M = $\mathbb{R}$ \\
+отношение (\#) \\
+x$\#$y $\iff$ $x^2$>y \\
+2$\#$2 т.к $2^2$>2 \\
+7$\#$8 \\
+\sout{1$\#$2} \\
+\sout{7$\#$100} \\
+\textbf{6.} M = $\mathbb{N}$ \\
+отношение ( $\vdots$ ) \\
+x $\vdots$ y $\iff$ $\exists$ k $\in$ $\mathbb{Z}$ : x = ky \\
+или \\
+M = $\mathbb{Z}$ \\
+4 $\vdots$ 2 \\
+10 $\vdots$ 5 \\
+0 $\vdots$ 0 \\
+\sout{2 $\vdots$ 4} \\
+\sout{10 $\vdots$ 3} \\
+\sout{7 $\vdots$ 0} \\
+\textbf{7.} M = $\mathbb{Z}$ \\
+отношение ($\equiv_3$) \\
+0 $\equiv_3$ 3 \\
+1 $\equiv_3$ 4 \\
+\sout{1 $\equiv_3$ 8} \\
+\textbf{8.} M = $\mathbb{N}$ \\
+a Ц b, если в числе 'a' 'b' цифр \\
+100 Ц 3 \\
+238 Ц 3 \\
+\sout{238 Ц 8} \\
+\textbf{9.} M = прямые на $R^2$ \\
+отношение ( $\|$ ) \\
+$l_1 \| l_2$ если $l_1$ не пересекает $l_2$ или $l_1$=$l_2$ \\
+\textbf{10.} M = прямые на $R^2$ \\
+отношение ($\bot$) \\
+$l_1 \bot l_2$ - перпендикулярны \\
+\textbf{11.} M = студенты ЛЭТИ \\
+x>y средний балл за последнюю сессию 'x' больше, чем средний балл 'y' \\
+\textbf{12.} M = пользователи "Одноклассники" \\
+x $\rightarrow$ y, если 'y' в друзьях у 'x' \\
+Иванов $\rightarrow$ Петров \\
+\sout{Петров $\rightarrow$ Посов} \\
+\textbf{Свойства бинарных отношений} \\
+\textcolor{blue}{Определение:} \\
+Бинарное отношение R на M называется рефлексивным, если $\forall x \in$ M xRx $((x,x) \in R)$ \\ 
+\textcolor{blue}{Замечание:} \\
+Отношение не рефлексивно $\iff$ $\exists x$ \sout{xRx} - контрпример \\ 
+\textcolor{blue}{Примеры:} \\
+(=) - рефлексивно $\forall$ x: x = x \\
+($\geq$) - рефлексивно $\forall$ x: x $\geq$ x \\
+($\approx$) - рефлексивно $\forall$ x: x $\approx$ x, так как |x-x|= 0 < 1 \\
+( $\vdots$ ) - рефлексивно $\forall$ x: x $\vdots$ x \\
+(>) - не рефлексивно так как \sout{2 > 2} \\
+(Ц) - не рефлексивно так как \sout{3Ц3} \\
+($\to$) ("Одноклассники") - не рефлексивно так как \sout{Посов$\to$Посов} \\
+\textcolor{blue}{Определение:} \\
+Бинарное отношение R на множестве M называется антирефлексивным, если $\forall$ x \sout{xRx} \\
+\textcolor{blue}{Замечание:} \\
+R - не антирефлексивно $\iff \exists x: xRx$ - контрпример \\ 
+\textcolor{blue}{Примеры:} \\
+(>) - антирефлексивно так как \sout{x>x} \\
+($\perp$) - антирефлексивно так как \sout{l$\perp$l} \\
+($\to$) - антирефлексивно так как нельзя быть у себя в друзьях \\
+(Ц) - не антирефлексивно, контрпример 1Ц1 \\
+\textcolor{blue}{Замечание:} \\
+1) Ц - не рефлексивно и не антирефлексивно \\
+2) не бывает R, которое и рефлексивно, и антирефлексивно \\
+(рассмотрим $a \in M \to aRa \implies$ - не антирефлексивно; рассмотрим $a \in M \to$ \sout{aRa} $\implies$ - не рефлексивно) \\
+\textcolor{blue}{Определение:} \\
+Бинарное отношение R на множестве M симметрично, если $\forall x,y$ xRy $\iff$ yRx \\
+\textcolor{blue}{Замечание:} \\
+R - не симметрично $\iff \exists x,y:$ xRy, \sout{yRx} - контрпример \\
+\textcolor{blue}{Примеры:} \\
+(=) - симметрично так как x = y $\iff$ y = x \\
+($\approx$) - симметрично так как x $\approx$ y $\iff$ y $\approx$ x (|x-y|<1 и |y-x|<1) \\
+( $\vdots$ ) - не симметрично так как 4 $\vdots$ 2, но \sout{2 $\vdots$ 4} \\
+(||) симметрично так как a||b $\iff$ b||a (с $\perp$ также) \\
+(Ц) - не симметрично так как 100Ц3 не тоже самое, что и \sout{3Ц100} \\
+\textcolor{blue}{Определение:} \\
+Бинарное отношение R на множестве M называется антисимметричным, если $\forall x \neq y$ xRy $\implies$ \sout{yRx} \\
+\textcolor{blue}{Замечание:} \\
+R - не антисемметрично, если $\iff \exists$ x$\neq$y xRy, yRx - контрипример \\
+\textcolor{blue}{Примеры:} \\
+(>) - антисимметрично, x$\neq$y, x>y $\implies$ \sout{y>x} \\
+Попробуем построить контрпример: \\
+x$\neq$y, x>y, y>x - невозможно $\implies$ нет контрпримеров $\implies$ антисимметрично \\
+($\geq$) - антисимметрично (x$\neq$y, x$\geq$y, y$\geq$x - невозможно, нет контрпримера) \\
+(=) - антисимметрично (x$\neq$y, x=y, y=x - нет контрпримера) \\
+($\equiv_3$) - не антисимметрично (1$\neq$4, 1$\equiv_3$4, 4$\equiv_3$1 - контрпример) \\
+( $\vdots$ ) над $\mathbb{N}$ - антисимметрично (x$\neq$y, x $\vdots$ y, y $\vdots$ x - нет для $\mathbb{N}$ чисел) \\
+( $\vdots$ ) над $\mathbb{Z}$ - не антисимметрично (4$\neq$-4, 4 $\vdots$ -4, -4 $\vdots$ 4) 
+\textbf{Свойства отношений:} \\
+\textbf{1. Антисимметричность} \\
+$\vdots$ на $\mathbb{Z}$ - не антисимметрично \\
+-2 $\vdots$ 2 \\
+2 $\vdots$ -2 \\
+2 \textpm -2 \\
+$\vdots$ на $\mathbb{N}$ - антисимметрично \\
+\textcolor{blue}{Контрпример:} \\
+x $\neq$ y,  x $\vdots$ y,  y $\vdots$ x \\
+$\forall$ x, y, z  x $\neq$ y  x $\vdots$ y $\implies$ y \sout{$\vdots$} x\\
+\textbf{2. Асимметричность} \\
+\textcolor{blue}{Определение} \\
+R - бинарное отношение на M, если $\forall$ x, y xRy $\implies$ \sout{yRx} \\
+\textcolor{blue}{Контрпример:} \\
+xRy, yRx. \\
+\textcolor{blue}{Утверждение} \\
+R - асимметрично $\implies$ R - антисимметрично и антирефлексивно \\
+\textcolor{blue}{Пример} \\
+> - антисимметрично: $\forall$ x, y x > y $\implies$ \sout{y > x} \\
+$\bot$ - асимметрично (пустое, когда R  = $\varnothing$)\\
+"выше" - асимметрично. \\
+"начальник" на множестве тех, кто работает в ЛЭТИ \\
+\textbf{3. Транзитивность} \\
+R - бинарное отношение транзитивно, если $\forall$ x, y, z xRy, yRz $\implies$ xRz. \\
+\textcolor{blue}{Контрпример} \\
+xRy, yRz, \sout{xRz} \\
+\textcolor{blue}{Примеры} 
+\begin{equation*} % Начало системы уравнений
+\text{Транзитивно} 
+ \begin{cases}
+   \text{>: x>y, y>z $\implies$ x>z}\\
+   \geqslant \\
+   \text{$\vdots$ : x $\vdots$ y, y $\vdots$ z $\implies$ x $\vdots$ z} \\
+   \text{  x = ky, y = lz $\implies$ x = (kl)z $\implies$ x $\vdots$ z}
+ \end{cases}
+\end{equation*} % Конец системы уравнений
+$\bullet$ $\bot$ - не транзитивно \\
+\begin{tikzpicture} % Начало векторного рисунка
+\draw (0,-1) -- node[right = 55pt, above = 25pt] {$y$} (3.5,1);
+\draw (0,1.5) -- node[left = 30pt, above = 40pt] {$x$} (1.8, -1.5);
+\draw (1.5,1.5) -- node[left = 26pt, above = 33pt] {$z$} (3,-1);
+\end{tikzpicture} \\  % Конец векторного рискунка
+x $\bot$ y \\
+y $\bot$ z \sout{y $\bot$ x} \\
+$\bullet$ Из (количество цифр) - не транзитивно \\
+100 из 3 \\
+\sout{100 из 1} \\
+3 из 1 \\
+\textcolor{blue}{Определение} \\
+Отношение эквивалентности: отношение R называется отношением эквивалентности, если R - рефлексивно, симметрично, транзитивно. \\
+\textcolor{blue}{Замечание} \\
+\sout{R - эквивалентно} \\
+\textcolor{blue}{Примеры} \\
+1) = на $\mathbb{R}$ (или $\forall$ другом множестве) является отношением эквивалентности. \\
+$\forall$x x=x - рефлексивность \\
+$\forall$x,y x=y $\implies$ y=x - симметричность \\
+$\forall$x,y,z x=y, y=z $\implies$ x=z - транзитивность \\
+2) || - параллельность (одно направление) \\ 
+3) $\equiv (\mod 3)$ - сравнение по модулю 3 (один остаток) \\
+(2 и 3 - эквивалентные отношения) \\
+4) $\geqslant$ - не отношение эквивалентности, так как не симметрично: \\
+x$\geqslant$y $\implies$ y$\geqslant$x ?? \\
+2$\geqslant$1, \sout{1$\geqslant$2} \\
+5) $\approx$ - не отношение эквиваленстности (не транзитивно). \\
+6) отношение $\uparrow$ на $\mathbb{N}$ x $\uparrow$ y, если у x и y поровну цифр. \\ 
+2$ \uparrow $5, 12 $\uparrow$ 42, \sout{33 $\uparrow$ 100} \\
+$\uparrow$ - является отношением эквивалентности (одинаковое количество цифр) \\
+x $\uparrow$ y $\implies$ y $\uparrow$ x - симметрично \\
+x $\uparrow$ y, y $\uparrow$ z $\implies$ x $\uparrow$ z - транзитично \\
+\textcolor{blue}{Определение} \\
+R - отношение эквивалентности на множестве M, x $\in$ M, класс элемента x $\{$ Mx = y | xRy $\}$ \\
+\textcolor{blue}{Пример} \\
+1) = : M=$\{5\}$ \\
+2) $\equiv (\mod 3)$: M = $\{2,5,8,11,...\}$ \\
+3) || : M = $\{  \diagdown \diagdown \diagdown$ , $\diagdown \diagdown \diagdown \}$\\ 
+\textcolor{blue}{Уравнение} \\
+R - отношение эквивалентности на множестве M \\
+$\forall$x,y $\in$ M Mx=My или Mx $\bigcap$ My = $\varnothing$ \\
+\textcolor{blue}{Доаказательство} \\
+] Mx $\bigcap$ My $\neq$ $\varnothing$ $\implies$ $\exists$z $\in$ Mx, z $\in$ My \\
+$\implies$ xRz, yRz $\implies$ zRy (симметричность) $\implies$ xRy (транзитивность) \\
+Теперь проверим, что Mx = My. \\
+Возьмем u $\in$ Mx, проверим, что u $\in$ My. \\
+u $\in$ Mx $\implies$ xRu, xRy $\implies$ yRx (симметричность) $\implies$ yRu (транзитивность) $\implies$ u $\in$ My. $\blacksquare$ \\
+\textcolor{blue}{Следствие} \\
+R - отношение эквивалентности на M, тогда М разбито на несколько классов жквивалентности (классы элементов). \\
+М=М, $\cup$ ... Mn \\
+Mi $\cap$ Mj = $\varnothing$ \\
+= на $\mathbb{N}$ \\
+$\mathbb{N}$ = $\{1\} \cup \{2\} \cup \{3\}...$ \\
+$\equiv (\mod 3)$ на $\mathbb{N}$ \\
+$\mathbb{N}$ = $\{0, 3,  6,  9...\} \cup \{1, 4, 7, 10...\} \cup \{2, 5, 8, 11...\}$ \\
+\textcolor{blue}{Замечание} \\
+Если есть М = $\varnothing$, разбить на Mi = $\varnothing$ \\
+M = M, $\cup$ ... $\cup$ Mu; Mi $\cap$ Mj = $\varnothing$ \\
+Тогда можно ввести определение R.
+xRy если $\exists$Mi: x,y$\in$Mi.\\
+a b c d e f g \\
+\begin{tikzpicture}[scale=0.6]
+\draw[ultra thick] (0,0) circle (1.5);
+\node[left, above] at (-0.5,0) {$a$};
+\node[left, above] at (0.5,0) {$b$};
+\node[left, above] at (0,-1) {$c$};
+\end{tikzpicture}
+\begin{tikzpicture}[scale=0.6]
+\draw[ultra thick] (0,0) circle (1);
+\node[left, above] at (-0.5,0) {$d$};
+\node[left, above] at (0.5,0) {$e$};
+\node[left, above] at (0,-1) {$f$};
+\end{tikzpicture}
+\begin{tikzpicture}[scale=0.6]
+\draw[ultra thick] (0,0) circle (0.5);
+\node[left, above] at (0,-0.5) {$g$};
+\end{tikzpicture} 
+Для || класс эквивалентности \\
+\begin{tikzpicture} % Начало векторного рисунка
+\draw (0,0) -- (3,0);
+\draw (0,-0.5) -- (3,-0.5);
+\draw (0,-1) -- (3,-1);
+\draw (1.5,0.5) -- (1.25,-1.5);
+\draw (2,0.5) -- (1.75,-1.5);
+\draw (2.5,0.5) -- (2.25,-1.5);
+\end{tikzpicture}
+, где M1 = $\{$
+\begin{tikzpicture} % Начало векторного рисунка
+\draw (0,0) -- (0.75,0);
+\draw (0,-0.15) -- (0.75,-0.15);
+\draw (0,-0.3) -- (0.75,-0.3);
+\end{tikzpicture}
+$\}$ , а М2 = $\{$
+\begin{tikzpicture} % Начало векторного рисунка
+\draw (0.2,0.2) -- (0,-0.1);
+\draw (0.4,0.2) -- (0.2,-0.1);
+\draw (0.6,0.2) -- (0.4,-0.1);
+\end{tikzpicture}
+$\}$; Mi - направление \\
+Отношения порядка. \\
+(выше, лучше, сильнее бычтрее, важнее) \\
+\textcolor{blue}{Определение} \\
+R - бинарное отношение. \\
+] R - транзитивно, антисимметрично \\
+1) рефлексивно - не строгий порядок \\
+2) антирефлексивность - строгий порядок \\
+\textcolor{blue}{Обозначение} \\
+$\succ$ - строгий \\
+$\succcurlyeq$ - нестрогий \\
+\textcolor{blue}{Обсуждение} \\
+a$\succ$b b$\succ$c $\implies$ a$\succ$c \\
+Антисимметричность: \sout{a$\succ$b, b$\succ$a} \\
+\textcolor{blue}{Примеры} \\
+> на $\mathbb{R}$ - строгий порядок \\
+$\geqslant$ на $\mathbb{R}$ - не строгий порядок \\
+$\vdots$ на $\mathbb{N}$ - не строгий порядок \\
+\begin{tikzpicture} % Начало векторного рисунка
+%a
+\draw[ultra thick] (0,0) circle (0.3);
+\node[] at (0,0) {$a$};
+\draw[ultra thick, ->] (-0.4,-0.3) -- (-1.2,-1);
+\draw[ultra thick, ->] (0,-0.50) -- (0,-1.4);
+\draw[ultra thick, ->] (0.4,-0.3) -- (1.9,-1.15);
+%b
+\draw[ultra thick] (-1.6,-1.4) circle (0.3);
+\node[] at (-1.6,-1.4) {$b$};
+\draw[ultra thick, ->] (-1.6,-1.9) -- (-1.6,-2.8);
+%e
+\draw[ultra thick] (-1.6,-3.3) circle (0.3);
+\node[] at (-1.6,-3.3) {$e$};
+\draw[ultra thick, ->] (-1.6,-3.8) -- (-1.6,-4.7);
+%i
+\draw[ultra thick] (-1.6,-5.2) circle (0.3);
+\node[] at (-1.6,-5.2) {$i$};
+%c
+\draw[ultra thick] (0,-1.9) circle (0.3);
+\node[] at (0,-1.9) {$c$};
+\draw[ultra thick, ->] (-0.2,-2.4) -- (-0.4,-3.3);
+\draw[ultra thick, ->] (0.33,-2.32) -- (0.8,-3.3);
+%f
+\draw[ultra thick] (-0.55,-3.8) circle (0.3);
+\node[] at (-0.55,-3.8) {$f$};
+\draw[ultra thick, ->] (-0.55,-4.2) -- (-0.55,-4.8);
+\draw[ultra thick, ->] (-0.20,-4.1) -- (0.85,-4.8);
+%g
+\draw[ultra thick] (1.1,-3.8) circle (0.3);
+\node[] at (1.1,-3.8) {$g$};
+%j
+\draw[ultra thick] (-0.55,-5.2) circle (0.3);
+\node[] at (-0.55,-5.2) {$j$};
+%k
+\draw[ultra thick] (1.1,-5.2) circle (0.3);
+\node[] at (1.1,-5.2) {$k$};
+%d
+\draw[ultra thick] (2.3,-1.4) circle (0.3);
+\node[] at (2.3,-1.4) {$d$};
+\draw[ultra thick, ->] (2.3,-1.9) -- (2.3,-2.8);
+%e
+\draw[ultra thick] (2.3,-3.3) circle (0.3);
+\node[] at (2.3,-3.3) {$h$};
+\end{tikzpicture} 
+\begin{equation*} % Начало системы уравнений
+\text{Строгий} 
+ \begin{cases}
+   \text{a нач. b}\\
+   \text{a нач. c}\\
+   \text{\sout{b нач. f}}\\
+   \text{c нач. f}
+ \end{cases}
+\end{equation*}   % Конец системы уравнений
+\textcolor{blue}{Определение} \\
+] R - строгий или не строгий порядок, R - линейный, если $\forall$x$\neq$y xRy или yRx. \\
+R - частичный иначе ($\exists$ x$\neq$y: \sout{xRy}, \sout{yRx}) \\
+\textcolor{blue}{Примеры} \\
+>, $\geqslant$ - линейные порядки \\
+$\vdots$ - частичный порядок \\
+\sout{2$\vdots$3}, \sout{3$\vdots$2} \\
+рас-ков - частичный \\
+\textcolor{blue}{Утверждение} \\
+R - порядок (строгий или не строгий) на M - конечное множество, |M|<$\infty$, тогда $\exists$x - мин-й, то есть $\forall$y: \sout{x$\succ$y}. 
+\end{document} 

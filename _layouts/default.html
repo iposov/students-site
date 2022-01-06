@@ -13,19 +13,18 @@
     {% if page.type == "tasks" %}
     <link rel="stylesheet" href="{{ '/assets/css/tasks.css?v=' | append: site.github.build_revision | relative_url }}">
     {% endif %}
-    <script type="text/javascript" async
-            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
                 processEscapes: true
             }
-        });
-
+        };
     </script>
+<!--    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>-->
     <script type="text/javascript" src="/assets/js/youtube.js"></script>
 </head>
 <body>

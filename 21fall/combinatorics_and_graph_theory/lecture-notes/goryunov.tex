@@ -1,0 +1,4263 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+%Russian-specific packages
+%--------------------------------------
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsfonts}
+\usepackage[normalem]{ulem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{graphs}
+\usetikzlibrary {positioning}
+%--------------------------------------
+
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{ма-те-ма-ти-ка вос-ста-нав-ли-вать}
+%--------------------------------------
+\begin{document}
+Лекция№1\\
+\underline{Бинарные отношения}\\
+\underline{Определение}\\
+М-множество $\neq$ 0\\
+R$\subset$ MxM- бинарное отношение\\
+\underline{Пояснение}\\
+MxM- множество пар из элементов R\\
+Допустим M={a,b,c}\\
+MxM={(a,a),(a,b),(a,c),(b,a),(b,b),(b,c),(c,a),(c,b),(c,c)}\\
+или M$=\mathbb N$\\
+Отношение R-это подмножество пар\\
+\underline{Обозначение}\\
+(x,y)$\in R$ пара (x,y) принадлежит отношению\\
+мы будем писать xRy\\
+вместо (x,y)$\not \in$R мы пишем \sout {xRy}\\
+\underline{Пример}\\
+1.M=R >=R={(x,y): x>y}\\
+(3,2) $\in R$ 3R2  3>2\\
+(3,4) $\not \in R$ \sout{3R4} \sout{3>4}\\
+2.M=$\mathbb R$ отношение $\geq$ \qquad $7\geq 6$,$7\geq 7$\\
+3.M=$\mathbb R$ отношение =\qquad
+$
+\left.
+\begin{array}{rcll}
+7=7\qquad\\
+(7,7)\in =\\
+\end{array}
+\right.
+\left.
+\begin{array}{rcll}
+7\neq 8\qquad\\
+(7,8)\not\in =\\
+\end{array}
+\right.
+$ \\
+4. M=$\mathbb R$: $\approx $\qquad x$\approx$y<=>|x-y|<1\\
+5. M=$\mathbb R$: \# \qquad x\#y <=> $x^2>y$\\
+2\#2 <=> $2^2>2$\\
+\sout {7\#8}\\
+6. M=$\mathbb N$или $\mathbb Z$ $ \vdots$\qquad x$\vdots$y <=> $\exists k\in \mathbb Z$ :x=ky\\
+$4\vdots 2\quad 10\vdots 5\quad $ \sout{$7\vdots 0$}\\
+\sout{$2\vdots4\quad$} \sout{$10\vdots3$}\\
+7. $\equiv_3$\qquad 0$\equiv_3$3 1$\equiv_3$4 1$\equiv$ 7\\
+\sout{0$\equiv_3$ 2} \sout{1$\equiv_3$ 8}\\
+8.M=$\mathbb N$ \qquad aЦв, если в числе а 'в' цифр\\
+100Ц3 238Ц3 \sout{238Ц8}\\
+9.М=прямые на R$^2$\\
+||-l1 и l2 если l1 не пересекает l2 или l1=l2\\
+10.$\perp$ l1$\perp$l2 перпендикулярно \\
+\begin{tikzpicture}
+\node (a)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (2,3) {a};
+\node (b)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (3,3) {b};
+\node (c)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (4,2) {c};
+\node (d)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (4,1) {d};
+\path (a) edge [-] (0,0);
+\path (b) edge [-] (3,0);
+\path (c) edge [-] (0,2);
+\path (d) edge [-]  (0,1);
+\end{tikzpicture}\\
+$
+\left.
+\begin{array}{rcll}
+b\perp c\\
+ d||c\\
+ a||a\\
+\end{array}
+\right.
+$
+\sout{b$\perp$a} \\
+11.Студенты ЛЭТИ\\
+x$\succ$y средний балл за последнюю сессию больше у x\\
+12. М=пользователи одноклассники\\
+x$\rightarrow$y, если 'y' в друзьях у 'x'\\
+Иванов $\rightarrow$ Петров\\
+\sout{Петров $\rightarrow$ Посов}\\
+\underline{Свойства бинарных отношений}\\
+1. Определение\\
+Бинарное отошение R на M называют рефлексивным, если $\forall x\in M \quad xRx$\\
+$(x,x)\in R$\\
+\underline{Замечание}\\
+Отношение не рефлеквсивно <=> $\exists x \qquad xRx-$контрпример\\
+\underline{Примеры}\\
+=-рефлексивно $\forall$ x: x=x\\
+$\geq$\qquad $\forall x$: x$\geq$x\\
+$\approx$\qquad$\forall x:\quad x\approx x$, т.к. |x-x|=0<1\\
+$\vdots$\qquad $x\vdots x$\\
+>-не рефлексивно \sout{2>2}\\
+Ц- не рефлексивно 3Ц3\\
+$\rightarrow$ \sout{Посов$\rightarrow$Посов}\\
+$\perp$ не рефлексивно  \sout{a$\perp$ a}\\
+\underline{Определение}\\
+Б отношение R на множестве M называется антирефлексивным, если $\forall x$ \sout{xRx}\\
+\underline{Замечание}\\
+R-не антирефлексивно <=>\\
+$\exists x:$ xRx-контрпример\\
+\underline{Примеры}\\
+>-антирефлексивно \sout{x>x}\\
+$\perp$\qquad \sout{l$\perp$l}\\
+$\rightarrow$\qquad нельзя быть в друзьях у себя\\
+Ц- не антирефлексивно\qquad 1Ц1\\
+\underline{Замечание}Ц - не антирефлексивно и не рефлексивно\\
+2)не бывает R, которое и рефлексивно и антирефлексивно\\
+(рассмотрим a $\subset M\quad \rightarrow aRa$=> aRa=> не ар\\
+\sout{aRa} => не р\\
+\underline{Симметричность}\\
+\underline{Определение}\\
+Бинарное отношение R на множестве M симметрично, если $\forall x,y$ xRy<=> yRx\\
+Замечание\\
+R- не симметрично, <=> $\exists x,y:$ xRy, \sout{yRx}- контрпример\\
+\underline{Пример}\\
+=- симметрично x=y <=> y=x\\
+$\approx$ - симметрично x$\approx$y |x-y|<1 |y-x|<1\\
+$\vdots$- не симметрично $4\vdots2$ \sout{2$\vdots$4}\\
+||, $\perp$- симметрично\\
+Ц- не симметричен\\
+\underline{Определение}\\
+Бинарное отношение R на множестве M антисимметрично, если $\exists x\neq y$ xRy, yRx- контрпример\\
+\underline{Пример}\\
+>:\qquad x$\neq$y, x>y => \sout{y>x}\\
+Попробуем построить контрпример\\
+x$\neq$y, x>y, y>x- невозможно\\
+=> нет контрпримера=>антисимметрично\\
+$\geq$\qquad x$\neq$y,$x\geq y$, y$\geq$x- нет контрпримера\\
+=\qquad x$\neq$y,x=y, y=x- нет контрпримера\\
+$\equiv_3$\qquad 1$\neq$ 4,$1\equiv_3 4$, 4$\equiv_3$1- контрпример\\
+$\vdots$ над $\mathbb N$ x$\neq$y, $x\vdots y$, y$\vdots$x нет для $\mathbb N$\\
+$\vdots$ над $\mathbb Z$ 4$\neq$-4, $4\vdots -4$, -4$\vdots$4 не антисимметрино\\
+Лекция№2\\
+\underline{Антисимметричность}\\
+$\vdots$ на $\mathbb Z$- не антисимметрично\\
+$
+\left.
+\begin{array}{rcll}
+-2\vdots 2\\
+2\vdots-2\\
+2\neq -2\\
+\end{array}
+\right.\textrm{-контрпример}\\
+$
+$\vdots$ на $\mathbb N$- антисимметрично $x\neq y\quad x\vdots y\quad y\vdots x$=> такого не бывает\\
+$x\neq y \quad x\vdots y\quad =>\quad y\not \vdots x$\\
+\underline{Определение}\\
+R- бинарное отношение на М- ассиметричность, если\\
+$\forall x,y$ xRy=> \sout{yRx}\\
+($x\neq y$- у антисимметричность)\\
+контрпример- xRy, yRx\\
+\underline{Утверждение}\\
+R- симметрично <=> R-антисимметрично и антирефлексивно\\
+\underline{Пример}\\
+>- асиметрично  $\forall x,y$ x>y=> \sout{y>x}\\
+$\square$(пустое)- асиметрично (пусто, когда R=0)\\
+"выше"- асиметрично\\
+"начальник" x нач y =>\sout{y нач x}\\
+R-бинарное отношение транзитивно, если\\
+$\forall x,y,z$ x xRy, yRz => xRz\\
+Контрпример\\
+> трназитивно x>y, y>z=> x>z\\
+$\geq$ транзитивно\\
+$\vdots$ транзитивно $x\vdots y$, y$\vdots z$=> x$\vdots$ z\\
+$\perp$ не транзитивно $x\perp y$ $y \perp z$ \sout{$x \perp z$}\\
+\begin{tikzpicture}
+\node (x)[scale=0.7,style={circle,fill=blue!10}] at ( 2,4) {x};
+\node (z)[scale=0.7,style={circle,fill=blue!10}]  at ( 4,4) {z};
+\node (y)[scale=0.7,style={circle,fill=blue!10}] at  ( 6,1) {y};
+\path (x)  edge[-] (2,0);
+\path (z)  edge[-] (4,0);
+\path (y)  edge[-] (0,1);
+\end{tikzpicture}\\
+Ц( кол-во цифр) 100Ц3 3Ц1\\
+не транзитивно 100Ц1\\
+\underline{Определение}\\
+Отношение R называется отношением эквивалентности, если\\ R-рефлексивно, симметрично, транзитивно\\
+\underline{Пример}\\
+= на $\mathbb R$(или $\forall$ другом множестве)\\
+$\forall$x x=x- рефлексивно\\
+$\forall$x,y x=y => y=x- симметрично\\
+$\forall$x,y,z x=y, y=z => x=z- транзитивно\\
+= -это ОЭ\\
+||- параллельность\\
+$\equiv_3$-сравнение\\
+$\geq$- не ОЭ\\
+т.к. не симметрично\\
+$x\geq y$=> y$\geq$x\\
+z$\geq$1, 1$\geq$z\\
+$\approx$- не ОЭ(по транзитивности)\\
+отношение $\uparrow$ на $\mathbb N$ x$\uparrow$y, если у x и y поровну цифр\\
+$2\uparrow 5$ $35\uparrow 100$ \\
+$12\uparrow 42$\\
+ОЭ $x\uparrow x$- рефлексивно\\
+$x\uparrow y$ => $y\uparrow x$- симметричность\\
+$x\uparrow y$, $y\uparrow z$=> $x\uparrow z$- транзитивность\\
+=,||,$\equiv_3$,$\uparrow$- ОЭ\\
+\underline{Определение}\\
+R-ОЭ на множестве M\\
+x$\in$ M, класс элемента х\\
+M$_x$={y|xRy}\\
+\underline{Пример}\\
+= $M_5$={5}\\
+$\equiv_3$ M$_2$={2,5,8,11...}\\
+// $M_e$={////////...}\\
+\underline{Утверждение}\\
+R-ОЭ на M\\
+$\forall x,y\in M$ $M_x=M_y$ или $M_X \cap M_y$=0\\
+\underline{Докозательство}\\
+$\supset$ $M_X \cap M_y \quad \neq 0$=> $\exists$z$\in M_x$, z$\in M_y$ =>xRz,\\ yRz=>(симм.)=>zRy=>(транз.)=>xRy\\
+Теперь проверим, что класс $M_x=M_y$\\
+Возьмем u$\in M_x$, проверим, что u$\in M_y$\\
+u$\in M_x$ => xRu\\
+xRy=>yRx=>yRu=>$u\in M_y$\\
+Следствие R-ОЭ не М\\
+тогда M разбито на несколько классов эквивалентности\\
+M=$M_1u...uM_n$\\
+$M_i \cap M_j$=0\\
+= на $\mathbb N$={1} и {2} и {3}...\\
+$\equiv_3$ на $\mathbb N$={0,3,6,9,...}\\
+{1,4,7,10,...}\\
+{2,5,8,11,...}\\
+Замечание\\
+Если есть M=0 разбитое на M$_i$=0\\
+M=$M_1$u...u$M_n$ и $M_i \cap M_j$\\
+Тогда можно ввести отношение R\\
+xRy, если $\exists M_i:$ x,y$\in M_i$\\
+a b c d e f g\\
+\begin{tikzpicture}
+\node (a)[scale=0.7,style={circle,fill=blue!10}] at ( 0.5,0.5) {a};
+\node (b)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,1) {b};
+\node (c)[scale=0.7,style={circle,fill=blue!10}] at  ( 0.5,1.5) {c};
+\node (d)[scale=0.7,style={circle,fill=blue!10}] at ( 3.5,0.5) {d};
+\node (f)[scale=0.7,style={circle,fill=blue!10}]  at ( 4,0.5) {f};
+\node (e)[scale=0.7,style={circle,fill=blue!10}] at  ( 3.5,1.5) {e};
+\node (g)[scale=0.7,style={circle,fill=blue!10}] at  ( 6,1) {g};
+\draw (1,1)circle (1);
+\draw (3.5,1) circle (1);
+\draw (6,1) circle (1);
+\end{tikzpicture}\\
+aRb bRc \sout{aRd} gRy \sout{gRa}\\
+Для // классы эквивалентности\\
+\begin{tikzpicture}
+\node () at (1.5,0) {$\underbrace{}_{M2}$};
+\node () at (2.5,2) {$\}M1$};
+\path (0,3)  edge[-] (0,0.8);
+\path (0.5,3)  edge[-] (0.5,0.8);
+\path (1,3)  edge[-] (1,0.8);
+\path (1.5,3)  edge[-] (1.5,0.8);
+\path (2,3)  edge[-] (2,0.8);
+\path (0,3)  edge[-] (0,3);
+\path (2,2.5)  edge[-] (0,2.5);
+\path (2,2)  edge[-] (0,2);
+\path (2,1.5)  edge[-] (0,1.5);
+\path (2,1)  edge[-] (0,1);
+\end{tikzpicture}\\
+Отношения порядка\\
+(выше, лучше, сильнее, важнее)\\
+\underline{Определение}\\
+R-бинарное отношение\\
+R- транзитивно, антисимметрично\\
+1)рефлексивно-нестрогий порядок\\
+2)антирефлексивно- строгий порядок\\
+обозначения обычно $\succeq$ нестрогий $\succ$строгий\\ $a\succ b$ b$\succ c$ => a$\succ$ c\\
+антисимметрично a$\succ$ b\\
+b$\succ$ a\\
+\underline{Примеры}\\
+> на $\mathbb R$- строий порядок\\
+$\geq$ $\mathbb R$- не строгий порядок\\
+$\vdots$ на $\mathbb N$- не строгий порядок\\
+нач\\
+a нач b\\
+a нач c\\
+b нач f\\
+c нач f\\
+\begin{tikzpicture}
+\node (a)[scale=0.8,style={circle,fill=blue!10}][scale=0.9] at ( 2,4) {a};
+\node (c)[scale=0.8,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {c};
+\node (d)[scale=0.8,style={circle,fill=blue!10}][scale=0.9] at ( 3,3) {d};
+\node (b)[scale=0.8,style={circle,fill=blue!10}][scale=0.9] at ( 1,3) {b};
+\node (e)[scale=0.8,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {e};
+\node (f)[scale=0.8,style={circle,fill=blue!10}][scale=0.9] at ( 1.7,2) {f};
+\node (g)[scale=0.8,style={circle,fill=blue!10}][scale=0.9] at ( 2.25,2) {g};
+\node (h)[scale=0.8,style={circle,fill=blue!10}][scale=0.9] at ( 3,2) {h};
+\node (i)[scale=0.8,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {i};
+\node (j)[scale=0.8,style={circle,fill=blue!10}][scale=0.9] at ( 1.7,1) {j};
+\node (k)[scale=0.8,style={circle,fill=blue!10}][scale=0.9] at ( 2.25,1) {k};
+\foreach\from/\to in {a/b,a/c,a/d,b/e,e/i,c/f,c/g,d/h,f/j,f/k}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+\underline{Определение}\\
+$\supset$ R-строгий или нестрогий порядок\\
+R-линейный, если $\forall x\neq y$ xRy или yRx\\
+R- частичный иначе ($\exists x\neq y$ \sout{xRy} \sout{yRx})\\
+Примеры >, $\geq$-линейный порядок\\
+$\vdots$- частичный \sout{2$\vdots$3} \sout{3$\vdots$2}\\
+нач- частичный\\
+\underline{Утверждение}\\
+R- порядок( строй или нестрогий) на М- конечное |M|<$\infty$\\
+Тогда $\exists x-$минимальный, т.е. $\forall y:$ $x\succ$ y\\
+Лекция 3\\
+Утверждение R-отношение порядка (строгое или нестрогое)\\
+тогда $\exists$ x-минимальный, т.е. $\forall$ y$\neq$ x\\
+\underline{Пример}\\
+$\geq$ на {1, 2, 3, 4, 5}\\
+1- min т.к. $\forall$y 1 $\geq$y\\
+\underline{Пример}\\
+$\vdots$ на {2, 3, 4, 5, 6}\\
+2- min $\forall$y \sout{2$\vdots$ y}\\
+3-min \sout{3$\vdots$ y}\\
+5-min \sout{5$\vdots$ y}\\
+4,6- не min\\
+$4\vdots 2$ $6 \vdots 2$\\
+\underline{Докозательство}\\
+берем x$_1$- $\forall$ элемента множества\\
+если он не min => $\exists x_2 \neq x_1$ $x_1 \succ x_2$($\succ$-это R)\\
+если $x_2$ не min=> $\exists x_3 \neq x_2$ $x_2 \succ x_3$\\
+если $x_3$ не min=> $\exists x_4 \neq x_3$ $x_3 \succ x_4$\\
+если не можем найти min элемент\\
+=> т.к. множество M конечно\\
+в какой-то момент $x_i = x_j$(первый повтор)\\
+$x_i \succ x_{i+1}\succ x_{i+2}\quad \succ x_{j-1}\succ x_j =x_i$\\
+$\succ$- транзитивно => $x_i \succ x_{j-1} \quad x_{j-1} \succ x_i \neq x_i$ невозможно, см. антисимм\\
+\underline{Определение}\\
+Отношение R$_1$ на множестве M рассматривает$R_2$ на M, если $R_2 \subset R_1$\\
+Замечание. $R_1$ доставляет пары где xRy\\
+Замечание. x$R_2$y => x$R_1$y\\
+\underline{Теорема}\\
+о топологической сортировке\\
+Если $\succ$ - отношение порядка на M( множество конечное)\\
+то $\exists \succ \succ$- отношение лин порядка на M т.к. $\succ \succ$ расширяет $\succ$\\
+\underline{Пример подчинения}\\
+\begin{tikzpicture}
+\node (a)[scale=0.7,style={circle,fill=blue!10}] at ( 1,2) {ГД};
+\node (b)[scale=0.7,style={circle,fill=blue!10}]  at ( 0.5,1) {01};
+\node (c)[scale=0.7,style={circle,fill=blue!10}] at  ( 2,1) {02};
+\node (d)[scale=0.7,style={circle,fill=blue!10}] at ( 0,0) {С1};
+\node (f)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,0) {C2};
+\path (a)  edge[->] (b);
+\path (a) edge[->,bend right] (d);
+\path (a) edge[->] (f);
+\path (a)  edge[->] (c);
+\path (a)  edge[->] (b);
+\path (b)  edge[->] (d);
+\path (b)  edge[->] (f);
+\end{tikzpicture} не линейный порядок\\
+ГД-01-02-С1-С2\\
+ГД-01-С1-С2-02\\
+ГД-01-С1-02-С2\\
+\underline{Докозательство}\\
+Нахождение min элемента отношения $\succ$\\
+$\supset$ это x$\in $M\\
+удалим $x_1$ из M теперь имеем $\succ$| M-{$x_1$}\\
+очевидно, новое отношение тоже антирефлексивно, рефлексивно, антисимметрично, транзитивно\\
+в нем тоже есть min элемент, это $x_2$\\
+удаляем $x_2$ из М и продолджаем\\
+итого, имеем последовательность $x_1,x_2,x_3,...$\\
+Вводим новый порядок $x_i \prec x_j$ для i<j...\\
+$x_1 \prec \prec x_2 \prec \prec... \prec \prec x_n$\\
+почему $\prec \prec$ расширяет $\prec$\\
+Если x$\prec$ y => x был удален раньше y\\
+=> $x\prec \prec y$\\
+\underline{Замечание} этот алгоритм(поиск min и удаления) не самый эффективный, лучше - сделать поиск в глубину с обратной нумерацией\\
+\underline{Замечание} топологическая сортировка практически важная задача\\
+порядок работы\\
+\begin{tikzpicture}
+\node (1)[scale=0.7,style={rectangle,fill=blue!10}]  at ( 0,1) {p1};
+\node (2)[scale=0.7,style={rectangle,fill=blue!10}] at  ( 1,2) {p2};
+\node (3)[scale=0.7,style={rectangle,fill=blue!10}] at ( 1,0) {p3};
+\node (5)[scale=0.7,style={rectangle,fill=blue!10}]  at ( 2,1) {Отчет};
+\path (1)  edge[<-] (2);
+\path (1) edge[<-] (3);
+\path (3)  edge[<-] (5);
+\path (2)  edge[<-] (5);
+\end{tikzpicture}\\
+Транзитивное замыкание\\
+был порядок- расширили до линейного (Топологическая сортировка)\\
+было отношение- расшилири до транзитивного(Транзитивность замыкается)\\
+Пример\\
+подчиненное отношение\\
+\underline{Пример подчинения}\\
+\begin{tikzpicture}
+\node (a)[scale=0.7,style={circle,fill=blue!10}] at ( 1,2) {ГД};
+\node (b)[scale=0.7,style={circle,fill=blue!10}]  at ( 0.5,1) {01};
+\node (c)[scale=0.7,style={circle,fill=blue!10}] at  ( 2,1) {02};
+\node (d)[scale=0.7,style={circle,fill=blue!10}] at ( 0,0) {С1};
+\node (f)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,0) {C2};
+\path (a)  edge[->] (b);
+\path (a) edge[->,dashed,bend right] (d);
+\path (a) edge[->,dashed] (f);
+\path (a)  edge[<-] (c);
+\path (a)  edge[->] (b);
+\path (b)  edge[->] (d);
+\path (b)  edge[->] (f);
+\end{tikzpicture}\\
+Н.R 01\\
+01 R C1\\
+но \sout{Н.R С1}\\
+Если добавить в отношение, что Н R C1, Н R C2- станет транзитивным\\
+\underline{Теорема}\\
+$\supset$ R- бинарное отношение на М\\
+$\exists \overline R$ отношение на М\\
+1)$\overline R$ расширяет R( R$\subset \overline R$)\\
+2)$\overline R$ транзитивно\\
+3)$\overline R$ min транз. расширение\\
+т.е. если $\overline R$- тр расширяет R, то $\overline {\overline R} \supset \overline R$\\
+\underline{Докозательство}(не для алгоритма)\\
+рассмотрим се транзитивные расширения\\
+{$R_i$} возьмем $\overline R$= $\cap$ $\overline R_i$\\
+т.е. ьеем только те пары, которые есть во всех транзитивных расширениях\\
+\underline{Пример}\\
+M={a,b,c,d}\\
+\begin{tikzpicture}
+\node ()[scale=0.7] at ( 4,2) {aRb bRc bRd};
+\node (a)[scale=0.7,style={circle,fill=blue!10}]  at ( 2,2) {a};
+\node (b)[scale=0.7,style={circle,fill=blue!10}] at  ( 2,1) {b};
+\node (c)[scale=0.7,style={circle,fill=blue!10}] at ( 3,0) {c};
+\node (d)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,0) {d};
+\path (a)  edge[-] (b);
+\path (b) edge[-](c);
+\path (b) edge[-] (d);
+\end{tikzpicture}\\
+$\overline{R_1}$\\
+\begin{tikzpicture}
+\node (a)[scale=0.7,style={circle,fill=blue!10}]  at ( 2,2) {a};
+\node (b)[scale=0.7,style={circle,fill=blue!10}] at  ( 2,1) {b};
+\node (c)[scale=0.7,style={circle,fill=blue!10}] at ( 3,0) {c};
+\node (d)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,0) {d};
+\path (a)  edge[->] (b);
+\path (b) edge[->](c);
+\path (c) edge[->] (d);
+\path (b) edge[->] (d);
+\path (a) edge[->,bend left] (c);
+\path (a) edge[->,bend right] (d);
+\end{tikzpicture}\\
+стало транзитивным\\
+\begin{tikzpicture}
+\node (a)[scale=0.7,style={circle,fill=blue!10}]  at ( 2,2) {a};
+\node (b)[scale=0.7,style={circle,fill=blue!10}] at  ( 2,1) {b};
+\node (c)[scale=0.7,style={circle,fill=blue!10}] at ( 3,0) {c};
+\node (d)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,0) {d};
+\path (a)  edge[->] (b);
+\path (b) edge[->](c);
+\path (b) edge[->] (d);
+\path (a) edge[->,bend left] (c);
+\path (a) edge[->,bend right] (d);
+\path (a) edge[->,loop] (a);
+\path (b) edge[->,loop] (b);
+\path (c) edge[->,loop] (c);
+\path (d) edge[->,loop] (d);
+\end{tikzpicture}\\
+$\overline{R}$\\
+\begin{tikzpicture}
+\node (a)[scale=0.7,style={circle,fill=blue!10}]  at ( 2,2) {a};
+\node (b)[scale=0.7,style={circle,fill=blue!10}] at  ( 2,1) {b};
+\node (c)[scale=0.7,style={circle,fill=blue!10}] at ( 3,0) {c};
+\node (d)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,0) {d};
+\path (a)  edge[->] (b);
+\path (b) edge[->](c);
+\path (b) edge[->] (d);
+\path (a) edge[->,bend left] (c);
+\path (a) edge[->,bend right] (d);
+\end{tikzpicture} только те пары, которые есть везде\\
+Проверим, что $\overline R$ подходит под улсовия транзитивности\\
+0)$\overline R_i$ существует? $R_i$ полное отошение МхМ\\
+1)$\overline R$ - расширяет\\
+$\supset xRy => \forall \overline R$, x$\overline R_i$y => x$\overline R$y\\
+2)$\overline R$-транзитивно? $\supset$ x$\overline R$y,  $\supset y\overline R z$=>\\
+$\forall \overline R_i$ x$\overline R_i$y y$\overline R_i$z => x$\overline R_i$z- транзитивно\\
+=> x$\overline R$z\\
+3) $\overline{\overline R}$=$\overline R_i$ >R т.е. R=$\overline R_i \cap$...\\
+\underline{Графы}!!!\\
+\underline{Определение}\\
+неориентированный граф\\
+G=(V,E) где V- множество(вершины)\\
+E$\subset$ {(u,v), где u,v $\in$ V}\\
+Замечание как рисовать\\
+веришны $\bullet$ или $\bigcirc{}$\\
+ребра $\rightarrow$ линии между $\bigcirc$\\
+важно, только что реберо соединеяет\\
+Примеры\\
+обычный граф\\
+\begin{tikzpicture}
+\node (a)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,1) {a};
+\node (b)[scale=0.7,style={circle,fill=blue!10}] at  ( 1,0) {b};
+\node (c)[scale=0.7,style={circle,fill=blue!10}] at ( 0,1) {c};
+\path (a)  edge[-,bend left] (b);
+\path (b) edge[-,bend left](c);
+\end{tikzpicture}\\
+полный граф\\
+\begin{tikzpicture}
+\node (a)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,1) {a};
+\node (b)[scale=0.7,style={circle,fill=blue!10}] at  ( 1,0) {b};
+\node (c)[scale=0.7,style={circle,fill=blue!10}] at ( 0,1) {c};
+\node (d)[scale=0.7,style={circle,fill=blue!10}]  at ( 0,0) {d};
+\path (a)  edge[-] (b);
+\path (b) edge[-](c);
+\path (d) edge[-](b);
+\path (a) edge[-](c);
+\path (c) edge[-] (d);
+\path (d) edge[-] (a);
+\end{tikzpicture}\\
+пустой граф\\
+\begin{tikzpicture}
+\node (a)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,1) {a};
+\node (b)[scale=0.7,style={circle,fill=blue!10}] at  ( 1,0) {b};
+\node (c)[scale=0.7,style={circle,fill=blue!10}] at ( 0,1) {c};
+\node (d)[scale=0.7,style={circle,fill=blue!10}]  at ( 0,0) {d};
+\end{tikzpicture}\\
+\underline{Определение}\\
+G- полный, если $\forall u,v\in V \quad (u,v)\in E$\\
+Замечание. V=vertex E=edge\\
+\underline{Определение}\\
+|G|- размер (порядок) графа |V|- кол-во вершин\\
+|V|=n(обычно)\\
+|E|=m(обычно) количество ребер\\
+G-это (n,m) граф\\
+\begin{tikzpicture}
+\node (a)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,1) {a};
+\node (b)[scale=0.7,style={circle,fill=blue!10}] at  ( 1,0) {b};
+\node (c)[scale=0.7,style={circle,fill=blue!10}] at ( 0,1) {c};
+\node (d)[scale=0.7,style={circle,fill=blue!10}]  at ( 0,0) {d};
+\path (a) edge[-](b);
+\path (a) edge[-](c);
+\path (c) edge[-] (d);
+\path (d) edge[-] (a);
+\path (d) edge[-] (b);
+\end{tikzpicture}- (4,5) граф\\
+\underline{Определение}\\
+Степень вершины V$\in$ V-это |{(v,u)|(u,u) $\in$ E}|  степ 3\\
+(кол-во ребер с этой вершиной) степ 2\\
+обозначаем deg V\\
+\underline{Определение}\\
+К-регулярный граф- это граф у которого $\forall V\in V \quad degV=K$\\
+\begin{tikzpicture}
+\node (a)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,1) {a};
+\node (b)[scale=0.7,style={circle,fill=blue!10}] at  ( 1,0) {b};
+\node (c)[scale=0.7,style={circle,fill=blue!10}] at ( 0,1) {c};
+\node (d)[scale=0.7,style={circle,fill=blue!10}]  at ( 0,0) {d};
+\path (a)  edge[-] (b);
+\path (b) edge[-](c);
+\path (d) edge[-](b);
+\path (a) edge[-](c);
+\path (c) edge[-] (d);
+\path (d) edge[-] (a);
+\end{tikzpicture} 3 per граф\\
+\begin{tikzpicture}
+\node (a)[scale=0.7,style={circle,fill=blue!10}]  at ( 2,2) {};
+\node (b)[scale=0.7,style={circle,fill=blue!10}] at  ( 2,0) {};
+\node (c)[scale=0.7,style={circle,fill=blue!10}] at ( 0,2) {};
+\node (d)[scale=0.7,style={circle,fill=blue!10}]  at ( 0,0) {};
+\node (1)[scale=0.7,style={circle,fill=blue!10}] at  ( 1,1.5) {};
+\node (2)[scale=0.7,style={circle,fill=blue!10}] at ( 1.5,1) {};
+\node (3)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,1) {};
+\path (a)  edge[-] (b);
+\path (d) edge[-](b);
+\path (a) edge[-](c);
+\path (c) edge[-] (d);
+\path (1) edge[-] (2);
+\path (1) edge[-] (3);
+\path (3) edge[-] (2);
+\end{tikzpicture} 2 per граф\\
+Лекция 4\\
+Напоминание\\
+Графы- множество вершин и ребер\\
+Степени(напротив названий)\\
+\begin{tikzpicture}
+[scale=.8,auto=left,every node/.style={circle,fill=green!10}]
+\node (1) at (10,7) {a-1};
+\node (2) at (8,7) {b-3};
+\node (3) at (6,9) {с-3};
+\node (4) at (6,5) {e-3};
+\node (5) at (4,7) {d-2};
+\foreach\from/\to in {1/2,2/3,2/4,3/4,3/5,4/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+\underline{Определение}\\
+Пусть в графе G(V,E)- последовательность $v_1e_1 v_2e_2...v_{n-1}e_{n-1}v_n$\\
+$v_i \in V \quad e_i\in E \quad e_i=(v_i,v_{i+1})$\\
+Пример\\
+\begin{tikzpicture}
+[scale=.8,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (10,7) {a};
+\node (2) at (8,7) {b};
+\node (3) at (6,9) {c};
+\node (4) at (6,5) {e};
+\node (5) at (4,7) {d};
+\foreach\from/\to in {1/2,2/3,2/4,3/4,3/5,4/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+1) a(a,b)b c(c,d)d\\
+2)ab\\
+3)aba\\
+4)abcdecdeba\\
+\underline{Определение}\\
+Путь замкнутый- если $V_1=V_n$. "4)"- замкнутый\\
+не замкнутый- открытые($v_i\neq v_n$)\\
+\underline{Определение}\\
+Путь простой, если$e_i \neq e_j$ при $i\neq j$\\
+"4)" непростой, т.к. 2 раза de\\
+5)bedce- простой, но не замкнутый\\
+\begin{tabular}{l|l|l}
+Пути& все ребра разные(простые)& все вершины разные \\
+\hline
+Замкнутый & простой замкнутый путь & цикл\\
+\hline
+Открытый & простой открытый путь & цепь\\
+\hline
+\end{tabular}\\
+цикл- путь из одной вершины в неё же\\
+путь может проходить через себя же неограниченное количество раз, идёт из одной вершины в другую\\
+простой путь- путь не проходящий по пройденному пути, но имеющий точки пересечения\\
+цепь- путь безпересечений\\
+\underline{Теорема}\\
+Если $\exists$ путь между вершинами u,v => есть цепт от u до v\\
+\underline{Докозательство}\\
+$\supset$ путь u $e_1v_1e_2v_2...e_n$v\\
+рассмторим все пути из этих ребер и выберем min, это будет цепь\\
+иначе: $u...u_i...u_j...v \quad \supset v_i=v_j$\\
+укоротим $u...v_i=v_j...v$??\\
+\underline{Теорема}\\
+Если есть простой замкнутый путь через ребро e => есть цепи через е\\
+\underline{Докозательство} аналогично\\
+Замечание\\
+\begin{tikzpicture}
+[scale=.8,auto=left,every node/.style={circle,fill=green!10}]
+\node (2) at (1,5) {};
+\node (1) at (1,10){};
+\node (3) at (3,7) {};
+\node (6) at (9,5) {};
+\node (5) at (9,10){};
+\node (4) at (6,7) {};
+\foreach\from/\to in {1/2,1/3,2/3,3/4,4/6,4/5,5/6}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+dbacbd- не простой путь(е-повторяется)\\
+цикла через е нет\\
+\underline{Связность графа}\\
+\underline{Определение}\\
+Граф связан, если $\forall \quad u,v \in V \quad \exists $ цепь(путь) из u в v\\
+пример\\
+1)
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {};
+\node (2) at (5,10) {};
+\node (3) at (10,5) {};
+\node (4) at (10,10){};
+\node (5) at (13,7) {};
+\foreach\from/\to in {1/2,1/3,2/4,3/4,3/5,4/5}
+\draw (\from) -- (\to);
+\end{tikzpicture} 
+2)
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {};
+\node (2) at (5,10) {};
+\node (3) at (10,5) {};
+\node (4) at (10,10){};
+\node (5) at (8,7) {};
+\node (6) at (6,7) {};
+\foreach\from/\to in {1/2,1/3,2/4,3/4,6/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}
+3)
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {};
+\node (2) at (5,10) {};
+\node (3) at (10,5) {};
+\node (4) at (10,10){};
+\node (5) at (12,2) {};
+\node (6) at (12,9){};
+\node (7) at (16,6) {};
+\foreach\from/\to in {1/2,1/3,2/4,3/4,5/6,6/7,7/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+1-связан\\
+2,3-не связаны\\
+Введем отношение $\equiv$ на вершинах графа:\\
+U$\equiv$ V, если $\exists$ путь из U в V\\
+Пример\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {b};
+\node (2) at (5,10) {a};
+\node (3) at (10,5) {c};
+\node (4) at (10,10){d};
+\node (5) at (12,5) {f};
+\node (6) at (12,9){e};
+\node (7) at (16,6) {g};
+\foreach\from/\to in {1/2,1/3,2/4,3/4,5/6,6/7,7/5}
+\draw (\from) -- (\to);
+\end{tikzpicture} $a \equiv c \quad a\equiv d \quad e\equiv g$ \sout{a$\equiv$e}\\
+Проверим, что $\equiv$- это отношение эквивалентности\\
+1)рефлексивность $u\equiv u$-верно, путь u\\
+2)симметричность $u \equiv v\quad =>\quad v\equiv u$ путь $ue_1v_1...v$ путь $v...v_1e_1u$\\
+3)транзитивно $u\equiv v, v\equiv \omega$ путь $\underbrace{ \underline{ue_1...v}\overline{v...\omega}}$ v не повторяется,\\
+а входит в 2 пути\\
+\underline{Определение}\\
+Классы эквивалентности $\equiv$-это компоненты связности\\
+\begin{tikzpicture}
+[scale=.2,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {};
+\node (2) at (5,10) {};
+\node (3) at (10,5) {};
+\node (4) at (10,10){};
+\node (5) at (12,5) {};
+\node (6) at (12,9){};
+\node (7) at (16,6) {};
+\foreach\from/\to in {1/2,1/3,2/4,3/4,5/6,6/7,7/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}
+- 2 компонента связности\\
+\underline{Определение}\\
+$G_1=(V_1,E_1)$- подграф G, если $V_1 \subset$ V $E_1 \subset$ E\\
+Пример\\
+\begin{tikzpicture}
+[scale=.2,auto=left,every node/.style={circle,fill=blue!10}]
+\node (5) at (12,5) {$\bullet$};
+\node (6) at (12,9){$\bullet$};
+\node (7) at (16,6) {$\bullet$};
+\node (4) at (19,6) {};
+\foreach\from/\to in {5/6,6/7,7/5,4/7}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+Помеченные $\bullet$ являются подграфом\\
+Замечание\\
+G-свой подгаф\\
+0-пустой граф-подграф чего угодно\\
+\underline{Определение}\\
+G ребро e называется мостом,\\
+если комп связности G< кол-воткомп. связности (V,E{e})\\
+Пример\\
+\begin{tikzpicture}
+[scale=.8,auto=left,every node/.style={circle,fill=green!10}]
+\node (2) at (1,2) {1};
+\node (1) at (1,6){4};
+\node (3) at (3,3) {5};
+\node (6) at (8,2) {2};
+\node (5) at (8,6){3};
+\node (4) at (6,3) {6}; 
+\foreach\from/\to in {1/2,1/3,2/3,3/4,4/6,4/5,5/6}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+56 мост\\
+\underline{Определение}\\
+Степень связности графа G- это количество ребер,\\
+которые надо выкинуть,чтобы G стал несвязным\\
+\underline{Определение}\\
+Двусвязный граф- надо выкинуть $\geq$2 ребер, чтобы он стал несвязным\\
+Замечание: двусвязный <=> нет мостов и связи\\
+\underline{Определение}\\
+Вершина $v\in V$ называется точкой сочленения,\\
+если количество компонента связности < количества компонента связности\\
+G'=(V{v}, E'{(u,v)|(v,u)$\in$ E})\\
+Пример
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {};
+\node (2) at (5,10) {};
+\node (3) at (10,5) {};
+\node (4) at (10,10){d};
+\node (5) at (14,5) {f};
+\node (6) at (14,10){};
+\node (7) at (18,5) {};
+\foreach\from/\to in {1/2,1/3,2/4,3/4,5/6,4/5,4/6,7/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+\underline{Теорема}\\
+В графе G=(V,E)\\
+если deg(u)- степень вершины u\\
+|E|=$\frac{1}{2} \sum \limits_{v\in V}$deg(v)\\
+Пример\\
+\begin{tikzpicture}
+[scale=.6,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (10,7) {1};
+\node (2) at (8,7) {4};
+\node (3) at (6,9) {2};
+\node (4) at (6,5) {2};
+\node (5) at (4,7) {3};
+\foreach\from/\to in {1/2,2/3,2/4,2/5,3/5,4/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+ребер 6=1/2(3+2+2+4+1)=6, верно\\
+\underline{Докозательство}\\
+deg(v)= количество ребер, выходящих из вершин $\sum \limits_{v\in V}$= все ребра\\
+посчитали дважды=2|E|\\
+Следствие:\\
+1)сумма степеней вершин всегда четна\\
+2)вершин нечетной степени- четно\\
+Пример\\
+15 инопланетян, по 3 руки у каждого,мгу ли они взяться за руки, \\
+чтобы не было свободных рук?\\
+Решение:\\
+нет, эьо граф из 15 нечетных вершин степени 3(нечет.)\\
+\underline{Определение}\\
+Висячая вершина- это вершина степени 1\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (4) at (10,10){};
+\node (5) at (14,5) {};
+\node (6) at (14,10){};
+\node (7) at (18,5) {$\bullet$};
+\foreach\from/\to in {5/6,4/5,4/6,7/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+$\bullet$- висячая\\
+\underline{Теорема}\\
+Если в графе есть ребра, но нет висячих вершин, то $\exists$ цикл\\
+\underline{Докозательство}\\
+Берем ребро e=($u1U2)$\\
+$u_1-^{e}- u_2-^{e_1}-u_3$\\
+$u_2$- не висячая вершина=> из неё есть еще ребро($u_2u_3)$\\
+$u_3$- не висячая вершина=> из неё есть еще ребро($u_3u_4)$\\
+...\\
+Продолжаем, пока очередность $u_n$ не будет равна $u_i$\\
+путь $u_1 \quad u_{i+1}... u_n$-цикл(ребра разные, вершины разные)\\
+\underline{Определение}\\
+Дерево- связный граф без циклов\\
+Пример\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (10,10){};
+\node (2) at (8,8) {};
+\node (3) at (12,8){};
+\node (4) at (13,6) {};
+\node (5) at (14,6) {};
+\node (6) at (14,4) {};
+\node (7) at (12,4) {};
+\node (8) at (8,4) {};
+\foreach\from/\to in {1/2,1/3,3/4,3/5,5/6,4/7,2/8}
+\draw (\from) -- (\to);
+\end{tikzpicture} \qquad
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (10,15){};
+\node (2) at (12,15){};
+\node (3) at (14,15){};
+\node (4) at (16,15){};
+\node (5) at (18,15){};
+\node (6) at (20,15){};
+\foreach\from/\to in {1/2,2/3,3/4,4/5,5/6}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+\underline{Теорема}\\
+В любом дереве $\geq$ 2 висячих вершины\\
+\underline{Докозательство}\\
+Берем $\forall$ вершину, если она не висячая, идём по ребру,\\
+если опять не висячая, есть ребро и т.д. циклов нет=>конец\\
+Чтобы найти вторую, надо начать из первой\\
+\underline{Теорема}\\
+Если G- дерево, то |V|=1+|E|\\
+Пример\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (10,10){};
+\node (2) at (8,8) {};
+\node (3) at (12,8){};
+\node (4) at (11,6) {};
+\node (5) at (13,6) {};
+\node (7) at (14,10) {};
+\node (8) at (8,6) {};
+\foreach\from/\to in {1/2,1/3,3/4,3/5,2/8,1/7}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+7 вершин, 6 ребер\\
+\underline{Докозательство} по индукции(кол-во вершин)\\
+Б. |V|=1 0 |E|=0, сходится |V|=|E|+1\\
+П. $\supset$ |V|=n+1,\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (10,10){};
+\node (2) at (8,8) {};
+\node (3) at (12,8){};
+\node (4) at (11,6) {};
+\node (5) at (13,6) {};
+\node (7) at (14,10) {};
+\node (8) at (8,6) {.};
+\foreach\from/\to in {1/2,1/3,3/4,3/5,2/8,1/7}
+\draw (\from) -- (\to);
+\end{tikzpicture} .- висячая\\
+найдем висячую и удалим с её ребром\\
+G'=(V'{v},E'{e}), тоже дерево, т.к. связан, нет циклов=> |V'|=1+|E'|,\\
+но |V|=|V'|+1 |E|=|E'|+1\\
+отсюда следует |V|=1+|E|\\
+Лекция 5\\
+Напоминание\\
+Дерево- связной граф\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (10,10){};
+\node (2) at (8,8) {};
+\node (3) at (12,8){};
+\node (4) at (12,6) {};
+\node (5) at (14,6) {};
+\node (6) at (14,8) {};
+\node (7) at (9,6) {};
+\node (8) at (11,4) {};
+\node (9) at (13,4) {};
+\foreach\from/\to in {3/1,3/2,3/4,3/5,3/6,3/7,4/8,4/9}
+\draw (\from) -- (\to);
+\end{tikzpicture} |E|+1=|V|\\
+$\supset$ G- полный граф, $\forall$ u $\neq$ $\subset$ V соединены ребром\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (3,2){};
+\node (2) at (2,4){};
+\node (3) at (4,5.5){};
+\node (4) at (6,4) {};
+\node (5) at (5,2) {};
+\foreach\from/\to in {2/4,2/1,2/5,1/4,3/1,3/2,3/4,3/5,5/1,5/4}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+Если n вершин( |V|=n), то ребер\\
+1) C$_n ^2$ ребер, выбираем пары = $\frac{n(n-1)}{2}$\\
+2)степени всех вершин n-1\\
+$\sum \limits_{v\in V} deg(v)$=2|E|=>(n-1)n=2|E| Ответ: $\frac{n(n-1)}{2}$\\
+\underline{Планарные графы}\\
+\underline{Определение}\\
+G-планарный граф, если его можно нарисовать а плоскости так, чтобы ребра не пересекались\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]\\
+%\tikzsryle{every node}=[draw,shape=circle];
+\node (A) at (5,5) {};
+\node (B) at (5,10) {};
+\node (C) at (10,5) {};
+\node (D) at (10,10){};
+\path (A) edge [bend right = -15] (C);
+\path (B) edge [bend right = -15] (D);
+\path (C) edge [bend left =-15]  (D);
+\end{tikzpicture} ребро [0,1]->$R^2$\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {};
+\node (2) at (5,10) {};
+\node (3) at (10,5) {};
+\node (4) at (10,10){};
+\foreach\from/\to in {1/2,1/3,2/4,3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture} \qquad
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {};
+\node (2) at (5,10) {};
+\node (3) at (10,5) {};
+\node (4) at (10,10){};
+\foreach\from/\to in {1/4,1/3,2/4,2/3}
+\draw (\from) -- (\to);
+\end{tikzpicture} - планарный, но неправильно нарисованный\\
+\underline{Формула Эйлера} Если планарный граф G=(V,E) нарисован на плоскости у него можно посчитать грани $\supset$ их f, |V|=n |E|=m\\
+1)\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (2.5,2.5) {};
+\node (2) at (2.5,5) {};
+\node (3) at (5,2.5) {};
+\node (4) at (5,5){};
+\node (5) at (4,4) {1};
+\path (1) edge node[left] {$2$} (2);
+\foreach\from/\to in {1/2,1/3,2/4,3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture} 
+2)\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {};
+\node (2) at (5,10) {};
+\node (3) at (10,5) {};
+\node (4) at (10,10){};
+\node (5) at (13,7) {};
+\node (6) at (7,7) {};
+\node (7) at (8.5,8.5) {1};
+\node (8) at (11,7) {2};
+\node (9) at (15,7) {3};
+\foreach\from/\to in {1/2,1/3,2/4,3/4,3/5,4/5,2/6}
+\draw (\from) -- (\to);
+\end{tikzpicture} \\
+Тогда: n-m+v=2\\
+проверим:\\
+1) 4-4+2=2 2) 6-7+3=2\\
+\underline{Докозательство}\\
+Индуция по количеству ребер\\
+\underline{База} G-дерево\\
+\begin{tikzpicture}
+[scale=.8,auto=left,every node/.style={circle,fill=green!10}]
+\node (2) at (1,1) {2};
+\node (1) at (1,5){1};
+\node (3) at (3,3) {3};
+\node (6) at (7,1) {6};
+\node (5) at (7,5){5};
+\node (4) at (5,3) {4};
+\foreach\from/\to in {1/3,2/3,3/4,4/6,4/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\-1 грань\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (3,2){1};
+\node (2) at (2,4){2};
+\node (3) at (4,5.5){3};
+\node (4) at (6,4) {4};
+\node (5) at (5,2) {5};
+\foreach\from/\to in {2/1,3/2,3/4,5/4,1/5}
+\draw (\from) -- (\to);
+\end{tikzpicture} вокруг грани есть цикл, а дерево без циклов\\
+n-m+f=n-(n-1)+1=2\\
+переход G- не знаем, верно ли (G,G'-связная планарные графы), если G' имеет меньше ребер=> верно\\
+G- не дерево => есть цикл, берем ребро цикла\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]\\
+%\tikzsryle{every node}=[draw,shape=circle];
+\node (A) at (2,2.5) {};
+\node (B) at (2,5) {};
+\node (C) at (10,2.5) {};
+\node (D) at (10,5){};
+\node (f) at (6,5) {};
+\node (E) at (6,2) {};
+\path (A) edge [] (E);
+\path (A) edge [] (B);
+\path (E) edge [] (C);
+\path (B) edge [] (f);
+\path (f) edge [] (D);
+\path (C) edge [bend left =-55]  (D);
+\end{tikzpicture} -вокруг него 2 грани, удалим ребро, получим G' тоже связен и планарен\\
+n' m' f'- вершины, ребра, грани G'\\
+n'=n\\
+m'=m-1\\
+f'=f-1\\
+по индукции предпололжим n'=m'+f'=2=>n-(m-1)+(f-1)=2 => n-m+f=2\\
+Следствия\\
+1) неважно, как рисовать планарный граф, количество граней постоянно\\
+2) про многогранники также\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]\\
+%\tikzsryle{every node}=[draw,shape=circle];
+\node (A) at (2,2) {};
+\node (B) at (2,5) {};
+\node (C) at (7,2.5) {};
+\node (D) at (7,6){};
+\node (f) at (6,5) {};
+\node (E) at (6,2) {};
+\node (G) at (3,6) {};
+\path (B) edge [] (G);
+\path (A) edge [] (E);
+\path (f) edge [] (E);
+\path (D) edge [] (C);
+\path (A) edge [] (B);
+\path (E) edge [] (C);
+\path (B) edge [] (f);
+\path (f) edge [] (D);
+\path (C) edge [] (D);
+\path (G) edge [] (D);
+\end{tikzpicture} \qquad \begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {};
+\node (2) at (5,10) {};
+\node (3) at (10,5) {};
+\node (4) at (10,10){};
+\node (5) at (4,4) {};
+\node (6) at (4,11) {};
+\node (7) at (11,4) {};
+\node (8) at (11,11){};
+\foreach\from/\to in {1/2,1/3,2/4,3/4, 5/6,5/7,6/8,7/8, 5/1,3/7,2/6/,1/5,4/8}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+ 8-12+6-2\\
+3) Если G планарный( не обяательно связный) то n-m+f=1+|комп. связности G|\\
+Докозательство упражнение\\
+4. $\supset$ У каждой рани вокруг $\geq$ 3 ребра\\
+3f$\leq$ $\sum _{y\in grani}$  количество ребер вокруг у $\leq$ 2m каждое ребро посчитно 1 или 2 раза=> 3f$\geq$ 2m\\
+но n-m+f=2, умножим на 3\\
+3n-3m+3f=6 => 3n-3m+2m$\geq$6=> 3n-m$\geq$6=> m$\leq$3n-6\\
+Итого m$\leq$ 3n-6 в связном планарном графе\\
+Следствие\\
+полный граф при n=5- не планарен\\
+\underline{Докозательство}\\
+n=5\\
+$m=\frac{5\cdot 4}{2}=10$\\
+10$\leq$ 3*5-6=9??\\
+\underline{Замечание}\\
+$K_5$- полный граф n=5\\
+\underline{Утверждение} граф $K_{3,3}$ тоже не планарный\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1) {};
+\node (2) at (1,3) {};
+\node (3) at (1,5) {};
+\node (4) at (3,1){};
+\node (5) at (3,3) {};
+\node (6) at (3,5) {};
+\foreach\from/\to in {1/4,1/5,1/6,2/4, 2/6, 5/2,3/6/,3/5,3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+\underline{Докозательствро}\\
+n=6 m=9 9$\leq$ 3*6-6 нет противоречия\\
+Сколько граней, если полярный 6-9+f=2 =>f=5 граней\\
+В $K_{3,3}$ все циклы цетные C ходим лево-право или прав-лево\\
+=> у грани $\leq$ 4 ребра \begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1) {};
+\node (2) at (3,1) {};
+\node (3) at (2,3) {};
+\foreach\from/\to in {1/3,1/2,2/3}
+\draw (\from) -- (\to);
+\end{tikzpicture} невозможно\\
+4f $\leq$ $\sum$ребер грани g$\leq$ 2m=> m$\geq$2f но \sout{9$\geq$ 2*5}\\
+\underline{Теорема} Понтрягина-Курлотовского\\
+Связный граф планарен <=> если не содержит полуграфов стягивающихся к K$_5$ и $K_{3,3}$\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1) {};
+\node (2) at (1,3) {};
+\node (3) at (1,5) {};
+\node (4) at (3,1){};
+\node (5) at (3,3) {};
+\node (6) at (3,5) {};
+\node (7) at (2,0) {};
+\foreach\from/\to in {1/5,1/6,2/4, 2/6, 7/4,1/7, 5/2,3/6/,3/5,3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture} стягивается и $K_{3,3}$ не планарен\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (3,2){};
+\node (2) at (2,4){};
+\node (3) at (4,5.5){};
+\node (4) at (6,4) {};
+\node (5) at (5,2) {};
+\node (6) at (1,1) {};
+\node (7) at (0,5) {};
+\node (8) at (4,8) {};
+\node (9) at (8,5) {};
+\node (10) at (7,1) {};
+\foreach\from/\to in {2/4,2/5,1/4,3/1,3/5,6/7,7/8,8/9,9/10,10/6,6/1,10/5,7/2,8/3,9/4}
+\draw (\from) -- (\to);
+\end{tikzpicture} не планарен, в нем есть $K_5$\\
+\underline{Хроматизм}\\
+\underline{Определение}\\
+$\supset$ G=G(V,E)- граф раскраска графа\\
+G в к цветов это функция c: V->{1..K}\\
+причем, если есть ребро (U,V), то C(U)$\neq$C(V)\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {2};
+\node (2) at (5,10) {1};
+\node (3) at (10,5) {1};
+\node (4) at (10,10){2};
+\node (5) at (14,5) {2};
+\node (6) at (14,10){3};
+\foreach\from/\to in {1/2,1/3,2/4,5/6,4/6,3/4,3/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}-раскраска\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {1};
+\node (2) at (5,10) {1};
+\node (3) at (10,5) {2};
+\node (4) at (10,10){2};
+\node (5) at (14,5) {3};
+\node (6) at (14,10){3};
+\foreach\from/\to in {1/2,1/3,2/4,5/6,4/6,3/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}-не раскраска\\
+какие графы можно раскрасить в 1 цвет\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,4) {1};
+\node (2) at (5,10) {1};
+\node (3) at (7,3) {1};
+\node (4) at (9,11){1};
+\node (5) at (13,4) {1};
+\foreach\from/\to in {}
+\draw (\from) -- (\to);
+\end{tikzpicture}-это граф без ребер\\
+какие графы можно раскрасить в 2 цветах\\
+\underline{Определение}\\
+граф G-двудолен, еслли его можно раскарсить в 2 цвета?\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {1};
+\node (2) at (5,10) {2};
+\node (3) at (10,5) {2};
+\node (4) at (10,10){1};
+\foreach\from/\to in {1/2,1/3,2/4,3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {1};
+\node (2) at (5,10) {2};
+\node (3) at (10,5) {2};
+\path (1) edge [] (2);
+\path (3) edge []  (1);
+\path (2) edge [] node[] {$??$} (3);
+\end{tikzpicture}\\
+$K_{3,3}$-двудольный\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1) {1};
+\node (2) at (1,3) {1};
+\node (3) at (1,5) {1};
+\node (4) at (5,1){2};
+\node (5) at (5,3) {2};
+\node (6) at (5,5) {2};
+\foreach\from/\to in {1/4,1/5,1/6,2/4, 2/6, 5/2,3/6/,3/5,3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+Замечание\\
+Двудольные графы, часть рисуют из 2ух частей(долей)\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,3) {};
+\node (2) at (1.5,5) {};
+\node (3) at (0,4) {};
+\node (0) at (1,1) {1};
+\node (4) at (7,3){};
+\node (5) at (7.5,5) {};
+\node (6) at (6,4) {};
+\node (7) at (7,1) {2};
+\foreach\from/\to in {1/4,2/5,3/6}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+\underline{Теорема}\\
+Двудолен <=> вс циклы G имеют четную длину\\
+\underline{Докозательство}\\
+1)двудолен=> циклы четные\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {1};
+\node (2) at (5,10) {1};
+\node (3) at (10,5) {2};
+\node (4) at (10,10){2};
+\node (5) at (13,7) {1};
+\foreach\from/\to in {1/3,2/4,3/5,4/5}
+\draw (\from) -- (\to);
+\end{tikzpicture} цикл поровну цвета 1 и цвета 2\\
+2)циклы четные ?=> двудолен\\
+"подвесим граф за вершину" $\forall$  вершина \begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (10,10){1};
+\node (2) at (8,7) {2};
+\node (3) at (12,7){2};
+\node (4) at (11,4) {1};
+\node (5) at (13,4) {1};
+\node (8) at (8,4) {1};
+\foreach\from/\to in {1/2,1/3,3/4,3/5,2/8}
+\draw (\from) -- (\to);
+\end{tikzpicture} ребра назад не рисуем \\
+назначаем цвета по уровням\\
+\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (10,12){1};
+\node (2) at (9,9) {2};
+\node (3) at (8,6){2};
+\node (4) at (7,3) {1};
+\node (5) at (6,0) {1};
+\node (8) at (13,9) {1};
+\foreach\from/\to in {1/2,2/3,3/4,4/5,1/8}
+\draw (\from) -- (\to);
+\draw [dashed, ->] (5)--(8);
+\end{tikzpicture} -обратное\\
+Почему обратное ребро не соединяет оинаковые цвета? Потому что иначе цикл нечетный\\
+Напоминание\\
+К-раскраска графа k цветов у вершин\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1){i};
+\node (2) at (5,1) {i};
+\foreach\from/\to in {1/2}
+\draw (\from) -- (\to);
+\end{tikzpicture} нельзя ребром один цвет\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1){3};
+\node (2) at (1,4) {1};
+\node (3) at (4,1){1};
+\node (4) at (4,4) {2};
+\foreach\from/\to in {1/2,1/3,1/4,3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture} и \quad
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1){2};
+\node (2) at (1,4) {1};
+\node (3) at (4,1){3};
+\node (4) at (4,4) {1};
+\foreach\from/\to in {1/2,1/3,1/4,3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture} \quad - раскраски, но не раскраска: 
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1){2};
+\node (2) at (1,4) {1};
+\node (3) at (4,1){1};
+\node (4) at (4,4) {1};
+\foreach\from/\to in {1/2,1/3,1/4,3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+граф имеет 1 раскраску <=> граф бз ребер\\
+граф имеет 2 раскраски- двудольный граф(по определению)\\
+Замечание\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1) {};
+\node (2) at (1,3) {};
+\node (3) at (1,5) {};
+\node (4) at (3,1){};
+\node (5) at (3,3) {};
+\node (6) at (3,5) {};
+\foreach\from/\to in {1/4,1/5,1/6,2/4, 2/6, 5/2,3/6/,3/5,3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture} граф двдолен<=> все циклы четные\\
+\underline{Определение}\\
+G=(V,E)- граф\\
+$\phi$(G)- хроматическое число графа\\
+минимальное количество цветов, в котром его можно раскрасить\\
+$\psi$(\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1){};
+\node (2) at (1,4) {};
+\node (3) at (4,1){};
+\node (4) at (4,4) {};
+\foreach\from/\to in {1/2,1/3,1/4,3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture})=3 \qquad
+$\psi$(\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1){};
+\node (2) at (1,4) {};
+\node (3) at (4,1){};
+\node (4) at (4,4) {};
+\foreach\from/\to in {1/2,2/4,3/4,1/3}
+\draw (\from) -- (\to);
+\end{tikzpicture})=2\\
+$\psi$(
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (3,2){};
+\node (2) at (2,4){};
+\node (3) at (4,5.5){};
+\node (4) at (6,4) {};
+\node (5) at (5,2) {};
+\foreach\from/\to in {2/4,2/1,2/5,1/4,3/1,3/2,3/4,3/5,5/1,5/4}
+\draw (\from) -- (\to);
+\end{tikzpicture})=5\\
+все должны быть разные $\psi(K_n)=n$ полный граф n вершин\\
+\underline{Замечание}\\
+Если $k\geq \psi(G)$, то G можно покрасить в k цветов\\
+\underline{Утверждение}\\
+$\psi(G) \leq$max deg v+1\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,5){1};
+\node (2) at (3,5){2};
+\node (3) at (5,5){3};
+\node (4) at (5,3) {4};
+\node (5) at (2,1) {5};
+\node (6) at (4,1) {6};
+\node (7) at (3,3) {7};
+\foreach\from/\to in {1/2,1/7,5/6,1/5,6/4,6/7,3/2,3/4,3/7,7/2,4/2}
+\draw (\from) -- (\to);
+\end{tikzpicture} это степени вершины $\psi(G)=5+1$ max deg=5\\
+\underline{Докозательство}\\
+Индуцкция по количеству вершин\\
+$
+\left.
+\begin{array}{rcll}
+n=0\\
+n=1\\
+\end{array}
+\right.
+$верно\\
+max deg =0\\
+$\psi(G)\leq 1$\\
+П G v- вершина max deg, уберем её, получим G'=G deg v\\
+max deg G'$\geq$ max deg G=$\triangle$\\
+раскрасим G' в A+1 цвет\\
+цвет запрещены $\leq \triangle$ цветов => $\geq$ 1 цвет можно\\
+\underline{Утверждение}\\
+G-планарный граф => $\psi$(G)$\leq$5\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,3){1};
+\node (2) at (3,5){2};
+\node (3) at (3,1){3};
+\node (4) at (5,3) {4};
+\node (5) at (7,1) {5};
+\node (6) at (7,3) {6};
+\node (7) at (7,5) {7};
+\foreach\from/\to in {1/2,1/3,2/4,3/4,6/4,6/7,3/5,7/2}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+\underline{Докозательство}\\
+1)в G есть вершина степени $\leq$ 5  |V|=n\\
+Если нет => deg V $\geq$ 6 => $\sum$ deg v$\geq$ 6n\\
+=> 2m$\geq$ 6n=> m$\geq$ 3nб но в планарном G m$\leq$ 3n-6\\
+\underline{Утверждение}\\
+Раскрасим в 5 цветов по индуцкции\\
+Б графы 1,2,3,4,5 вершин- можно раскрасить\\
+$\supset$ у нас n вершин (для n-1 вершин есть раскраска)\\
+Берем v: deg v$\leq$ 5
+%\path (C) edge [bend left =-15]  (D);
+\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,0){v1};
+\node (2) at (1,6) {v2};
+\node (3) at (5.5,6.5){v3};
+\node (4) at (8,3) {v4};
+\node (5) at (6,0) {v5};
+\node (8) at (4,3) {};
+\foreach\from/\to in {1/8,2/8,3/8,8/5,4/8}
+\draw (\from) -- (\to);
+\path (1) edge [dashed ,bend left =25]  (2);
+\path (2) edge [dashed ,bend left =25]  (3);
+\path (3) edge [dashed ,bend left =25]  (4);
+\path (4) edge [dashed ,bend left =25]  (5);
+\path (5) edge [dashed ,bend left =25]  (1);
+%\draw [dashed, ->] (1)--(2);
+\end{tikzpicture}\\
+раскрасим G' без v\\
+если соседи $v_i$ исчезнут $\leq$u цветов => для V есть цвет\\
+осталось \\
+\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,0){1};
+\node (2) at (1,6) {2};
+\node (3) at (5.5,6.5){3};
+\node (4) at (8,3) {4};
+\node (5) at (6,0) {5};
+\node (8) at (4,3) {};
+\foreach\from/\to in {1/8,2/8,3/8,8/5,4/8}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,0){v1};
+\node (2) at (1,6) {v2};
+\node (3) at (5.5,6.5){v3};
+\node (4) at (8,3) {v4};
+\node (5) at (6,0) {v5};
+\node (8) at (4,3) {};
+\foreach\from/\to in {1/8,2/8,3/8,8/5,4/8}
+\draw (\from) -- (\to);
+\path (1) edge [bend left =25]  (2);
+\path (2) edge [bend left =25]  (3);
+\path (3) edge [bend left =25]  (4);
+\path (4) edge [bend left =25]  (5);
+\path (5) edge [bend left =25]  (1);
+\path (2,2) edge [<->] [bend left=-25] (6,2);
+%\draw [dashed, ->] (1)--(2);
+\end{tikzpicture}
+стягиваем 1 граньбез V сделаем $\overline G$\\
+$\overline G $\\
+\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (2) at (1,6) {v2};
+\node (3) at (5.5,6.5){v3};
+\node (5) at (6,0) {v5};
+\node (8) at (4,3) {14};
+\path (2) edge [bend left =25]  (3);
+\path (2) edge [bend left =-25]  (8);
+\path (3) edge [bend left =25]  (8);
+\path (8) edge [bend left =25]  (5);
+\path (8) edge [bend left =-25]  (5);
+%\draw [dashed, ->] (1)--(2);
+\end{tikzpicture}\\
+$\overline G$ -n-2 вершины => можно раскрасить\\
+вернемся у G, a и d имеют один цвет => есть для V\\
+если $v_i \quad v_j$ все соединены ребром => есть $K_5$=> не планарен\\
+\underline{Утверждение}\\
+$\psi(G)\leq 4$( проблема 4х красок)\\
+\underline{Хроматические многочлены}\\
+$\supset \quad \psi (G,K)$-это функция, сколько способов расрасить G в k цветов\\
+$\psi(0-0,k)=$
+$
+\left\{
+\begin{array}{rcll}
+k=0 \quad 0\\
+k=1 \quad 0\\
+k=2 \quad 2\\
+k=3 \quad 6\\
+k=4 \quad 12\\
+\end{array}
+\right.
+$\\
+иначе k(k-1)\\
+$\psi(0-0,k)$=k(k-1)\\
+$\psi(0 \quad 0,k)=k^2$\\
+\underline{Утверждение}\\
+1)$\psi (0_n,k)=k^n$ граф из n вершин без ребер\\
+2)$\psi(K_n$(полный), k)=$\underbrace{ k(k-2)(k-1)...(k-n+1)=k^n}_\textrm{множители}$\\
+3)$\psi (T_n,k)=$ подвесим дерево $\forall$ вершину\\
+$T_n$- дерево
+\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5){};
+\node (2) at (4,3.5) {};
+\node (3) at (6,3.5){};
+\node (4) at (6.5,2) {};
+\node (5) at (6.5,2) {};
+\node (8) at (4,2) {};
+\foreach\from/\to in {1/2,1/3,3/4,3/5,2/8}
+\draw (\from) -- (\to);
+\end{tikzpicture} k-1 цвет выполнен\\
+4) $\overline G$- граф\\
+u,k вершины с ребром (u,v)\\
+G=$\overline G$(u,v)\\ без ребра\\
+G'=$\overline G$ где u,v стянуты в вершину\\
+\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,3){u};
+\node (2) at (1,6) {v};
+\node (3) at (5,3){u};
+\node (4) at (5,6) {v};
+\node (4) at (9,5) {uv};
+\node (5) at (1,0) {$\overline G$};
+\node (6) at (5,0) {G};
+\node (6) at (9,0) {G'};
+\foreach\from/\to in {1/2}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,4){};
+\node (2) at (3,1) {u};
+\node (3) at (5,4){v};
+\node (4) at (7,1) {};
+\node (5) at (9,4) {};
+\node (6) at (5,0) {$\overline G$};
+\foreach\from/\to in {1/2,1/3,3/4,3/5,2/4,4/5,2/3}
+\draw (\from) -- (\to);
+\end{tikzpicture}  
+\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,4){};
+\node (2) at (1,1) {u};
+\node (3) at (5,4){v};
+\node (4) at (7,1) {};
+\node (5) at (9,4) {};
+\node (6) at (5,0) {G};
+\foreach\from/\to in {1/2,1/3,3/4,3/5,2/4,4/5,2/3}
+\draw (\from) -- (\to);
+\end{tikzpicture} 
+\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,4){};
+\node (3) at (5,3){uv};
+\node (4) at (7,1) {};
+\node (5) at (9,4) {};
+\node (6) at (5,0) {G'};
+\path (1) edge [bend left =25]  (3);
+\path (4) edge [bend left =25]  (3);
+\path (5) edge [bend left =25]  (3);
+\path (3) edge [bend left =-50]  (4);
+\path (4) edge [bend left =-25]  (5);
+\end{tikzpicture}\\
+$\psi(G,k)=\psi(\overline G, k)+\psi(G',k)$\\
+способы раскрасить G, где u и v- разные цвета\\
+способы\\
+раскраска G, где u,v- один цвет\\
+\underline{Следствие}\\
+$\psi(\overline G, k)=\psi(G, k)-\psi(G',k)$\\
+Примеры\\
+$\psi($\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1){};
+\node (3) at (4,1){};
+\node (2) at (1,4) {};
+\node (4) at (4,4) {};
+\foreach\from/\to in {1/2,1/3,3/4,2/4,1/4}
+\draw (\from) -- (\to);
+\end{tikzpicture},k)=$\psi($\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1){};
+\node (3) at (4,1){};
+\node (2) at (1,4) {};
+\node (4) at (4,4) {};
+\foreach\from/\to in {1/2,1/3,3/4,2/4,1/4,2/3}
+\draw (\from) -- (\to);
+\end{tikzpicture},k)=$\psi($\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1){};
+\node (3) at (4,1){};
+\node (2) at (2.5,4) {};
+\foreach\from/\to in {1/2,1/3,2/3}
+\draw (\from) -- (\to);
+\end{tikzpicture},k)=\\
+=k(k-1)(k-2)(k-3)+k(k-1)(k-2)\\
+5)\\
+$\psi($\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (3,2){};
+\node (2) at (2,4){};
+\node (3) at (4,5.5){};
+\node (4) at (6,4) {};
+\node (5) at (5,2) {};
+\foreach\from/\to in {2/1,3/2,3/4,5/4,1/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}(n вершин),k)=?\\
+$\psi(C_n,k)=\psi($\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (10,8){};
+\node (2) at (9,6) {};
+\node (3) at (8,4){};
+\node (4) at (7,2) {};
+\node (5) at (6,0) {};
+\foreach\from/\to in {1/2,2/3,3/4,4/5}
+\draw (\from) -- (\to);
+\end{tikzpicture},k)-$\psi(C_{n-1},k)=k(k-1)^{n-2}-\psi(C_{n-k},k)$\\
+=>$C_n$=k(k-1)$^{n-1}-C_{n-1}=k(k-1)^{n-1}-k(k-1)^{n-2}+C_{n-2}=k(k-1)^{n-1}-k(k-1)^{n-2}+k(k-1)^{n-3+}$\\
+$\pm k(k-1)^1+(-1)^{n-1}C \qquad c=\psi(0,k)=k$\\
+геометрическая прогрессия\\
+$q=(-1)^n k(k-1) \frac{q^n-1}{q-1}+(-1)^{n-1}k=(-1)^nk(k-1)\frac{(-1)^n(k-1)^{n-1}-1}{k-1}+(-1)^{n-1}k\\$
+$\approx (k-1)^n+(-1)^n$\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,2){};
+\node (2) at (2,0) {};
+\node (3) at (3,4){};
+\node (4) at (4,0) {};
+\node (5) at (6,2) {};
+\foreach\from/\to in {1/2,1/3,2/4,4/5,3/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}- С$_5$ цикл из 5 вершин\\
+$\psi (C_n,K)$- несколько способов раскрасить $C_n$ в к цветов\\
+$\psi (T_n$(дерево),k)=$k(k-1)^{n-1}$\\
+$\psi (K_n$(полный),k)=$k^n=k(k-1)...(k-n+1)$\\
+$\psi(C_n,k)=k(k-1)^{n-1}-k(k-1)^{n-2}+k(k-1)^{n-3}..(-1)^n k(k-1)+ (-1)^{n+1}k-C_1$\\
+=геом прогрессия\\
+начало:$(-1)^{n+1}k$\\
+множитель:$-(k-1)$\\
+членов:n штук\\
+S=$(-1)^{n+1}k\frac{q^{n+1}-1}{q-1}\\=(-1)^{n+1}k\frac{(-1)^k (k-1)^n -1}{-k}=(-1)^n((-1)^n(k-1)^n-1) =(k-1)^n-(-1)^n$\\
+\underline{Утверждение}\\
+$\supset$G имеет висячую вершину и\\
+1)\\ \begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (4,2){G'};
+\node (2) at (4,4) {};
+\node (4) at (4,-2) {$\underbrace{}_G$};
+\node (3) at (10,4) {u};
+\path (0,4) edge [bend left =45]  (4,8);
+\path (4,8) edge [bend left =45]  (8,4);
+\path (8,4) edge [bend left =45]  (4,0);
+\path (0,4) edge [bend left =-45]  (4,0);
+\foreach\from/\to in{2/3}
+\draw(\from)--(\to);
+\end{tikzpicture} $\psi(G,K)=\psi(G',k)x(k-1)$- расчитали\\
+2)\\\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (4,2){G'};
+\node (2) at (4,4) {};
+\node (5) at (5,6) {};
+\node (4) at (4,-2) {$\underbrace{}_G$};
+\node (3) at (10,4) {u};
+\path (0,4) edge [bend left =45]  (4,8);
+\path (4,8) edge [bend left =45]  (8,4);
+\path (8,4) edge [bend left =45]  (4,0);
+\path (0,4) edge [bend left =-45]  (4,0);
+\foreach\from/\to in{2/3,2/5,5/3}
+\draw(\from)--(\to);
+\end{tikzpicture} u соединены c $v_1$ и $v_2$ $(v_1,v_2)\in G$ $\psi(G,k)$\\
+$=\psi(G',k)x(k-2)$\\
+\underline{Утверждение}\\
+$\supset$ G=$G'_1$ v $G'_2$ нет ребер между G' и $G'_2$\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,1) {$G'_1$};
+\node (1) at (3,1) {$G'_2$};
+\node (4) at (1,-2) {$\underbrace{}_G$};
+\end{tikzpicture} нет ребер $\psi(G,k)=\psi(G'_1,k) \psi(G'_2,k)$\\
+Пример\\
+$\psi($
+\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (6) at (2.5,6) {};
+\node (1) at (2.5,4){};
+\node (2) at (0.5,1) {};
+\node (3) at (4.5,1){};
+\node (4) at (8.5,1) {};
+\node (5) at (6.5,4) {};
+\foreach\from/\to in {1/2,1/3,3/4,3/5,4/5,1/3,5/3,2/3,1/5,1/6}
+\draw (\from) -- (\to);
+\end{tikzpicture} ,k)=(k-1)$\psi$(\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (2.5,4){};
+\node (2) at (0.5,1) {};
+\node (3) at (4.5,1){};
+\node (4) at (8.5,1) {};
+\node (5) at (6.5,4) {};
+\foreach\from/\to in {1/2,1/3,3/4,3/5,4/5,1/3,5/3,2/3,1/5}
+\draw (\from) -- (\to);
+\end{tikzpicture},k)=\\
+=(k-1)(k-2)$\psi$\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (2.5,4){};
+\node (2) at (0.5,1) {};
+\node (3) at (4.5,1){};
+\node (5) at (6.5,4) {};
+\foreach\from/\to in {1/5,1/2,1/3,3/5,2/3}
+\draw (\from) -- (\to);
+\end{tikzpicture},k)=\\
+=(k-1)$(k-2)^2 \psi($\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0.5,1){};
+\node (3) at (3.5,1){};
+\node (2) at (2,4) {};
+\foreach\from/\to in {1/2,1/3,2/3}
+\draw (\from) -- (\to);
+\end{tikzpicture})=(k-1)($k-2)^2 \cdot k(k-1)(k-2)$\\
+Напоминание\\
+$\psi$
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (2,5){$\overline G$};
+\node (2) at (2,2) {};
+\node (5) at (2.5,3) {};
+\path (0,2) edge [bend left =45]  (2,4);
+\path (2,4) edge [bend left =45]  (4,2);
+\path (4,2) edge [bend left =45]  (2,0);
+\path (0,2) edge [bend left =-45]  (2,0);
+\foreach\from/\to in{2/5}
+\draw(\from)--(\to);
+\end{tikzpicture}=$\psi$
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (2,5){G};
+\node (2) at (2,2) {};
+\node (5) at (2.5,3) {};
+\path (0,2) edge [bend left =45]  (2,4);
+\path (2,4) edge [bend left =45]  (4,2);
+\path (4,2) edge [bend left =45]  (2,0);
+\path (0,2) edge [bend left =-45]  (2,0);
+\foreach\from/\to in{}
+\draw(\from)--(\to);
+\end{tikzpicture}-$\psi$
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (2,5){G'};
+\node (2) at (2,2) {uv};
+\path (0,2) edge [bend left =45]  (2,4);
+\path (2,4) edge [bend left =45]  (4,2);
+\path (4,2) edge [bend left =45]  (2,0);
+\path (0,2) edge [bend left =-45]  (2,0);
+\foreach\from/\to in{}
+\draw(\from)--(\to);
+\end{tikzpicture}\\
+\underline{Утверждение}\\
+$\psi(G,k)$- это многочлен\\
+1)старший коэффициент=1\\
+2)степень= n(количество вершин)\\
+3)знаки чередуются\\
+4)младший коэффициент=0\\
+5)коэффициент при $k^{n-1}=\pm m$(количество ребер)\\
+\underline{Докозательство}\\
+Индукция по количеству вершин при равном количестве вершин: количество ребер\\
+База. пустой граф ищ n вершин $\psi (\vdots \vdots,k)=k^n\pm 0k^{n-1}$\\
+переход $\overline G$ с ребером $\psi($\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,0){};\node (1) at (0,1){};
+\path (0,0) edge []  (0,1);
+\end{tikzpicture},k)=$\psi($\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,0){};\node (1) at (0,1){};
+\end{tikzpicture},k)(*1)-$\psi($\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,0){};
+\end{tikzpicture},k)(*2)\\
+*1-мало ребер, количество вершин\\
+*2-мало вершин\\
+работает индукционное предположение\\
+1) ст. коэффициент $(1k^n)-(k^{n-1})$\\
+2)степень=n\\
+3)$(k^n-k^{n-1}+k^{n-2})-(k^{n-1}-k^{n-2}+k^{n-3})$\\
+4)младший коэффициент\\
+5)ребер G$k^{n-1}$=-(количество ребер G+1)$k^{n-1}$=-ребер G$k^{n-1}$\\
+на практике\\
+$\psi($\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0.5,1){};
+\node (3) at (3.5,1){};
+\node (2) at (2,4) {};
+\node (4) at (2,-2) {};
+\foreach\from/\to in {1/2,1/3,2/3,1/4}
+\draw (\from) -- (\to);
+\end{tikzpicture},k)=(k-1)$\psi($\begin{tikzpicture}
+[scale=.3,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0.5,1){};
+\node (3) at (3.5,1){};
+\node (2) at (2,4) {};
+\foreach\from/\to in {1/2,1/3,2/3}
+\draw (\from) -- (\to);
+\end{tikzpicture},k)=(k-1)k(k-1)(k-2)=k(k-1$)^2$)(k-2)\\
+Раскроем скобки\\
+$k^4-4k^3+5k^2-2k$\\
+\underline{Утверждение}\\
+$\psi(G)$-хроматическое число(минмальное число цветов для раскраски)\\
+$\psi(G,k)$ k=0,1,2,...$\psi(G)-1$- корни многочлена\\
+$\psi(G)$- не корень\\
+\underline{Эйлеровы графы}\\
+Нарисовать не проводя дважды по одному ребру\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1){};
+\node (2) at (1,4) {};
+\node (3) at (4,1){};
+\node (4) at (4,4) {};
+\node (5) at (2.5,6) {};
+\foreach\from/\to in {1/2,1/3,1/4,3/4,2/4,2/3,4/5,2/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+\begin{tikzpicture}
+%\path (4,2) edge [bend right =45]  (2,0); 
+\path (1,1) edge [bend  right=-5] (1,3.2);
+\path (1,1) edge [bend left =-90] (1.4,0.8);
+\path (1.4,0.8) edge [bend  right=5] (3.6,3.2);
+\path (3.6,3.2) edge [bend left =90] (3.7,3.2);
+\path (3.7,3.2) edge [bend  right=-5] (3.7,0.8);
+\path (1.6,0.8) edge [bend right=15] (3.4,0.8);
+\path (3.4,0.8) edge [bend right=90] (3.4,1.2);
+\path (3.4,1.2) edge [bend right=15] (1.3,3.2);
+\path (1.3,3.2) edge [bend right=-90] (1.4,3.5);
+\path (1.4,3.5) edge [bend right=-15] (3.5,3.4);
+\path (3.5,3.4) edge [bend right=90] (3.7,3.6);
+\path (3.7,3.6) edge [bend right=15] (2.6,6.1);
+\path (2.6,6.1) edge [bend right=90] (2.4,6.1);
+\path  (2.4,6.1) edge [bend right=15] (1,3.2);
+\end{tikzpicture}\\
+\underline{Определение}\\
+Эейлеров путь- цикл, содержащий все ребра не проходящие дважды по ребру\\
+\underline{Утверждение}\\
+G содержит Эйлеров цикл <=> G связан и все степени вершин четные deg v-чет  $\forall v\in V$\\
+Пример\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1){3};
+\node (2) at (1,4) {4};
+\node (3) at (4,1){3};
+\node (4) at (4,4) {4};
+\node (5) at (2.5,6) {2};
+\foreach\from/\to in {1/2,1/3,1/4,3/4,2/4,2/3,4/5,2/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}- нет цикла \begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1){4};
+\node (2) at (1,4) {4};
+\node (3) at (4,1){4};
+\node (4) at (4,4) {4};
+\node (5) at (2.5,6) {2};
+\node (6) at (2.5,-1) {2};
+\foreach\from/\to in {1/2,1/3,1/4,3/4,2/4,2/3,4/5,2/5,1/6,3/6}
+\draw (\from) -- (\to);
+\end{tikzpicture}- есть Эйлеров цикл\\
+\underline{Докозательство}\\
+представим граф имеющий одну веришну с длинным ребром пересекющимся самого себя, но входящим и исходящим из одной вершины- такой граф связен. \\Количество входов= количество выходов=> deg четн.\\
+В каждой вершине по пути\\
+Использовано чет. ребер( к вход, к выходу)\\
++1 реберо, через которые вошли\\
+=> использовали нечет ребер\\
+=> есть еще одно, по нему можно уйти, кроме начальной, из неё вышли на 1 раз больше\\
+=> мы закончим в начатой вершине\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {4};
+\node (2) at (5,10) {2};
+\node (3) at (10,5) {4};
+\node (4) at (10,10){4};
+\node (5) at (14,5) {2};
+\node (6) at (14,10){4};
+\path (1) edge[bend right=45] (14,4);
+\path (14,4) edge[ bend right=45](6);
+\foreach\from/\to in {1/4,3/6,1/2,1/3,2/4,5/6,4/6,3/4,3/5}
+\draw (\from) -- (\to);
+\end{tikzpicture} 
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (5,5) {};
+\node (2) at (5,10) {};
+\node (3) at (10,5) {};
+\node (4) at (10,10){};
+\node (5) at (14,5) {};
+\node (6) at (14,10){};
+\path (1) edge[dashed, bend right=45] (14,4);
+\path (14,4) edge[dashed, bend right=45](6);
+\foreach\from/\to in {1/4,3/6,1/2,1/3,2/4,5/6,4/6,3/4,3/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+граф с 1 вершиной и ребром входящим и исходящим из неё\\
+Построена часть в остатке, все степени четные, т.к. G связен из начальной вершины x можно попасть в $\forall$ вершину и ребро\\
+Повторим процесс из v$\in$ 1 циклу, из которой ведет новое ребро\\
+объединим 2 цикла\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\path (2,2) edge [->,bend left =40]  (3,3);
+\path (3,3) edge [bend left =40]  (5,2);
+\path (5,2) edge [bend left =40]  (3,1);
+\path (3,1) edge [bend left =40]  (2,2);
+\path (0,2) edge [->,bend left =45]  (2,4);
+\path (2,4) edge [bend left =45]  (4,2);
+\path (4,2) edge [bend left =45]  (2,0);
+\path (0,2) edge [bend left =-45]  (2,0);
+\end{tikzpicture} Продолжаем пока все ребране объединятся в 1 цикл\\
+\underline{Теорема}\\
+G содержит Эйлеров путь <=>\\
+1)связен\\
+2)$
+\left\{
+\begin{array}{rcll}
+\textrm{Степени всеъ вершин четны}\\
+\textrm{Степени всех вершин кроме 2ух- чет}\\
+\end{array}
+\right.
+$\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1){3};
+\node (2) at (1,4) {4};
+\node (3) at (4,1){3};
+\node (4) at (4,4) {4};
+\node (5) at (2.5,6) {2};
+\foreach\from/\to in {1/2,1/3,1/4,3/4,2/4,2/3,4/5,2/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}
+граф с двумя вершинами и ребром выходящим из одной и входящей в другую\\
+В этом случае нечет вершины- это начало и конец\\
+\underline{Определение}\\
+Гамильтонов цилы- полсьые цепи/циклыпо всем вершинам\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (1,1){};
+\node (2) at (1,4) {};
+\node (3) at (4,1){};
+\node (4) at (4,4) {};
+\node (5) at (2.5,6) {};
+\node (11) at (0,0){};
+\node (22) at (0,5) {};
+\node (33) at (5,0){};
+\node (44) at (5,5) {};
+\node (55) at (2.5,7) {};
+\foreach\from/\to in {1/2,1/3,1/4,3/4,2/4,2/3,4/5,2/5,11/22,11/33,33/44,44/55,22/55}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,0) {};
+\node (2) at (0,5) {};
+\node (3) at (5,0) {};
+\node (4) at (5,5){};
+\node (5) at (2.5,2.5) {};
+\path (5) edge[bend right=-25] (-2,-2);
+\path (-2,-2) edge[ bend right=-25](-2,5);
+\path (5) edge[bend right=-25] (7,7);
+\path (7,7) edge[ bend right=-25](7,0);
+\foreach\from/\to in {1/2,1/5,2/5,3/5,5/4,3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture} Г. путь\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (2,0) {};
+\node (2) at (2,5) {};
+\node (3) at (7,0) {};
+\node (4) at (7,5){};
+\node (5) at (4.5,2.5) {};
+\node (6) at (0,0) {};
+\node (7) at (0,5) {};
+\foreach\from/\to in {1/2,1/5,2/5,3/5,5/4,3/4,6/7,7/2,6/1}
+\draw (\from) -- (\to);
+\end{tikzpicture} нет Г. пути\\
+В прошлый раз( по всем вершинам) гамильлтоновы пути\\
+(по всем ребрам) эйлеровы циклы\\
+\underline{Длины путей в графе}\\
+\underline{Определение}\\
+Длина пути в графе- количество ребер в пути\\
+Пример\\
+\begin{tikzpicture}
+[scale=0.5,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0.5,1){A};
+\node (3) at (3.5,1){C};
+\node (2) at (2,4) {B};
+\node (4) at (6.5,4) {D};
+\node (5) at (6.5,1) {E};
+\node (6) at (9,2.5) {F};
+\foreach\from/\to in {1/2,1/3,2/3,3/4,4/6,4/5,3/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+ABCDF- путь от A до F- длина 4(4 ребра)\\
+ACEDF- длина 4\\
+ACDF-длина 3\\
+ABCEDF- длина 5\\
+\underline{Определение}\\
+Расстояние между вершинами- минимальная длина пути между\\
+вершинами или $+\infty$, если пути нет\\
+\underline{Обозначение}
+d(x,y)- растояние от X до Y\\
+\underline{Пример}
+d(A,F)=3\\
+\underline{Определение}\\
+Диаметр графа- минимальное расстояние между вершинами графа\\
+\underline{Пример}\\
+В примере выше для него =3(достигается на др)\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,0) {};
+\node (2) at (0,4) {};
+\node (3) at (4,0) {};
+\node (4) at (4,4) {\textcolor{blue}{3}};
+\node (5) at (8,4) {\textcolor{blue}{4}};
+\node (6) at (8,0){\textcolor{blue}{5}};
+\node (7) at (0,8){\textcolor{blue}{1}};
+\node (8) at (4,8){\textcolor{blue}{2}};
+\node (9) at (8,8){};
+\path (7) edge[blue](8);
+\path (4) edge[blue](8);
+\path (5) edge[blue](6);
+\path (4) edge[blue](5);
+\foreach\from/\to in {1/2,1/3,3/6,2/4,8/9,5/9,3/4,7/2}
+\draw (\from) -- (\to);
+\end{tikzpicture} -диаметр 4\\
+Все другие расстояние $\leq$ 4\\
+\underline{Определение} Для каждой вершины графа G=(V,E) можно посчитать\\
+max расстояние до других вершин\\
+r(v)=max{d(v,s)| s$\in$V}\\
+\underline{Радиус}\\
+r(G)=min{r(v)|v$\in$ V}\\
+те вершины, на которых достигается min- это центр\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,0) {4};
+\node (2) at (0,4) {3};
+\node (3) at (4,0) {3};
+\node (4)  [fill=gray!80!blue] at (4,4) {2};
+\node (5) at (8,4) {3};
+\node (6) at (8,0) {4};
+\node (7) at (0,8) {4};
+\node (8) at (4,8) {3};
+\node (9) at (8,8) {4};
+\foreach\from/\to in {1/2,1/3,3/6,2/4,8/9,5/9,3/4,7/2,6/5,5/4,8/4,7/8}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\ 
+2-центр\\
+r(6)=2-радиус графа\\
+Центров может быть много\\
+\begin{tikzpicture}
+[scale=.4,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,0) {6};
+\node (2) at (0,3) {5};
+\node (3) at (3,0) {5};
+\node (4) [fill=gray!80!blue] at (3,3) {4};
+\node (5) [fill=gray!80!blue] at (6,3) {4};
+\node (6) at (6,0) {5};
+\node (7) at (0,6) {5};
+\node (8) [fill=gray!80!blue] at (3,6) {4};
+\node (9) [fill=gray!80!blue] at (6,6) {4};
+\node (10) at (0,9) {6};
+\node (11) at (3,9) {5};
+\node (12) at (6,9) {5};
+\node (13) at (9,9) {5};
+\node (14) at (9,6) {6};
+\node (15) at (9,3) {5};
+\node (16) at (9,0) {6};
+\foreach\from/\to in {1/2,1/3,3/6,2/4,8/9,5/9,3/4,7/2,6/5,5/4,8/4,7/8,16/15,15/5,15/14,9/14,9/12,7/10,8/11,9/12,13/14,10/11,11/12,12/13,6/16}
+\draw (\from) -- (\to);
+\end{tikzpicture} -4 центра r(6)=4\\
+или\\
+\begin{tikzpicture}
+[scale=0.6,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,0) {3};
+\node (2) [fill=gray!80!blue] at (2,0) {2};
+\node (3)  [fill=gray!80!blue] at (4,0) {2};
+\node (4) at (6,0) {3};
+\node (5) at (5,-1) {3};
+\foreach\from/\to in {1/2,2/3,3/4,3/5}
+\draw (\from) -- (\to);
+\end{tikzpicture} r(G)=2 2 центра\\
+\underline{Утверждение} в G=(V,E) d(G)$\leq$ 2 r(G)\\
+\underline{Докозательство}\\
+$\supset$ c-центр графа u,v$\in$ V\\
+\begin{tikzpicture}
+[scale=0.6,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,0) {u};
+\node (2) at (2,-1) {c};
+\node (3) at (3,0) {v};
+\path (1) edge[bend right=-30] (2);
+\path (3) edge[bend right=30] (2);
+\foreach\from/\to in {}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+d(c,u)$\leq$ r\\
+d(c,v)$\leq$ r\\
+=> d(u,v)$\leq$ 2r=> d(G)= max d(u,v)$\leq$ 2r\\
+\underline{Утверждение} В дереве $\leq$ 2 центров\\
+\begin{tikzpicture}
+[scale=0.6,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,0) {};
+\node (2) at (2,2) {};
+\node (6) at (2,0) {};
+\node (3) at (2,-2) {};
+\node (4) at (2,-4) {};
+\node (5) at (4,0) {};
+\path (1) edge[] (-1,1);
+\path (2) edge[] (1.5,2.5);
+\path (2) edge[] (2.5,2.5);
+\path (4) edge[] (1.5,-4.5);
+\path (4) edge[] (2.5,-4.5);
+\path (5) edge[] (5.5,1);
+\path (5) edge[] (5.5,-1);
+\path (1) edge[] (-1,-1);
+\path (6) edge[] (3,-2);
+\foreach\from/\to in {1/6,6/2,6/3,5/6,3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+$\supset$ их 3: \\
+\begin{tikzpicture}
+[scale=0.6,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,0) {с1};
+\node (2) at (3,0) {с2};
+\node (3) at (5,0) {с3};
+\path (1) edge[dashed,bend right=10] (2);
+\path (2) edge[dashed,bend right=-10] (3);
+\path (1) edge[] (1,1);
+\path (2) edge[] (2,-1);
+\path (1,1) edge[] (2,-1);
+\path (2) edge[blue] (4,1);
+\path (3) edge[blue] (5,-1);
+\path (4,1) edge[blue] (5,-1);
+\foreach\from/\to in {}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+Построим пути между $C_1 \qquad C_2$\\
+потом $C_2 \qquad C_3$( в дереве ровно 1 путь между вершинами)\\
+\begin{tikzpicture}
+[scale=0.6,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,0) {с1};
+\node (2) at (3,0) {};
+\node (3) at (5,0) {с2};
+\node (4) at (3,2) {с3};
+\path (1) edge[] (2){};
+\path (2) edge[] (4){};
+\path (2) edge[] (4,-1){};
+\path (3) edge[] (5,1){};
+\path (4,-1) edge[] (5,1){};
+\foreach\from/\to in {}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+$r(c_0)<r(c_1)=r(c_2)=r(c_3)=r(G)=r$\\
+\underline{Замечание}\\
+Будем далье иногда использовать ориентированиые графы G=(V,E)\\
+(ребра в ориентированном графе иногда называют дугами)\\
+E $\subset${(u,v)-упорядоченная пара}\\
+\underline{Пример}\\
+\begin{tikzpicture}
+[scale=0.6,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,0) {};
+\node (2) at (2,0) {};
+\node (3) at (2,2) {};
+\node (4) at (0,2) {};
+\node (5) at (4,0) {};
+\node (6) at (4,2) {};
+\node (8) at (5,2) {};
+\node (7) at (5,0) {};
+\path (1) edge[->,bend left=20] (2);
+\path (1) edge[<-,bend left=-20] (2);
+\path (5) edge[->] (6);
+\path (7) edge[<-] (8);
+\path (1) edge[->] (3);
+\path (1) edge[->] (4);
+\path (4) edge[->] (3);
+\path (2) edge[->] (3);
+\foreach\from/\to in {}
+\draw (\from) -> (\to);
+\end{tikzpicture}\\
+\underline{Замечание} У рёбер будут весы\\
+G=(V,E) вес- это f:E $\rightarrow$ R\\
+то есть у числа каждому ребру\\
+\begin{tikzpicture}
+%\qbezier(22,2)(120,20)(20,77);
+\node [style={circle,fill=blue!10}](1) at (0.5,1){};
+\node [style={circle,fill=blue!10}](3) at (3.5,1){};
+\node [style={circle,fill=blue!10}](2) at (2,4) {};
+\draw (0.5,1) -- node[left] {$2$} (2,4) -- node[right]{$5$} (3.5,1) -- node[below] {$1$} cycle;
+\end{tikzpicture}\\
+ \begin{tikzpicture}
+%\qbezier(22,2)(120,20)(20,77);
+\node (1) [style={circle,fill=blue!10}] at (0.5,1){};
+\node (2) [style={circle,fill=blue!10}] at (2,4) {};
+\node (3) [style={circle,fill=blue!10}] at (3.5,1){};
+\path (2)  edge[->]node[right] {$2$} (3);
+\path (1)  edge[->]node[left] {$1$} (2);
+\path (1)  edge[->]node[below] {$3$} (3);
+\path (3)  edge[->,bend left=30]node[below] {$4$} (1);
+\end{tikzpicture}\\
+Расстояние на графе с весами считается как \\
+min $\sum$ весов по всем путям\\
+\begin{tikzpicture}
+\node (1) [style={circle,fill=blue!10}] at (0,1) {A};
+\node (2) [style={circle,fill=blue!10}] at (2,0) {E};
+\node (3) [style={circle,fill=blue!10}] at (2,2){C};
+\node (4) [style={circle,fill=blue!10}] at (4,0) {F};
+\node (5) [style={circle,fill=blue!10}] at (4,2) {D};
+\node (6) [style={circle,fill=blue!10}] at (6,1){B};
+\path (2)  edge[-]node[left] {$3$} (5);
+\draw (1) --node[left]{$1$} (3)--node[above]{$4$} (5)--node[right]{$2$} (6)--node[right]{$5$} (4)--node[below]{$1$} (2)--node[left]{$2$} (1) circle;
+\end{tikzpicture}\\
+d(A,B)=?\\
+d(ACDB)=1+4+2=7\\
+d(ACDEFB)=1+4+3+1+5=14\\
+d(AEFB)=2+1+5=8\\
+d(AEDB)=2+3+2=7\\
+min=7\\
+=> d(A,B)=7\\
+\underline{Замечание} расстояние во взвешенном графе не всегда существует\\
+\begin{tikzpicture}
+\node (1) [style={circle,fill=blue!10}] at (0,3) {A};
+\node (2) [style={circle,fill=blue!10}] at (2,0) {F};
+\node (3) [style={circle,fill=blue!10}] at (2,2) {D};
+\node (4) [style={circle,fill=blue!10}] at (3,4) {C};
+\node (5) [style={circle,fill=blue!10}] at (4,0) {G};
+\node (6) [style={circle,fill=blue!10}] at (4,2) {E};
+\node (7) [style={circle,fill=blue!10}] at (6,3) {B};
+\path (1)  edge[->]node[left] {$3$} (2);
+\path (1)  edge[->]node[above] {$1$} (3);
+\path (2)  edge[->]node[below] {$4$} (5);
+\path (5)  edge[->]node[right] {$7$} (7);
+\path (3)  edge[->]node[left] {$-5$} (4);
+\path (3)  edge[<-]node[below] {$2$} (6);
+\path (4)  edge[->]node[right] {$2$} (6);
+\path (6)  edge[->]node[above] {$1$} (7);
+\end{tikzpicture}\\
+d(F,G)=4\\
+d(G,F)=+$\infty$\\
+d(A,B)=?\\
+d(ADCEB)=1-5+2+1=-1\\
+d(ADCEDCEB)=1-5+2+2-5+2+1=-2\\
+и т.д. min=-$\infty$\\
+\underline{Утверждение} В графе есть все расстояния <=> в графе нет\\
+цикла отрицательной длины\\
+\underline{Докозательство}\\
+Если есть цикл <0 => $\forall$ две вершины
+\begin{tikzpicture}
+\node (1) [style={circle,fill=blue!10}] at (0,0) {};
+\node (2) [style={circle,fill=blue!10}] at (0.5,1) {};
+\node (3) [style={circle,fill=blue!10}] at (1,0) {};
+\path (1) edge[->,bend left=40] (2);\path (2) edge[->,bend left=40] (3);
+\path (3) edge[->,bend left=40] (1);
+\end{tikzpicture}этого цикла не имеют\\
+расстояние( или $\rightarrow \infty$\\
+Если нет расстояния, то есть для u,v есть пути сколь угодно маленикие\\
+$\supset$ есть путь длинее n=|v| ребер => повтор ведущих в пути\\
+\begin{tikzpicture}
+\node (1) [style={circle,fill=blue!10}] at (0,1) {u};
+\node (2) at (1.5,1) {};
+\node (3) [style={circle,fill=blue!10}] at (3,1) {v};
+\path (1) edge[bend left=20] (2);
+\draw (1.5,0.75) circle  (0.25);
+\path (2) edge[bend left=20] (3);
+\end{tikzpicture}- это и будет отрицтальный цикл\\
+Как хранить графы в компьютере (представление графа в компьютере)\\
+1. Матрица смежности: таблица ведущих вершин\\
+a(i,j)=$
+\left\{
+\begin{array}{rcll}
+0 \textrm{если нет ребра}\\
+1 \textrm{если есть ребро}\\
+\end{array}
+\right.
+$\\
+\begin{tabular}{l|l l l l|}
+ & 1 & 2& 3 & 4\\
+\hline
+1 & 0 & 1 & 1 & 1\\
+2 & 1 & 0& 1&0 \\
+3& 1&1&0&0\\
+3& 1&0&0&0\\
+\hline
+\end{tabular}\\
+\begin{tikzpicture}
+[scale=0.5,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0.5,1){1};
+\node (3) at (3.5,1){3};
+\node (2) at (2,4) {2};
+\node (4) at (1.5,-1) {4};
+\foreach\from/\to in {1/2,1/3,1/4,3/2}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+-симметичная для неориентированного графа\\
+Для графов с весами a(i,j)=вес ребра ij или +$\infty$, если нет\\
+\begin{tikzpicture}
+\node (1) [style={circle,fill=blue!10}] at (0,0) {1};
+\node (2) [style={circle,fill=blue!10}] at (1.5,1.5) {2};
+\node (3) [style={circle,fill=blue!10}] at (3,1) {3};
+\node (4) [style={circle,fill=blue!10}] at (3,-1) {4};
+\path (1) edge[->] node{$15$} (2);
+\path (1) edge[<-,bend left=30] node{$10$} (2);
+\path (2) edge[->] node{$21$} (3);
+\path (3) edge[->] node{$14$} (4);
+\path (4) edge[->] node{$42$} (2);
+\end{tikzpicture}\\
+\begin{tabular}{l|l l l l|}
+ & 1 & 2& 3 & 4\\
+\hline
+1 & $+\infty$ & 15 & $+\infty$ & $+\infty$\\
+2 & 10 & $+\infty$& 21&$+\infty$ \\
+3& $+\infty$&$+\infty$&$+\infty$&14\\
+3& $+\infty$&42&$+\infty$&$+\infty$\\
+\hline
+\end{tabular}\\
+объем памяти $n^2=|V|^2$\\
+2. Списки смежности\\
+- для каждой вершины хранит список соседей\\
+Пример 1: 2(15) 2:1(10),3(21)  3:4(14) 4:2(42)\\
+\underline{Пример}\\
+\begin{tikzpicture}
+[scale=0.5,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,2){1};
+\node (2) at (2,2){2};
+\node (3) at (2,0) {3};
+\node (4) at (0,0) {4};
+\foreach\from/\to in {1/2,1/3,1/4,3/2,3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+1:234\\
+2:13\\
+3:24\\
+4:13\\
+Память $\approx$ |E| количество ребер\\
+3.Неявные способы умеем вычислять всех соседей $\forall$ вершины\\
+\underline{Пример}\\
+Задача обход конем шахматной доски\\
+\begin{tikzpicture}
+\draw (0,0) rectangle  (3,3);
+\node (3) at (1.25,1.875) {x};
+\node (2) at (1.125,1.625) {x};
+\node (1) at (1.5,1.5) {$\bullet$};
+\node (5) at (1.75,1.875) {x};
+\node (6) at (1.875,1.625) {x};
+\node (7) at (1.75,1.125) {x};
+\node (8) at (1.875,1.375) {x};
+\node (9) at (1.25,1.125) {x};
+\node (10) at (1.125,1.375) {x};
+\end{tikzpicture}
+граф: вершины=клета 64 шт\\
+ребра- вершины перел ходом коня\\
+Можно для $\forall$ клетки(вершины) посчитать, куда можно попасть\\
+Задача обхода конем= гамильтонов цикл в этом графе\\
+\underline{Задача}\\
+дано две вершины u,v, найти d(u,v) и путь, на котором достигается это\\
+расстояние\\
+\underline{Замечание}\\
+оказывается, что найти путь от u до v это то де самое, что иметь путь\\
+от r до всех вершин.\\
+\underline{Алгоритмы} Форда-Беллмана\\
+Дано G=(V,E)\\
+u$\in$ V, найти расстояния d(u,v) для $\forall v\in V$,\\
+Будем писать d(v)=d(u,v) т.к. u не меняется\\
+Будем хранить в массиве d текущие найденные расстояния. В начале\\
+d(u)=0 d(v)=+$\infty$, если v$\neq$ u\\
+Релаксация ребра e=($v_1 v_2$)\\
+\begin{tikzpicture}
+\node (1)[style={circle,fill=blue!10}] at(0,0){}; 
+\node (2)[style={circle,fill=blue!10}] at(2,0) {};
+\path (1)node[above]{$d(v_1)$};
+\path (2)node[above]{$d(v_2)$};
+\path (1)node[below]{$v_1$};
+\path (2)node[below]{$v_2$};
+\foreach\from/\to in {1/2}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+Если d($v_1$)+f($v_1v_2$)<d($v_2$)=> d($v_2$)=d($v_1$)+f($v_1v_2$)\\
+Алгоритм: Повторить n-1 раз: перебрать все ребра e и каждое\\
+релексировать\\
+(в неориентированом графе  \begin{tikzpicture}
+\node (1)[style={circle,fill=blue!10}] at(0,0){}; 
+\node (2)[style={circle,fill=blue!10}] at(1,0) {};
+\foreach\from/\to in {1/2}
+\draw (\from) -- (\to);
+\end{tikzpicture}
+= ,\begin{tikzpicture}
+\node (1)[style={circle,fill=blue!10}] at(0,0){}; 
+\node (2)[style={circle,fill=blue!10}] at(1,0) {};
+\path (1) edge[->,bend left=20] (2);
+\path (1) edge[<-,bend left=-20] (2);
+\end{tikzpicture}
+то есть две релаксации\\ 
+на ребро)\\
+Пример\\
+n=4(4 вершины)\\
+\begin{tikzpicture}
+\node (1)[style={circle,fill=blue!10}]
+ at (0.5,1) {A};
+\node (3)[style={circle,fill=blue!10}] at (3.5,1){C};
+\node (2)[style={circle,fill=blue!10}] at (2,2) {B};
+\node (4)[style={circle,fill=blue!10}] at (2,0) {D};
+\path (1) edge[->] node[below]{$10$} (4);
+\path (3) edge[->] node[below]{$3$} (4);
+\path (1) edge[->] node[above]{$1$} (2);
+\path (1) edge[->] node[below]{$5$} (3);
+\path (2) edge[->] node[above]{$2$} (3);
+\node () [scale=5] at (5,0) {$,\psi$} ;
+\end{tikzpicture}\\
+ребра: A:B(1)C(5)d(10) B:C(2) C:D(3) D:\\
+Шаг 1\\
+\begin{tabular}{l l l l l}
+  & A&B&C&D\\
+  &0&+$\infty$&+$\infty$&+$\infty$\\
+AB& 0&1&+$\infty$&+$\infty$\\
+AC& 0&0&5&+$\infty$ \\
+AD& 0&1&5&10\\
+AB& 0&1&3&10\\
+CD& 0&1&3&6\\
+\end{tabular}\\
+Шаг 2\\
+AD—//— C->D 3+3<10\\
+AC—//—\\
+AD—//—\\
+AB—//—\\
+CD—//—\\
+Шаг 3\\
+AD—//— \\
+AC—//—\\
+AD—//—\\
+AB—//—\\
+CD—//—\\
+ответ: d(A)=0 d(B)=1 d(C)=3 d(D)=6\\
+Время работы $\approx$ |V|*|E|$\leq|V|^3$.\\
+\underline{Алгоритм Форда-Беллмана}\\
+\begin{tikzpicture}
+\node (1)[scale=0.8,style={circle,fill=blue!10}] at ( 0,0) {A};
+\node (3)[scale=0.8,style={circle,fill=blue!10}] at ( 2,0) {C};
+\node (2)[scale=0.8,style={circle,fill=blue!10}] at ( 1,1) {B};
+\path (1)  edge[->]node[left] {$3$} (2);
+\path (2)  edge[->]node[right] {$4$} (3);
+\path (3)  edge[->, bend right=40]node[right] {$2$} (2);
+\path (1)  edge[->]node[above] {$1$} (3);
+\end{tikzpicture}\\
+A:3B, 1C\\
+B:4C\\
+C:2B\\
+Путь из А\\
+сначала d: 
+$
+\left.
+\begin{array}{rcll}
+A&B&C\\
+0&\infty&\infty\\
+0&3&\infty\\
+0&3&1\\
+0&2&1\\
+\end{array}
+\right.
+$\\
+Релаксируем\\
+A $\xrightarrow[]{3}$B\\
+0 \quad $\infty$\\
+0+3<$\infty$\\
+A $\xrightarrow[]{1}$С\\
+0+1<$\infty$\\
+B $\xrightarrow[]{4}$С\\
+3 \quad 1\\
+3+4<1\\
+C $\xrightarrow[]{3}$B\\
+1+1<3\\
+n=1=>n-1=2 раза цикл релаксирующий\\
+AB,AC,BC,CB= нет улушений ABC\\
+Корректность алгоритма\\
+\underline{Теорема}\\
+В конце массив d содержит расстояния от A\\
+\underline{Докозательство}\\
+После i-го цикла релаксации всех ребер, d хранит числа d(v)$\leq$ min длин путей, в которых $\leq$ i ребер\\
+Дейститвтельно, i=0( База индукции)\\
+min (по пути из 0 ребер) только A-A d(A)=0 d(u)=$\infty$\\
+$\supset$ есть оптимальный путь из i+1\\
+ребра\\
+\begin{tikzpicture}
+[scale=0.7,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1)[scale=0.6] at (0,0){A};
+\node (2) at (2,0){};
+\node (3) at (4,0) {};
+\node (4)[scale=0.6] at (6,0) {G};
+\node (5)[scale=0.6] at (8,0) {B};
+\foreach\from/\to in {1/2,2/3,3/4,4/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+от A до B i+1 ребер\\
+от A до G i ребер\\
+По предположении d(C)= dB + (A,C)\\
+длина пути $\underbrace{A-C-B}_{d(c)=dist(c)}$=dB +(C)+вес(CB)\\
+проверка\\
+d(C)+вес(СВ)$\leq$ d(B)\\
+-верно, так как путь A-C-B оптимален => d(B)=d(C)+вес (CB)\\
+\begin{tikzpicture}
+\node (1)[scale=0.8,style={circle,fill=blue!10}] at ( 0,0) {A};
+\node (3)[scale=0.8,style={circle,fill=blue!10}] at ( 2,0) {C};
+\node (2)[scale=0.8,style={circle,fill=blue!10}] at ( 1,1) {B};
+\path (1)  edge[->, bend left=20]node[left] {$3$} (2);
+\path (3)  edge[->, bend right=20]node[right] {$1$} (2);
+\path (1)  edge[->, bend right=20]node[below] {$7$} (3);
+\end{tikzpicture}\\
+Почем путь n-1 этап?\\
+отрицательный путь не содержит цикл\\
+\begin{tikzpicture}
+\node (1) [style={circle,fill=blue!10}] at (0,1) {A};
+\node (2) [scale=0.5,style={circle,fill=blue!10}] at (1.5,1) {};
+\node (3) [style={circle,fill=blue!10}] at (3,1) {U};
+\path (1) edge[bend left=20] (2);
+\draw (1.5,0.75) circle  (0.25);
+\path (2) edge[bend left=20] (3);
+\end{tikzpicture}=> -//- $\in$ n-1 ребро\\
+\underline{Замечания}\\
+Мы вычисляем только расстояния, но путь неизвестен\\
+Как восстановить путь?\\
+Будем сохранять информацию об успешных релаксациях\\
+prev-массив вершин\\
+Если релаксация u v успешна, то Prev[v]=u оптимальный путь в v лежит через u\\
+\begin{tikzpicture}
+\node (1)[scale=0.9, style={circle,fill=blue!10}] at (0.5,1){A};
+\node (3)[scale=0.9, style={circle,fill=blue!10}] at (3.5,0){C};
+\node (2)[scale=0.9, style={circle,fill=blue!10}] at (3.5,3) {B};
+\path (1)  edge[->]node[below] {$3$} (3);
+\path (1)  edge[->]node[below] {$7$} (2);
+\path (3)  edge[->, bend right=20]node[right] {$1$} (2);
+\end{tikzpicture} 
+\begin{tabular}{l|l l l}
+ d& A &B&C\\
+\hline
+AB& 0 & $\infty$ &$\infty$ \\
+AC& 0 & 3/A& 1/A \\
+CB& 0 & 2/C&1/A\\
+\end{tabular}\\
+восстановить путь в B
+A$\rightarrow$C$\rightarrow$B\\
+A=prev(C) C=prev(B)\\
+\underline{Алгоритм Дейкстры}\\
+В отличие от ФБ требует, чтобы веса w(e)$\geq$0\\
+Алгоритм\\
+Дан граф G=(V,E) A$\in$ V\\
+Найти расстояния до всех вершин d(u)=dist(A,u)\\
+Алгоритм p=0 d(A)=0 d(u$\neq$A)=$\infty$- обаботанные вершины\\
+for n раз (n=v)\\
+\quadвыбрать u$\in V$ / p,  где d(u) $\rightarrow$ min (из необработ. min d)\\
+for e$\in$ ребра из U, e=(u,v)\\
+рефлексируем ребро е\\
+p=p $\cup$ u\\
+Пример\\
+\begin{tikzpicture}
+\node (1)[scale=0.9, style={circle,fill=blue!10}] at (0.5,1){A};
+\node (3)[scale=0.9, style={circle,fill=blue!10}] at (2,0){C};
+\node (2)[scale=0.9, style={circle,fill=blue!10}] at (2,2) {B};
+\node (4)[scale=0.9, style={circle,fill=blue!10}] at (4,1) {D};
+\node (5)[scale=0.9, style={circle,fill=blue!10}] at (5,3) {E};
+\path (1)  edge[->]node[below] {$3$} (3);
+\path (1)  edge[->]node[below] {$1$} (2);
+\path (3)  edge[->]node[below] {$4$} (4);
+\path (2)  edge[->]node[below] {$8$} (4);
+\path (4)  edge[->]node[below] {$2$} (5);
+\end{tikzpicture}\\
+\begin{tabular}{l l l l l l}
+ d& A &B&C&D&E\\
+\hline
+& 0 & $\infty$ &$\infty$&$\infty$ &$\infty$ \\
+&  & 1& 3&$\infty$ &$\infty$ \\
+&  & &3&9&8\\
+&  & & &7&$\infty$\\
+&  & & & &9\\
+\end{tabular}\\
+U=A\\
+A $\xrightarrow[1]{}$B\\
+0 \quad $\infty$ \\
+A $\xrightarrow[3]{}$C\\
+0 \quad $\infty$ \\
+U=B\\
+B $\xrightarrow[8]{}$D\\
+1 \quad $\infty$ \\
+U=C\\
+C $\xrightarrow[4]{}$D\\
+3 \quad 9 \\
+4=D\\
+Эффективность |V|x|E|xlog|V|\\
+log|V|- выбор мин\\
+Корректность\\
+идея- на каждом шаге d(u)=min путей\\
+База шаг=0 d(A)=0 d(U)=$\infty$\\
+переход\\
+\begin{tikzpicture}
+\node (1) at (0.5,1){A};
+\draw (0,0) circle (1.5);
+\end{tikzpicture} P-обр\\
+Выбрали u=min вершин из V/\{ p\}\\
+$\supset$ есть оптимальный путь в u $\underbrace{A---\overline{u}}_{\textrm{обр}}$---u\\
+dist($\overline{u}$)=dist(u)-x\\
+По предложению dist($\overline{u}$)=d($\overline{u}$)\\
+d(u)>d($\overline{u}$)=>?? d(u) был min\\
+\begin{tikzpicture}
+\node (1)[scale=0.9, style={circle,fill=blue!10}] at (0.5,1){P};
+\node (2)[scale=0.9, style={circle,fill=blue!10}] at (2,1){U};
+\node (3)[scale=0.9, style={circle,fill=blue!10}] at (3,0) {V};
+\path (1)  edge[->] (2);
+\path (2)  edge[->] (3);
+\path (1)  edge[->,bend right] (3);
+\end{tikzpicture}\\
+путь через P\\
+$\supset$ оптимальный путь в v идет через u\\
+dist(A,U)+w(u,v)=dist(A,v)\\
+=> релаксация u $\rightarrow$v успешна и d(v) получит оптимальное расстояние\\
+для восстановления пути нужен аналогичный prev\\
+усиленная релаксация u v prev[v]=u\\
+\begin{tikzpicture}
+\node (1)[scale=0.9, style={circle,fill=blue!10}] at (0.5,1){A};
+\node (3)[scale=0.9, style={circle,fill=blue!10}] at (2,0){C};
+\node (2)[scale=0.9, style={circle,fill=blue!10}] at (2,2) {B};
+\node (4)[scale=0.9, style={circle,fill=blue!10}] at (4,1) {D};
+\node (5)[scale=0.9, style={circle,fill=blue!10}] at (5,3) {E};
+\path (1)  edge[->]node[below] {$3$} (3);
+\path (1)  edge[->]node[below] {$1$} (2);
+\path (3)  edge[->]node[below] {$4$} (4);
+\path (2)  edge[->]node[below] {$8$} (4);
+\path (4)  edge[->]node[below] {$2$} (5);
+\end{tikzpicture}\\
+\begin{tabular}{l l l l l}
+  A &B&C&D&E\\
+\hline
+0 & $\infty$ &$\infty$&$\infty$ &$\infty$ \\
+& 1/A& 3/A&$\infty$ &$\infty$ \\
+& &3/A&9/D&8\\
+& & &7/C&$\infty$\\
+& & & &9/D\\
+\end{tabular}\\
+A$\rightarrow$C$\rightarrow$D$\rightarrow$E\\
+\underline{Утверждение}\\
+В дереве 1$\leq$ центров $\leq$2\\
+\underline{Напомним}\\
+\begin{tikzpicture}
+[scale=0.7,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1)[scale=0.9] at ( 2,0) {A};
+\node (2) at (2,2){};
+\node (3) at (0,1){};
+\node (4) at (4,3){};
+\node (5)[scale=0.9] at (5,2){B};
+\node (6) at (5,3) {};
+\foreach\from/\to in {1/2,1/3,2/3,2/4,4/5,4/6}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+Максимальное расстояние -3\\
+\begin{tikzpicture}
+[scale=0.5,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at (0,0) {4};
+\node (2) at (0,2){4};
+\node (3) at (2,1){3};
+\node (4) at (4,1){2};
+\node (5) at (6,1){3};
+\node (6) at (8,0) {4};
+\node (7) at (8,2) {4};
+\foreach\from/\to in {1/3,2/3,3/4,4/5,5/6,5/7}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+Докозательство\\
+Если убрать у дерева все висячие вершины, расстояние изменяется на 1\\
+\begin{tikzpicture}
+[scale=0.5,auto=left,every node/.style={circle,fill=blue!10}]
+\node (3) at (2,1){2};
+\node (4) at (4,1){1};
+\node (5) at (6,1){2};
+\foreach\from/\to in {3/4,4/5}
+\draw (\from) -- (\to);
+\end{tikzpicture}\\
+Если повторять убирания висячих\\
+\begin{tikzpicture}
+[scale=0.5,auto=left,every node/.style={rectangle,fill=blue!10}]
+\node (3) at (2,1){};
+\end{tikzpicture}
+ или \begin{tikzpicture}
+[scale=0.5,auto=left,every node/.style={rectangle,fill=blue!10}]
+\node (3) at (2,1){};
+\node (4) at (4,1){};
+\foreach\from/\to in {3/4}
+\draw (\from) -- (\to);
+\end{tikzpicture} центры\\
+\underline{Алгоритм Флойда}\\
+Дан граф G=(V,E)\\
+Вернуть d(u,v)\\
+\begin{tabular}{l|l l l}
+ u$\setminus$ c& &v&\\
+\hline
+&  &&\\
+u&  &d(u;v) &  \\
+&  & &\\
+\end{tabular}\\
+\underline{Алгоритм}\\
+составляем матрицу $d_0$=\\
+$d_0$:$d_0$(u,v)=0\\
+$d_0$(u,v)=$
+\left.
+\begin{array}{l}
+\infty \textrm{, если чет ребра u-v }\\
+\omega(u,v)\textrm{, если есть ребро u-v }\\
+\end{array}
+\right.
+$\\
+\begin{tikzpicture}
+\node (1)[scale=0.8,style={circle,fill=blue!10}] at ( 0,0) {A};
+\node (3)[scale=0.8,style={circle,fill=blue!10}] at ( 2,0) {B};
+\node (2)[scale=0.8,style={circle,fill=blue!10}] at ( 1,1) {C};
+\path (1)  edge[->, bend left=20]node[left] {$2$} (2);
+\path (3)  edge[->, bend right=20]node[right] {$1$} (2);
+\path (1)  edge[->, bend right=20]node[below] {$5$} (3);
+\path (3)  edge[->, bend right=20]node[above] {$3$} (1);
+\end{tikzpicture}\\
+$d_0$\\
+\begin{tabular}{l|l l l}
+& A &B&C\\
+\hline
+A& 0 &5 &2 \\
+B& 3 & 0& $\infty$ \\
+C& $\infty$ & 1&0\\
+\end{tabular}\\
+for$k\in$ V\\
+for $v\in V$\\
+if d(u,v)> d(u,k)+d(k,v)\\
+=> d(u,v)=-//-\\
+\underline{Пример}\\
+k=A\\
+\begin{tabular}{l|l l l}
+& A &B&C\\
+\hline
+A& 0 &5 &2 \\
+B& 3 & 0& 5 \\
+C& $\infty$ & 1&0\\
+\end{tabular}\\
+BC>BA+AB\\
+\begin{tabular}{l|l l l}
+& A &B&C\\
+\hline
+A& 0 &5 &2 \\
+B& 3 & 0& 5 \\
+C& 4& 1&0\\
+\end{tabular}\\
+CA>CB+BC\\
+\begin{tabular}{l|l l l}
+& A &B&C\\
+\hline
+A& 0 & 3 & 2\\
+B& 3 & 0 & 5\\
+C& 4 & 1 & 0\\
+\end{tabular}\\
+Корректность\\
+\underline{Утверждается}\\
+после шага k в d(u,v) min d(пути) u- от 1 до k -v\\
+База k=0\\
+d(u,v)=u- нет -v\\
+действительно, в начале d содержит длины ребер, переход u- содержит от 1 до k+1 -v\\
+$\supset$ есть оптимальный путь из u- k+1 -v $\rightarrow$\\
+1)$\rightarrow$ в нем нет k+1 => его длина d(u,v)\\
+2)$\rightarrow$ есть k+1 u- O-k+1-O -v\\
+его длина d(u,k+1) +d(k+1,v)\\
+это ровно проверка цикла, меньший вариант ззанимается в d, в конце\\
+d(u,v)= min( u $\forall$ вершины v)= dist(u,v)\\
+\underline{Замечание}\\
+Чтобы восстанавливать путь, можно ввести масcив through\\
+if d(u,v)>d(u,k)+d(k,v) => d(u,v)= -//- through (u,v)=k\\
+Для восстановления пути\\
+1) A... th(A,i)...I...th(I,B)...B\\
+2)и так далее, если  th(x,y) нет, запишем => реберо xy это оптимальный путь\\
+Замечание\\
+В алгоритме Флойда идет транзитивное замыкание бинарных отношений\\
+$\supset$ R-бинарное отношение на M\\
+$\supset$ $\overline{R}$- транзитивное замыкание R, если\\
+1) $\overline{R}$ $\supset$ R\\
+2)  $\overline{R}$-транзитивно\\
+3)$\forall \quad \overline{R} \qquad \overline{R} \supset \overline{\overline{R}}\supset R$ не транзитивно\\
+\underline{Пример}\\
+\begin{tikzpicture}
+\node (1)[scale=0.8,style={circle,fill=blue!10}] at ( 0,0) {B};
+\node (2)[scale=0.8,style={circle,fill=blue!10}] at ( 1,1) {D};
+\node (3)[scale=0.8,style={circle,fill=blue!10}] at ( 2,0) {C};
+\node (4)[scale=0.8,style={circle,fill=blue!10}] at ( 1,-1) {A};
+\path (1)  edge[->, bend left=20](2);
+\path (4)  edge[->, bend right=-20](1);
+\path (4)  edge[->, bend right=20](3);
+\path (3)  edge[->, bend right=20](4);
+\end{tikzpicture}\\
+не транзитивно\\
+aRb, bRd, но \sout{aRd}\\
+aRc, cRa, но \sout{aRd}\\
+делаем транзитивным\\
+\begin{tikzpicture}
+\node (1)[scale=0.8,style={circle,fill=blue!10}] at ( 0,0) {B};
+\node (2)[scale=0.8,style={circle,fill=blue!10}] at ( 1,1) {D};
+\node (3)[scale=0.8,style={circle,fill=blue!10}] at ( 2,0) {C};
+\node (4)[scale=0.8,style={circle,fill=blue!10}] at ( 1,-1) {A};
+\path (1)  edge[->, bend left=20](2);
+\path (4)  edge[->, bend right=-20](1);
+\path (4)  edge[->, bend right=20](3);
+\path (3)  edge[->, bend right=20](4);
+\path (4)  edge [loop below] (4);
+\path (3)  edge [loop right] (3);
+\path (3) edge[->](1);
+\path (3) edge[->](2);
+\path (4) edge[->](2);
+\end{tikzpicture}\\
+$\supset$ R-бинарно отношение $\supset$ G=(M,R) граф отношения,\\
+тогда $\overline{R}$- это $x\overline{R}y$ <=> есть путь x-y в G\\
+\underline{Докозательство}\\
+1)$\overline{R} \supset$R так как xRy=> есть путь из 1 ребра => $x\overline{R}y$\\
+x-y 2)$\overline{R}$- транзитивно, т.к. x$\overline{R}$y, y$\overline{R}$z => x$\overline{R}$z\\
+3) $\supset \quad \overline{\overline{R}}\supset R$, $\overline{\overline{R}}$- транзитивно\\
+$\supset$ есть путь x в y $\rightarrow$ $x_1$ $\rightarrow$ $x_2$ $\rightarrow$ $x_3$ $\rightarrow$ y\\
+xR$x_1$ => $x_1 \overline{\overline{R}} x_2$=> x$\overline{\overline{R}} x_2$\\
+$x_2 \overline{\overline{R}} x_3$=> x$\overline{\overline{R}} x_3$=>...=> x$\overline{\overline{R}}$y=>  $\overline{\overline{R}} \supset \overline{R} \supset R$\\
+Применим алгоритм Флойда к графу G=(M,R)\\
+$d_0 (x,y)=1$, если xRy\\
+$d_0 (x,y)=\infty$, если \sout{xRy}\\
+После конца алгоритма\\
+\begin{tabular}{l|l l l}
+ & &y&\\
+\hline
+&  &&\\
+x&  &$\infty$ &  \\
+&7  & &\\
+\end{tabular}\\
+замыкание x$\overline{R}$y, если d(x,y)<$\infty$\\
+Алгоритм транзитивного замыкания\\
+$\overline{R}$=R\\
+for k$\in$ M\\
+for x$\in$ M\\
+for y $\in$ M\\
+if xRk \& kRy\\
+$\overline{\overline{R}} \in (x,y)$, то есть сделать x$\overline{R}$y\\
+\underline{Потоки в сетях}\\
+\underline{Определение}\\
+Сеть- граф G=(V,E)\\ ориентированный\\
+$s \in V$ $\not \exists$e=(4,s) ничего не входит\\
+$t \in V$ $\not \exists$e=(t,u) ничего не выходит\\
+\begin{tikzpicture}
+[scale=0.7,auto=left,every node/.style={circle,fill=blue!10}]
+\node (1) at ( 0,1) {S};
+\node (2) at ( 2,2) {};
+\node (3)at ( 2,1) {};
+\node (4) at ( 2,0) {};
+\node (5) at ( 4,2) {};
+\node (6)at ( 4,1) {};
+\node (7) at ( 4,0) {};
+\node (8) at ( 6,1) {T};
+\path (1) edge[->] (2); \path (1) edge[->] (3);\path (1) edge[->] (4);
+\path (2) edge[->] (5);\path (2) edge[->] (6);\path (6) edge[->] (4);\path (7) edge[->] (4); \path (3) edge[->] (7);\path (5) edge[->] (8);\path (6) edge[->] (8); \path (7) edge[->] (8);
+\end{tikzpicture}\\
+E$\rightarrow$ N пропускные способности ребер целые>0\\
+\begin{tikzpicture}
+
+\node (1)[scale=0.7,style={circle,fill=blue!10}] at ( 0,2) {S};
+\node (2)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,4) {a};
+\node (3)[scale=0.7,style={circle,fill=blue!10}] at  ( 1,1) {b};
+\node (4)[scale=0.7,style={circle,fill=blue!10}]  at ( 2,1) {c};
+\node (5)[scale=0.7,style={circle,fill=blue!10}]  at ( 3,2) {T};
+\path (1)  edge[->]node[left] {$5$} (2);
+\path (1)  edge[->]node[below] {$1$} (3);
+\path (3)  edge[->]node[left] {$7$} (2);
+\path (4)  edge[->]node[below] {$5$} (3);
+\path (4)  edge[->]node[below] {$2$} (5);
+\path (2)  edge[->]node[right] {$2$} (5);
+\path (2)  edge[->]node[right] {$6$} (4);
+\end{tikzpicture}\\
+\underline{Определение}\\
+Поток f в сеть G-это\\
+f: E$\rightarrow \mathbf{R}$ 1) 0$\leq$f(e)$\leq$ c(e)\\
+2) $\forall  u \neq S,t$\\
+$\sum \limits_{l=(v,u)\in E}$ f(e)\\
+пример\\
+\begin{tikzpicture}
+\node (1)[scale=0.7,style={circle,fill=blue!10}] at ( 0,2) {S};
+\node (2)[scale=0.7,style={circle,fill=blue!10}]  at ( 1,4) {a};
+\node (3)[scale=0.7,style={circle,fill=blue!10}] at  ( 1,1) {b};
+\node (4)[scale=0.7,style={circle,fill=blue!10}]  at ( 2,1) {c};
+\node (5)[scale=0.7,style={circle,fill=blue!10}]  at ( 3,2) {T};
+\path (1)  edge[->]node[left] {$5$} (2);
+\path (1)  edge[->]node[below] {$1$} (3);
+\path (3)  edge[->]node[left] {$7$} (2);
+\path (4)  edge[->]node[below] {$5$} (3);
+\path (4)  edge[->]node[below] {$2$} (5);
+\path (2)  edge[->]node[right] {$2$} (5);
+\path (2)  edge[->]node[right] {$6$} (4);
+\end{tikzpicture}\\
+Поток в сетях\\
+Пример\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (1) at ( 0,1.5) {исток};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {a};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {e};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,4) {b};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,2) {c};
+\node (f)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,0) {f};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,3) {d};
+\node (g)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,1) {g};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 8,2) {t};
+\node (2) at ( 8,1.5) {сток};
+\path (s) edge[->] node[above]{3} (a);
+\path (s) edge [->] node[below, red] {1} (a);
+\path (s) edge [->] node[above]{8} (e); 
+\path (s) edge [->] node[below, red]{3} (e);
+\path (a) edge [->] node[above]{7} (b); 
+\path (a) edge [->] node[below, red]{1} (b);
+\path (a) edge [->] node[above]{8} (c); 
+\path (a) edge [->] node[below, red]{0} (c);
+\path (e) edge [->] node[above]{5} (c); 
+\path (e) edge [->] node[below, red]{3} (c);
+\path (e) edge [->] node[above]{6} (f); 
+\path (e) edge [->] node[below, red]{0} (f);
+\path (c) edge [->, bend left] node[above]{1} (d); 
+\path (c) edge [->, bend left] node[below, red]{1} (d);
+\path (d) edge [->, bend left] node[above]{4} (c); 
+\path (d) edge [->, bend left] node[below, red]{0} (c);
+\path (c) edge [->] node[right]{2} (b); 
+\path (c) edge [->] node[left, red]{0} (b);
+\path (b) edge [->] node[above]{4} (d); 
+\path (b) edge [->] node[below, red]{1} (d);
+\path (c) edge [->] node[above]{2} (g); 
+\path (c) edge [->] node[below, red]{2} (g);
+\path (f) edge [->] node[above]{3} (g); 
+\path (f) edge [->] node[below, red]{0} (g);
+\path (g) edge [->, bend right] node[left]{6} (d); 
+\path (g) edge [->, bend right] node[right, red]{0} (d);
+\path (g) edge [->] node[above]{6} (t); 
+\path (g) edge [->] node[below, red]{2} (t);
+\path (d) edge [->] node[above]{5} (t); 
+\path (d) edge [->] node[below, red]{2} (t);
+\end{tikzpicture}\\
+\textcolor{red}{$\leftarrow$ поток, красные f}\\
+\textcolor{black}{$\leftarrow$ поток, черные c}\\
+\begin{tikzpicture}
+\node (1)[scale=0.9,style={circle,fill=red!30}][scale=0.9] at (1,1) {};
+\path (0,0)  [red] edge[->]node[red,above]{1} (1);
+\path (0,1)  [red] edge[->]node[red,above]{2} (1);
+\path (0,2) [red]edge[->]node[red,above]{3} (1);
+\path (1)  [red] edge[->]node[red,above]{6}(2,0);
+\path (1)  [red] edge[->]node[red,above]{1}(2,1);
+\path (1)  [red]edge[->]node[red,above]{6}(2,2);
+\end{tikzpicture}\\
+\textcolor{red}{0$\leq$f(e)$\leq$c(e)}\\
+Пример\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {a};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {e};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,4) {b};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 5,2) {t};
+\path (s) edge [->] node[above]{1} (a); 
+\path (s) edge [->] node[below, red]{1} (a);
+\path (s) edge [->] node[above]{1} (e); 
+\path (s) edge [->] node[below, red]{1} (e);
+\path (e) edge [->,bend left] node[left]{$\frac{100}{\textcolor{red}{100}}$} (a); 
+\path (a) edge [->,bend left] node[right]{$\frac{100}{\textcolor{red}{100}}$} (e); 
+\path (a) edge [->] node[above]{1} (t); 
+\path (a) edge [->] node[below, red]{1} (t);
+\path (e) edge [->] node[above]{1} (t); 
+\path (e) edge [->] node[below, red]{1} (t);
+\end{tikzpicture}\\
+-поток корректный\\
+величина потока в примере 1: 4, в примере 2: 2\\
+\underline{Теорема}\\
+Дана сеть (G=(V,E),c),поток f на G\\
+Тогда\\
+$\sum \limits_{u:e=(s,u)} f(e)= \sum \limits_{u:e=(u,t)} f(e)$\\
+Рассмтрим\\
+$\sum \limits_{\in E} f(e)= 1)\sum \limits_{v\in V} f(e) \quad \sum \limits_{e:e=(u,v)} f(e) =$\\
+$\sum \limits_{\underbrace{e:e=(u,s)}_{0}} f(e) +\sum \limits_{e:e=(u,t)} f(e) + \sum \limits_{v\in V\{s,\}}  \sum \limits_{ e:e=(u,v)} f(e)$=\\
+вытекает +$ \sum \limits_{v\in V\{s,t\}}  \sum \limits_{ e:e=(v,u)} f(e)$=\\
+вытекает +$ \sum \limits_{v\in V(s,t)}  \sum \limits_{ e:e=(v,u)} f(e)-  \sum \limits_{ e:e=(s,u)} f(e)-  \sum \limits_{ e:e=(t,u)} f(e)=$\\ 
+вытекает +$\sum \limits_{v\in V\{s,\}}  \sum \limits_{ e:e=(u,v)} f(e)$-втекает- O=\\
+вытекает-втекает+$\sum \limits_{ e\in E} f(e)=$\\
+$\Rightarrow$ вытекает- втекает $\Rightarrow$ вытекает=втекает\\
+$\sum \limits_{ e:e=(u,t)} f(e)$ = $\sum \limits_{ e:e=(s,u)} f(e)$\\
+\underline{Определение}\\
+w(f)- эта величина называется вершиной потока\\
+\underline{Определение}\\
+Разрез в сети (G=(V,E),c) Разрез G=($V_1,V_2)$\\
+$s\in V_1 \quad t\in V_2\quad V_1\cap V_2=\not{0} \quad V_1 \cup V_2=V$ \\
+\underline{Пример}\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3) {};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,2) {t};
+\node at (0,0) {$V_1$};
+\node at (6,0) {$V_2$};
+\draw (1,2) circle (2);
+\draw (5,2) circle (2);
+\path (s) edge [->]  (a); 
+\path (s) edge [->]  (e); 
+\path (a) edge [->]  (b);
+\path (a) edge [->]  (d);
+\path (e) edge [->]  (b);
+\path (e) edge [->]  (d);
+\path (b) edge [->]  (t);
+\path (d) edge [->]  (t);
+\end{tikzpicture}\\
+или\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3) {};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,2) {t};
+\node at (0,0) {$V_1$};
+\node at (6,0) {$V_2$};
+%and (4,4)and (5,0) ..(-1,0);
+\path (-1,2) edge[-,bend left](2,4);
+\path (2,4) edge[-,bend left](4.5,1);
+\path (4.5,1) edge[-,bend left](-1,2);
+\path (7,1) [red] edge[-,bend left](3,4);
+\path (7,1) [red] edge[-,bend right](3,4);
+\path (s) edge [->]  (a); 
+\path (s) edge [->]  (e); 
+\path (a) edge [->]  (b);
+\path (a) edge [->]  (d);
+\path (e) edge [->]  (b);
+\path (e) edge [->]  (d);
+\path (b) edge [->]  (t);
+\path (d) edge [->]  (t);
+\end{tikzpicture}\\
+\underline{Определение}\\
+$E_c$-ребра разреза это все рёбра, которые идут из $V_1$ в $V_2$ или наоборот\\
+$E^+_c$-прямые ребра разреха (из $V_1$ в $V_2$)\\
+$E^+_c$-обратные ребра разреха (из $V_2$ в $V_1$)\\
+\underline{Пример}\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 0,2) {};
+\node (a)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 2,3) {};
+\node (e)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 2,1) {};
+\node (b)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 4,1) {};
+\node (d)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 4,3) {};
+\node (t)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 6,2) {};
+\node at (0,1) {$V_1$};
+\node at (6,1) {$V_2$};
+\path (s) edge [->]  (a); 
+\path (s) [red]edge [->]  (e); 
+\path (a) edge [->]  (b);
+\path (a) [red]edge [->]  (e);
+\path (a) edge [->]  (d);
+\path (e) edge [->]  (b);
+\path (e) [green]edge [->]  (d);
+\path (d) [red]edge [->]  (t);
+\path (d) [red]edge [->]  (b);
+\path (t) edge [->]  (b);
+\path (-0.2,1.8)edge [-,bend right] (4.5,3.2); 
+\path (1.5,0.8)edge [-,bend left] (6.5,2.2); 
+\end{tikzpicture}\\
+\textcolor{green}{ообратное $E^-_c$}\\
+\textcolor{red}{прямое $E^+_c$}\\
+$E_c=E_c^-\cap E_c^+$\\
+\underline{Определение}\\
+Величина разреза=$\sum \limits_{e\in E^+_c} c(e)$\\
+\underline{Обозначение} c(G)\\
+Например\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 0,2) {};
+\node (a)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 2,3) {};
+\node (e)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 2,1) {};
+\node (b)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 4,1) {};
+\node (d)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 4,3) {};
+\node (t)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 6,2) {};
+\node at (0,1) {$V_1$};
+\node at (6,1) {$V_2$};
+\path (s) edge [->]  (a); 
+\path (s) edge [->]  (e); 
+\path (a) edge [->]  (b);
+\path (a) edge [->]  (d);
+\path (e) edge [->]  (b);
+\path (e) [red]edge [->]  (d);
+\path (b) [green]edge[->] (a);
+\path (d) edge [->]  (t);
+\path (t) edge [->]  (b);
+\path (3,0) edge[dashed,-] (3,4);
+\end{tikzpicture}\\
+C=($V_1,V_2)$\\
+c(C)=8+3+4=15\\
+\underline{Утверждение}\\
+Пусть есть сеть (G=(V,E),c), поток f, разрез C=($V_1,V_2$)\\
+тогда w(f)=$\sum \limits_{e\in E^+_c}f(e)-\sum  \limits_{e\in E^-_c}f(e)$\\
+\underline{Пример}\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (1) at ( 0,1.5) {исток};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {a};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {e};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,4) {b};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,2) {c};
+\node (f)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,0) {f};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,3) {d};
+\node (g)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,1) {g};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 8,2) {t};
+\node (2) at ( 8,1.5) {сток};
+\path (s) edge[->] node[above]{3} (a);
+\path (s) edge [->] node[below, red] {1} (a);
+\path (s) [red]edge [->] node[above]{8} (e); 
+\path (s) [red]edge [->] node[above]{8} (e); 
+\path (s) edge [->] node[below, red]{3} (e);
+\path (a) edge [->] node[above]{7} (b); 
+\path (a) edge [->] node[below, red]{1} (b);
+\path (a) edge [->] node[above]{8} (c); 
+\path (a) edge [->] node[below, red]{0} (c);
+\path (e) [red]edge [->] node[above]{5} (c); \path (e) [red]edge [->] node[above]{5} (c); 
+\path (e) edge [->] node[below, red]{3} (c);
+\path (e) edge [->] node[above]{6} (f); 
+\path (e) edge [->] node[below, red]{0} (f);
+\path (c) edge [->, bend left] node[above]{1} (d); 
+\path (c) edge [->, bend left] node[below, red]{1} (d);
+\path (d) edge [->, bend left] node[above]{4} (c); 
+\path (d) edge [->, bend left] node[below, red]{0} (c);
+\path (c) edge [->] node[right]{2} (b); 
+\path (c) edge [->] node[left, red]{0} (b);
+\path (b) edge [->] node[above]{4} (d); 
+\path (b) edge [->] node[below, red]{1} (d);
+\path (c) edge [->] node[above]{2} (g); 
+\path (c) [green]edge [->] node[below, red]{2} (g);
+\path (f) edge [->] node[above]{3} (g); 
+\path (f) edge [->] node[below, red]{0} (g);
+\path (g) [red]edge [->, bend right] node[left]{6} (d); \path (g) [red]edge [->, bend right] node[left]{6} (d); 
+\path (g) edge [->, bend right] node[right, red]{0} (d);
+\path (g) edge [->] node[above]{6} (t); 
+\path (g) edge [->] node[below, red]{2} (t);
+\path (d) edge [->] node[above]{5} (t); 
+\path (d) edge [->] node[below, red]{2} (t);
+\draw[rotate=-10,blue] (3,1.5) ellipse (5 and 1);
+\draw[rotate=-10,blue] (4.5,4.2) ellipse (4 and 2);
+\node at(3,-0.5){$V_1$};
+\node at(4.5,4.5){$V_2$};
+\end{tikzpicture}\\
+\textcolor{red}{w(f)=1+3=2+2=4}\\
+\textcolor{red}{$\sum \limits_{e\in E^+_c}f(e)=1+3+0+2=6$}\\
+\textcolor{green}{$\sum \limits_{e\in E_c^-}f(e)=2$}\\
+Да! 4=6-2\\
+посчитаем сумму\\
+$\sum \limits_{v \in V_1}(- \sum \limits_{e:e=(u,v)}f(e)+\sum \limits_{e:e=(v),u}f(e)$\\
+1) для $\forall v\in V_1\setminus \{s\} $внутреняя $\sum - \sum =0$\\
+для v=s получается w(f)=$\sum \limits_{e:e=(v),u}f(e)$\\
+2)$\sum \limits_{e=(v),u}(f(e)-f(e))+\underbrace{\sum \limits_{e\in E^+_c}f(e)-\sum \limits_{e\in E^-_c}+[-f(e)]}_{\textrm{смотри условие}}$=0+величина их условия\\
+\underline{Обозначение}\\
+w(c,f)-выличина потока через разрез\\
+$\sum \limits_{e\in E^+_c}f(e)-\sum \limits_{e\in E^-_c}f(e)$\\
+\underline{Замечание}\\
+$\forall C$ w(f)=w(C,f)- по Теореме\\
+\underline{Замечание}\\
+Будем решать задачу о максимальном потоке в сети то есть найти f:\\
+w(f)$\rightarrow$max\\
+\underline{Утверждение}\\
+Дано G,c-сеть, C-разрез\\
+Тогда w(f) $\geq$c(C)\\
+\underline{Докозательсто}\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 0,2) {};
+\node (t)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 6,2) {};
+\node at (0,0) {$V_1$};
+\node at (6,0) {$V_2$};
+\draw (1,2) circle (1.5);
+\draw (5,2) circle (1.5);
+\path (s) edge[] (2,2.7);
+\path (s) edge[] (2,2.2);
+\path (s) edge[] (2,1.7);
+\path (s) edge[] (2,1.2);
+\path (t) edge[] (4,2.7);
+\path (t) edge[] (4,2.2);
+\path (t) edge[] (4,1.7);
+\path (t) edge[] (4,1.2);
+\path (2.5,2) edge[line width=1,->,red] (3.5,2);
+\path (2.2,2.9) edge[line width=1,->,red] (3.8,2.9);
+\path (2.2,1.1) edge[line width=1,->,red] (3.8,1.1);
+\path (3,3.5) edge[line width=1,-,dashed] (3,0.5);
+\path (3.8,1.1) edge[line width=1,->,green] (2.2,2.9);
+\path (3.8,2.9) edge[line width=1,->,green] (2.2,1.1);
+\end{tikzpicture}\\
+w(f)=w(C,f)=$\sum \limits_{e\in E^+_c}f(e)-\sum \limits_{e\in E^-_c}f(e)\leq$\\
+$\sum \limits_{e\in E^+_c}f(e) \leq \sum \limits_{e\in E^+_c} c(e)=c(C)\Rightarrow$ w(f)$\leq $c(C)\\
+\underline{Следствие}\\
+В сети G w(f$_{max}$)$\leq$c(C$_{min}$)\\
+где w(f$_{max}$)=max w(f) f-поток c($C_{min}$)=min c(C) С-разрез\\
+\underline{Теорема Форда-Фалкерсона}\\
+w(f$_{max}$)=c(C$_{min}$)\\
+в сети (G,c) c(e)$\in$N\\
+- для простоты считаем, что пропускные способности целые\\
+\underline{Определение}\\
+дополнительный граф для потока\\
+$\overline{G}$имеет $\overline{V}$=V \\
+$\overline{E}$:\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 2,3) {a};
+\node (e)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 2,1) {e};
+\node (b)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 4,1) {b};
+\node (d)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 4,3) {d};
+\node (t)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 6,2) {t};
+\path (s) edge[->] node[above]{5}node[below, red] {3} (a);
+\path (s) edge[->] node[above]{4}node[below, red] {4} (e);
+\path (a) edge[->] node[above]{3} node[below, red] {1} (b);
+\path (a) edge[->] node[above]{6} node[below, red] {3} (d);
+\path (e) edge[->] node[above]{5} node[below, red] {5} (b);
+\path (d) edge[->,bend left] node[above]{7} node[below, red] {1} (e);
+\path (b) edge[->] node[left]{2} node[right, red] {1} (d);
+\path (b) edge[->] node[above]{4} node[below, red] {4} (t);
+\path (d) edge[->] node[above]{8} node[below, red] {3} (t);
+\end{tikzpicture}\\
+если f(e)<c(e)\\
+e=(u,v)\\
+то есть e'=(e',v')\\
+g(e)=c(e)-f(e)\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 2,3) {a};
+\node (e)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 2,1) {e};
+\node (b)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 4,1) {b};
+\node (d)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 4,3) {d};
+\node (t)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at ( 6,2) {t};
+\path (s) edge[->] node[]{2}    (a);
+\path (a) edge[->] node[]{3}    (b);
+\path (a) edge[->] node[]{3}    (d);
+\path (d) edge[->,bend left] node[]{6}    (e);
+\path (b) edge[->] node[]{1}    (d);
+\path (d) edge[->] node[]{5}    (t);
+\path (a) edge[->,red,bend left] node[]{2}    (s);
+\path (b) edge[->,red,bend left] node[]{3}    (a);
+\path (d) edge[->,red,bend right] node[]{3}    (a);
+\path (e) edge[->,red,bend left] node[]{6}    (d);
+\path (d) edge[->,red,bend left] node[]{1}    (b);
+\path (t) edge[->,red,bend left] node[]{5}    (d);
+\end{tikzpicture}\\
+если 0<f(e) e=(u,v)\\
+то есть e''=(v',u')\\
+g(e'')-f(e)\\
+\underline{Докозательство}\\
+Начнем с нулевого потока и будем его постепенно увеличивать\\
+Построим дополнительный граф $\overline{G}$ и найдем в нём путь из s в t\\
+s-O-t\\
+Найдем min g(e) на этом пути $\supset$ это х\\
+Вычтем в доп графе- х на каждом ребре\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (0,0) {};
+\node (a)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (2,0) {};
+\node (e)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (4,0) {};
+\node (b)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (6,0) {};
+\path (s) edge[->] (a);
+\path (a) edge[->] (e);
+\path (e) edge[->] (b);
+\end{tikzpicture}\\
+1)c(e)- f(e) $\rightarrow$ c(e)- f(e)-x\\
+f(e):=f(e)+x\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (0,0) {};
+\node (a)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (2,0) {};
+\node (e)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (4,0) {};
+\node (b)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (6,0) {};
+\path (s) edge[->] (a);
+\path (a) edge[->,green]node[below]{f(e)} (e);
+\path (e) edge[->] (b);
+\end{tikzpicture}\\
+2)f(e)-x f'(e):=f(e)-x\\
+Поймем, что 1) новый поток f' остался потое\\
+2) величина потока увеличилась на х\\
+Проверяем, что это поток 0$\leq$f'(e)$\leq$c(e) уменьшаем по обратному,\\
+увеличиваем по прямому c(e)-(f(e)+x)$\geq$0\\
+В вершинах верно $\sum$вход=$\sum$исх\\
+1)\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (2,1) {};
+\path (1,0) edge[->] (s);
+\path (1,1) edge[->] (s);
+\path (1,2) edge[->] node[right]{t+x} (s);
+\path (3,0) edge[<-] (s);
+\path (3,1) edge[<-] node[above]{f+x} (s);
+\path (3,2) edge[<-] (s);
+\end{tikzpicture}\\
+2)\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (2,1) {};
+\path (1,2) edge[->] node[right]{t+x} (s);
+\path (3,1) edge[<-,green] (s);
+\path (3,1) edge[->,dashed, bend left] node[below]{f-x} (s);
+\end{tikzpicture}\\
+3)\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (2,1) {};
+\path (1,2) edge[->,green]  (s);
+\path (s) edge[->,dashed,bend right] node[right]{f-x} (1,2);
+\path (3,1) edge[<-]node[below]{t+x}(s);
+\end{tikzpicture}\\
+4)\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!20}][scale=0.9] at (2,1) {};
+\path (1,2) edge[->,green]  (s);
+\path (s) edge[->,dashed,bend right] node[right]{f-x} (1,2);
+\path (3,1) edge[<-,green] (s);
+\path (3,1) edge[->,dashed, bend left] node[below]{f-x} (s);
+\end{tikzpicture}\\
+Итого f'-поток\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3) {};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,2) {t};
+\path (s) edge [->]node[left]{5}  (a); 
+\path (s) edge [->]node[left]{4}  (e); 
+\path (a) edge [->]node[right]{3}  (b);
+\path (a) edge [->]node[left]{6}  (d);
+\path (e) edge [->]node[left]{5}  (b);
+\path (e) edge [<-]node[left]{7}  (d);
+\path (b) edge [->]node[left]{4}  (t);
+\path (b) edge [->]node[right]{2}  (d);
+\path (d) edge [->]node[left]{8}  (t);
+\end{tikzpicture}\\
+можно построить дополнительный граф\\
+Пример. строим пути\\
+сначала поток=0\\
+Дополнительный граф не отличается от исходного\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3) {};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,2) {t};
+\path (s) edge [->]node[left]{5}  (a); 
+\path (s) edge [->]node[left]{4}  (e); 
+\path (a) edge [->]node[right]{3}  (b);
+\path (a) edge [->]node[left]{6}  (d);
+\path (e) edge [->]node[left]{5}  (b);
+\path (e) edge [<-]node[left]{7}  (d);
+\path (b) edge [->]node[left]{4}  (t);
+\path (b) edge [->]node[right]{2}  (d);
+\path (d) edge [->]node[left]{8}  (t);
+\end{tikzpicture}\\
+путь из s в t\\
+S-(5)-a-(3)-d-(2)-b-(8)-t\\
+добавим к поток +2 на каждое из этих ребер\\
+поток\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {a};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {e};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {b};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3) {d};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,2) {t};
+\path (s) edge [->]node[left]{2}  (a); 
+\path (s) edge [->]node[left]{0}  (e); 
+\path (a) edge [->]node[right]{2}  (b);
+\path (a) edge [->]node[left]{0}  (d);
+\path (e) edge [->]node[left]{0}  (b);
+\path (e) edge [<-]node[left]{0}  (d);
+\path (b) edge [->]node[left]{0}  (t);
+\path (b) edge [->]node[right]{2}  (d);
+\path (d) edge [->]node[left]{2}  (t);
+\end{tikzpicture}\quad
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {a};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {e};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {b};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3) {d};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,2) {t};
+\path (s) edge [->]node[left]{3}  (a); 
+\path (s) [green]edge [<-,dashed,bend left]node[left,green]{2}  (a); 
+\path (s) edge [->]node[left]{4}  (e); 
+\path (a) edge [->]node[right]{1}  (b);
+\path (a) [green]edge [<-,dashed,bend left]node[right,green]{2}  (b);
+\path (a) edge [->]node[left]{6}  (d);
+\path (e) edge [->]node[left]{5}  (b);
+\path (e) edge [<-]node[left]{7}  (d);
+\path (b) edge [->]node[left]{4}  (t);
+\path (b) [green]edge [<-,dashed,bend right]node[right,green]{2}  (d);
+\path (d) edge [->]node[left]{6}  (t);
+\path (d) [green]edge [<-,dashed,bend left]node[right,green]{2}  (t);
+\end{tikzpicture}\\
+S-(3)-a-(6)-b-(7)-c-(5)-d-(4)-t\\
+min=3\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {a};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {e};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {b};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3) {d};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,2) {t}; 
+\path (s) edge [->]node[left]{0}  (e); 
+\path (s) edge [->]node[left]{5}  (a);
+\path (a) edge [->]node[right]{2}  (b);
+\path (a) edge [->]node[left]{3}  (d);
+\path (e) edge [->]node[left]{3}  (b);
+\path (e) edge [<-]node[left]{3}  (d);
+\path (b) edge [->]node[left]{3}  (t);
+\path (b) edge [->]node[left]{2}  (d);
+\path (d) edge [->]node[left]{2}  (t);
+\end{tikzpicture}\quad
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {a};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {e};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {b};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3) {d};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,2) {t}; 
+\path (s) [green]edge [<-,dashed,bend left ]node[left,green]{5}  (a); 
+\path (s) edge [->]node[left]{4}  (e); 
+\path (a) edge [->]node[right]{1}  (b);
+\path (a) [green]edge [<-,dashed,bend left]node[right,green]{2}  (b);
+\path (a) edge [->]node[left]{3}  (d);
+\path (a) [green]edge [<-,dashed,bend left]node[left,green]{3}  (d);
+\path (e) edge [->]node[left]{5}  (b);
+\path (e) edge [<-]node[left]{4}  (d);
+\path (e) [green]edge[->,dashed,bend left]node[left]{4}  (d);
+\path (b) edge [->]node[left]{1}  (t);
+\path (b) [green]edge [<-,dashed,bend right]node[left]{1}  (t);
+\path (b) [green]edge [<-,dashed,bend right]node[right,green]{2}  (d);
+\path (d) edge [->]node[left]{6}  (t);
+\path (d) [green]edge [<-,dashed,bend left]node[right,green]{2}  (t);
+\end{tikzpicture}\\
+s-(4)-c-(2)-d-(1)-t\\
+min=1\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {a};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {e};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {b};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3) {d};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,2) {t}; 
+\path (s) edge [->]node[left]{1}  (e); 
+\path (s) edge [->]node[left]{5}  (a);
+\path (a) edge [->]node[right]{2}  (b);
+\path (a) edge [->]node[left]{3}  (d);
+\path (e) edge [->]node[left]{4}  (b);
+\path (e) edge [<-]node[left]{3}  (d);
+\path (b) edge [->]node[left]{4}  (t);
+\path (b) edge [->]node[left]{2}  (d);
+\path (d) edge [->]node[left]{2}  (t);
+\end{tikzpicture}\quad
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {a};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {e};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {b};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3) {d};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,2) {t}; 
+\path (s) [green]edge [<-,dashed,bend left ]node[left,green]{5}  (a); 
+\path (s) edge [->]node[left]{3}  (e); 
+\path (s) [green] edge [<-,dashed,bend left]node[right]{1}  (e); 
+\path (a) edge [->]node[right]{1}  (b);
+\path (a) [green]edge [<-,dashed,bend left]node[right,green]{2}  (b);
+\path (a) edge [->]node[left]{3}  (d);
+\path (a) [green]edge [<-,dashed,bend left]node[left,green]{3}  (d);
+\path (e) edge [->]node[left]{1}  (b);
+\path (e) [green] edge [<-,dashed, bend right]node[left]{3}  (b);
+\path (e) edge [<-]node[left]{4}  (d);
+\path (e) [green]edge[->,dashed,bend left]node[left]{4}  (d);
+\path (b) [green]edge [<-,dashed,bend right]node[left]{4}  (t);
+\path (b) [green]edge [<-,dashed,bend right]node[right,green]{2}  (d);
+\path (d) edge [->]node[left]{0}  (t);
+\path (d) [green]edge [<-,dashed,bend left]node[right,green]{2}  (t);
+\end{tikzpicture}\\
+S-(3)-c-(3)-b-(6)-t\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {a};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {e};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {b};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3) {d};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,2) {t}; 
+\path (s) edge [->]node[left]{4}  (e); 
+\path (s) edge [->]node[left]{5}  (a);
+\path (a) edge [->]node[right]{2}  (b);
+\path (a) edge [->]node[left]{3}  (d);
+\path (e) edge [->]node[left]{4}  (b);
+\path (e) edge [<-]node[left]{0}  (d);
+\path (b) edge [->]node[left]{4}  (t);
+\path (b) edge [->]node[left]{2}  (d);
+\path (d) edge [->]node[left]{5}  (t);
+\end{tikzpicture}\quad
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {a};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {e};
+\path (s) edge [<-]node[left]{5}  (a); 
+\path (s) edge [<-]node[left]{4}  (e); 
+\end{tikzpicture}\\
+Продолжаем докозательство теорема Форда-Фалкерсона\\
+Если пути нет, то поток оптимальный?\\
+$\supset V_1$- вершины, достигшие из S по ребрам до t графа $V_2$=V $\setminus$ V$_1$\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3) {};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3) {};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,2) {};
+\node () at (0,0) {$V_1$};
+\node () at (6,0) {$V_2$};
+\path (s) edge [->]node[left]{}  (a); 
+\path (s) edge [->]node[left]{}  (e); 
+\path (a) edge [->]node[right]{}  (b);
+\path (a) edge [->]node[left]{}  (d);
+\path (e) edge [->]node[left]{}  (b);
+\path (e) edge [<-]node[left]{}  (d);
+\path (b) edge [->]node[left]{}  (t);
+\path (b) edge [->]node[right]{}  (d);
+\path (d) edge [->]node[left]{}  (t);
+\draw (s)[green] circle (1);
+\draw (4,2)[red] ellipse (3 and 2);
+\end{tikzpicture}\\
+$t\in V_2$, так как нет пути S$\rightarrow$t получаем разрез исходной сети ребра $E^+_G$\\
+Ребер нет в дополнительном графе, в дополнительном графе веса=0\\
+c(e)-f(e)=0\\
+c(C)=$\sum \limits_{e\in E^+_C}c(e)=\sum \limits_{e\in E^+_C}f(e)$=c(f)\\
+Течет ли что-то по нечетным? Нет, иначе $V_1$ неверен\\
+В прошлый раз мы напоминали Vc- разрез $\forall f$-поток\\
+c(C)$\geq$с(f)\\
+получается c-min разрз f-max поток\\
+\begin{tikzpicture}
+\node (s)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {s};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,4) {a};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,0) {c};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,2) {b};
+\node (t)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 6,2){t};
+\path (s) edge [->]node[left]{10}  (a); 
+\path (c) edge [->]node[left]{40}  (b); 
+\path (a) edge [->]node[left]{2}  (b); 
+\path (s) edge [->]node[left]{3}  (c); 
+\path (b) edge [->]node[below]{20}  (t); 
+\end{tikzpicture}\\
+c(C)=2+3=5\\
+min разрез\\
+\underline{Утверждение}\\
+Если каждый раз искать путь с min количеством ребер,\\
+то время max поток $\sim$ $V^2E$\\
+Без докозательства\\
+\underline{Утверждение}\\
+Для плоской сети(без пересечений ребер)=c(f) эффективно искать верхние\\
+пути\\
+\underline{Задачи о паросочетаниях}\\
+Дан двудольный граф G=(u,v)\\
+\begin{tikzpicture}
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,0) {};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1) {};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,3) {};
+\node (5)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,4){};
+\node (6)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,0) {};
+\node (7)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1) {};
+\node (8)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2) {};
+\node (9)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,3) {};
+\node (10)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at (3,4){};
+\path (2) edge [-](10); 
+\path (3) edge [-](10); 
+\path (5) edge [-](10); 
+\path (4) edge [-](9); 
+\path (1) edge [-](9); 
+\end{tikzpicture}\\
+\underline{Определение}\\
+Паросочетания в G-это P$\in$ E, где ребра из P не имеют общие вершины\\
+\underline{Определение}\\
+Максимальное паросочетание, это PCE, |P|$\rightarrow$ max из возможных\\
+\underline{Пример}\\
+\begin{tikzpicture}
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,0) {c};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1) {b};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {a};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,0) {C};
+\node (5)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1){B};
+\node (6)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2) {A};
+\path (1) edge [-](6); 
+\path (2) edge [-](4); 
+\path (3) edge [-](5); 
+\end{tikzpicture}\\
+D$\{$cA,bC,aB $\}$\\
+\underline{Пример}\\
+\begin{tikzpicture}
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,0) {};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1) {};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,3) {};
+\node (5)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,0){};
+\node (6)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1) {};
+\node (7)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2){};
+\node (8)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,3) {};
+\path (4) edge [-](8); 
+\path (4) edge [-](5); 
+\path (4) edge [-](7); 
+\path (3) edge [-](7); 
+\path (2) edge [-](7); 
+\path (1) edge [-](7); 
+\path (1) edge [-](6); 
+\end{tikzpicture}\\
+4-нельзя\\
+Сводим к задаче о потоке\\
+Ребра из S$\rightarrow$u\\
+v$\rightarrow$t\\
+u$\rightarrow$v\\
+слева направо\\
+c(e)=1\\
+\begin{tikzpicture}
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,0) {};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,3) {};
+\node (5)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,0){};
+\node (6)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {};
+\node (7)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,2){};
+\node (8)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3) {};
+\node (0)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1.5) {S};
+\node (9)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 5,1.5) {t};
+\path (0) edge[->] (1);
+\path (0) edge[->] (2);
+\path (0) edge[->] (3);
+\path (0) edge[->] (4);
+\path (4) edge [->](8); 
+\path (4) edge [->](7); 
+\path (3) edge [->](7); 
+\path (1) edge [->](5); 
+\path (1) edge [->](6);
+\path (8) edge[->] (9);
+\path (7) edge[->] (9);
+\path (6) edge[->] (9);
+\path (5) edge[->] (9);
+\end{tikzpicture}\\
+\underline{Утверждение}\\
+каждому потоку (из f=0,1) соотвествует паросочетание\\
+ребра с f(c)=1 это ребра паросочетания$\Rightarrow$ поток\\
+\begin{tikzpicture}
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,0) {};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,3) {};
+\node (0)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1.5) {S};
+\path (0) edge[->]node[]{0} (1);
+\path (0) edge[->]node[]{0} (2);
+\path (0) edge[->]node[]{1}(3);
+\path (0) edge[->]node[]{1} (4);
+\end{tikzpicture}\\
+$\Leftarrow$ паросочетание соответвует потоку, где f(e)=1 для ребер паросочетания\\
+\underline{Следствие} Размер max паросочетаний=размер max потока\\
+Строим паросочетание методом ФФ\\
+\begin{tikzpicture}
+\node (0)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1) {};
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,0) {};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,0) {};
+\node (5)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1){};
+\node (6)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2) {};
+\node (7)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {};
+\path (0) edge[-] (1);
+\path (0) edge[-] (2);
+\path (0) edge[-] (3);
+\path (1) edge [-](6); 
+\path (2) edge [-](4); 
+\path (3) edge [-](5); 
+\path (4) edge[-] (7);
+\path (6) edge[-] (7);
+\path (5) edge[-] (7);
+\end{tikzpicture}\\
+Строим дополнительный граф, но без чисел\\
+\begin{tikzpicture}
+\node (0)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1) {};
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,0) {};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,0) {};
+\node (5)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1){};
+\node (6)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2) {};
+\node (7)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {};
+\path (0) edge[->] (1);
+\path (0) edge[->] (2);
+\path (0) edge[->] (3);
+\path (1) edge [->](6); 
+\path (2) edge [->](4); 
+\path (3) edge [->](5); 
+\path (3) edge [->](6);
+\path (4) edge[->] (7);
+\path (6) edge[->] (7);
+\path (5) edge[->] (7);
+\end{tikzpicture}\quad
+\begin{tikzpicture}
+\node (0)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1) {};
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,0) {};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,0) {};
+\node (5)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1){};
+\node (6)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2) {};
+\node (7)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {};
+\path (0) edge[->] (1);
+\path (0) edge[->] (2);
+\path (0) edge[<-] (3);
+\path (1) edge [->](6); 
+\path (2) edge [->](4); 
+\path (3) edge [->](5); 
+\path (3) edge [<-](6);
+\path (4) edge[->] (7);
+\path (6) edge[<-] (7);
+\path (5) edge[->] (7);
+\end{tikzpicture}\\
+\begin{tikzpicture}
+\node (0)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1) {};
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,0) {};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,0) {};
+\node (5)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1){};
+\node (6)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2) {};
+\node (7)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {};
+\path (0) edge[<-] (1);
+\path (0) edge[->] (2);
+\path (0) edge[->] (3);
+\path (1) edge [<-](6); 
+\path (2) edge [->](4); 
+\path (3) edge [->](5); 
+\path (3) edge [->](6);
+\path (4) edge[->] (7);
+\path (6) edge[<-] (7);
+\path (5) edge[->] (7);
+\end{tikzpicture}\quad
+\begin{tikzpicture}
+\node (0)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1) {};
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,0) {};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,0) {};
+\node (5)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1){};
+\node (6)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2) {};
+\node (7)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {};
+\path (0) edge[<-] (1);
+\path (0) edge[<-] (2);
+\path (0) edge[<-] (3);
+\path (1) edge [<-](6); 
+\path (2) edge [<-](4); 
+\path (3) edge [<-](5); 
+\path (3) edge [->](6);
+\path (4) edge[<-] (7);
+\path (6) edge[<-] (7);
+\path (5) edge[<-] (7);
+\end{tikzpicture}\\
+Поток в сетях\\
+\begin{tikzpicture}
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,0) {};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1) {};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,3) {};
+\node (5)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,0){};
+\node (6)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1) {};
+\node (7)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2){};
+\node (8)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,3) {};
+\path (4) edge [-](8); 
+\path (4) edge [-](5); 
+\path (4) edge [-](7); 
+\path (3) edge [-](7); 
+\path (2) edge [-](7); 
+\path (1) edge [-](7); 
+\path (1) edge [-](6); 
+\end{tikzpicture}\\
+\begin{tikzpicture}
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,0) {};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,3) {};
+\node (5)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,0){};
+\node (6)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {};
+\node (7)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,2){};
+\node (8)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3) {};
+\node (0)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1.5) {S};
+\node (9)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 5,1.5) {t};
+\path (0) edge[->] (1);
+\path (0) edge[->] (2);
+\path (0) edge[->] (3);
+\path (0) edge[->] (4);
+\path (4) edge [->](8); 
+\path (4) edge [->](7); 
+\path (3) edge [->](7); 
+\path (1) edge [->](5); 
+\path (1) edge [->](6);
+\path (8) edge[->] (9);
+\path (7) edge[->] (9);
+\path (6) edge[->] (9);
+\path (5) edge[->] (9);
+\path (0,0) edge[-,dashed] (4,4);
+\end{tikzpicture}\\
+Задача о максимальном контролируемом множестве\\
+\underline{Определение}\\
+$\supset$ G=(V,E) C$\subset$V- контолирующее
+множество, если $\forall$ G=(u,v)$\in$ E\\
+\underline{Примеры}\\
+C=$\{c,d\}$\\
+\begin{tikzpicture}
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1) {a};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {c};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,0) {e};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {b};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1){d};
+\node (f)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,0) {f};
+\path (a) edge[-] (c);
+\path (b) edge[-] (c);
+\path (e) edge[-] (c);
+\path (d) edge[-] (c);
+\path (d) edge[-] (f);
+\end{tikzpicture}\\
+Замечание c=v -контролируемое множество\\
+\underline{Утверждение}\\
+В двудольном графе G=(u$\vee$v,E) $\supset$ c-контролируемое множество\\
+$\supset$ p-паросочетание, тогда |c|$\leq$|p|\\
+\underline{Докозательство}\\
+\begin{tikzpicture}
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,0) {};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1) {};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,0) {};
+\node (5)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1){};
+\node (6)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2) {};
+\path (1) edge [-](6); 
+\path (2) edge [-](4); 
+\path (3) edge [-](5); 
+\end{tikzpicture}\\
+у каждого ребра c$\in$ p есть вершины u или v$\in$ \\
+\underline{G}=(u$\vee$v,E)-двудольный граф\\
+Размер максимального паросочетания= размеру min контролируемого множества\\
+\underline{Докозательство}\\
+Построим максимальное паросочетание по Форду=Фалкерсон и рассмотрим разрез\\
+\begin{tikzpicture}
+\node (0)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1) {};
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,0) {};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,0) {};
+\node (5)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1){};
+\node (6)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2) {};
+\node (7)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {};\\
+\node() at (0,0) {$V_1$};
+\node () at (6,2) {$V_2$};
+\draw (6,1) ellipse (1 and 1.5);
+\path (0) edge[->] (1);
+\path (0) edge[->] (2);
+\path (0) edge[->] (3);
+\path (1) edge [->](6); 
+\path (2) edge [->](4); 
+\path (3) edge [->](5); 
+\path (3) edge [->](6);
+\path (4) edge[->] (7);
+\path (6) edge[->] (7);
+\path (5) edge[->] (7);
+\end{tikzpicture}\\
+|u|=x\\
+|v|=y\\
+|u$\wedge$v$_1$|=a\\
+|u$\vee$v$_2$|=b\\
+c([$v_1,v_2$])-разрез=$\sum1$=e реберо исходное= (x-a)+b+n\\
+Итого m=c(($V_1,V_2$))=x-a+b+n$\leq$m\\
+x-a+b$\geq$0\\
+Возьмем в качестве контролируещего множества c=(u$\vee$v$_1$) $\vee$ (v $\wedge$v$_1$) есть ребро из v $\wedge$ v$_2$ в u v$_1$\\
+\begin{tikzpicture}
+\node (0)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1) {};
+\node (1)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,0) {};
+\node (2)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {};
+\node (3)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {};
+\node (4)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,0) {};
+\node (5)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1){};
+\node (6)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2) {};
+\node (7)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {};
+\path (0) edge[<-] (1);
+\path (0) edge[<-] (2);
+\path (0) edge[<-] (3);
+\path (1) edge [<-](6); 
+\path (2) edge [<-](4); 
+\path (3) edge [<-](5); 
+\path (3) edge [->](6);
+\path (4) edge[<-] (7);
+\path (6) edge[<-] (7);
+\path (5) edge[<-] (7);
+\end{tikzpicture}\\
+v $\wedge$ v$_2$ v $\wedge$ v$_1$\\
+$\supset$ есть ребро e=(u,v)\\
+1) щначит  v$\subset$ v$_1$??\\
+2) как понять в u? только из v?\\
+Вывод 1 c=(u$\vee$v$_1$) $\vee$ (v $\wedge$v$_1$)-контролируемое множество\\
+Вывод 2 c([$v_1,v_2$])-разрез=$\sum \limits_{
+\left.
+\begin{array}{rcll}
+e\in u,v\\
+u\in v_1\\
+v\in v_1\\
+\end{array}
+\right.
+\\}$1=(x-a)+0+b=|c|$\Rightarrow$|p|=|c|\\
+\underline{поиск в глубину, ширину}\\
+1)структура для хранения вершин данных\\
+D-стек или очередь/ stack or queue\\
+V$\rightarrow$D положить в V в D\\
+V$\angle$D посмотреть\\
+стек first in last out\\
+очередь first in first out\\
+\underline{Пример}\\
+\begin{tabular}{l l l}
+Пример&стек&оередь\\
+a$\rightarrow$D& a  &a\\
+b$\rightarrow$D&ba  &ba\\
+c$\rightarrow$D&cba & cba\\
+$\angle$&c&a\\
+D$\rightarrow$&ba&cb\\
+D$\rightarrow$&b&b\\
+\end{tabular}\\
+Поиск в ширину (D очередь) или глубину (D стек) D$\in$ V$_0$ начальная вершина\\
+пока D не пуст\\
+u=$\angle$D\\
+если есть ребро (u,v) тогда v$\rightarrow$ D\\
+\begin{tikzpicture}
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2.5,3) {a};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1.5,2) {b};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3.5,2) {c};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {d};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {e};
+\node (f)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1){f};
+\node (g)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,1) {g};
+\path (a) edge[-] (b);
+\path (a) edge[-] (c);
+\path (b) edge[-] (d);
+\path (b) edge[-] (e);
+\path (c) edge[-] (f);
+\path (c) edge[-] (g);
+\end{tikzpicture}\\
+в глубину, иначе достать d$\rightarrow$u\\
+\begin{tabular}{l l l}
+в глубину&в ширину\\
+a  &a\\
+ba  &ba\\
+dba & cba\\
+edba&cb\\
+dba&dcb\\
+a&edcb\\
+ca&edc\\
+fca&fedc\\
+ca&gfedc\\
+a&gfed\\
+-&gfe\\
+&gf\\
+&g\\
+&-\\
+\end{tabular}\\
+поиcк в глубину/ ширину\\
+D-cтек/очередь\\
+\underline{Алгоритм поиcка}\\
+Дано: начальная вершина и D$\leftarrow$u\\
+used=0(обработанные, то еcть были в D)\\
+пока D$\neq$ 0\\
+peek D(cмотрим)\\
+еcли еcть ребро v-w, где w$\not \in$used\\
+иначе D$\leftarrow$ w$_i$ used=used v$\{$w$\}$\\
+ $\leftarrow$ D(убираем вершину из D)\\
+ \begin{tikzpicture}
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,5) {a};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,4.5) {b};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,4) {c};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,3.5) {d};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3){e};
+\node (g)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1.5) {g};
+\node (h)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,2){h};
+\node (f)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2.5) {f};
+\node (i)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {i};
+\path (a) edge [->](d);
+\path (d) edge [->](e);
+\path (e) edge [->](b);
+\path (b) edge [->](a);
+\path (i) edge [->](h);
+\path (h) edge [->](g);
+\path (g) edge [->](i);
+\path (h) edge [->](e);
+\path (b) edge [->](c);
+\path (c) edge [->](f);
+\end{tikzpicture}\\
+в глубину из h\\
+h\\
+he\\
+heb\\
+heba\\
+hebad\\
+heba\\
+heb\\
+hebc\\
+hebcf\\
+hebc\\
+heb\\
+he\\
+h\\
+hg\\
+hgi\\
+hg\\
+h\\
+0\\
+в ширину\\
+h\\
+he\\
+heg\\
+eg\\
+egb\\
+gb\\
+gbi\\
+bi\\
+bia\\
+biac\\
+iac\\
+ac\\
+ac\\
+acd\\
+cd\\
+d\\
+0\\
+Введем\\
+n(u)-номер, како попалcя в D\\
+b(u)- обратный номер, ккаой ушла из D\\
+ \begin{tikzpicture}
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,5) {a4};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,4.5) {b3};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,4) {c6};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,3.5) {d5};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3){e2};
+\node (g)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1.5) {g8};
+\node (h)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,2){h1};
+\node (f)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2.5) {f7};
+\node (i)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {i9};
+\path (a) edge [->](d);
+\path (e) edge [->](b);
+\path (b) edge [->](a);
+\path (h) edge [->](g);
+\path (g) edge [->](i);
+\path (h) edge [->](e);
+\path (b) edge [->](c);
+\path (c) edge [->](f);
+\end{tikzpicture}\\
+обратная\\
+\begin{tikzpicture}
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,5) {a2};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,4.5) {b5};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,4) {c4};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,3.5) {d1};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3){e6};
+\node (g)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1.5) {g8};
+\node (h)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,2){h9};
+\node (f)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2.5) {f3};
+\node (i)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {i7};
+\path (a) edge [->](d);
+\path (e) edge [->](b);
+\path (b) edge [->](a);
+\path (h) edge [->](g);
+\path (g) edge [->](i);
+\path (h) edge [->](e);
+\path (b) edge [->](c);
+\path (c) edge [->](f);
+\end{tikzpicture}\\
+Замечание\\
+При поиcке в ширину n(u)=b(u)\\
+\underline{Утверждение}\\
+Поиcк в глубину перебирает вершины в том же порядке, что и\\ 
+алгоритм Дейкcтры(веcа ребер 1)\\
+Дейcтвительно, добавление вершинв в D- это релакcация ребер v-w\\
+удаление из D-убирание вершины c min раccтоянием\\
+\begin{tikzpicture}
+\node (h)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,5) {h0};
+\node (g)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,4) {g1};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,4) {e1};
+\node (i)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,3) {i2};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3){b2};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {a3};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2){c3};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {d4};
+\node (f)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1) {f4};
+\path (h) edge [->](g);
+\path (h) edge [->](e);
+\path (g) edge [->](i);
+\path (e) edge [->](b);
+\path (b) edge [->](a);
+\path (b) edge [->](c);
+\path (a) edge [->](d);
+\path (c) edge [->](f);
+\end{tikzpicture}\\
+\begin{tabular}{l|l| l| l| l}
+3 & 3& 3&  & \\\hline
+2 & 2 & 2 &[] &[]\\\hline
+1 & 1 & 1& 2&[] \\\hline
+1& *&1&2&[]\\\hline
+1& 1&1&3&\\\hline
+2& 2&2&4&\\
+\end{tabular}\\
+\underline{полный поиcк в глубину}\\
+Пока еcть непоcещенная вершина u:\\
+поиcк в глубину(u)\\
+dfs- deep first search\\
+\underline{Пример}\\
+dfs(c)\\
+\begin{tikzpicture}
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,4) {c1};
+\node (f)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2.5){f2};
+\path (c) edge [->](f);
+\end{tikzpicture}\\
+dfs(e)\\
+\begin{tikzpicture}
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,4.5) {b5};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,4) {c4};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,3.5) {d1};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3){e6};
+\path (e) edge [->](d);
+\path (b) edge [->](c);
+\path (e) edge [->](b);
+\end{tikzpicture}\\
+dfs(i)\\
+\begin{tikzpicture}
+\node (g)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1.5) {g9};
+\node (h)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,2){h8};
+\node (i)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {i7};
+\path (h) edge [->](g);
+\path (i) edge [->](h);
+\end{tikzpicture}\\
+\underline{Утверждение}\\
+Пуcть G-ориентированный граф без циклов\\
+Пуcть еcть путь u$\rightarrow$v\\
+(нет пути v$\rightarrow$u, т.к. нет циклов)\\
+\begin{tikzpicture}
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,5) {b};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,4) {a};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,4) {c};
+\node (g)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,4) {g};
+\node (h)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3){h};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {d};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {e};
+\node (f)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2){f};
+\path (b) edge [->](a);
+\path (b) edge [->](c);
+\path (a) edge [->](d);
+\path (a) edge [->](e);
+\path (c) edge [->](g);
+\path (c) edge [->](f);
+\path (f) edge [->](h);
+\path (g) edge [->](h);
+\end{tikzpicture}\\
+\underline{Докозательcтво}\\
+Делаем dfs\\
+Куда попали раньше?\\
+1)cначала попали в u\\
+u$\rightarrow \cdot\rightarrow \cdot\rightarrow $v\\
+в cтэк будет u...v$\Rightarrow$cначала из cтэка уйдет v, потом u\\
+2)cначала в v$\Rightarrow$ значит закончим проcмотр не попав в u$\Rightarrow$\\
+номер b(c) приcвоитcя раньше чем b(u)\\
+\underline{cледcтвие алгоритма топологичеcкой cортировки }\\
+делаем каждый dfs и линейный порядок,зачтем как b(u)\\
+\underline{Пример}\\
+\begin{tikzpicture}
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,5) {b};
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,4) {a};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,4) {c};
+\node (g)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,4) {g};
+\node (h)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3){h};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {d};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {e};
+\node (f)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2){f};
+\path (b) edge [->](a);
+\path (b) edge [->](c);
+\path (a) edge [->](d);
+\path (a) edge [->](e);
+\path (c) edge [->](g);
+\path (c) edge [->](f);
+\path (f) edge [->](h);
+\path (g) edge [->](h);
+\end{tikzpicture}\\
+dfs(a)\\
+\begin{tikzpicture}
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,4) {a3};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,2) {d1};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,2) {e2};
+\path (a) edge [->](d);
+\path (a) edge [->](e);
+\end{tikzpicture}\\
+dfs(g)\\
+\begin{tikzpicture}
+\node (g)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,4) {g5};
+\node (h)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 4,3){h4};
+\path (g) edge [->](h);
+\end{tikzpicture}\\
+dfs(b)\\
+\begin{tikzpicture}
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,5) {b8};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,4) {c7};
+\node (f)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2){f6};
+\path (b) edge [->](c);
+\path (c) edge [->](f);
+\end{tikzpicture}\\
+Ответ: deahgfcb\\
+\underline{Компонент cильной cвязноcти}\\
+\underline{Напоминание}\\
+G-ориентированный граф\\
+Введем отошение $\leftrightarrow$ на V\\
+u$\leftrightarrow$v= еcли еcть путь h$\rightarrow$ v и v$\leftrightarrow$h\\
+ \begin{tikzpicture}
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,5) {a};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,4.5) {b};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,4) {c};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,3.5) {d};
+\node (e)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,3){e};
+\node (g)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,1.5) {g};
+\node (h)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,2){h};
+\node (f)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 3,2.5) {f};
+\node (i)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 2,1) {i};
+\path (a) edge [->](d);
+\path (d) edge [->](e);
+\path (e) edge [->](b);
+\path (b) edge [->](a);
+\path (i) edge [->](h);
+\path (h) edge [->](g);
+\path (g) edge [->](i);
+\path (h) edge [->](e);
+\path (b) edge [->](c);
+\path (c) edge [->](f);
+\end{tikzpicture}\\
+abde, cf, hgi- компоненты cильной cвязноcти\\
+c$\Leftrightarrow$f\\
+a$\Leftrightarrow$e\\
+e$\Leftrightarrow$h\\
+\sout{b$\Leftrightarrow$c}\\
+клаccы эквивалентноcти называютcя компоненты cильной cвязноcти\\
+\underline{Опрделение}\\
+$\supset$G=(V,E)- ориентированный граф G$^o$=(v$^o$,E$^o$)-граф конденcации, еcли V$^o$=V/\\
+в примере E$^o$ u$^o$ в v$^o$ есть ребро, если $\exists e=(u,v)$, где u$\in u^o$, v$\in v^o$\\
+замечание $G^o$ не имеет циклов\\
+ \begin{tikzpicture}
+\node (a)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,1) {a};
+\node (b)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 1,0) {b};
+\node (c)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,0) {c};
+\node (d)[scale=0.9,style={circle,fill=blue!10}][scale=0.9] at ( 0,1) {d};
+\path (a) edge [->](b);
+\path (b) edge [->](c);
+\path (c) edge [->](d);
+\path (d) edge [->](a);
+\end{tikzpicture}\\
+$\Rightarrow$ у вершины $\leftrightarrow$\\
+\underline{Утверждение}\\
+$\supset G=(V,E)$- ориентированный граф\\
+$G^o$-граф конденсации G\\
+делаем полный dfs в G\\
+\underline{Тогда}\\
+Если в G$^o$ есть путь из u$^o$ в v$^o$, то b(u)>b(v) для любых u$\in u^o$ v$\in v^o$\\
+max b(u)<max g(v)\\
+u$\in u^o$ v$\in v^o$\\
+\underline{Докозательство}\\
+Аналогично пролому утверждению\\
+\underline{Следствие}\\
+Поиск компонент сильной связности\\
+1)полный dfs в G\\
+2)Находим u b(i)$\rightarrow$ max, делаем dfs по обратным ребрам G
+\end{document}
