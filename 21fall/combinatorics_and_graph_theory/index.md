@@ -25,7 +25,7 @@
 7. [Вадим Хаматов](lecture-notes/khamatov1-7.pdf), 0302, лекции 1–7. [Исходный код](lecture-notes/khamatov1-7.tex)
 8. [Андрей Блюдин](lecture-notes/bludin.pdf), 0302, Лекции 1–3: бинарные отношения и первые определения из теории графов. [Исходный код](lecture-notes/bludin.zip).
 9. Елизавета Кузнецова, 0371, лекции [1](lecture-notes/kuznetsova1.pdf), [3](lecture-notes/kuznetsova3.pdf), [4](lecture-notes/kuznetsova4.pdf), [5](lecture-notes/kuznetsova5.pdf), [8](lecture-notes/kuznetsova8.pdf), [9](lecture-notes/kuznetsova9.pdf). [Исходный код](lecture-notes/kuznetsova.zip).
-10. Анна Жук, 0371, см. конспект Елизаветы Кузнецовой. 
+10. Анна Жук, 0371, см. конспект Елизаветы Кузнецовой. И дополнительно лекция [10](lecture-notes/zhuk10.pdf), [исходный код](lecture-notes/zhuk10.zip).
 11. Кристина Сулейманова, 0371, см. конспект Анны Жук.
 12. [Игорь Карпий](lecture-notes/karpij.pdf), 0371, бинарные отношения. [Исходный код](lecture-notes/karpij.tex).
 13. Борис Качаев, 0371, см. конспект Игоря Карпия.
