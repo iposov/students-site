@@ -1,4 +1,4 @@
-package posov;
+package ru.spbu.arts.oop.books;
 
 public class Book { // в файле Book.java
 
