@@ -8,6 +8,6 @@ public class Dog extends Animal { // в файле Dog.java
 
     @Override
     public String getSound() {
-        return "woof"; //звук кошек
+        return "woof"; //звук собак
     }
 }

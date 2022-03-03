@@ -100,3 +100,4 @@ love.forEach((key, value) -> System.out.println(key + " -> " + value));
 
 ## Абстрактные классы
 [Животные c abstract class Animal](https://github.com/iposov/students-site/tree/master/22spring/prog_tech/src/ru/spbu/arts/oop/abstractanimals)
+
