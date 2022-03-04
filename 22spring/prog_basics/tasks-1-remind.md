@@ -18,8 +18,8 @@ type: tasks
 ## Строки
 1. Дана строка, верните, сколько раз в ней встречаются буквы `'A'` и `'B'` рядом. Например, для строки `'xxxAyyyBxxxAByyyBAxxxABA'` ответ будет 4.
 
-[Множества](../../21fall/prog_basics/tasks-9-sets.md)
+Задачи про [Множества](../../21fall/prog_basics/tasks-9-sets.md)
 
-[Словари](../../21fall/prog_basics/tasks-10-dicts.md)
+Задачи про [Словари](../../21fall/prog_basics/tasks-10-dicts.md)
 
-[Генераторы, аргументы функций, лямбда-выражения](../../21fall/prog_basics/tasks-11-extra.md)
+Задачи про [Генераторы, аргументы функций, лямбда-выражения](../../21fall/prog_basics/tasks-11-extra.md)
