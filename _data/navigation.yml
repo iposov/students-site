@@ -14,6 +14,8 @@
       url: /22spring/nlp
     - title: Комбинаторика и теория графов
       url: /22spring/combinatorics_and_graph_theory
+- title: Инструменты
+  url: /tools
 - title: Осень 2021
   url: /21fall
   sub:
