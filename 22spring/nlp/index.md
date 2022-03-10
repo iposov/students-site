@@ -5,6 +5,7 @@
 3. Дополнительные задания по закону Ципфа. N-грамм модели: [zipf-ngram.pdf](zipf-ngram.pdf)
 4. Numpy, Линейная регрессия: (numpy-linear-regression.ipynb)[http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/nlp/numpy-linear-regression.ipynb]
 5. N-грамм модели в NLTK: (ngram.ipynb)[http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/nlp/ngram.ipynb]
+6. N-грамм модели и оценка модели: [ngrams.pdf](ngrams.pdf)
 
 ## Задания
 ### Закон Ципфа
