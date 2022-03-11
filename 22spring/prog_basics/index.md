@@ -4,6 +4,10 @@
 
 Лекция 2. Пакеты и модули. PyCharm (начало). Git (начало). [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/prog_basics/lecture2.ipynb)
 
+Лекция 3. Регулярные выражения. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/prog_basics/lecture3.ipynb)
+
+Лекция 4. Группы в регулярных выражениях. Формат JSON. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/prog_basics/lecture4.ipynb)
+
 
 ## Задачи
 
