@@ -3,6 +3,8 @@
 1. Лекция 1. [Коллекции в Java](lecture1-collections.md)
 2. Лекция 2. [Ассоциативные массивы и абстрактные классы](lecture2-maps.md)
 2. Лекция 3. [Интерфейсы и лямбда выражения](lecture3-interfaces-lambda.md)
+2. Лекция 4. [Использование лямбда выражений, JavaFX](lecture4-lambdas-javafx.md)
+2. Лекция 5. [JavaFX Сцена](lecture5-scene.md)
 
 # Задачи для практических занятий
 

@@ -18,5 +18,7 @@ public class JavaFXExample extends Application {
         stage.setTitle("Hello window");
         //сделать видимым
         stage.show();
+
+
     }
 }
