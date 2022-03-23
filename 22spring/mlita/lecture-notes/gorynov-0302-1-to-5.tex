@@ -1,0 +1,1135 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+%Russian-specific packages
+%--------------------------------------
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsfonts}
+\usepackage[normalem]{ulem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{graphs}
+\usetikzlibrary {positioning}
+%--------------------------------------
+
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{ма-те-ма-ти-ка вос-ста-нав-ли-вать}
+%--------------------------------------
+\begin{document}
+\textbf{(Лекция№1 от 09.02)}\\
+Темы:\\
+$\bullet$ Математическая Логика\\
+-исчисление высказываний\\
+-исчесление предикатов\\
+$\bullet$ Теория формальных языков\\
+-конечные автоматы(регулярные выражения)\\
+-Контекстно свободные грамматики\\
+-машины Тьюринга
+\section{Исчесление Высказываний}
+\underline{Логические функции}\\
+\underline{Определение}\\
+$\beta$ =\{0,1\} $ \left.
+\begin{array}{rcll}
+\textrm{0-ложь/false }\\
+\textrm{1-истина/true}\\
+\end{array}
+\right.
+$ \\  
+-множество логических значений\\
+\underline{Определение}\\
+Длштчнская функция(от n переменных)\\
+f: $\beta^n\rightarrow \beta$\\
+Замечание: Часто логические функции вводят перечислением возможных аргументов и значений для них\\
+Примечание\\
+f(x,y)\\
+\begin{tabular}{ll|l}
+ x&y&f(x,y)\\
+\hline
+0 & 0 &0\\
+0 &  1 & 1\\
+1 &  0 & 1\\
+1&  1 & 1\\
+\end{tabular}\\
+Ту же функцию можно задать формулой\\
+f(x,y)=max(x,y)\\
+\underline{Утверждение}\\
+Функций от n переменных может быть $2^{2^n}$\\
+\begin{tabular}{llll}
+ $x_1$&$x_2$&...&$x_n$\\
+0 & 0& ...&0\\
+0& 0 &...& 1\\
+.& . &...& .\\
+. &  . &...& .\\
+.&  . &...& .\\
+1&  1 &...& 1\\
+\end{tabular} всего $2^n$ разных аргументов\\
+f($x_1$...$x_n$) может принимать значения 0 или 1. Следовательно, $2^{2^n}$\\
+Следствие\\
+n=1: $2^{2^1}=4$ функций f(x)\\
+n=2: $2^{2^2}=16$ функций f(x,y)\\
+n=1: $2^{2^3}=256$ функций f(x,y,z)\\
+\begin{tabular}{l|l|l|l|l}
+x&$f_1(x)=0$&$f_2(x)=x$&$f_3(x)$&$f_4(x)=1$\\
+\hline
+0& 0        &0 &1&1\\
+1& 0        &1 &0&1
+\end{tabular}\\
+$f_3$-отрицание, $\overline{x}$($\neg$x, !x)\\
+\underline{Прмимер}\\
+$\overline{0}$=1 \quad $\overline{1}$=0 \quad $\overline{0}{\overline{0}}$=0\\
+\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|l|l|l}
+x y&$f_1$&$f_2$&$f_3$&$f_4$&$f_5$&$f_6$&$f_7$&$f_8$\\
+\hline
+0 0 &0 &0 &0 &0 &0 &0 &0 &0\\
+0 1 &0 &0 &0 &0 &1 &1 &1 &1\\
+1 0 &0 &0 &1 &1 &0 &0 &1 &1\\
+1 1 &0 &1 &0 &1 &0 &1 &0 &1\\
+\end{tabular}\\
+\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|l|l|l}
+x y&$f_9$&$f_{10}$&$f_{11}$&$f_{12}$&$f_{13}$&$f_{14}$&$f_{15}$&$f_{16}$\\
+\hline
+0 0 &1 &1 &1 &1 &1 &1 &1 &1\\
+0 1 &0 &0 &0 &0 &1 &1 &1 &1\\
+1 0 &0 &0 &1 &1 &0 &0 &1 &1\\
+1 1 &0 &1 &0 &1 &0 &1 &0 &1\\
+\end{tabular}\\
+$f_1$(x,y)= нулевая $\emptyset$\\
+$f_2$(x,y)= логическое 'и'(коньюнкция) f(x,y)=x$\bullet$y x$\bullet$y x\&y x$\wedge$y\\
+$f_3$(x,y)=x>y запрет по y = $\overline{x\Rightarrow y}$\\
+$f_4$(x,y)=x\\
+$f_5$(x,y)=x<y запрет по x =$\overline{x\Leftarrow y}$\\
+$f_6$(x,y)=y\\
+$f_7$(x,y)=исключающее или x+y= x xor y = (x+y) mod2\\
+$f_8$(x,y)=логическое 'или' f(x,y)=max(x,y) x$\vee$y если истина зотя бы одна\\
+$f_9$(x,y)=x$\downarrow$y=$\overline{x\vee y}$ стрелка Пирса\\
+$f_{10}$(x,y)=эквивалентность x$\Leftrightarrow$y x$\equiv$y\\
+$f_{11}$(x,y)=$\overline{y}$\\
+$f_{12}$(x,y)=x$\Leftarrow$y=y$\Rightarrow$x обратная импликация\\
+$f_{13}$(X,y)=$\overline{x}$\\
+$f_{14}$(x,y)=$x\Rightarrow y$=x$\rightarrow y$\\
+$f_{15}$(x,y)=x|y=$\overline{xy}$ штрих Шеффера\\
+$f_{16}$(x,y)=единичная 1\\
+\underline{Определение}\\
+Логическое выражение- способ задания логических функций с помощью переменных и операций\\
+$\bullet \quad \vee \quad \Rightarrow \quad \Leftarrow \quad + \quad \equiv \quad |\quad \downarrow\quad <\quad > $\\
+Пример\\
+(x $\vee$ y)z\\
+(x$\Rightarrow$yz)$\vee$(y$\equiv$z)\\
+(0$\rightarrow$x)$\vee$(1$\rightarrow$y)- всегда истина\\
+\underline{Определение}\\
+Значения логического выражения можно записать таблицей истинности\\
+f(x,y,z)=(x$\vee$y)z\\
+\begin{tabular}{l|l}
+x y z&$(x\vee y)z$\\
+\hline
+0 0 0 &0\qquad (0$\vee$0)0=0\\
+0 0 1 &0\qquad (0$\vee$0)1=0\\
+0 1 0 &0\qquad (0$\vee$1)0=0\\
+0 1 1 &1\qquad (0$\vee$1)1=1\\
+1 0 0 &0\qquad (1$\vee$0)0=0\\
+1 0 1 &1\qquad (1$\vee$0)1=1\\
+1 1 0 &0\qquad (1$\vee$1)0=0\\
+1 1 1 &1\qquad (1$\vee$1)1=1\\
+\end{tabular}\\
+\underline{Замечания}\\
+порядок строчек в таблице истинности(ТИ)\\
+могут быть любими, но мы возьмем 000 001 010 011 100 101 110 111\\
+Таблицу истинности часто считают постепенно\\
+\begin{tabular}{l|l|l}
+x y z&x$\vee$ y&$(x\vee y)z$\\
+\hline
+0 0 0 &0&0\\
+0 0 1 &0&0\\
+0 1 0 &1&0\\
+0 1 1 &1&1\\
+\end{tabular}\\
+\underline{Приоритет операций}\\
+$\neg$\\
+* $\bullet$\\
+$\vee$\\
++ $\equiv$\\
+$\Leftarrow$ $\Rightarrow$\\
+| $\downarrow$ < >\\
+Пример\\
+$\neg$x$\vee$y=($\overline{x}\vee y$\\
+x$\vee$yz=x$\vee$(yz)\\
+$\overline{x\vee y}=\neg(x\vee y)$\\
+Аонебраические преобразования логический выражений- изменяем выражения обычно в сторону упрощения\\
+(0$\rightarrow x$)$\vee$(1$\rightarrow$y)=1$\vee$(1$\rightarrow y$)=1\\
+\underline{Утверждение}\\
+$\overline{\overline{x}}=x$\\
+Докозательство: \begin{tabular}{l|l|l}
+x&$\overline{x}$&$\overline{\overline{x}}$\\
+\hline
+0 &1&0\\
+1 &0&1\\
+\end{tabular}\\
+про $\vee$\\
+1$\vee$x=1\\
+0$\vee$x=x\\
+x$\vee$y=y$\vee$x-симметричность\\
+\textbf{(Лекция№2 от 16.02)}\\
+Напоминание\\
+-логические функции\\
+-все 16 f(x,y)\\
+-таблицы истинности\\
+\begin{tabular}{ll|l}
+ x&y&f(x,y)\\
+\hline
+0 & 0 &0\\
+0 &  1 & 1\\
+1 &  0 & 1\\
+1&  1 & 1\\
+\end{tabular}\quad
+\begin{tabular}{ll|l}
+ x&y&x*y\\
+\hline
+0 & 0 &0\\
+0 & 1 & 0\\
+0 & 0.5 & 0\\
+1&  0.2 & 0.2\\
+\end{tabular} \quad
+\begin{tabular}{l|l}
+ x&sin(x)\\
+\hline
+ 0 &0\\
+ 1 & 1\\
+ 0 & 1\\
+\end{tabular}\\
+-порядок строк фиксирован\\
+Таблица эквивалентности логических выражений\\
+$\overline{\overline{x}}=x$ \quad
+Докозательство: \begin{tabular}{l|l|l}
+x&$\overline{x}$&$\overline{\overline{x}}$\\
+\hline
+0 &1&0\\
+1 &0&1\\
+\end{tabular}\\
+x$\vee$y=y$\vee$x-симметричность\\
+1$\vee$x=1\\
+0$\vee$x=x\\
+x$\vee$x=x\\
+x$\vee \overline{x}$=1\\
+\begin{tabular}{l|l|l}
+x&$\overline{x}$&x$\vee$ $\overline{x}$\\
+\hline
+0 & 1& 1\\
+1 & 0& 1\\
+\end{tabular}\\
+xy=yx\\
+x*0=0\\
+x*1=x\\
+x*x=x\\
+x*$\overline{x}$=0\\
+\begin{tabular}{l|l|l}
+x&$\overline{x}$&x $\overline{x}$\\
+\hline
+0 & 1& 0\\
+1 & 0& 0\\
+\end{tabular}\\
+x+y=y+x\\
+x+0=x\\
+$
+\left.
+\begin{array}{rcll}
+x+1=\overline{x}\\
+x+x=0\\
+x+\overline{x}=1
+\end{array}
+\right\}{x+\overline{x}=x+1+x=1+0=1}\\
+$
+Ассоциацивность\\
+x$\vee(y\vee z)=(x \vee y) \vee z$\\
+x(yz)=(xy)z\\
+x+(y+z)=(x+y)+z\\
+x$\Rightarrow$y$\neg$y$\Rightarrow$x\\
+\begin{tabular}{l|l|l}
+x y&x$\Rightarrow$y&y$\Rightarrow$x\\
+\hline
+0 0& 1& 1\\
+0 1& 1& 0\\
+1 0& 0& 1\\
+1 1& 1& 1\\
+\end{tabular}\\
+x$\Rightarrow$0=$\overline{x}$\\
+0$\Rightarrow$x=1\\
+x$\Rightarrow$1=x\\
+1$\Rightarrow$x=x\\
+x$\Rightarrow$x=1\\
+x$\Rightarrow \overline{x}$=$\overline{x}$\\
+$\overline{x} \Rightarrow$x=x\\
+x$\Rightarrow$y$\Rightarrow$z= договоримся =, что это x$\Rightarrow$(y$\Rightarrow$z)$\neg$(x$\Rightarrow$y)$\Rightarrow$z\\
+\begin{tabular}{l|l|l|l|l}
+x y z&x$\Rightarrow$y&y$\Rightarrow$z&x$\Rightarrow$(y$\Rightarrow$z)&(x$\Rightarrow$)y$\Rightarrow$z\\
+\hline
+0 0 0& 1& 1&1&0\\
+0 0 1& 1& 0&1&1\\
+0 1 0& 1& 1&1&0\\
+0 1 1& 1& 1&1&1\\
+1 0 0& 0& 1&1&1\\
+1 0 1& 0& 1&1&1\\
+1 1 0& 1& 0&0&0\\
+1 1 1& 1& 1&1&1\\
+\end{tabular}\\
+x$\Leftrightarrow$y=y$\Leftrightarrow$x\\
+x$\Leftrightarrow$0=$\overline{x}$\\
+x$\Leftrightarrow$1=x\\
+x$\Leftrightarrow$x=1\\
+x$\Leftrightarrow \overline{x}$=0\\
+x$\Leftrightarrow$(y$\Leftrightarrow$z)=(x$\Leftrightarrow$)y$\Leftrightarrow$z -ассоциативно\\
+\underline{Дистрибутивность}\\
+(x$\vee$y)$\vee$z=xz$\vee$yz\\
+\begin{tabular}{l|l|l}
+x y z&(x$\vee$y)z&xz$\vee$yz\\
+\hline
+0 0 0& 0& 0\\
+0 0 1& 0& 0\\
+0 1 0& 0& 0\\
+0 1 1& 1& 1\\
+1 0 0& 0& 0\\
+1 0 1& 1& 1\\
+1 1 0& 0& 0\\
+1 1 1& 1& 1\\
+\end{tabular}\\
+(x+y)z=xz+yz так как обычные $+_2 \quad \bullet$\\
+(x\&y)$\vee$z=xy$\vee$z=(x$\vee$z)(y$\vee$z)\\
+\underline{Замечание}\\
+($x_1\vee x_2\vee x_3)(y_1\vee y_2)=(x_1\vee x_2 \vee x_3)y_1\vee(x_1\vee x_2\vee x_3)y_2$=\\
+=$x_1y_1\vee x_2y_1\vee x_3y_1 \vee x_1y_2\vee x_2y_2\vee x_3y_2$\\
+(xy$\vee$z)=(x$\vee$z)(y$\vee$z)=xy$\vee$xz$\vee$zy$\vee$zz=xy$\vee$xz$\vee$zy$\vee$zz=xy$\vee$xz$\vee$zy$\vee$z*1=\\
+=xy$\vee$z(x$\vee$y$\vee$1)=xy$\vee$z(x$\vee$y$\vee$1)=xy$\vee$z*1=xy$\vee$z- сошлось\\
+x+y=$\overline{x\Leftrightarrow y}$\\
+\begin{tabular}{l|l|l}
+x y&(x$\vee$y)z\\
+\hline
+0 0& 0\\
+0 1& 1\\
+1 0& 1\\
+1 1& 0\\
+\end{tabular}\\
+(x$\Rightarrow$y)(y$\Rightarrow $x)=$\overline{x\Leftrightarrow y}$
+\section{Многочлены Жегалкина}
+\underline{Замечание}\\
+одну и ту же функцию можно записать по разному\\
+В алгебре
+f(x)=1+x=x+1=x+5-4=cos(x-x)+x=...\\
+g(x)=$x^2-1=(x-1)(x+1)=\dots$\\
+В логике
+f(x,y)=x$\vee$y=x$\vee$y$\vee$0=(x$\vee$y)($\overline{y} \vee $y)=x$\overline{y} \vee$y- дистрибутивно\\
+\underline{Определение}\\
+Многочлен Жегалкина для логическиой функции\\
+f($x_1,x_2,\dots x_n$)- это многочлен с переменными $x_i$, константами 0,1 и со степенями перменных $\leq$1\\
+\underline{или}\\
+это многочлен от $x_i$ над $\mathbb Z_2$\\
+\underline{Пример}\\
+f(x,y,z)=1+x+yz+xyz\\
+1+x\\
+1+xy\\
+x+xyz\\
+Не многочлены:\\
+1+x+(y$\vee$z)\\
+1+x+$z^2$\\
+\underline{Замечание}\\
+В общем случае многочлен:\\
+от 1 переменной ($a_i$=0 или 1) $a_0+a_1x$\\
+от 2 переменных $a_0+a_1x+a_2y+a_3z+a_4xy+a_5zx+a_6yz+a_7xyz$\\
+от 3 переменных $a_0+a_1x_1+\dots+a_nx_n+ax_1x_2+ax_1x_3+\dots+ax_1x_2x_3+ax_1x_2x_4+\dots+ax_1x_2x_3\dots x_n$\\
+\underline{Утверждение}\\
+$\forall$ f($x_1\dots x_n)$-логическая функция $\exists$! многочлен Жегалкина\\
+$g(x_1\dots x_n):f=g$\\
+Примеры\\
+f(x)=0=0=0+0x\\
+f(x)=1=1=1+0x\\
+f(x)=x=x=0+1x\\
+f(x)=$\overline{x}$=1+X=1+1x\\
+\underline{Докозательство}\\
+1.\\
+разные многочлены- это разные логические функции, то есть f$(x_1 \dots x_n)=a_0+\dots+a_nx_1\dots x_n$\\
+g$(x_1 \dots x_n)=b_0+\dots+b_nx_1\dots x_n$\\
+$\exists i:a_i\neg b_i$\\
+Возьмем различающийся индекс с самым min количеством переменных\\
+Пример\\
+f(x,y,z)=1+x+xy+xyz=$\dots$+1x+0y+0z+1xy\\
+g(x,y,z)=1+y+z+xyz=$\dots$+0x+1y+1z+0xy\\
+Для переменных этого слогаемого подставим 1\\
+Для остальных переменных:0\\
+(В примере x=1 y=0 z=0: f(1,0,0) и g(1,0,0))\\
+И в f и в g все другие слогаемые равны 0 или совпадают\\
+Теперь f($\dots$) и g($\dots$) $\Rightarrow$ f($x_1 \dots x_n$) $\neg$ g($y_1 \dots y_n$)\\
+$a_ixxx \neg b_ixxx$, так как $a_i\neg b_i$\\
+2.\\
+Проверим, что многочленов столько же, сколько функций от n переменных\\
+посчитает\\
+$a_0+a_1x_1+\dots +a_nx_1x_2 \dots x_n$\\
+сколько слагаемых\\
+1) 1 слагаемое без переменных и слагаемой с 1ой переменной\\
+$a_1x_1+\dots +a_nx_n$\\
+$C_n^2$слагаемых с 2 переменными\\
+$C_n^3$слагаемых с 3 переменными\\
+$\dots$\\
+$C_n^n$слагаемых с n переменными\\
+Всего $C_n^0+C_n^1+C_n^2\dots +C_n^n=2^n$\\
+Пример\\
+$a_0+a_1x$- 2 слагаемых=2\\
+$a_0+a_1x+a_2y+a_3xy- 2^2$= 4 слагаемых\\
+2) все слогаемые имеют вид:  $x_1,x_2,x_3 \dots x_n -2^n$\\
+Итого многочлен Жегалкина от n переменных имеет $2^n$ слагаемых\\
+теперь сколько разных многочленов?\\
+Каждое $a_i$=0 или 1\\
+Ответ: $2^{2^n}$ столько же, сколько логических функций\\
+Итог:\\
+Логические функции от n переменных($2^{2^n}$ штук)$\equiv$ многочленов Жегалкина от n перменных ($2^{2^n}$ штук)\\
+Следствие: любая логическая функция может быть представлена в виде многочлена Жегалкина\\
+Примеры\\
+f(x,y)=x$\vee$y не многочлен Жегалкина\\
+f(x,y)=x*y- многочлен Жегалкина\\
+подберем x$\vee$ y=$a_0+a_1x+a_2y+a_3xy$\\
+f(0,0)= 1$\vee$0=1\\
+$a_0+a_1=1$ $a_1=1$
+f(0,1) аналогично\\
+f(x,y)=x+y+$a_3$xy\\
+f(1,1)=1$\vee$1=1\\
+1+1+$a_3$=0+$a_3$=$a_3 \Rightarrow a_3=1$\\
+Ответ: x$\vee$y=x+y+xy\\
+\textbf{(Лекция№3 от 02.03)}\\
+Все многочлены функции можно представить в виде многочлена\\
+\begin{tabular}{lll}
+f(x)&&многочлены \\
+\hline
+0&=&0\\
+1&=&1\\
+x&=&x\\
+$\overline{x}$&=&1+x\\
+\end{tabular} \begin{tabular}{lll}
+f(x,y)&&многочлены \\
+\hline
+0&=&0\\
+1&=&1\\
+xy&=&xy\\
+x+y&=&x+y\\
+x$\vee$y&=&x+y+xy\\
+\end{tabular}\\
+x$\vee$y=x+y+xy- Многочлен Жегалкина для $\vee$(Другой способ получить многочлен из x$\vee$y)\\
+Добавим формулы в список\\
+$\overline{xy}=\neg(x,y)=\overline{x}\vee\overline{y}$\\
+$\overline{x\vee y}=\overline{x}\overline{y}=\overline{y}\overline{x}$\\
+Замечание $\overline{xy}\neg \overline{y}\overline{x}$\\
+Докозательство в таблице истинности\\
+\begin{tabular}{l|l|l|l|l|l}
+x y&$\overline{x\vee y}$&$\overline{x}$&$\overline{y}$&$\overline{x} \bullet \overline{y}$ \\
+\hline
+0 0&0&1&1&1\\
+0 1&1&1&0&0\\
+1 0&1&0&1&0\\
+1 1&1&0&0&0\\
+\end{tabular}\\
+x$\vee$y=$\overline{\overline{x}\bullet\overline{y}}$\\
+$\overline{(1+x)(1+y)}=1+(1+x)(1+y)=\underbrace{1+1}_{=0}+x+y+xy=x+y+xy$\\
+Многочлен Жегалкина для $\Leftrightarrow$?\\
+x$\Leftrightarrow$y=$\overline{x+y}=1+x+y$\\
+Многочлен Жегалкина для x$\Rightarrow$y\\
+x$\Rightarrow$y=$\overline{x} \vee \overline{y}$\\
+Если есть логическая функция, её можно привести к форме многочлена Жегалкина\\
+-Метод неопределенных коэффициентов(смотри учебник Рыбина) $a_0+a_1x+a_2y+\dots+axyz$\\
+-Метод алгебраических преобразований\\
+\underline{Пример}\\
+$x\vee y=\overline{\overline{x}\vee \overline{y}}=\dots=x+y+xy$\\
+$x\Rightarrow y=\overline{x}\vee y=\dots=1+x+xy$
+x$\Rightarrow(y\vee \overline{z})=x\Rightarrow(y+\overline{z}+y\overline{z})=x\Rightarrow(y+(1+z)+y(1+z))=x\Rightarrow(y+1+z+y+yz)=x\Rightarrow(1+z+yz)=1+x+x(1+z+yz)=1+xy+yz$-Ответ\\
+$(x \Leftrightarrow y)\Leftrightarrow z=x\Leftrightarrow(y\Leftrightarrow z)$\\
+$x\Leftrightarrow y\Leftrightarrow=(1+x+y)\Leftrightarrow z=1+ (1+x+y)+z=1+1+x+y+z=x+y+z$\\
+Вывод: Заранее не ясно, сложно ли привести функцию к многочлену Жегалкина
+\section{Дизъюнктивно нормальная форма (ДНФ)}
+\underline{Определение}\\
+Литерал- это переменная или отрицание переменной\\
+Например: x,$\overline{x}$, y, $\overline{y}$, z,$\overline{z}$\\
+\underline{Определение}\\
+Конъюнкт- конъюнкция литералов\\
+$x\overline{y},xyz,\overline{x}\overline{y}\overline{z},\overline{x}z,\overline{z},\emptyset$,\sout{$\overline{xy}$},\sout{$x\vee y$}\\
+\underline{Определение}\\
+Логическое выражение, уравнение, имеет дизъюнктивно нормальную\\
+форму, если она является дизъюнкцией конъюнктов\\
+\underline{Примеры}\\
+$x\overline{y} \vee \overline{x}\overline{z}T\vee z\vee \overline{x}\overline{y}$\\
+$xy\vee \overline{x}\overline{y}$\\
+$x\vee y$\\
+xy\\
+НЕ ДНФ \sout{$\overline{xy}$} но $\overline{x}\vee\overline{y}$ ДНФ\\
+\sout{$x\Rightarrow yz$}=$\overline{x}\vee yz$\\
+\underline{Построение ДНФ по таблице истинности}\\
+Алгоритм на примере 3х цифр\\
+\begin{tabular}{l|l|l|l|l|l}
+x y z&$\overline{x }y\overline{z}$&$\overline{x}yz$&$xy\overline{z}$&$\overline{x }y\overline{z}\vee \overline{x}yz\vee xy\overline{z}$\\
+\hline
+0 0 0&0&0&0&0\\
+0 0 1&0&0&0&0\\
+0 1 0&1&0&0&1\\
+0 1 1&0&1&0&1\\
+1 0 0&0&0&0&0\\
+1 0 1&0&0&0&0\\
+1 1 0&0&0&1&1\\
+1 1 1&0&0&0&0\\
+\end{tabular}\\
+\underline{Замечание}\\
+У одной функции могут быть разные ДНФ\\
+$\overline{x}y\overline{z}\vee\overline{x}yz\vee xy\overline{z}$
+$
+\left.
+\begin{array}{lcl}
+\overset{1}{=}\overline{x}y(\overline{z}\vee z)\vee xy\overline{z}=\overline{x}y\vee xy\overline{z}\\
+\overset{2}{=}(\overline{x}\vee x)y\overline{z}\vee \overline{x}yz-y\overline{z}\vee \overline{x}yz=y\overline{z}\vee \overline{x}yz\vee x\overline{x}\vee y\overline{y}\vee=\infty\\
+\end{array}
+\right.
+$\\
+Как получить ДНФ для формулы/функции\\
+-по таблице истинности\\
+-алгебраические преобразованиями\\
+Примеры\\
+$\overline{x}=\overline{x}$\\
+$x\vee y=y\vee x$ 2 кон.\\
+xy=yx 1 кон.\\
+$x\Rightarrow \overline{x}\vee y$ 2кон.\\
+$x\Leftrightarrow y=(x\Rightarrow y)(y\Rightarrow x)=(\overline{x}\vee y)(\overline{y}\vee x)=$раскроем скобки\\
+=$\overline{x}\overline{y}\vee \overline{x}x\vee y\overline{y}\vee yx=\overline{x}\overline{y}\vee xy$\\
+По Таблице Истинности\\
+\begin{tabular}{l|l}
+x y& $x\Leftrightarrow y$\\
+\hline
+0 0&1 ($\overline{x}\overline{y})$\\
+0 1&0\\
+1 0&0\\
+1 1&1 (xy)
+\end{tabular}\\
+Пример, построить ДНФ\\
+$x\Rightarrow(y+z)$\\
+1)Таблица Истинности\\
+2)преобразования $\overline{x}\vee(y+z)=\overline{x}\overline{y}z\vee y\overline{z}$-Ответ\\
+Задача\\
+Дана логическая формула в ДНФ, проверить, бывает ли она равна 0\\
+$\overline{x}\overline{y}\vee x\vee y =0$\\
+x=0,y=0$\Rightarrow \overline{x}\overline{y}=1$\\
+эта задача\\
+- Если знать значения перемнных(ответ) для 0, то их можно\\
+быстро проверить\\
+- Подобрать значения переменных для 0- трудно, не известно алгоритма,\\
+который быстрее полного перебора\\
+Задача в информатики P ?= NP\\
+то, к чему сводится задача выполнимости- тоже слодна\\
+-упростит логическое выражение\\
+-поиск минимального ДНФ(следующий раз)
+\section{Запись таблицы истинности в виде графика}
+f(x,y)=x+y\\
+\begin{tikzpicture}
+\node (0)[scale=0.9] at ( 0,0) {0};
+\node [scale=0.9] at ( 3,3) {y};
+\node (fxy)[scale=0.9] at ( 0,3) {f(x,y)};
+\node (x)[scale=0.9] at ( 3,0) {x};
+\node (f10)[scale=0.9] at (1,0) {1 f(1,0)};
+\node (f11)[scale=0.9] at (2.5,1){0 f(1,1)};
+\node (f01)[scale=0.9] at ( 1,1) {1 f(0,1)};
+\path (0) edge [->](fxy);
+\path (0) edge [->](x);
+\path (-1,-1) edge [->](3,3);
+\path (f01) edge[dashed](f11);
+\path (f10) edge[dashed](f11);
+\end{tikzpicture}\\
+f(x,y,z)=x+y+z\\
+\begin{tikzpicture}
+\node (0)[scale=0.9] at ( 0,0) {0};
+\node (x)[scale=0.9] at ( 3,0) {x};
+\node (z)[scale=0.9] at ( 0,3) {z};
+\node (y)[scale=0.9] at ( 4.2,4) {y};
+\node (f001)[scale=0.9] at (2,0) {1};
+\node (f010)[scale=0.9] at (0.9,1){1};
+\node (f100)[scale=0.9] at (-0.1,2) {1};
+\node (f011)[scale=0.9] at ( 3,3) {};
+\node ()[scale=0.9] at ( 3.1,2.9) {1};
+\node (f101)[scale=0.9] at ( 2,2) {0};
+\node (f110)[scale=0.9] at ( 3,1) {0};
+\node (f111)[scale=0.9] at ( 0.9,3) {0};
+\path (f010) edge[dashed](f110);
+\path (0) edge [->,red](x);
+\path (-1,-1) edge [->,red](y);
+\path (0) edge[dashed] (f010);
+\path (0) edge[->,red](z);
+\path (f010) edge[dashed] (f111);
+\path (f101) edge[] (f100);
+\path (f101) edge[] (f001);
+\path (f101) edge[] (f011);
+\path (f011) edge[] (f110);
+\path (f011) edge[] (f111);
+\path (f111) edge[] (f100);
+\path (f110) edge[] (f001);
+\end{tikzpicture}\\
+\textbf{(Лекция№1 от 09.03)}
+\section{Задача минимизации ДНФ}
+Дана: логическая функция(в виде ДНФ), найти самую короткую эквивалентную ДНФ(min количество литералов и дизъюнкция $\vee$)\\
+$\overline{x}\overline{y}\vee \overline{z}$
+$
+\left.
+\begin{array}{lcl}
+\textrm{короче} xy\vee yz\\
+\textrm{короче} x\overline{y}\overline{z}TU\\
+\end{array}
+\right.
+$\\
+Напоминание про куб\\
+\underline{Замечание}\\
+Далее рассматриваем только f(x,y,z)- 3 переменных\\
+\underline{Замечание}\\
+Какова таблица истинности $\overset{abc}{xyz}$, где a=0/1 b=0/1 c=0/1\\
+0- отрицание 1-без отрицния\\
+Пример: $\overline{x}y\overline{z}$\\
+\begin{tikzpicture}
+\node (0)[scale=0.9] at ( 0,0) {0};
+\node (x)[scale=0.9] at ( 3,0) {x};
+\node (z)[scale=0.9] at ( 0,3) {z};
+\node (y)[scale=0.9] at ( 4.2,4) {y};
+\node (f001)[scale=0.9] at (2,0) {0};
+\node (f010)[scale=0.9] at (0.9,1){1};
+\node (f100)[scale=0.9] at (-0.1,2){0};
+\node (f011)[scale=0.9] at ( 3,3) {};
+\node ()[scale=0.9] at ( 3.1,2.9) {0};
+\node (f101)[scale=0.9] at ( 2,2) {0};
+\node (f110)[scale=0.9] at ( 3,1) {0};
+\node (f111)[scale=0.9] at ( 0.9,3) {0};
+\path (f010) edge[dashed](f110);
+\path (0) edge [->,red](x);
+\path (-1,-1) edge [->,red](y);
+\path (0) edge[dashed] (f010);
+\path (0) edge[->,red](z);
+\path (f010) edge[dashed] (f111);
+\path (f101) edge[] (f100);
+\path (f101) edge[] (f001);
+\path (f101) edge[] (f011);
+\path (f011) edge[] (f110);
+\path (f011) edge[] (f111);
+\path (f111) edge[] (f100);
+\path (f110) edge[] (f001);
+\end{tikzpicture}\\
+Если $\overline{x}y\overline{z}=1$, то $\overline{x}=1$ x=0
+\begin{tabular}{llll}
+если $\overline{x}y\overline{z}=1$, то&$\overline{x}=1$&y=1&z=1\\
+&x=0&y=1&z=0\\
+если xyz=1, то&x=a&y=b&z=c\\
+\end{tabular}\\
+Какова таблица истинности из двух $\overset{ab}{xy}$?\\
+xy=1 $\Leftrightarrow$ \begin{tabular}{ll}
+x=1&y=1\\
+x=a&y=b\\
+\end{tabular}\\
+\begin{tikzpicture}
+\node (0)[scale=0.9] at ( 0,0) {0};
+\node (x)[scale=0.9] at ( 3,0) {x};
+\node (z)[scale=0.9] at ( 0,3) {z};
+\node (y)[scale=0.9] at ( 4.2,4) {y};
+\node (f001)[scale=0.9] at (2,0) {0};
+\node (f010)[scale=0.9] at (0.9,1){1};
+\node (f100)[scale=0.9] at (-0.1,2){0};
+\node (f011)[scale=0.9] at ( 3,3) {};
+\node ()[scale=0.9] at ( 3.1,2.9) {0};
+\node (f101)[scale=0.9] at ( 2,2) {0};
+\node (f110)[scale=0.9] at ( 3,1) {0};
+\node (f111)[scale=0.9] at ( 0.9,3) {1};
+\path (f010) edge[dashed](f110);
+\path (0) edge [->,red](x);
+\path (-1,-1) edge [->,red](y);
+\path (0) edge[dashed] (f010);
+\path (0) edge[->,red](z);
+\path (f010) edge[dashed] (f111);
+\path (f101) edge[] (f100);
+\path (f101) edge[] (f001);
+\path (f101) edge[] (f011);
+\path (f011) edge[] (f110);
+\path (f011) edge[] (f111);
+\path (f111) edge[] (f100);
+\path (f110) edge[] (f001);
+\end{tikzpicture}\\
+$\overline{x}y$-единцы, на ребре x=0 y=1 z=?\\
+аналогично $\overline{y}\overline{z}$рисуем ТИ\\
+ребро y=0 z=0\\
+\begin{tikzpicture}
+\node (0)[scale=0.9] at ( 0,0) {1};
+\node (x)[scale=0.9] at ( 3,0) {x};
+\node (z)[scale=0.9] at ( 0,3) {z};
+\node (y)[scale=0.9] at ( 4.2,4) {y};
+\node (f001)[scale=0.9] at (2,0) {1};
+\node (f010)[scale=0.9] at (0.9,1){0};
+\node (f100)[scale=0.9] at (-0.1,2){0};
+\node (f011)[scale=0.9] at ( 3,3) {};
+\node ()[scale=0.9] at ( 3.1,2.9) {0};
+\node (f101)[scale=0.9] at ( 2,2) {0};
+\node (f110)[scale=0.9] at ( 3,1) {0};
+\node (f111)[scale=0.9] at ( 0.9,3) {0};
+\path (f010) edge[dashed](f110);
+\path (0) edge [->,red](x);
+\path (-1,-1) edge [->,red](y);
+\path (0) edge[dashed] (f010);
+\path (0) edge[->,red](z);
+\path (f010) edge[dashed] (f111);
+\path (f101) edge[] (f100);
+\path (f101) edge[] (f001);
+\path (f101) edge[] (f011);
+\path (f011) edge[] (f110);
+\path (f011) edge[] (f111);
+\path (f111) edge[] (f100);
+\path (f110) edge[] (f001);
+\end{tikzpicture}\\
+Последнее, конъюнкт из 1 литерала\\
+x,y,z,$\overline{x},\overline{z},\overline{y}$\\
+Например, $\overline{y}$, какая ТИ?\\
+\begin{tikzpicture}
+\fill[fill=blue!7] (0,0) rectangle (2,2);
+\node (0)[scale=0.9] at ( 0,0) {1};
+\node (x)[scale=0.9] at ( 3,0) {x};
+\node (z)[scale=0.9] at ( 0,3) {z};
+\node (y)[scale=0.9] at ( 4.2,4) {y};
+\node (f001)[scale=0.9] at (2,0) {1};
+\node (f010)[scale=0.9] at (0.9,1){0};
+\node (f100)[scale=0.9] at (-0.1,2){1};
+\node (f011)[scale=0.9] at ( 3,3) {};
+\node ()[scale=0.9] at ( 3.1,2.9) {0};
+\node (f101)[scale=0.9] at ( 2,2) {1};
+\node (f110)[scale=0.9] at ( 3,1) {0};
+\node (f111)[scale=0.9] at ( 0.9,3) {0};
+\path (f010) edge[dashed](f110);
+\path (0) edge [->,red](x);
+\path (-1,-1) edge [->,red](y);
+\path (0) edge[dashed] (f010);
+\path (0) edge[->,red](z);
+\path (f010) edge[dashed] (f111);
+\path (f101) edge[] (f100);
+\path (f101) edge[] (f001);
+\path (f101) edge[] (f011);
+\path (f011) edge[] (f110);
+\path (f011) edge[] (f111);
+\path (f111) edge[] (f100);
+\path (f110) edge[] (f001);
+
+\end{tikzpicture}\\
+y=0\\
+или конъюнкт x:грань x=1\\
+\begin{tikzpicture}
+\fill[fill=blue!7]  (2,2) -- (3,1) -- (3,3) -- cycle;
+\fill[fill=blue!7] (2,2) -- (3,1) -- (2,0) -- cycle;
+\node (0)[scale=0.9] at ( 0,0) {0};
+\node (x)[scale=0.9] at ( 3,0) {x};
+\node (z)[scale=0.9] at ( 0,3) {z};
+\node (y)[scale=0.9] at ( 4.2,4) {y};
+\node (f001)[scale=0.9] at (2,0) {1};
+\node (f010)[scale=0.9] at (0.9,1){0};
+\node (f100)[scale=0.9] at (-0.1,2){0};
+\node (f011)[scale=0.9] at ( 3,3) {1};
+\node ()[scale=0.9] at ( 3.1,2.9) {};
+\node (f101)[scale=0.9] at ( 2,2) {1};
+\node (f110)[scale=0.9] at ( 3,1) {1};
+\node (f111)[scale=0.9] at ( 0.9,3) {0};
+\path (f010) edge[dashed](f110);
+\path (0) edge [->,red](x);
+\path (-1,-1) edge [->,red](y);
+\path (0) edge[dashed] (f010);
+\path (0) edge[->,red](z);
+\path (f010) edge[dashed] (f111);
+\path (f101) edge[] (f100);
+\path (f101) edge[] (f001);
+\path (f101) edge[] (f011);
+\path (f011) edge[] (f110);
+\path (f011) edge[] (f111);
+\path (f111) edge[] (f100);
+\path (f110) edge[] (f001);
+\end{tikzpicture}\\
+Итого ТИ:\\
+$\overset{abc}{xyz}$- это вершина x=a y=b z=c\\
+$\overset{ab}{xy}$- это ребро x=a y=b\\
+$\overset{a}{x}$- это грани x=a\\
+Попробуем минимизировать ДНФ\\
+Пример\\
+$\overline{x}\overline{y}\overline{z}\vee x\overline{y}\overline{z}\vee xy\overline{z}$\\
+Найти самый короткий ДНФ для неё\\
+$\bullet$Шаг 1. Рисуем ТИ\\
+\begin{tikzpicture}
+\node (0)[scale=0.9] at ( 0,0) {1};
+\node (x)[scale=0.9] at ( 3,0) {x};
+\node (z)[scale=0.9] at ( 0,3) {z};
+\node (y)[scale=0.9] at ( 4.2,4) {y};
+\node (f001)[scale=0.9] at (2,0) {1};
+\node (f010)[scale=0.9] at (0.9,1){0};
+\node (f100)[scale=0.9] at (-0.1,2){0};
+\node (f011)[scale=0.9] at ( 3,3) {0};
+\node ()[scale=0.9] at ( 3.1,2.9) {};
+\node (f101)[scale=0.9] at ( 2,2) {0};
+\node (f110)[scale=0.9] at ( 3,1) {1};
+\node (f111)[scale=0.9] at ( 0.9,3) {0};
+\path (f010) edge[dashed](f110);
+
+\path (0) edge [->,red](x);
+\path (-1,-1) edge [->,red](y);
+\path (0) edge[dashed] (f010);
+\path (0) edge[->,red](z);
+\path (0) edge[blue!60]node[below]{$\overline{y}$ $\overline{z}$} (f001);
+\path (f010) edge[dashed] (f111);
+\path (f101) edge[](f100);
+\path (f101) edge[](f001);
+\path (f101) edge[] (f011);
+\path (f011) edge[] (f110);
+\path (f011) edge[] (f111);
+\path (f111) edge[] (f100);
+\path (f110) edge[blue!60]node[right]{x$\overline{z}$}  (f001);
+\end{tikzpicture}\\
+$\overline{x}\overline{y}\overline{z}$-вершина 0,0,0\\
+$x\overline{y}\overline{z}$-вершина 1,0,0\\
+$xy\overline{z}$-вершина 1,1,0\\
+Другие ДНФ\\
+$\overline{y}\overline{z}\vee x\overline{z}$\\
+или\\
+$\overline{x}y\overline{z}\vee x\overline{z}$\\
+\begin{tikzpicture}
+\path (-1,-1) edge [->,red](y);
+\node (0)[scale=0.9,blue!60] at ( 0,0) {1};
+\node (x)[scale=0.9] at ( 3,0) {x};
+\node (z)[scale=0.9] at ( 0,3) {z};
+\node (y)[scale=0.9] at ( 4.2,4) {y};
+\node (f001)[scale=0.9] at (2,0) {1};
+\node (f010)[scale=0.9] at (0.9,1){0};
+\node (f100)[scale=0.9] at (-0.1,2){0};
+\node (f011)[scale=0.9] at ( 3,3) {0};
+\node ()[scale=0.9] at ( 3.1,2.9) {};
+\node (f101)[scale=0.9] at ( 2,2) {0};
+\node (f110)[scale=0.9] at ( 3,1) {1};
+\node (f111)[scale=0.9] at ( 0.9,3) {0};
+\path (f010) edge[dashed](f110);
+\path (0) edge[] (f001);
+\path (0) edge [->,red](x);
+\path (0) edge[dashed] (f010);
+\path (0) edge[->,red](z);
+\path (f010) edge[dashed] (f111);
+\path (f101) edge[](f100);
+\path (f101) edge[](f001);
+\path (f101) edge[] (f011);
+\path (f011) edge[] (f110);
+\path (f011) edge[] (f111);
+\path (f111) edge[] (f100);
+\path (f110) edge[blue!60]node[right]{x$\overline{z}$}  (f001);
+\end{tikzpicture}\\
+$\overline{y}\overline{z}\vee xy\overline{z}$\\
+\begin{tikzpicture}
+\node (0)[scale=0.9] at ( 0,0) {1};
+\node (x)[scale=0.9] at ( 3,0) {x};
+\node (z)[scale=0.9] at ( 0,3) {z};
+\node (y)[scale=0.9] at ( 4.2,4) {y};
+\node (f001)[scale=0.9] at (2,0) {1};
+\node (f010)[scale=0.9] at (0.9,1){0};
+\node (f100)[scale=0.9] at (-0.1,2){0};
+\node (f011)[scale=0.9] at ( 3,3) {0};
+\node ()[scale=0.9] at ( 3.1,2.9) {};
+\node (f101)[scale=0.9] at ( 2,2) {0};
+\node (f110)[scale=0.9,blue!60] at ( 3,1) {1};
+\node (f111)[scale=0.9] at ( 0.9,3) {0};
+\path (f010) edge[dashed](f110);
+\path (0) edge [->,red](x);
+\path (-1,-1) edge [->,red](y);
+\path (0) edge[dashed] (f010);
+\path (0) edge[->,red](z);
+\path (0) edge[blue!60]node[below]{$\overline{y}$ $\overline{z}$} (f001);
+\path (f010) edge[dashed] (f111);
+\path (f101) edge[](f100);
+\path (f101) edge[](f001);
+\path (f101) edge[] (f011);
+\path (f011) edge[] (f110);
+\path (f011) edge[] (f111);
+\path (f111) edge[] (f100);
+\path (f110) edge[]  (f001);
+\end{tikzpicture}\\
+то есть $\overline{x}\overline{y}\overline{z}\vee x\overline{y}\overline{z}=\overline{y}\overline{z}\vee x\overline{z}=\overline{x}y\overline{z}\vee x\overline{z}=\overline{y}\overline{z}\vee xy\overline{z}$
+$\overline{y}\overline{z}\vee x\overline{z}$- самый короткий ответ\\
+Пример 2\\
+$\overline{x}\overline{y}\overline{z}\vee x\overline{y}\vee xy$\\
+\begin{tikzpicture}
+\path (-1,-1) edge [->,red](y);
+\node (0)[scale=0.9,blue!60] at ( 0,0) {1};
+\node (x)[scale=0.9] at ( 3,0) {x};
+\node (z)[scale=0.9] at ( 0,3) {z};
+\node (y)[scale=0.9] at ( 4.2,4) {y};
+\node (f001)[scale=0.9] at (2,0) {1};
+\node (f010)[scale=0.9] at (0.9,1){0};
+\node (f100)[scale=0.9] at (-0.1,2){0};
+\node (f011)[scale=0.9] at ( 3,3) {0};
+\node ()[scale=0.9] at ( 3.1,2.9) {};
+\node (f101)[scale=0.9] at ( 2,2) {0};
+\node (f110)[scale=0.9] at ( 3,1) {1};
+\node (f111)[scale=0.9] at ( 0.9,3) {0};
+\path (f010) edge[dashed](f110);
+\path (0) edge [->,red](x);
+\path (0) edge[dashed] (f010);
+\path (0) edge[->,red](z);
+\path (f010) edge[dashed] (f111);
+\path (f101) edge[](f100);
+\path (f101) edge[blue!60]node[right]{x$\overline{y}$}(f001);
+\path (f101) edge[] (f011);
+\path (f011) edge[] (f110);
+\path (f011) edge[] (f111);
+\path (f111) edge[] (f100);
+\path (f110) edge[blue!60]node[right]{xy}  (f001);
+\end{tikzpicture}\\
+x=1$\Rightarrow$ $x\vee \overline{x}\overline{y}\overline{z}=x\vee \overline{y}\overline{z}$\\
+\begin{tikzpicture}
+\path (-1,-1) edge [->,red](y);
+\fill[fill=blue!7]  (2,2) -- (3,1) -- (3,3) -- cycle;
+\fill[fill=blue!7] (2,2) -- (3,1) -- (2,0) -- cycle;
+\node (0)[scale=0.9,blue!60] at ( 0,0) {0};
+\node (x)[scale=0.9] at ( 3,0) {x};
+\node (z)[scale=0.9] at ( 0,3) {z};
+\node (y)[scale=0.9] at ( 4.2,4) {y};
+\node (f001)[scale=0.9] at (2,0) {1};
+\node (f010)[scale=0.9] at (0.9,1){0};
+\node (f100)[scale=0.9] at (-0.1,2){0};
+\node (f011)[scale=0.9] at ( 3,3) {1};
+\node ()[scale=0.9] at ( 3.1,2.9) {};
+\node (f101)[scale=0.9] at ( 2,2) {1};
+\node (f110)[scale=0.9] at ( 3,1) {1};
+\node (f111)[scale=0.9] at ( 0.9,3) {0};
+\path (f010) edge[dashed](f110);
+\path (0) edge [->,red](x);
+\path (0) edge[dashed] (f010);
+\path (0) edge[->,red](z);
+\path (f010) edge[dashed] (f111);
+\path (f101) edge[] (f100);
+\path (f101) edge[] (f001);
+\path (f101) edge[] (f011);
+\path (f011) edge[] (f110);
+\path (f011) edge[] (f111);
+\path (f111) edge[] (f100);
+\path (f110) edge[] (f001);
+\end{tikzpicture}\\
+Замечание:\\
+этот метод позволяет нагдядно перебрать все ДНФ и выбрать min\\
+Преобразования не позволяют проверить оптимальность\\
+Пример преобразований\\
+$\overline{x}\overline{y}\overline{z}\vee x\overline{y}\overline{z}\vee x y\overline{z}=(\overline{x}\vee x)\overline{y}z\vee x\overline{y}\overline{z}\vee xy\overline{z}=\overline{y}z\vee x\overline{z}(\overline{y}\vee y)=x\overline{z}\vee \overline{y}z=$возможно короче
+\section{Двойственная функция}
+Пусть есть f: $B^n\rightarrow B={0,1}$\\
+Двойственная $f^*$:$B^n\rightarrow B: f^*(x_1,\dots,x_n)=\overline{f(\overline{x_1},\dots,x_n)}$\\
+Замечание: мир замены лжи на истину\\
+f(x,y)=$x\vee y$\\
+\begin{tabular}{ll|l}
+ x&y&f(x,y)\\
+\hline
+0 & 0 &0\\
+0 &  1 & 1\\
+1 &  0 & 1\\
+1&  1 & 1\\
+\end{tabular}
+0$\leftrightarrow$1 новый мир\begin{tabular}{ll|l}
+ x&y&f(x,y)\\
+\hline
+0 & 0 &1\\
+0 &  1 & 0\\
+1 &  0 & 0\\
+1&  1 & 0\\
+\end{tabular}\\
+проверим, что $(x\vee y)^*=xy$\\
+по определению: $(x\vee y)^*=(\overline{(\overline{x}\vee \overline{y}}=\overline{\overline{x}}$ $\overline{\overline{y}}=xy$\\
+Пример 2\\
+$(x+y)^*=\overline{\overline{x}+\overline{y}}=1+(1+x)+(1+y)=1+x+y=x\Leftrightarrow y$\\
+Замечание\\
+$f^{**}(x_1,\dots,x_n)=\overline{f^*(\overline{x_1},\dots,\overline{x_n})}=\overline{\overline{f^*(\overline{\overline{x_1}},\dots\overline{\overline{x_n}}}}=f(x_1,\dots,x_n)$\\
+то есть $f^{**}=f$\\
+Следствие\\
+$(x\cdot y)^*=x\vee y$\\
+$(x\Leftrightarrow y)^*=x+y$\\
+\underline{Теорема о конъюнкции}\\
+$f_0(f_1(x_1,\dots,x_n),(f_2(x_1,\dots,x_n),\dots,f_m(x_1,\dots,x_n))$\\
+$f_i:B^n\rightarrow B$\\
+i=1$\dots$m\\
+$f_0:B^m\rightarrow B$\\
+тогда\\
+$f^*(x_1,\dots,x_n)=f_0^*(f^*_1(x_1,\dots,x_n)(f^*_2(x_1,\dots,x_n)\dots f_m^*(x_1,\dots,x_n))$\\
+\underline{Докозательство}\\
+$f^*=\overline{f(\overline{x_1}\dots \overline{x_n}}\overset{\textrm{оп определению}}{=}\overline{f_0(f_1(\overline{x_1},\dots \overline{x_n})f_2(\overline{x_1},\dots \overline{x_n})\dots f_m(\overline{x_1},\dots \overline{x_n}}=$\\
+$=f^*_0(\overline{f_1(\overline{x_1},\dots \overline{x_n)}},\overline{f_2(\overline{x_1},\dots \overline{x_n})}\dots \overline{f_m(\overline{x_1},\dots \overline{x_n})})=$\\
+$f_0^*(f_1^*(x_1,\dots x_n),f_2^*(x_1,\dots x_n),\dots,f_m^*(x_1,\dots x_n)$\\
+Следствие\\
+Если есть $f(x_1,\dots x_n)$или логическое выражение с $\vee,\cdot,\neg,+,\equiv$, то $f^*$ такое же выражение, но связки заменены на двойственные\\
+$\vee \leftrightarrow \cdot$\\
+$+\leftrightarrow \Leftrightarrow$\\
+$\neg \leftrightarrow \neg$\\
+Пример\\
+$f(x,y,z)=\overline{x\vee \overline{y}z}\Leftrightarrow(x+y+z)$\\
+$f^*(x,y,z)=\overline{x\cdot(\overline{y}\vee z}+(x\Leftrightarrow y\Leftrightarrow z$\\
+$1^*=0$\\
+$0^*=1$\\
+Конъюктивно- нормальная форма- еще одна нормальная форма, похожа на ДНФ\\
+\underline{Определение}\\
+Литерал- как раньше, переменная или отрицательная переменная: x,y,z,$\overline{x}$\\
+Дизъюнкт- дизъюнкция литералов $x\vee y$\\
+КНФ- это конъюнкция нескольких дизъюнктов$(x\vee y)(y\vee z)$\\
+(Лекция за 17.03)\\
+\underline{Утвеждение}\\
+у$\forall$ логической функции есть КНФ, можно построить по таблице истинности\\
+\underline{Докозательство}\\
+Заметим, что если вычислить (КНФ)$^*$ (двойственную КНФ), то получится ДНФ\\
+Пример\\
+$((x\vee y\vee z)(x\vee \overline{y})(\overline{y}\vee \overline{z})^*=(xyz)\vee(x\overline{y})\vee(\overline{y}\overline{z})$\\
+и наоборот (ДНФ)$^*$=КНФ\\
+итого, чтобы получить КНФ для функции f, надо построить ДНФ для $f^*$, ДНФ для $f^*$- существует\\
+Пример\\
+$f(x,y,z)=xy\Leftrightarrow z$\\
+\begin{tabular}{l|l|l|l}
+ x y z&xy&f&$f^*$\\
+\hline
+0 0 0&  0 & 1 & 0\\
+0 0 1&  0 & 0 & 1\\
+0 1 0&  0 & 1 & 1\\
+0 1 1&  0 & 0 & 0\\
+1 0 0&  0 & 1 & 1\\
+1 0 1&  0 & 0 & 0\\
+1 1 0&  1 & 0 & 1\\
+1 1 1&  1 & 1 & 0\\
+\end{tabular}\\
+$f^*$отрицание перевертнутого f\\
+Вспомним определение\\
+$f^*(x,y,z)=\overline{f(\overline{x} \overline{y} \overline{z}}$\\
+$f^*(0,0,0)=\overline{f(1,1,1)}$\\
+$f^*(0,0,1)=\overline{f(1,1,0)}$\\
+$f^*(0,1,0)=\overline{f(1,0,1)}$\\
+ДНФ для $f^*$\\
+$\overline{x} \overline{y} z$\\
+$\overline{x} y \overline{z}$\\
+$x \overline{y} \overline{z}$\\
+$x y \overline{z}$\\
+$f^*=\overline{x} \overline{y} z \vee \overline{x} y \overline{z}\vee x \overline{y} \overline{z}\vee  x y \overline{z}$\\
+по теореме о композиции\\
+$f=(\overline{x} \vee\overline{y}\vee z)( \overline{x}\vee y \vee\overline{z})( x\vee \overline{y}\vee \overline{z})( x\vee y\vee \overline{z})$\\
+Получение КНФ по таблице истинности без двойственной функции\\
+$f(x,y,z)=xy\Leftrightarrow z$\\
+\begin{tabular}{l|ll}
+ x y z&f&\\
+\hline
+0 0 0&  1 &  \\
+0 0 1&  0 & $x\vee y\vee\overline{z}$  \\
+0 1 0&  1 &  \\
+0 1 1&  0 & $x\vee\overline{y}\vee\overline{z}$ \\
+1 0 0&  1 &  \\
+1 0 1&  0 & $\overline{x}\vee y\vee \overline{z}$\\
+1 1 0&  0 & $\overline{x}\vee\overline{y}\vee z$ \\
+1 1 1&  1 &  \\
+\end{tabular} 1-отрицание 0- не отрицание\\
+Ответ:$f=(x\vee y\vee\overline{z})(x\vee\overline{y}\vee\overline{z})(\overline{x}\vee y\vee \overline{z})(\overline{x}\vee\overline{y}\vee z)$\\
+Итого, чтобы построить ДНФ- строки с 1 $
+\left.
+\begin{array}{lcl}
+0\leftrightarrow \overline{x}\quad \overline{y} \quad\overline{z}\\
+1\leftrightarrow x \quad y\quad  z
+\end{array}
+\right.
+$\\
+Чтобы получить КНФ строки с 0, $
+\left.
+\begin{array}{lcl}
+0\leftrightarrow x \quad y\quad  z\\
+1\leftrightarrow \overline{x}\quad \overline{y} \quad\overline{z}\\
+\end{array}
+\right.
+$\\
+Пример 2\\
+\begin{tabular}{l|ll}
+ x y&$x + y$&\\
+\hline
+0 0 &  0 & $x\vee y$ \\
+0 1 &  1 &   \\
+1 0 &  1 &  \\
+1 1 &  0 & $\overline{x}\vee\overline{y}$ \\
+\end{tabular}\\
+Ответ:$(x\vee y)(\overline{x}\vee \overline{y})$\\
+Замечание\\
+Для функции записанной в форме КНФ, можно поставить задачу "выполнимости"\\
+Вопрос: может ли значение быть=1?\\
+-не известно решений, принципиально эффективней полного перебора значений переменных\\
+Пример\\
+$(x\vee y\vee z)(x\vee \overline{y})(y\vee \overline{z})(\overline{x}\vee \overline{z})=1$\\
+x=1 y=1 z=0\\
+Многие задачи головоломки сводятся к задаче выполнимости\\
+Пример\\
+\underline{Принцип Дирихле}\\
+Если есть n клеток и в них n+1 заяц, то $\exists$ клетка, где зайцев $\geq$2\\
+при n=2 $x_{ij}$-в клетке i=1 или 2, j=1 или 2 или 3 заяц\\
+Попробуем записать, что в каждой клетке$\leq 1$ заяц\\
+1. каждый заяц ровно в одной клетке\\
+$x_{11}+x_{21}$-заяц 1\\
+$x_{12}+x_{22}$-заяц 2\\
+$x_{13}+x_{23}$...\\
+Если клеток $x_{1j}\overline{x_{2j}}\dots \overline{x_{kj}}\vee\overline{x_{1j}}x_{2j}x_{3j}\dots\overline{x_{ki}}\vee \overline{x_{1j}}\dots x_{kj}$\\
+2. в каждой клетке не больше 1 зайца\\
+\begin{tabular}{l|lll}
+ кл$\backslash$з&1&2&3\\
+\hline
+0  &  $x_{11}$ &$x_{12}$&$x_{13}$ \\
+1  &  $x_{21}$ &$x_{22}$&$x_{23}$ \\
+\end{tabular}\\
+Если есть 2 зайца, то один из конъюнктов\\
+$\overline{x_{11}x_{12}\vee x_{11}x_{13}\vee x_{12}x_{13}}=1$ в клетке 1$\leq$1 зайца\\
+$\overline{x_{11}x_{22}\vee x_{21}x_{23}\vee x_{22}x_{23}}$ в клетке 2$\leq$1 зайца\\
+соединяем все утверждения\\
+$(x_{11}+x_{21})(x_{12}+x_{22})(x_{13}+x_{23})(\overline{x_{11}x_{12}\vee x_{11}x_{13}\vee x_{12}x_{13}})*\\
+*(\overline{x_{11}x_{22}\vee x_{21}x_{23}\vee x_{22}x_{23}})=0$ всегда\\
+$(x_{11}\vee x_{21})(\overline{x_{11}}\vee\overline{x_{21}})(x_{12}\vee x_{22})(\overline{x_{12}}\vee\overline{x_{22}})*$\\
+$(x_{13}\vee x_{23})(\overline{x_{13}}\vee \overline{x_{23}})(\overline{x_{11}}\vee\overline{x_{12}})(\overline{x_{11}}\vee \overline{x_{13}})*$\\
+$(\overline{x_{12}}\vee \overline{x_{13}})(\overline{x_{21}}\vee \overline{x_{22}})(\overline{x_{21}}\vee\overline{x_{23}})(\overline{x_{22}}\vee \overline{x_{23}})*$- КНФ\\
+Берем программу, которая решает задачу выполнимости: она скажет- невыполнима
+\section{Классы замкнутости}
+\underline{Определение}\\
+Класс- это множество логических функций\\
+Пример: $K_2$- класс функций от двух переменных: $f(x,y)=f(y,x)$\\
+$f(x,y)=x\vee y \in K_1 \in K_2$\\
+$g(x,y)=x\Rightarrow y \in K_1 \not\in K_2$\\
+$K_3$- класс функций $f(x_1,\dots)-f(0,\dots)$ функции, которые не зависят от первой переменной\\
+$f(x,y,z)=y\Rightarrow z \in K_3$\\
+$f(x,y,z)=\overline{x}\vee x\vee y \vee z \in K_3$\\
+$K_4:\{ f(x,y)=x\vee y\quad g(x,y)=x\Rightarrow y\}$\\
+\underline{Определение}\\
+$\bullet$ Замыкание класса\\
+$K=\{f_1,f_2,\dots \}$\\
+$K^*$-замыкание класса- это класс, состоящий из всех композиций функций из K\\
+g(x,y,z)=
+\begin{tikzpicture}
+\node (x)[scale=0.9,style={rectangle,fill=black!10}][scale=0.9] at ( 0,5) {x};
+\node (y)[scale=0.9,style={rectangle,fill=black!10}][scale=0.9] at (2,5) {y};
+\node (z)[scale=0.9,style={rectangle,fill=black!10}][scale=0.9] at ( 4,5) {z};
+\node (f1)[scale=0.9,style={rectangle,fill=black!10}][scale=0.9] at (1,4) {f1};
+\node (f2)[scale=0.9,style={rectangle,fill=black!10}][scale=0.9] at (2,3){f2};
+\node (f11)[scale=0.9,style={rectangle,fill=black!10}][scale=0.9] at (3,2){f1};
+\node (g)[scale=0.9,style={rectangle,fill=black!10}][scale=0.9] at ( 3,1) {g(x,y,z)};
+\path (x) edge [->,bend right] (f1);
+\path (y) edge [->,bend right] (f1);
+\path (f1) edge [->,bend right] (f2);
+\path (y) edge [->,bend right] (f2);
+\path (z) edge [->,bend right] (f2);
+\path (f2) edge [->,bend right] (f11);
+\path (z) edge [->,bend right] (f11);
+\path (f11) edge [->] (g);
+\end{tikzpicture}\\
+$f_1(f_2(f_1(x,y),y,z),z)$-композиция функций\\
+Пример\\
+1)$k=\{0,\overline{x}\}$\\
+$k^*=\{f(0),g(f(0)),g(g(f(0))),\dots \}$\\
+$k^*=\{\overline{x},0,1,x \}$\\
+2)$k=\{\overline{x}\}$\\
+$k^*=\{\overline{x},x\}$\\
+$k^*=\{g(x),g(g(x)),g(g(g(x))),\dots\}$\\
+3)$k=\{\overline{x},x\vee y,xy \}$\\
+$k^*=\{ x,\dots \forall $функция$\}$\\
+\underline{Определение}\\
+Если К-класс\\
+$K^*=\alpha$(все логические функции), то К-полный\\
+Вывод:$K=\{\overline{x},x\vee y,xy \}$-полный\\
+Пример 4\\
+$K=\{\overline{x},x\vee y \}$\\
+$x\cdot y=\overline{\overline{x\cdot y}}=\overline{\overline{x}\vee \overline{y}}=f(g(f(x),f(y)))$\\
+Значит $K^*$- тоже полный
+\end{document}
+%Оформил Горюнов Дмитрий

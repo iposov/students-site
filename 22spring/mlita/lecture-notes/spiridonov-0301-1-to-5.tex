@@ -1,0 +1,1678 @@
+\documentclass[a4paper, 12pt] {article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{icomma}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{cancel}
+\usepackage[normalem]{ulem}
+\usepackage[all]{xy}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{slashbox}
+
+
+\title{Математическая логика\\
+	 и \\
+	 Теория алгоритмов}
+\author{Посов И.А.}
+\date{Весна 2022 г.}
+
+
+
+\begin{document}
+	
+	
+	\maketitle
+	\begin{center}
+		Запись конспекта: Спиридонов А.
+	\end{center}
+
+	\thispagestyle{empty}
+	\newpage
+	
+	\begin{center}
+		\tableofcontents
+	\end{center}
+	
+	\newpage
+	
+	\begin{center}
+		\section{Математическая логика}
+	\end{center}
+
+\subsection{Исчисление высказываний}
+
+\textbf{ Определение} $ \wp = \{0, 1 \} $
+
+0 -- ложь, false
+
+1 -- истина, true
+
+$ \wp $ ---  множество логических значений\\
+
+\textbf{Определение} Логическая функция (от $ n $ переменных) $ f: \wp^{n} \rightarrow \wp$
+
+\textit{Замечание} Часто логические функции вводят перечислением 
+возможных  аргументов и значений для них\\
+
+\underline{Пример}
+
+$ \begin{tabular}{ | c | c | }
+	\hline
+	$ x $ $ y $ & $ f(x, y) $ \\ \hline
+	0 0 & 0 \\
+	0 1 & 1  \\
+	1 0 & 1 \\
+	1 1 & 1 \\
+	\hline
+\end{tabular} $
+
+Ту же функцию можно задать формулой $ f(x, y) = max$  $ (x, y)$\\
+
+\textbf{Утверждение}
+
+Функций от $ n $ переменных может быть $ 2^{(2^{n})} = 2^{2^{n}} $
+
+
+$ \begin{tabular}{ | c | c | c | }
+	\hline
+	$ x_{1}, x_{2} \dots x_{n} $ & & $ f(x_{1}, x_{2} \dots x_{n}) $  \\ \hline
+	0 0 0 $ \dots $ 0 & $ 2^{n} $ & Для каждой строчки 0 или 1 \\
+	$ \dots \dots \dots $ & разных & (2 варианта) \\
+ 	$ \dots \dots \dots $ & наборов & итого $ 2^{n} $ вариантов \\
+	1 1 1 $ \dots 1 $ & аргументов &  \\
+	\hline
+\end{tabular} $\\
+
+\textit{Следствие} 
+
+$ \bullet $  $ n=1: 2^{2}=4$ функции $ f(x) $
+
+$ \begin{tabular}{ | c | c | c |  c | c | }
+	\hline
+	$ x $ & $ f_{1}(x) $ & $ f_{2}(x) $ & $ f_{3}(x) $ & $ f_{4}(x) $  \\ \hline
+	0 & 0 & 0 & 1  & 1 \\
+	1 & 0 & 1 & 0 & 1 \\
+	\hline
+\end{tabular} $
+
+$ f_{1}(x)= $ тождественный $ 0 $
+
+$ f_{2}(x)=x $
+
+$  f_{3}(x) -$ отрицание.
+
+\underline{Обозначение:} $ \neg x, \bar x $
+
+\underline{Обозначение в языках программирования:} $ !x, not$  $ x $
+
+\underline{Примеры:} $ \neg 1 = 0, \neg 0 = 1, \neg \neg 0 = 0 $
+
+$ f_{4}(x)= $ тождественная $ 1 $
+\\
+
+$ \bullet $ $ n=2: 2^{4}=16$ функций $ f(x, y) $
+
+$ \begin{tabular}{ | c | c |c |c |c |c |c |c |c |c |c |c |c |c |c |c |c | }
+	\hline
+	$ x $ $ y $ & $ f_{1} $ & $ f_{2} $ & $ f_{3} $ & $ f_{4} $ & $ f_{5} $ & $ f_{6} $ & $ f_{7} $ & $ f_{8} $ & $ f_{9} $ & $ f_{10} $ & $ f_{11} $ & $ f_{12} $ &$  f_{13} $ & $ f_{14} $ & $ f_{15} $ & $ f_{16} $ \\ \hline
+	0 0 & 0 & 0 & 0& 0& 0& 0& 0& 0& 1& 1& 1& 1& 1& 1& 1& 1  \\
+	0 1 & 0 & 0 & 0& 0& 1& 1& 1& 1& 0& 0& 0& 0& 1& 1& 1& 1 \\
+	1 0 & 0 & 0 & 1& 1& 0& 0& 1& 1& 0& 0& 1& 1& 0& 0& 1& 1 \\
+	1 1 & 0 & 1 & 0& 1& 0& 1& 0& 1& 0& 1& 0& 1& 0& 1& 0& 1 \\
+	\hline
+\end{tabular} $\\
+
+$ f_{1}(x, y)= $ тождественный $ 0 $\\
+
+$ f_{2}(x, y)- $ логическое И, конъюнкция
+
+\underline{Математическая запись:} $ f_{2}(x, y)=xy $
+
+\underline{Обозначение:} $ x \cap y, x \wedge y, x*y, xy $
+
+\underline{Обозначение в языках программирования:} $ x \& y $\\
+
+$ f_{3}(x, y) $
+\underline{Математическая запись:} $  f_{3}(x, y): x>y $
+
+\underline{Обозначение:} $ x \rhd y$ (запрет по $ y $) $ = \overline{x \Rightarrow y} $\\
+
+$ f_{4}(x, y)=x $\\
+
+$ f_{5}(x, y) $
+\underline{Математическая запись:} $  f_{5}(x, y): x<y $
+
+\underline{Обозначение:} $ x \lhd y$ (запрет по $ x $) $ = \overline{y \Rightarrow x} $\\
+
+$ f_{6}(x, y)=y $\\
+
+$ f_{7}(x, y)- $ исключающее или (ровно один элемент истина)
+
+\underline{Математическая запись:} $  f_{t}(x, y) : x + y$  $ mod$  $ 2$
+
+\underline{Обозначение:} $ x + y, x \oplus y $
+
+\underline{Обозначение в языках программирования:} $ x^\wedge y, x $  $xor  $ $ y  $\\
+
+$ f_{8}(x, y)- $ логическое ИЛИ, дизъюнкция (если истина хотя бы одна)
+
+\underline{Математическая запись:} $  f_{8}(x, y) = max$  $ (x, y)$
+
+\underline{Обозначение:} $ x \cup y, x \vee y, $ редко $ x \mid y $\\
+
+$ f_{9}(x, y) - $ стрелка Пирса
+
+\underline{Обозначение:} $ x \downarrow y = \overline{x \cup y}$\\
+
+$ f_{10}(x, y)- $ эквивалентность (оба истина или оба ложь)
+
+\underline{Математическая запись:} $  f_{10}(x, y) : x=y$
+
+\underline{Обозначение:} $ x \Leftrightarrow y, x \leftrightarrow y, x \equiv y $
+
+\underline{Обозначение в языках программирования:} $ x==y $\\
+
+$ f_{11}(x, y)=\bar y $\\
+
+$ f_{12}(x, y)- $ импликация в обратную сторону
+
+\underline{Обозначение:} $ x \Leftarrow y = y \Rightarrow x $\\
+
+$ f_{13}(x, y)=\bar x $\\
+
+$ f_{14}(x, y)- $ импликация (следование)
+
+\underline{Математическая запись:} $ f_{14}(x, y): x \le y $
+
+\underline{Обозначение:} $ x \Rightarrow y, x \rightarrow y $\\
+
+$ \star $ импликация
+
+$ - $ истина следует из чего угодно ($ f_{14}(x, 1)=1 $)
+
+"Леших не существует" $ \Rightarrow $ "Русалок не существует" ($ 1\Rightarrow1=1 $)
+
+"Все крокодилы оранжевые" $ \Rightarrow $ "Русалок не существует" ($ 0\Rightarrow1=1 $)
+
+"из лжи следует истина"
+
+$ - $ из лжи следует что угодно  ($ f_{14}(0, x)=1 $)
+
+"Русалки существуют" $ \Rightarrow $ "Драконы существуют" ($ 0\Rightarrow0=1 $)
+
+Например, если одновременно $ x=0 $ и $ x=1 \Rightarrow$ можно доказать, что $ x=5 $
+
+\textit{Замечание}  $ x \Rightarrow y =0$ только в случае, если $  x=1, y =0 $\\
+
+$ f_{15}(x, y) $ -- штрих Шеффера
+
+\underline{Обозначение:} $ x \mid y = \overline{x y}$\\
+
+
+$ f_{16}(x, y)= $ тождественная $ 1 $\\
+
+\textit{Замечание} Используя исключительно стрелку Пирса или штрих 
+
+Шеффера можно выразить любую другую функцию\\
+
+$ \bullet $ $ n=3: 2^{8}=256$ функций $ f(x, y, z) $\\
+
+\textbf{Определение} Логические выражения --- способ задания логических функций с помощью переменных и операций $ 0$  $ 1$  $ \neg$  $ *$  $ \vee$  $ \Rightarrow$  $ \Leftarrow$  $ +$  $ \equiv$  $ \mid$  $ \downarrow$  $ \lhd$  $ \rhd $\\
+
+\underline{Примеры:}\\
+
+$ (x \vee y)z $
+
+$ (x \Rightarrow yz) \vee (y \equiv z) $
+
+$ (0 \Rightarrow x) \vee (1 \Rightarrow y) $
+
+\textbf{Определение} Значения логического выражения можно записать 
+
+\underline{Таблицей истинности}\\
+
+$ f(x, y, z) = (x \vee y)z $
+
+$ \begin{tabular}{ | c | c | }
+	\hline
+	$ x $ $ y $ $ z $ & $ f(x, y, z) $ \\ \hline
+	0 0 0 &0  \\
+	0 0 1 &0   \\
+	0 1 0 &0  \\
+	0 1 1 &1  \\
+	1 0 0 &0  \\
+	1 0 1 &1   \\
+	1 1 0 &0 \\
+	1 1 1 &1  \\
+	\hline
+\end{tabular} $\\
+
+\textit{Замечания}
+
+$ - $ Порядок строчек в таблице истинности может быть любым, но мы возьмём порядок двоичных чисел$ : 000 $ $ 001 $ $ 010 $ $ 011 $ $ 100 $ $ 101 $ $ 110 $ $ 111 $
+
+$ - $ Таблицы истинности часто считают постепенно
+
+$ \begin{tabular}{ | c | c | c | }
+	\hline
+	$ x $ $ y $ $ z $ & $ (x \vee y) $ & $ (x \vee y)z $ \\ \hline
+	0 0 0 &0 &0  \\
+	0 0 1 &0 &0   \\
+	0 1 0 &1 &0  \\
+	0 1 1 &1 &1  \\
+	1 0 0 &1 &0  \\
+	1 0 1 &1 &1   \\
+	1 1 0 &1 &0 \\
+	1 1 1 &1 &1  \\
+	\hline
+\end{tabular} $\\
+
+\textit{Замечание}
+
+Приоритет операций в исчислении высказываний:
+
+$ \neg $
+
+$ * $
+
+$ \vee $
+
+$ + $ $ \equiv $
+
+$ \Rightarrow$  $ \Leftarrow$
+
+$ \mid$  $ \downarrow$  $ \lhd$  $ \rhd $\\
+
+\underline{Примеры:}
+
+$ \neg x \vee y = (\neg x) \vee y $
+
+$ x \vee yz = x \vee (yz) \ne (x \vee y)z$
+
+$ x \Rightarrow y \vee z = x \Rightarrow (y \vee z) $
+
+$ \overline{x \vee y} = \neg (x \vee y) $
+
+\begin{center}
+	\textbf{Алгебраические преобразования логических выражений}
+\end{center}
+
+Алгебраические преобразования логических выражений --- 
+
+изменение выражения по правилам, обычно в сторону упрощения
+
+Например, $ \underbrace{(0 \Rightarrow x)}_{1} \vee (1 \Rightarrow y) = \underbrace{1\vee (1 \Rightarrow y)}_{1 \vee \alpha = 1}=1$\\
+
+$ \bullet $ Отрицание
+
+$ \neg \bar x = x $
+
+\textbf{Доказательство}
+
+$ \begin{tabular}{ | c | c | c | }
+	\hline
+	$ x $ & $ \bar x $ & $ \neg \bar x $ \\ \hline
+	0  &1 &0  \\
+	1 &0 &1   \\
+	\hline
+\end{tabular} $\\
+
+$ \bullet $ $ \vee $
+
+$ 1 \vee x = 1 $
+
+$ 0 \vee x = x $
+
+\textbf{Доказательство}
+
+$ \begin{tabular}{ | c | c | }
+	\hline
+	$ x $ & $ 0 \vee x $ \\  \hline
+	0  & $ 0 \vee 0 = 0 $  \\
+	1 & $ 0 \vee 1 = 1  $  \\
+	\hline
+\end{tabular} $\\
+
+$ x \vee y = y \vee x $ (Симметричность)
+
+$ x \vee (y \vee z)= (x \vee y) \vee z $ (Ассоциативность)
+
+$ x \vee \bar x = 1 $
+
+\textbf{Доказательство}
+
+$ \begin{tabular}{ | c | c | c | }
+	\hline
+	$ x $ & $ \bar x $ & $ x \vee \bar x $ \\  \hline
+	0  & 1 & $ 0 \vee 1 = 1 $  \\
+	1 & 0 & $ 1 \vee 0 = 1  $  \\
+	\hline
+\end{tabular} $\\
+
+$ \bullet $ $ \wedge $
+
+$ xy = yx $
+
+$ x(yz)=(xy)z $
+
+$ x*0 = 0 $
+
+$ x*1 = x $
+
+$ x*x=x $
+
+$ x* \bar x =0 $
+
+$ \bullet $ $ +, \oplus $
+
+$ x+y=y+x $
+
+$ x + (y + z)= (x + y) + z $
+
+$ x+0=x $
+
+$ x+1= \bar x $
+
+$ x+x=0 $
+
+$ x+\bar x=1 $
+
+\textbf{Доказательство}
+
+$ x+\bar x= x + (1+x)=x + 1+x=1+x+x=1+0=1 $
+
+$ \bullet $ $ \Rightarrow $
+
+$ x \Rightarrow y \ne y \Rightarrow x $
+
+$ \begin{tabular}{ | c | c | c |}
+	\hline
+	$ x $ $ y $ & $ x \Rightarrow y $ & $ y \Rightarrow x $ \\ \hline
+	0 0 & 1 & 1\\
+	0 1 & 1 & 0\\
+	1 0 & 0 & 1\\
+	1 1 & 1 & 1\\
+	\hline
+\end{tabular} $\\
+
+$ x \Rightarrow 0= \bar x $
+
+\textbf{Доказательство}
+
+$ \begin{tabular}{ | c | c | }
+	\hline
+	$ x $ & $ x \Rightarrow 0 $ \\  \hline
+	0  & $ 0 \Rightarrow 0 = 1 $  \\
+	1 & $ 1 \Rightarrow 0 = 0  $  \\
+	\hline
+\end{tabular} $\\
+
+$ 0 \Rightarrow x= 1 $
+
+$ x \Rightarrow 1= 1 $
+
+$ 1 \Rightarrow x= x $
+
+$ x \Rightarrow x= 1 $
+
+$ x \Rightarrow \bar x= \bar x $
+
+$ \bar x \Rightarrow x= x $
+
+$ x \Rightarrow y \Rightarrow z: $ договоримся, что это $ x \Rightarrow (y \Rightarrow z) \ne (x \Rightarrow y) \Rightarrow z $
+
+$ \begin{tabular}{ | c | c | c | c | c | }
+	\hline
+	$ x $ $ y $ $ z $ & $ x \Rightarrow y $ & $ y \Rightarrow z $ & $ x \Rightarrow (y \Rightarrow z) $ & $ (x \Rightarrow y) \Rightarrow z $ \\ \hline
+	0 0 0 &1 &1 &1 &0  \\
+	0 0 1 &1 &1 &1 &1  \\
+	0 1 0 &1 &0 &1 &0  \\
+	0 1 1 &1 &1 &1 &1 \\
+	1 0 0 &0 &1 &1 &1 \\
+	1 0 1 &0 &1 &1 &1  \\
+	1 1 0 &1 &0 &0 &0\\
+	1 1 1 &1 &1 &1 &1 \\
+	\hline
+\end{tabular} $\\
+
+$ \bullet $ $ \Leftrightarrow $
+
+$ x \Leftrightarrow y = y \Leftrightarrow x $
+
+$ x \Leftrightarrow 0 = \bar x $
+
+$ x \Leftrightarrow 1 = x $
+
+$ x \Leftrightarrow x = 1 $
+
+$ x \Leftrightarrow \bar x = 0 $
+
+$ x \Leftrightarrow (y \Leftrightarrow z)= (x \Leftrightarrow y) \Leftrightarrow z $ (Ассоциативность)\\
+
+\begin{center}
+	\textbf{Логические законы}
+\end{center}
+
+\textbf{Дистрибутивность}
+
+$ (x \vee y)\&z = x \& z \vee y \& z = y \& z \vee x \& z $
+
+$ (x + y)z = xz + yz $
+
+$ (x \& y) \vee z = (x \vee z) \& (y\vee z) = (y \vee z) \& (x \vee z) $\\
+
+\textit{Замечание} $ (x_{1} \vee x_{2} \vee x_{3})(y_{1} \vee y_{2}) = (x_{1} \vee x_{2} \vee x_{3})y_{1} \vee (x_{1} \vee x_{2} \vee x_{3})y_{2}= $
+
+$ = x_{1}y_{1} \vee x_{2}y_{1} \vee x_{3}y_{1} \vee x_{1}y_{2} \vee x_{2}y_{2} \vee x_{3}y_{2} $\\
+
+\textit{Интересно $ \dots $} $ x y \vee z = (x \vee z)  (y\vee z) = xy \vee xz \vee zy \vee zz = xy \vee xz \vee zy \vee z =$
+
+$ = xy \vee xz \vee zy \vee z*1 = xy \vee z(\underbrace{x \vee y \vee 1}_1 ) = x y \vee z*1 = x y \vee z $\\
+
+$ x + y = \overline{x \Leftrightarrow y} $
+
+$ (x \Rightarrow y)(y \Rightarrow x) = x \Leftrightarrow y $
+
+\subsection{Многочлен Жегалкина}
+
+\textit{Замечание} Одну и ту же функцию можно записать по-разному
+
+\underline{В алгебре:} $ f(x) = x+1 = 1+x = cos(x-x)+x= \dots $
+
+$ g(x)= x^{2}-1=(x-1)(x+1)= \dots $
+
+\underline{В логике:} $ f(x, y) = x \vee y = x \vee y \vee 0 = (x \vee y)\underbrace{(y \vee \bar y)}_1 = x \bar y \vee y $\\
+
+\textbf{Определение} Многочлен Жегалкина для логической функции 
+
+$ f(x_{1}, \dots , x_{n}) $ --- это многочлен с переменными $ x_{i} $ , константами 0, 1 и со степенями переменных $ \le 1 $\\
+
+\textbf{Альтернативное определение} Многочлен Жегалкина 
+
+для логической функции $ f(x_{1}, \dots , x_{n}) $ --- это многочлены от $ x_{i} $ над $ \mathbb Z_{2} $\\
+
+\underline{Примеры:}
+
+$ f(x, y, x) = 1+x+yz+xyz $ (Коэффициенты при остальных слагаемых $ =0 $)
+
+$ f(x, y, x) = 1+x $ 
+
+$ f(x, y, x) = 1+xy $ 
+
+$ f(x, y, x) = 1+xy+xyz $\\
+
+\underline{\textbf{НЕ} многочлены Жегалкина:}
+
+$ 1+x+ \bcancel{(y \vee z)} $
+
+$ 1+x+ \bcancel{z^{2}} $
+
+\textit{Замечание} В общем случае многочлен ($ a_{i} = 0 $ или $1 $):
+
+от 1 переменной $ a_{0} +a_{1}x$
+
+от 2 переменных $ a_{0} +a_{1}x+a_{2}y +a_{3}xy$
+
+от 3 переменных $ a_{0} +a_{1}x+a_{2}y +a_{3}z + a_{4}xy+a_{5}xz+a_{6}yz+a_{7}xyz$
+
+$ \dots $
+
+В общем случае $ f(x_{1}, \dots , x_{n}):  a_{0}+ a_{1} x_{1}+\dots+a_{n} x_{n}+ax_{1}x_{2}+ax_{1}x_{3}+\dots+ax_{n-1}x_{n}+ax_{1}x_{2}x_{3} +\dots+ax_{n-2}x_{n-1}x_{n}+\dots+ax_{1}x_{2}\dots x_{n} $
+
+(Рассматриваем все пары, тройки, $ \dots $ переменных)\\
+
+\textbf{Утверждение} 
+
+$ \forall f(x_{1}, \dots , x_{n}) $ --- логической функции $ \exists! $ многочлен Жегалкина $ g(x_{1}, \dots , x_{n}): f=g $\\
+
+\underline{Пример:}
+
+Всего существует 4 функции от 1 переменной:
+
+$ f(x)= 0 $ $= \text{	} \text{	} \text{	} \text{	} \text{	} 0 \text{	} \text{	} \text{	} \text{	}  = 0+0x$
+
+$ f(x)= 1 $ $ = \text{	} \text{	} \text{	} \text{	} \text{	} 1 \text{	} \text{	} \text{	} \text{	}  = 1+0x$
+
+$ f_(x)=x $ $= \text{	} \text{	} \text{	} \text{	} \text{	} x \text{	} \text{	} \text{	} \text{	}   = 0+1x$
+
+$f(x)= \bar x = \underbrace{1+x}_{\text{Многочлены}}= 1+1x$\\
+
+\textbf{Доказательство}
+
+\textbf{I.} Разные многочлены --- это разные логические функции. То есть 
+
+$ f(x_{1}, \dots , x_{n})=a_{0}+\dots+ax_{1}x_{2}\dots x_{n} $
+
+$ g(x_{1}, \dots , x_{n})=b_{0}+\dots+bx_{1}x_{2}\dots x_{n} $
+
+$ \exists i : a_{i} \ne b_{i} $
+
+Возьмём различающийся индекс с самым маленьким количеством 
+
+переменных
+
+\underline{Пример:}
+
+$ f(x, y, x) = 1+x+xy+xyz = \dots + 1x + 0y +0z +1xy + \dots$
+
+$ g(x, y, x) = 1+y+z+xyz \text{	} \text{	}= \dots + \underbrace{0x}_{min} + 1y +1z + 0xy + \dots$
+
+Для переменных этого слагаемого подставим 1, 
+
+для остальных слагаемых --- 0
+
+$ \left[ \text{В примере } x=1, y=0, z=0: f(1,0,0), g(1,0,0) \right] $
+
+И в $ f $, и в $ g $ все другие слагаемые $ =0 $, поскольку в них обязательно есть нулевая переменная
+
+Тогда 
+
+$ f(x_{1}, \dots , x_{n})$ $ (= a_{i}\underbrace{x_{.}x_{.}\dots x_{.}}_1=a_{i}) $ и $ g(x_{1}, \dots , x_{n})$ $ (= b_{i}\underbrace{x_{.}x_{.}\dots x_{.}}_1=b_{i}) $ 
+
+$ a_{i} \ne b_{i} \Rightarrow f(x_{1}, \dots , x_{n}) \ne g(x_{1}, \dots , x_{n})$
+
+Мы нашли точку, в которой они различаются,  $ \Rightarrow $ они различаются всегда
+
+\textbf{II.} Проверим, что многочленов Жегалкина от $ n $ переменных столько же, сколько функций от $ n $ переменных
+
+$ a_{0}+\dots+ax_{1}x_{2}\dots x_{n} $
+
+Посчитаем количество слагаемых
+
+\textbf{1)} 1 слагаемое без переменных, $ n $ слагаемых с одной переменной 
+
+($ a_{0}+ a_{1} x_{1}+\dots+a_{n} x_{n} $)
+
+$ C_{n}^{2} $ слагаемых с двумя переменными 
+
+$ C_{n}^{3} $ слагаемых с тремя переменными 
+
+$ \dots $
+
+$ C_{n}^{n} $ слагаемых с $ n $ переменными 
+
+Всего: $ \underbrace{C_{n}^{0}}_1 + C_{n}^{1}+\dots+C_{n}^{n}=[\text{С помощью комбинаторики}]=2^{n} $\\
+
+\underline{Пример:}
+
+от 1 переменной $ a_{0} +a_{1}x$ --- 2 слагаемых $ = 2^{1}=2 $
+
+от 2 переменных $ a_{0} +a_{1}x+a_{2}y +a_{3}xy$ --- 4 слагаемых $ = 2^{2}=4 $
+
+от 3 переменных $ a_{0} +a_{1}x+a_{2}y +a_{3}z + a_{4}xy+a_{5}xz+a_{6}yz+a_{7}xyz$ --- 8 слагаемых $ = 2^{3}=8 $\\
+
+\textbf{2)} Все слагаемые имеют вид: $ \underbrace{x_{1}x_{2}\dots x_{n}}_{\text{Каждая переменная 0 или 1}} = 2^{n} $ слагаемых
+
+Итого, многочлен Жегалкина от $ n $ переменных имеет $ 2^{n} $ слагаемых
+
+$ a_{0}+\dots+a_{2^{n}-1}x_{1}x_{2}\dots x_{n} $\\
+
+Сколько разных многочленов?
+
+Каждое $ a_{i} $ --- это 0 или 1
+
+Ответ: $ 2^{2^{n}} $, и это столько же, сколько логических функций
+
+Итого, количество логических функций от $ n $ переменных
+
+ и многочленов Жегалкина от $ n $ переменных совпадает
+
+$ \blacksquare $\\
+
+\textit{Следствие} Любая логическая функция может быть представлена в виде многочлена Жегалкина
+
+\newpage
+\underline{Примеры:}
+
+$ f(x, y) = x * y $ --- уже многочлен Жегалкина
+
+$ f(x, y) = x \vee y $ --- не многочлен Жегалкина
+
+Подберём, воспользовавшись 
+
+\hypertarget{a1}{\textit{Методом неопределённых коэффициентов}}: $ x \vee y = a_{0} +a_{1}x+a_{2}y +a_{3}xy $
+
+$ f(0, 0) = 0=a_{0} +a_{1}0+a_{2}0 +a_{3}0=a_{0} \Rightarrow a_{0}=0 $
+
+$ f(1, 0) = 1 \vee 0=1=a_{0} +a_{1}=a_{1} \Rightarrow a_{1}=1 $
+
+$ f(0, 1) = 0 \vee 1=1=a_{0} +a_{2}=a_{2} \Rightarrow a_{2}=1 $
+
+$  f(x, y)=1+1 +a_{3}xy$
+
+$ f(1, 1) = 1 \vee 1=1=1+1 +a_{3}=0+a_{3}=a_{3} \Rightarrow a_{3}=1 $
+
+Ответ: $ x \vee y = x+y +xy $\\
+
+Другой способ получить многочлен Жегалкина из $ x \vee y $
+
+Преобразуем $ x \vee y $
+
+С учётом $ \overline{x \vee y} = \bar x \bar y $ и $ \bar x = 1+x $
+
+$ x \vee y = \overline{ \bar x \bar y } = \overline{(1+x)(1+y)}=1+(1+x)(1+y)=\underbrace{1+1}_0+x+y+xy=x+y+xy$\\
+
+Многочлен Жегалкина для $ x \Leftrightarrow y $
+
+$ x \Leftrightarrow y = \overline{x+y} =1+x+y$
+
+Многочлен Жегалкина для $ x \Rightarrow y $
+
+$ x \Rightarrow y = \bar x \vee y = (1+x) \vee y= $
+
+С учётом $ x \vee y = x+y+xy $
+
+$ = (1+x)+y+(1+x)y=1+x+\underbrace{y+y}_0+xy=1+x+xy$
+
+Итого, $ x \Rightarrow y = 1+x+xy $
+
+\textit{Замечание} Если есть логическая формула, её можно привести к 
+
+форме многочлена Жегалкина двумя способами:
+
+$ \bullet $ $  $ \hyperlink{a1}{Методом неопределённых коэффициентов}
+
+$ \bullet $ $  $ Методом алгебраических преобразований
+
+Например: 
+
+$ x \vee y = \overline{ \bar x \bar y } = \overline{(1+x)(1+y)}= \dots =x+y+xy$
+
+$ x \Rightarrow y = \bar x \vee y = \dots =1+x+xy$\\
+
+$ x \Rightarrow (y \vee \bar z) = $ (Также можно сказать, что $ (y \vee \bar z) = (z \Rightarrow y) $) $ \downarrow $
+
+$ = x \Rightarrow (y + \bar z + y\bar z) = x \Rightarrow (y + (1+z) + y(1+z)) = x \Rightarrow (1+z + yz) =$
+
+$ = 1+x+x(1+z + yz)=1+x+x+xz+xyz=1+xz+xyz$\\
+
+$ x \Rightarrow (y \vee \bar z) = 1+xz+xyz$\\
+
+$ x \Leftrightarrow y \Leftrightarrow z= (1+x+y) \Leftrightarrow z = 1+ (1+x+y)+z = \underbrace{1+ 1}_0+x+y+z = x+y+z $\\
+
+\underline{\textit{Вывод}}
+Заранее не ясно, сложно ли привести функцию к многочлену Жегалкина
+
+\subsection{Дизъюнктивно-нормальная форма (ДНФ)}
+
+\textbf{Определение} Литерал --- это переменная или отрицание переменной
+
+Например, $ x, \bar x, y, \bar y, z, \bar z $\\
+
+\textbf{Определение} Конъюнкт --- конъюнкция литералов
+
+Например, $ x, x\bar y, xyz, xy\bar z, \underbrace{\bar y}_{\text{один литерал}}, \underbrace{\square}_{\text{пустой конъюнкт}} $
+
+Не является конъюнктом $ \bcancel{\overline{xy}}, \bcancel{x \vee y} $\\
+
+\textbf{Определение} Логическое выражение имеет дизъюнктивно-нормальную форму, если она является дизъюнкцией конъюнктов
+
+Например, $ x \bar y \vee \bar x \bar z t \vee z \vee \bar x y$\\
+
+Не ДНФ: $ \overline{  x y } $
+
+Но если преобразовать $ \overline{  x y } = \bar x \vee \bar y$
+
+ДНФ: $ \bar x \vee \bar y $
+
+\textbf{\begin{center}
+		Построение ДНФ по таблице истинности функции
+\end{center}}
+
+Алгоритм (на примере 3 переменных)
+
+$ \begin{tabular}{ | c | c | }
+	\hline
+	$ x $ $ y $ $ z $ & $ f(x, y, z) $ \\ \hline
+	0 0 0 &0  \\
+	0 0 1 &0   \\
+	0 1 0 &1  \\
+	0 1 1 &1  \\
+	1 0 0 &0  \\
+	1 0 1 &0   \\
+	1 1 0 &1 \\
+	1 1 1 &0  \\
+	\hline
+\end{tabular} $
+
+\newpage
+
+Берём строки с $ f(x, y, z) = 1$
+
+Допустим, есть строка
+
+$ x = a_{1} $ (0 или 1)
+
+$ y = a_{2} $ (0 или 1)
+
+$ z = a_{3} $ (0 или 1)\\
+
+В ответ добавляется конъюнкт трёх литералов: $ xyz $
+
+Если значение переменной 0 --- литерал берётся с отрицанием, если значение переменной 1 --- литерал берётся без отрицания
+
+$ \begin{tabular}{ | c | c | c | }
+	\hline
+	$ x $ $ y $ $ z $ & $ f(x, y, z) $ & \\ \hline
+	0 0 0 &0 & \\
+	0 0 1 &0 & \\
+	0 1 0 &1 & $ \bar x y \bar z  $\\
+	0 1 1 &1 & $ \bar x y z  $\\
+	1 0 0 &0 & \\
+	1 0 1 &0 & \\
+	1 1 0 &1 & $ x y \bar z  $\\
+	1 1 1 &0 & \\
+	\hline
+\end{tabular} $\\
+
+Ответ: $  \bar x y \bar z \vee \bar x y z \vee x y \bar z $\\
+
+\textbf{Доказательство корректности алгоритма}
+
+Когда полученная ДНФ $ =1? $
+
+Когда есть конъюнкт $ =1$\\
+
+Если первый конъюнкт $ =1$ (В примере $ \bar x y \bar z=1 $) 
+
+$ \Rightarrow $ все его литералы $ =1$ (В примере $ x = 0, y =1, z =0 $)\\
+
+Если второй конъюнкт $ =1$ (В примере $ \bar x y z=1 $) 
+
+$ \Rightarrow $ все его литералы $ =1$ (В примере $ x = 0, y =1, z =1 $)\\
+
+Если третий конъюнкт $ =1$ (В примере $ x y \bar z=1 $) 
+
+$ \Rightarrow $ все его литералы $ =1$ (В примере $ x = 1, y =1, z =0 $)\\
+
+$ \begin{tabular}{ | c | c | c |c |c |c | }
+	\hline
+	$ x $ $ y $ $ z $ & $ \bar x y \bar z $ & $ \bar x y z $ & $ x y \bar z $ & Ответ = $ f(x, y, z) $ \\ \hline
+	0 0 0 &0 &0 &0 &0 \\
+	0 0 1 &0 &0 &0 &0 \\
+	0 1 0 &1 &0 &0 &1 \\
+	0 1 1 &0 &1 &0 &1 \\
+	1 0 0 &0 &0 &0 &0 \\
+	1 0 1 &0 &0 &0 &0 \\
+	1 1 0 &0 &0 &1 &1 \\
+	1 1 1 &0 &0 &0 &0 \\
+	\hline
+\end{tabular} $\\
+
+\textit{Замечание}
+У одной функции могут быть разные ДНФ\\
+
+$  \underbrace{\bar x y \bar z \vee \bar x y z \vee x y \bar z}_\text{ДНФ} =$\\
+
+$ =   \bar x y( \underbrace{\bar z \vee z}_1) \vee x y \bar z = 
+\underbrace{\bar x y \vee x y \bar z}_\text{ДНФ}$\\
+
+$ = (x \vee \bar x)y \bar z \vee \bar x yz =\underbrace{y \bar z \vee \bar x yz}_\text{ДНФ}= y \bar z \vee \bar x yz \vee \underbrace{x \bar x}_0 \dots = \infty$ способов\\
+
+Как получать ДНФ для формулы/функции?
+
+$ \bullet $$  $ По таблице истинности
+
+$ \bullet $$  $ Алгебраическими преобразованиями
+
+$ x = x $
+
+$ \bar x = \bar x $
+
+$ x \vee y = x \vee y $
+
+$ xy = xy $
+
+$ x \Rightarrow y = \bar x \vee y $
+
+$ x \Leftrightarrow y = (x \Rightarrow y)(y \Rightarrow x) = (\bar x \vee y)(\bar y \vee x) 
+= \underbrace{\bar x \bar y \vee \bar x x \vee y \bar y \vee y x}_\text{ДНФ} = $
+
+$ = \underbrace{\bar x \bar y \vee y x}_\text{ДНФ} $
+
+$ \begin{tabular}{ | c | c | c | }
+	\hline
+	$ x $ $ y $ & $ x \Leftrightarrow y $ &  \\ \hline
+	0 0 & 1 & $ \bar x \bar y $\\
+	0 1 & 0 & \\
+	1 0 & 0 & \\
+	1 1 & 1 & $ xy $\\
+	\hline
+\end{tabular} $\\
+
+$ x \Leftrightarrow y = \bar x \bar y \vee y x $
+
+\newpage
+
+$ x+y = \overline{x \Leftrightarrow y} = \overline{(x \Rightarrow y)(y \Rightarrow x)} = 
+ \overline{(\bar x \vee y)(\bar y \vee x)} = \overline{\bar x \vee y} \vee \overline{\bar y \vee x} = \neg \bar x * \bar y \vee \neg \bar y * \bar x = x \bar y \vee \bar x y$
+ 
+ $ \begin{tabular}{ | c | c | c | }
+ 	\hline
+ 	$ x $ $ y $ & $ x + y $ &  \\ \hline
+ 	0 0 & 0 & \\
+ 	0 1 & 1 & $ \bar x y $ \\
+ 	1 0 & 1 & $ x \bar y $ \\
+ 	1 1 & 0 & \\
+ 	\hline
+ \end{tabular} $\\
+ 
+ $ x+y = x \bar y \vee \bar x y$\\
+
+\underline{Пример:}
+
+$ x \Rightarrow (y+z) = \bar x \vee (y+z) = \bar x \vee \bar y z \vee y \bar z$\\
+
+\hypertarget{a2}{\textbf{Задача (не)выполнимости}}
+
+Дана логическая формула в ДНФ
+
+Проверить, бывает ли она равна 0?
+
+$ \bar x \bar y \vee x \vee y $
+
+Для этого и $ x $, и $ y $ должны быть $ =0 $, однако в этом случае $ \bar x \bar y = 1 $
+
+$ \Rightarrow $ не бывает\\
+
+Если знать значения переменных(ответ) для 0, то их можно быстро проверить
+
+Подобрать значения переменных для 0 --- трудно
+
+Не известно алгоритма, который "принципиально"$  $ быстрее полного перебора\\
+
+Нерешённая проблема компьютерных наук:
+
+ \href{https://en.wikipedia.org/wiki/P_versus_NP_problem}{сравнение классов $ P $ и $ NP $}
+
+$ P $ --- задача, которую можно эффективно решить
+
+$ NP $ --- задача, которую можно эффективно проверить
+
+\hyperlink{a2}{Эта задача} из класса $ NP $: если бы для неё нашёлся эффективный алгоритм, классы $ P $ и $ NP $ совпали бы, то есть эти классы совпали бы для любой задачи такого рода
+
+Та задача, к которой сводится задача выполнимости, --- тоже сложна:
+
+$ \bullet $ $  $ упростить логическое выражение
+
+$ \bullet $ $  $ поиск минимальной ДНФ\\
+
+\newpage
+
+\textbf{Запись таблицы истинности в виде графика}
+
+$ f(x, y) = x+y $
+
+$ 
+\begin{matrix}
+	\xymatrix{
+		y\\
+		1 \ar@{->}[u] & 0\\
+		0 \ar@{-}[u] \ar@{-}[r] & 1 \ar@{->}[r] & x\\	
+	}
+\end{matrix}
+ $\\
+ 
+$ f(0, 0) = 0 $
+
+$ f(0, 1) = 1 $
+ 
+$ f(1, 0) = 1 $
+  
+$ f(1, 1) = 0 $\\
+
+$ f(x, y, z) = x+y+z $
+
+$ 
+\begin{matrix}
+	\xymatrix{
+		z &   &  &   & & &\\
+		&   & 0 \ar@{-}[lld] \ar@{--}[ddd] &   & & 1 \ar@{-}[lld] \ar@{-}[lll]&\\
+		1 \ar@{->}[uu] \ar@{-}[rrr] &   &  & 0  & & &\\
+		&   &  &   & y & &\\
+		&   & 1 \ar@{--}[lld] \ar@{-->}[rru] \ar@{--}[rrr] &   & & 0 \ar@{-}[uuu]  &\\
+		0  \ar@{-}[uuu] \ar@{-}[rrr] & & & 1 \ar@{->}[rrr] \ar@{-}[uuu] \ar@{-}[rru] & & & x \\
+	}
+\end{matrix}
+$
+
+\newpage
+
+\textbf{Задача минимизации ДНФ}
+
+\underline{Дано:} логическая функция (в виде ДНФ)
+
+\underline{Найти:} самую короткую эквивалентную ДНФ 
+
+(с минимальным количеством литералов и $ \vee $)
+
+Например, $ \bar x \bar y \vee \bar z $ короче $ xy \vee yz $\\
+
+\textit{Замечание}
+
+Далее в этом разделе рассматриваем только $ f(x, y, z) $\\
+
+\textit{Замечание}
+
+$ \bullet $ Какова таблица истинности для $ \stackrel{a}{X} \stackrel{b}{Y} \stackrel{c}{Z} ? $
+
+$ a = 0 $ или $ 1 $
+
+$ b = 0 $ или $ 1 $
+
+$ c = 0 $ или $ 1 $
+
+0 --- отрицание; 1 --- без отрицания\\
+
+Пример:
+
+$ \bar X Y \bar Z $
+
+$ a = 0 $
+
+$ b = 1 $
+
+$ c = 0 $
+
+Если $ \bar X Y \bar Z =1$, то $ \bar X =1, Y =1, \bar Z =1 \Rightarrow X =0, Y =1, Z =0 $
+
+Если $ \bar X Y \bar Z =1$, то $ X =a, Y =b, Z =c $
+
+$ 
+\begin{matrix}
+	\xymatrix{
+		z &   &  &   & & &\\
+		&   & 0 \ar@{-}[lld] \ar@{--}[ddd] &   & & 0 \ar@{-}[lld] \ar@{-}[lll]&\\
+		0 \ar@{->}[uu] \ar@{-}[rrr] &   &  & 0  & & &\\
+		&   &  &   & y & &\\
+		&   & 1 \ar@{--}[lld] \ar@{-->}[rru] \ar@{--}[rrr] &   & & 0 \ar@{-}[uuu]  &\\
+		0  \ar@{-}[uuu] \ar@{-}[rrr] & & & 0 \ar@{->}[rrr] \ar@{-}[uuu] \ar@{-}[rru] & & & x \\
+	}
+\end{matrix}
+$
+
+\newpage
+
+$ \bullet $ Какова таблица истинности для $ \stackrel{a}{X} \stackrel{b}{Y}? $
+
+Если $ \stackrel{a}{X} \stackrel{b}{Y} =1$, то $ \stackrel{a}{X}=1, \stackrel{b}{Y}=1 \Leftrightarrow  X =a, Y =b $
+
+Пример:
+
+$ \bar X Y $
+
+$ 
+\begin{matrix}
+	\xymatrix{
+		z &   &  &   & & &\\
+		&   & 1 \ar@{-}[lld] \ar@{=}[ddd] &   & & 0 \ar@{-}[lld] \ar@{-}[lll]&\\
+		0 \ar@{->}[uu] \ar@{-}[rrr] &   &  & 0  & & &\\
+		&   &  &   & y & &\\
+		&   & 1 \ar@{--}[lld] \ar@{-->}[rru] \ar@{--}[rrr] &   & & 0 \ar@{-}[uuu]  &\\
+		0  \ar@{-}[uuu] \ar@{-}[rrr] & & & 0 \ar@{->}[rrr] \ar@{-}[uuu] \ar@{-}[rru] & & & x \\
+	}
+\end{matrix}
+$\\                                                                                                   
+
+$ \bar X Y $ --- единицы на ребре $ x = 0, y = 1, z = ? $\\
+
+Аналогично, $ \bar Y \bar Z $
+
+$ 
+\begin{matrix}
+	\xymatrix{
+		z &   &  &   & & &\\
+		&   & 0 \ar@{-}[lld] \ar@{--}[ddd] &   & & 0 \ar@{-}[lld] \ar@{-}[lll]&\\
+		0 \ar@{->}[uu] \ar@{-}[rrr] &   &  & 0  & & &\\
+		&   &  &   & y & &\\
+		&   & 0 \ar@{--}[lld] \ar@{-->}[rru] \ar@{--}[rrr] &   & & 0 \ar@{-}[uuu]  &\\
+		1  \ar@{-}[uuu] \ar@{=}[rrr] & & & 1 \ar@{->}[rrr] \ar@{-}[uuu] \ar@{-}[rru] & & & x \\
+	}
+\end{matrix}
+$\\
+
+$ \bar X Y $ --- единицы на ребре $ y = 0, z = 1, x = ? $
+
+\newpage
+
+$ \bullet $ Какова таблица истинности для конъюнкта из одного литерала $ X, \bar X, Y, \bar Y, Z, \bar Z? $
+
+Например, $ \bar Y $
+
+$ \bar y = 1 \Rightarrow y = 0 $
+
+$ 
+\begin{matrix}
+	\xymatrix{
+		z &   &  &   & & &\\
+		&   & 0 \ar@{-}[lld] \ar@{--}[ddd] &   & & 0 \ar@{-}[lld] \ar@{-}[lll]&\\
+		1 \ar@{->}[uu] \ar@{=}[rrr] &   &  & 1  & & &\\
+		&   &  &   & y & &\\
+		&   & 0 \ar@{--}[lld] \ar@{-->}[rru] \ar@{--}[rrr] &   & & 0 \ar@{-}[uuu]  &\\
+		1  \ar@{=}[uuu] \ar@{=}[rrr] & & & 1 \ar@{->}[rrr] \ar@{=}[uuu] \ar@{-}[rru] & & & x \\
+	}
+\end{matrix}
+$\\
+
+$ \bar Y $ --- грань $ y =0 $
+
+Например, $ X $
+
+$ x = 1 $
+
+$ 
+\begin{matrix}
+	\xymatrix{
+		z &   &  &   & & &\\
+		&   & 0 \ar@{-}[lld] \ar@{--}[ddd] &   & & 1 \ar@{=}[lld] \ar@{-}[lll]&\\
+		0 \ar@{->}[uu] \ar@{-}[rrr] &   &  & 1  & & &\\
+		&   &  &   & y & &\\
+		&   & 0 \ar@{--}[lld] \ar@{-->}[rru] \ar@{--}[rrr] &   & & 1 \ar@{=}[uuu]  &\\
+		0  \ar@{-}[uuu] \ar@{-}[rrr] & & & 1 \ar@{->}[rrr] \ar@{=}[uuu] \ar@{=}[rru] & & & x \\
+	}
+\end{matrix}
+$\\
+
+$ X $ --- грань $ x =0 $\\
+
+Итого, 
+
+Таблица истинности для $ \stackrel{a}{X} \stackrel{b}{Y} \stackrel{c}{Z} $ --- это вершина: $ X =a, Y =b, Z =c $
+
+Таблица истинности для $ \stackrel{a}{X} \stackrel{b}{Y} $ --- это ребро: $ X =a, Y =b$
+
+Таблица истинности для $ \stackrel{a}{X} $ --- это грань: $ X =a$\\
+
+\textbf{Попробуем минимизировать ДНФ}
+
+\underline{Пример 1:}
+
+\textit{Дано:} $ \bar x \bar y \bar z \vee  x \bar y \bar z \vee  x  y \bar z $
+
+\textit{Найти:} самый короткий ДНФ
+
+Рисуем таблицу истинности 
+
+$ 
+\begin{matrix}
+	\xymatrix{
+		z &   &  &   & & &\\
+		&   & 0 \ar@{-}[lld] \ar@{--}[ddd] &   & & 0 \ar@{-}[lld] \ar@{-}[lll]&\\
+		0 \ar@{->}[uu] \ar@{-}[rrr] &   &  & 0  & & &\\
+		&   &  &   & y & &\\
+		&   & 0 \ar@{--}[lld] \ar@{-->}[rru] \ar@{--}[rrr] &   & & 1 \ar@{-}[uuu]  &\\
+		1  \ar@{-}[uuu] \ar@{=}[rrr] & & & 1 \ar@{->}[rrr] \ar@{-}[uuu] \ar@{=}[rru] & & & x \\
+	}
+\end{matrix}
+$\\
+
+$ \bar x \bar y \bar z $ --- вершина $ (0,0,0) $
+
+$  x \bar y \bar z $ --- вершина $ (1,0,0) $
+
+$  x  y \bar z $ --- вершина $ (1,1,0) $\\
+
+Иначе это можно записать как $ \bar y \bar z \vee x \bar z $
+
+$ 
+\begin{matrix}
+	\xymatrix{
+		z &   &  &   & & &\\
+		&   & 0 \ar@{-}[lld] \ar@{--}[ddd] &   & & 0 \ar@{-}[lld] \ar@{-}[lll]&\\
+		0 \ar@{->}[uu] \ar@{-}[rrr] &   &  & 0  & & &\\
+		&   &  &   & y & &\\
+		&   & 0 \ar@{--}[lld] \ar@{-->}[rru] \ar@{--}[rrr] &   & & 1 \ar@{-}[uuu]  &\\
+		1  \ar@{-}[uuu] \ar@{=}[rrr]_{\bar y \bar z} & & & 1 \ar@{->}[rrr] \ar@{-}[uuu] \ar@{=}[rru]_{x \bar z} & & & x \\
+	}
+\end{matrix}
+$\\
+
+\newpage
+
+Иначе это можно записать как $ \bar x \bar y \bar z \vee xy \bar z $
+
+$ 
+\begin{matrix}
+	\xymatrix{
+		z &   &  &   & & &\\
+		&   & 0 \ar@{-}[lld] \ar@{--}[ddd] &   & & 0 \ar@{-}[lld] \ar@{-}[lll]&\\
+		0 \ar@{->}[uu] \ar@{-}[rrr] &   &  & 0  & & &\\
+		&   &  &   & y & &\\
+		&   & 0 \ar@{--}[lld] \ar@{-->}[rru] \ar@{--}[rrr] &   & & 1 \ar@{-}[uuu]  &\\
+		1  \ar@{-}[uuu] \ar@{-}[rrr] & & & 1 \ar@{->}[rrr] \ar@{-}[uuu] \ar@{=}[rru]_{x \bar z} & & & x \\
+	}
+\end{matrix}
+$\\
+
+Иначе это можно записать как $ \bar y \bar z \vee xy \bar z $
+
+$ 
+\begin{matrix}
+	\xymatrix{
+		z &   &  &   & & &\\
+		&   & 0 \ar@{-}[lld] \ar@{--}[ddd] &   & & 0 \ar@{-}[lld] \ar@{-}[lll]&\\
+		0 \ar@{->}[uu] \ar@{-}[rrr] &   &  & 0  & & &\\
+		&   &  &   & y & &\\
+		&   & 0 \ar@{--}[lld] \ar@{-->}[rru] \ar@{--}[rrr] &   & & 1 \ar@{-}[uuu]  &\\
+		1  \ar@{-}[uuu] \ar@{=}[rrr]_{\bar y \bar z} & & & 1 \ar@{->}[rrr] \ar@{-}[uuu] \ar@{-}[rru] & & & x \\
+	}
+\end{matrix}
+$\\
+
+То есть $ \bar x \bar y \bar z \vee  x \bar y \bar z \vee  x  y \bar z = $
+
+$ = \bar y \bar z \vee x \bar z = $
+
+$ = \bar x \bar y \bar z \vee xy \bar z = $
+
+$ = \bar y \bar z \vee xy \bar z$
+
+Самая короткая ДНФ, ответ: $ \bar y \bar z \vee x \bar z $
+
+\newpage
+
+\underline{Пример 2:}
+
+$ \bar x \bar y \bar z \vee  x \bar y  \vee  x  y $
+
+$ 
+\begin{matrix}
+	\xymatrix{
+		z &   &  &   & & &\\
+		&   & 0 \ar@{-}[lld] \ar@{--}[ddd] &   & & 1 \ar@{=}[lld] \ar@{-}[lll]&\\
+		0 \ar@{->}[uu] \ar@{-}[rrr] &   &  & 1  & & &\\
+		&   &  &   & y & &\\
+		&   & 0 \ar@{--}[lld] \ar@{-->}[rru] \ar@{--}[rrr] &   & & 1 \ar@{=}[uuu]  &\\
+		1  \ar@{-}[uuu] \ar@{=}[rrr] & & & 1 \ar@{->}[rrr] \ar@{=}[uuu] \ar@{=}[rru] & & & x \\
+	}
+\end{matrix}
+$\\
+
+Иначе это можно записать как $ x \vee  \bar x \bar y \bar z $
+
+$ 
+\begin{matrix}
+	\xymatrix{
+		z &   &  &   & & &\\
+		&   & 0 \ar@{-}[lld] \ar@{--}[ddd] &   & & 1 \ar@{=}[lld] \ar@{-}[lll]&\\
+		0 \ar@{->}[uu] \ar@{-}[rrr] &   &  & 1  & & &\\
+		&   &  &   & y & &\\
+		&   & 0 \ar@{--}[lld] \ar@{-->}[rru] \ar@{--}[rrr] &   & & 1 \ar@{=}[uuu]  &\\
+		1  \ar@{-}[uuu] \ar@{-}[rrr] & & & 1 \ar@{->}[rrr] \ar@{=}[uuu] \ar@{=}[rru] & & & x \\
+	}
+\end{matrix}
+$
+
+\newpage
+
+Иначе это можно записать как $ x \vee  \bar y \bar z $
+
+$ 
+\begin{matrix}
+	\xymatrix{
+		z &   &  &   & & &\\
+		&   & 0 \ar@{-}[lld] \ar@{--}[ddd] &   & & 1 \ar@{=}[lld] \ar@{-}[lll]&\\
+		0 \ar@{->}[uu] \ar@{-}[rrr] &   &  & 1  & & &\\
+		&   &  &   & y & &\\
+		&   & 0 \ar@{--}[lld] \ar@{-->}[rru] \ar@{--}[rrr] &   & & 1 \ar@{=}[uuu]  &\\
+		1  \ar@{-}[uuu] \ar@{=}[rrr] & & & 1 \ar@{->}[rrr] \ar@{=}[uuu] \ar@{=}[rru] & & & x \\
+	}
+\end{matrix}
+$\\
+
+$ \bar x \bar y \bar z \vee  x \bar y  \vee  x  y =$
+
+$ = x \vee  \bar x \bar y \bar z =$
+
+$= x \vee  \bar y \bar z $
+
+Самая короткая ДНФ, ответ: $ x \vee  \bar y \bar z $\\
+
+\textit{Замечание}
+
+Этот метод позволяет наглядно перебрать все ДНФ
+
+ и выбрать минимальную
+
+Метод алгебраических преобразований не позволит проверить, что ответ оптимальный\\
+
+ $ \bar x \bar y \bar z \vee  x \bar y \bar z \vee  x  y \bar z = \bar x \bar y \bar z \vee  x \bar y \bar z \vee  x \bar y \bar z \vee  x  y \bar z = \underbrace{(\bar x \vee x)}_1 \bar y \bar z \vee x \bar z \underbrace{(\bar y \vee y)}_1=$
+ 
+ $ = \bar y \bar z \vee x \bar z = \underbrace{\dots}_{\text{Вдруг можно короче?}} $ 
+ 
+ \newpage
+ 
+\textbf{Определение} Двойственная функция
+
+$ \sqsupset $ есть $ f: \wp^{n} \rightarrow \wp = \{0, 1 \} $
+
+Двойственная $ f^{*}: \wp^{n} \rightarrow \wp : f^{*}(x_{1}, \dots, x_{n}) = \overline{f(\overline{x_{1}}, \dots, \overline{x_{n}})} $\\
+
+\textit{Замечание} 
+
+Смысл двойственной функции заключается в переходе в мир замены лжи на истину ($ 0 \leftrightarrow 1 $)\\
+
+$ \begin{tabular}{ | c | c | }
+	\hline
+	$ x $ $ y $ & $ x \vee y $ \\ \hline
+	0 0 & 0 \\
+	0 1 & 1  \\
+	1 0 & 1 \\
+	1 1 & 1 \\
+	\hline
+\end{tabular} $\\
+
+"Новый мир"
+
+$ \begin{tabular}{ | c | c | }
+	\hline
+	$ x $ $ y $ & $ f^{*}(x, y) = x \wedge y $ \\ \hline
+	1 1 & 1 \\
+	1 0 & 0  \\
+	0 1 & 0 \\
+	0 0 & 0 \\
+	\hline
+\end{tabular} $\\
+
+Проверим, что $ ( x \vee y)^{*} = xy $ по определению:
+
+$ ( x \vee y)^{*} = \overline{\overline{x}\vee\overline{y}}=\neg \bar x * \neg \bar y = xy$\\
+
+$ ( x + y)^{*} = \overline{\overline{x}+\overline{y}} =1+(1+x)+(1+y)=1+x+y=x \Leftrightarrow  y$\\
+
+\textit{Замечание}
+
+$f^{**}(x_{1}, \dots, x_{n}) = \overline{f^{*}(\overline{x_{1}}, \dots, \overline{x_{n}})} = \neg \overline{f(\overline{x_{1}}, \dots, \overline{x_{n}})} = f(x_{1}, \dots, x_{n}) $
+
+То есть $ f^{**} = f $\\
+
+\underline{Следствие }
+
+$ (xy)^{*} = x \vee y $
+
+$ (x\Leftrightarrow y)^{*} = x + y $
+
+\newpage
+
+\textbf{Теорема о композиции}
+
+$ f(x_{1}, \dots, x_{m}) = f_{0}(f_{1}(x_{1}, \dots, x_{n}), f_{2}(x_{1}, \dots, x_{n}), \dots, f_{m}(x_{1}, \dots, x_{n})) $
+
+$ f_{i} = \wp^{n} \rightarrow \wp, i = 1..m $
+
+$ f_{0} = \wp^{m} \rightarrow \wp $\\
+
+Тогда $ f^{*}(x_{1}, \dots, x_{m}) = f_{0}^{*}(f_{1}^{*}(x_{1}, \dots, x_{n}), f_{2}^{*}(x_{1}, \dots, x_{n}), \dots, f_{m}^{*}(x_{1}, \dots, x_{n})) $\\
+
+\textbf{Доказательство}
+
+$ f^{*} =  \overline{f(\overline{x_{1}}, \dots, \overline{x_{m}})} = \overline{f_{0}(f_{1}(\overline{x_{1}}, \dots, \overline{x_{n}}), f_{2}(\overline{x_{1}}, \dots, \overline{x_{n}}), \dots, f_{m}(\overline{x_{1}}, \dots, \overline{x_{n}}))}=$
+
+$ = f_{0}^{*}(\overline{f_{1}(\overline{x_{1}}, \dots, \overline{x_{n}})}, \overline{f_{2}(\overline{x_{1}}, \dots, \overline{x_{n}})}, \dots, \overline{f_{m}(\overline{x_{1}}, \dots, \overline{x_{n}})}) =$
+
+$ = f_{0}^{*}(f_{1}^{*}(x_{1}, \dots, x_{n}), f_{2}^{*}(x_{1}, \dots, x_{n}), \dots, f_{m}^{*}(x_{1}, \dots, x_{n})) $
+
+$ \blacksquare $\\
+
+\underline{Следствие}
+
+Если есть $ f(x_{1}, \dots, x_{n}) $ --- записано как логическое выражение с $ \vee, *, \neg, +, \Leftrightarrow  $,
+
+то $ f^{*} $ --- такое же выражение, но связки заменены на двойственные:
+
+$ \vee \leftrightarrow * $
+
+$ + \leftrightarrow $  $\Leftrightarrow  $
+
+$ \neg \leftrightarrow \neg $\\
+
+\underline{Пример:}
+
+$ f(x, y, z) = \overline{x \vee (\bar y z)} \Leftrightarrow  (x+y+z) $
+
+$ f^{*}(x, y, z) = \overline{x * ( \bar y \vee  z)} +  (x\Leftrightarrow y\Leftrightarrow z) $\\ 
+
+$ 1^{*}=0 $
+
+$ 0^{*}=1 $\\
+
+\subsection{Конъюнктивно-нормальная форма (КНФ)}
+
+\textbf{Определение} Литерал --- это переменная или отрицание переменной
+
+Например, $ x, \bar x, y, \bar y, z, \bar z $
+
+\textbf{Определение} Дизъюнкт --- дизъюнкция литералов
+
+Например, $ x \vee y, x \vee y \vee \bar z, x \vee \bar z, \bar x $
+
+\textbf{Не} является дизъюнктом, например, $ \bcancel{\bar x y},$  $ \bcancel{x \vee yz} $\\
+
+\textbf{Определение} Конъюнктивно-нормальная форма (КНФ)
+
+ --- это конъюнкция нескольких дизъюнктов
+
+Например, $ (x \vee y)(y \vee \bar z), (x \vee y)z, xyz, x \vee z $
+
+\textbf{Не} является КНФ, например,  $ \bcancel{xy \vee z} $, но является $ (x \vee z)(y \vee z ) $
+
+\textbf{Утверждение} У любой логической функции есть КНФ, её можно построить по таблице истинности
+
+\textbf{Доказательство}
+
+Заметим, что если вычислить $ ($КНФ$)^{*} $ (двойственную к КНФ), то 
+
+получится ДНФ
+
+\underline{Пример:}
+
+$ [(x \vee y \vee z)(x \vee \bar y)(\bar y \vee \bar z)]^{*} = (x y z) \vee (x \bar y) \vee (\bar y \bar z) = x y z \vee x \bar y \vee \bar y \bar z $
+
+и наоборот: $ ($ДНФ$)^{*} = $ КНФ\\
+
+Итого, чтобы получить КНФ для функции $ f $, надо построить ДНФ для $ f^{*} $
+
+ДНФ для $ f^{*} $ --- существует
+
+$ \blacksquare $\\
+
+\underline{Пример:}
+
+$ f(x, y, z) = xy \Leftrightarrow z$
+
+$ \begin{tabular}{ | c | c | c |c |c | }
+	\hline
+	$ x $ $ y $ $ z $ & $ xy $ & $ f $ & $ f^{*} $ & ДНФ для  $ f^{*} $ \\ \hline
+	0 0 0 &0 &1 &0 &  \\
+	0 0 1 &0 &0 &1 & $ \bar x \bar y z $  \\
+	0 1 0 &0 &1 &1 &  $ \bar x  y \bar z $  \\
+	0 1 1 &0 &0 &0 &  \\
+	1 0 0 &0 &1 &1 &  $  x \bar y \bar z $ \\
+	1 0 1 &0 &0 &0 &   \\
+	1 1 0 &1 &0 &1 &  $  x  y \bar z $ \\
+	1 1 1 &1 &1 &0 &  \\
+	\hline
+\end{tabular} $\\
+
+$ f^{*}(x, y, z) = \overline{f(\overline{x},\overline{y}, \overline{z}}) $
+
+$ f^{*}(0,0,0) = \overline{f(1,1,1)} $
+
+$ f^{*}(0,0,1) = \overline{f(1,1,0)} $
+
+$ f^{*}(0,1,0) = \overline{f(1,0,1)} $\\
+
+Столбец  $ f^{*} $ --- отрицание перевёрнутого столбца  $ f $\\
+
+Итого, $ f^{*} =  \bar x \bar y z  \vee \bar x  y \bar z \vee  x \bar y \bar z \vee  x  y \bar z  $
+
+По теореме о композиции, $ f = (\bar x \vee \bar y \vee z)(\bar x \vee y \vee \bar z)(x \vee \bar y \vee \bar z)(x \vee y \vee \bar z) $\\
+
+\newpage
+
+Получение КНФ по таблице истинности без двойственной функции
+
+$ f(x, y, z) = xy \Leftrightarrow z$
+
+$ \begin{tabular}{ | c | c | c | }
+	\hline
+	$ x $ $ y $ $ z $ &  $ f $  & ДНФ для  $ f^{*} $ \\ \hline
+	0 0 0  &1  &  \\
+	0 0 1  &0  & $ x \vee y \vee \bar z $ \\
+	0 1 0  &1  &   \\
+	0 1 1  &0  & $ x \vee \bar y \vee \bar z $ \\
+	1 0 0  &1  &   \\
+	1 0 1  &0  & $ \bar x \vee y \vee \bar z $  \\
+	1 1 0  &0  & $ \bar x \vee \bar y \vee z $ \\
+	1 1 1  &1  &  \\
+	\hline
+\end{tabular} $\\
+
+В столбце значений переменных:
+
+--- 1: есть отрицание
+
+--- 0: нет отрицания\\
+
+Ответ: $ f = (\bar x \vee \bar y \vee z)(\bar x \vee y \vee \bar z)(x \vee \bar y \vee \bar z)(x \vee y \vee \bar z) $\\
+
+ДНФ --- строки с 1 $\left\{
+\begin{array}{ccc}
+	0 \leftrightarrow \bar x \bar y \bar z\\
+	1 \leftrightarrow xyz \\
+\end{array}
+\right. $\\
+
+КНФ --- строки с 0 $\left\{
+\begin{array}{ccc}
+	0 \leftrightarrow xyz\\
+	1 \leftrightarrow \bar x \bar y \bar z \\
+\end{array}
+\right. $\\
+
+\underline{Пример 2:}
+
+$ f(x, y) = x+y $ в КНФ
+
+$ \begin{tabular}{ | c | c |c | }
+	\hline
+	$ x $ $ y $ & $ x + y $ & \\ \hline
+	0 0 & 0 & $ x \vee y $ \\
+	0 1 & 1 & \\
+	1 0 & 1 & \\
+	1 1 & 0 &1 $ \bar x \vee \bar y $ \\
+	\hline
+\end{tabular} $\\
+
+Ответ: $ (x \vee y)( \bar x \vee \bar y) $\\
+
+\textit{Замечание} 
+
+Для функции, записанной в форме КНФ, можно поставить задачу "выполнимости".
+
+Вопрос: может ли значение быть $ =1? $
+
+--- не известно решений, принципиально эффективнее полного 
+
+перебора значений переменных
+
+\underline{Пример:}
+
+$ (x \vee y \vee z)(x \vee \bar y)(y \vee \bar z)(\bar x \vee \bar z) $
+
+При $ (x = 1, y = 1, z = 0) $ значение функции $ =1 $
+
+Многие задачи, головоломки сводятся к задаче выполнимости 
+
+\underline{Пример:}
+
+\href{https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF_%D0%94%D0%B8%D1%80%D0%B8%D1%85%D0%BB%D0%B5_(%D0%BA%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%82%D0%BE%D1%80%D0%B8%D0%BA%D0%B0)}{Принцип Дирихле} --- если есть $ n $ клеток и в них $ n +1$ заяц, то 
+
+$ \exists $ клетка, в которой $ \ge 2 $ зайца
+
+Докажем это утверждение при помощи сведения к задаче 
+
+выполнимости при $ n =2$
+
+$ X_{i, j} $ --- в клетке $ i $ сидит заяц $ j $
+$\left\{
+\begin{array}{ccc}
+	i &=& 1 \text{ или } 2 \text{ (клетка) }\\
+	j &=& 1 \text{ или } 2 \text{ или } 3 \text{ (заяц) }\\
+\end{array}
+\right. $\\
+
+Попробуем записать, что в каждой клетке $ \le 1$ зайца:\\
+
+$ I. $ Каждый заяц ровно в одной клетке 
+
+$ X_{11} + X_{21} $ --- заяц 1
+
+$ X_{12} + X_{22} $ --- заяц 2
+
+$ X_{13} + X_{23} $ --- заяц 3
+
+(Если клеток много: $ X_{1 i} \bar X_{2 i} \dots \bar X_{k i} \vee \bar X_{1 i}  X_{2 i} \dots \bar X_{k i} \vee \dots \vee \bar X_{1 i} \bar X_{2 i} \dots  X_{k i}$)\\
+
+$ II. $ В каждой клетке $ \le 1 $ зайца
+
+$ \begin{tabular}{ | c | c | c | c | }
+	\hline
+	\backslashbox{\text{клетка}}{\text{заяц}} & 1 & 2 & 3 \\ \hline
+	1 & $ X_{1 1} $ & $ X_{1 2} $& $ X_{1 3} $ \\
+	2 & $ X_{2 1} $ & $ X_{2 2} $& $ X_{2 3} $ \\
+	
+	\hline
+\end{tabular} $\\
+
+Если есть 2 зайца, то один из конъюнктов$  =1 $
+
+В клетке 1 $ \le 1 $ зайца: $ \overline{X_{1 1}X_{1 2} \vee X_{1 1}X_{1 3} \vee X_{1 2}X_{1 3}}$
+
+В клетке 2 $ \le 1 $ зайца: $ \overline{X_{2 1}X_{2 2} \vee X_{2 1}X_{2 3} \vee X_{2 2}X_{2 3}}$\\
+
+Соединяем все утверждения:
+
+$ (X_{11} + X_{21})(X_{12} + X_{22})(X_{13} + X_{23}) \overline{(X_{1 1}X_{1 2} \vee X_{1 1}X_{1 3} \vee X_{1 2}X_{1 3})} $  $ \overline{(X_{2 1}X_{2 2} \vee X_{2 1}X_{2 3} \vee X_{2 2}X_{2 3})} $
+
+$ = $ тождественный 0\\
+
+$ \overline{a \vee b} = \bar a * \bar b$
+
+$ \overline{a * b} = \bar a \vee \bar b$\\
+
+Преобразуем в КНФ:
+
+$ (X_{11} + X_{21})(X_{12} + X_{22})(X_{13} + X_{23}) =$ 
+
+$= (X_{11} \vee X_{21})(\bar X_{11} \vee \bar X_{21}) (X_{12} \vee X_{22})(\bar X_{12} \vee \bar X_{22}) (X_{13} \vee X_{23})(\bar X_{13} \vee \bar X_{23}) $\\
+ 
+$ \overline{(X_{1 1}X_{1 2} \vee X_{1 1}X_{1 3} \vee X_{1 2}X_{1 3})} = 
+(\bar X_{1 1} \vee \bar X_{1 2})(\bar X_{1 1} \vee \bar X_{1 3})(\bar X_{1 2} \vee \bar X_{1 3}) $\\
+
+$ \overline{(X_{2 1}X_{2 2} \vee X_{2 1}X_{2 3} \vee X_{2 2}X_{2 3})} = 
+ (\bar X_{2 1} \vee \bar X_{2 2})(\bar X_{2 1} \vee \bar X_{2 3})(\bar X_{2 2} \vee \bar X_{2 3})$
+ 
+ \newpage
+ 
+ КНФ: 
+ 
+ $ (X_{11} \vee X_{21})(\bar X_{11} \vee \bar X_{21}) (X_{12} \vee X_{22})(\bar X_{12} \vee \bar X_{22}) (X_{13} \vee X_{23})(\bar X_{13} \vee \bar X_{23})$ 
+ 
+ $(\bar X_{1 1} \vee \bar X_{1 2})(\bar X_{1 1} \vee \bar X_{1 3})(\bar X_{1 2} \vee \bar X_{1 3})
+ (\bar X_{2 1} \vee \bar X_{2 2})(\bar X_{2 1} \vee \bar X_{2 3})(\bar X_{2 2} \vee \bar X_{2 3}) $\\
+ 
+ --- берём программу, которая решает задачу выполнимости
+ 
+ Она скажет: \underline{невыполнима}\\
+ 
+ Основные причины, по которым удобна КНФ:
+ 
+ 1) КНФ в памяти компьютера представляет из себя список списков, что очень удобно в плане хранения и при работе
+ 
+ 2) Почему не ДНФ? Поскольку требуется выполнение всех условий, их необходимо перемножить --- однако при перемножении ДНФ не всегда получается ДНФ; в отличие от КНФ, при перемножении которых получается КНФ\\
+ 
+ Ещё один пример головоломки, сводящейся к задаче выполнимости:  
+ \href{https://ru.wikipedia.org/wiki/%D0%AF%D0%BF%D0%BE%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%B2%D0%BE%D1%80%D0%B4}{японский кроссворд}\\
+ 
+ \subsection{Классы замкнутости}
+ 
+ \textbf{Определение} Логическая функция $ f: \wp^{n} \rightarrow \wp$
+ 
+ $ \wp = \{0, 1 \} $\\
+ 
+ Класс --- это множество логических функций
+ 
+\underline{ Примеры:}
+ 
+$ K_{1}= $ класс функций от двух переменных
+ 
+$ K_{2}= $ класс функций от двух переменных $ : f(x, y) = f(y, x) $ (симметричных)\\
+ 
+ $ f(x, y) = x \vee y \in K_{1}, \in K_{2} $
+ 
+ $ g(x, y) = x \Rightarrow y \in K_{1}, \notin K_{2} $\\
+ 
+ $ K_{3}= $ класс функций $ : f(x, \dots) = f(\bar x, \dots) $\\
+ 
+$  f(x, y, z) = y \Rightarrow z \in K_{3} $
+
+$  f(x, y, z) = (x \Rightarrow y) \vee z \notin K_{3} $
+
+$  f(x, y, z) = \underbrace{x \bar x}_0 \vee y \vee z \in K_{3} $\\
+
+ $ K_{4}= \{ f(x, y) = x \vee y, g(x, y) = x \Rightarrow y \}$
+ 
+ 
+ $ \begin{matrix}
+ 	\xymatrix{
+ 		x \ar@{->}[d] & y \ar@{->}[dl] \ar@{->}[dd] & z \ar@{->}[ddl] \ar@{->}[ddd] \\
+ 		f_{1} \ar@{->}[dr] \\
+ 		& f_{2} \ar@{->}[dr]\\
+ 		& & f_{3} \ar@{->}[d] \\
+ 		& & \text{\textit{g(x, y, z)}} \\
+ 	}
+ \end{matrix} $\\
+
+$ g(x, y, z) = \underbrace{f_{1}(f_{2}(f_{1}(x, y), y, z),z)}_{\text{композиция функций}} $\\
+
+$ \sqsupset K = \{ f_{1 }, f_{2} , \dots\} -$ класс функций
+
+$ K^{*} -$ замыкание класса --- это класс, состоящий из всех композиций функций $ K $\\
+
+\underline{Примеры:}
+
+$ K = \{ f() = 0, g(x) = \bar x\} $
+
+$ K^{*} = \{ 0, g(x), \underbrace{g(f())}_1, \underbrace{g(g(f()))}_0, \underbrace{g(g(g(f())))}_1, \dots, \underbrace{g(g(x))}_x, \underbrace{g(g(g(x)))}_{\bar x}, \dots \} $
+
+$ K^{*} = \{x, \bar x, 0, 1\} $\\
+
+$ K = \{  g(x) = \bar x\} $
+
+$ K^{*} = \{ g(x), \underbrace{g(g(x))}_x, \underbrace{g(g(g(x)))}_{\bar x}, \dots \} $
+
+$ K^{*} = \{x, \bar x\} $\\
+
+$ K = \{ \bar x, x \vee y, xy\} $
+
+$ K^{*} = \{ \forall$ функция $\} $ (поскольку можно составить любую ДНФ/КНФ)\\
+
+\textbf{ Определение} Если $ K -$ класс, $ K^{*}= \zeta $ (все логические функции), то K --- \underline{полный} класс\\
+
+Вывод: $ K = \{ \bar x, x \vee y, xy\} $ --- полный класс
+
+$ K = \{ f(x) = \bar x, f(x, y) = x \vee y\} $
+
+$ xy = \overline{(\overline{xy})} = \overline{(\bar x \vee \bar y)} = f(g(f(x), f(y)))$
+
+$ K = \{ \bar x, = x \vee y\} $ --- тоже полный класс
+
+$ \begin{matrix}
+	\xymatrix{
+		x \ar@{->}[d] & & y \ar@{->}[d]  \\
+		f \ar@{->}[dr] & & f \ar@{->}[dl] \\
+		& g \ar@{->}[d] \\
+		& f \ar@{->}[d] \\
+		& \text{\textit{xy}} \\
+	}
+\end{matrix} $\\
+
+$ K = \{ f(x, y) = xy, g(x, y) = x + y\} $
+
+$ f(0, 0) = 0 $
+
+$ g(0, 0) = 0 $
+
+Следовательно, любая композиция функций, принимающая на вход только 0, будет $ =0 $
+
+Но если $ h(0)=0 $, мы не сможем получить, к примеру, $ \bar x $
+
+$ \bar x \notin K^{*}$
+
+$ K = \{  xy, x + y\} $ --- не полный класс
+ 
+\end{document}

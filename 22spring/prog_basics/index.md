@@ -8,7 +8,7 @@
 
 Лекция 4. Группы в регулярных выражениях. Формат JSON. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/prog_basics/lecture4.ipynb)
 
-Лекция 4. HTTP запрос. Формат JSON. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/prog_basics/lecture5.ipynb) 
+Лекция 5. HTTP запрос. Формат JSON. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/prog_basics/lecture5.ipynb) 
 
 
 ## Задачи

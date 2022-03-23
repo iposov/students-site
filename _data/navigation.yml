@@ -12,8 +12,8 @@
       url: /22spring/algs
     - title: Основы языковой инженерии
       url: /22spring/nlp
-    - title: Комбинаторика и теория графов
-      url: /22spring/combinatorics_and_graph_theory
+    - title: Математическая логика и теория алгоритмов
+      url: /22spring/mlita
     - title: Дискретная математика
       url: /22spring/dm-practice
 - title: Инструменты

@@ -1,0 +1,1373 @@
+\documentclass[russian]{lecture-notes}
+
+\usepackage[final]{graphicx} % возможность вставлять изображения в текст
+\usepackage{subcaption} % пакет нужен, чтобы можно было ставить несколько рисунктов рядом     
+
+\usepackage{amssymb} % для знака пустого множества
+\usepackage{amsfonts} % для букв с двойными штрихами (знак натуральных чисел)
+
+\usepackage{tikz}  % для рисования графов
+\usetikzlibrary{graphs}
+
+\usepackage{pgfplots}
+
+\usepackage{cancel} % для зачеркивания слова
+
+\title{Математическая логика и теория алгоритмов}
+\lecturer{Поcов Илья Александрович}
+\notesauthor{Блюдин Андрей и Хаматов Вадим}
+
+\begin{document}
+	\maketitle
+
+\begin{sloppypar}
+
+\tableofcontents
+
+\section{Математическая логика}
+
+\subsection{Исчисление высказываний}
+
+\subsubsection{Основные понятия}
+
+\begin{definition} 
+	Логическая функция ~--- это множество из 2 элементов. Также, логической функцией называют множество логических значений
+		
+	$B = \{0, 1 \}$, где 0 ~--- это ложь (false), а 1 ~--- это истина (true)
+\end{definition}
+
+\begin{definition} 
+	Логическая функция от $n$ переменных
+	$$f : B^n \rightarrow B$$ 
+\end{definition}
+
+\begin{remark}
+    Часто логические функции вводят как перечисление возможных аргументов и значений функции при этих аргументах
+\end{remark}
+
+\begin{example}
+	Введем функцию $f(x,y)$
+	
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{|c|c|c|cl}
+			\cline{1-3}
+				x & y & f(x,y) & &  \\ \cline{1-3}
+				0 & 0 & 0      &  &  \\ \cline{1-3}
+				0 & 1 & 1      &  &  \\ \cline{1-3}
+				1 & 0 & 1      &  &  \\ \cline{1-3}
+				1 & 1 & 1      &  &  \\ \cline{1-3}
+		\end{tabular}
+		\caption{Таблица истинности для $f(x,y)$}
+	\end{table}
+	
+	Эту же функцию можно задать функцией $f(x,y) = max(x,y)$
+\end{example}
+
+\begin{proposition}
+    Функция от $n$ переменных может быть $f(x_1, x_2, x_3, \dots, x_n)$
+    
+    \begin{table}[h!]
+  	  	\centering
+		\begin{tabular}{|c|c|c|c|l|}
+			\hline
+			$x_1$ & $x_2$ & ... & $x_n$                   & f($x_1, x_2, \dots, x_n$) \\ \hline
+			0    & 0    & ... & 0                      & 0 или 1                  \\ \hline
+			...  & ...  & ... & ...                    & 0 или 1                  \\ \hline
+			1    & 1    & ... & \multicolumn{1}{l|}{1} & 0 или 1                  \\ \hline
+		\end{tabular}
+		\caption{Таблица истинности для $f(x_1,x_2, \dots, x_n)$}
+	\end{table}
+		
+	При этом количество всех возможных наборов аргументов равняется $2^n$, а количество всех возможных функций при всех возможных наборах аргументов равняется $2^{2^n}$
+\end{proposition}
+
+\begin{corollary}
+    Посчитаем количество таких функий для разных $n$
+    
+    $n = 1 \quad 2^2 = 4$ функций $f(x)$
+    
+	$n = 2 \quad 2^{2^2} = 16$ функций $f(x,y)$
+
+	$n = 3 \quad 2^{2^3} = 2^8 = 256$ функций $f(x,y,z)$
+\end{corollary}
+
+\subsubsection{Функции от 1 переменной (их определения)}
+
+\begin{example}
+	Перечислим все возможные функции от 1 переменной
+	
+	\begin{table}[h!]
+	\centering
+		\begin{tabular}{|c|c|c|c|l|}
+			\hline
+			$x$ & $f_1(x)$ & $f_2(x)$ & $f_3(x)$ & $f_4(x)$ \\ \hline
+			0 & 0       & 0       & 1       & 1       \\ \hline
+			1 & 0       & 1       & 0       & 1       \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	Данные функции имеют значение:
+	
+	$f_1(x) = 0$ ~--- функция 0
+	
+	$f_2(x) = x$ ~--- функция $x$
+	
+	$f_3(x) = !x, \bar x, \neg x$, not $x$ ~--- функция отрицания (не $x$)
+	
+	$f_4(x) = 1$ ~--- функция 1
+	
+\end{example}
+
+\subsubsection{Функции от 2 переменных (их определения)}
+
+\begin{example}
+	Перечислим все возможные функции от 2 переменных
+	
+	\begin{table}[h!]
+	\centering
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			$x$ & $y$ & $f_1(x)$ & $f_2(x)$ & $f_3(x)$ & $f_4(x)$ & $f_5(x)$ & $f_6(x)$ & $f_7(x)$ & $f_8(x)$ \\ \hline
+			0 & 0 & 0       & 0       & 0       & 0       & 0       & 0       & 0       & 0       \\ \hline
+			0 & 1 & 0       & 0       & 0       & 0       & 1       & 1       & 1       & 1       \\ \hline
+			1 & 0 & 0       & 0       & 1       & 1       & 0       & 0       & 1       & 1       \\ \hline
+			1 & 1 & 0       & 1       & 0       & 1       & 0       & 1       & 0       & 1       \\ \hline
+		\end{tabular}
+		\caption{Таблица истинности для $f(x,y)$}
+	\end{table}
+	
+	Продолжение:
+	
+	\begin{table}[h!]
+	\centering
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			$x$ & $y$ & $f_9(x)$ & $f_{10}(x)$ & $f_{11}(x)$ & $f_{12}(x)$ & $f_{13}(x)$ & $f_{14}(x)$ & $f_{15}(x)$ & $f_{16}(x)$ \\ \hline
+			0 & 0 & 1       & 1       & 1       & 1       & 1       & 1       & 1       & 1       \\ \hline
+			0 & 1 & 0       & 0       & 0       & 0       & 1       & 1       & 1       & 1       \\ \hline
+			1 & 0 & 0       & 0       & 1       & 1       & 0       & 0       & 1       & 1       \\ \hline
+			1 & 1 & 0       & 1       & 0       & 1       & 0       & 1       & 0       & 1       \\ \hline
+		\end{tabular}
+		\caption{Таблица истинности для $f(x,y)$}
+	\end{table}
+	
+	\textbf{Перечислим основные значения функций:}
+	
+	$f_2(x,y)$ ~--- это конъюнкция или "лочическое и"  или логическое умножение ($xy, x\&y, x \wedge y$)
+	
+	$f_7(x,y)$ ~--- это исключающее или ($x+y, x XOR y, x \oplus y$), также данную функцию можно ассоциировать как $(x+y) mod 2$
+	
+	$f_8(x,y)$ ~--- это логическое или, но ее можно также записать как $max(x,y)$  ($x|y, x \lor y$)
+	
+	$f_{10}(x,y)$ ~--- это эквивалентность ($x \Leftrightarrow y, x \equiv y, x == y$)
+	
+	$f_{14}(x,y)$ ~--- это импликация ($x \Rightarrow y, x \rightarrow y$)
+	
+	Импликация работает так, что истина следует из чего угодно:
+	
+	лешия не существует $\Rightarrow$ русалок не существует = 1 (1 $\Rightarrow$ 1 = 1)
+	
+	допса скучная $\Rightarrow$ русалок не существует = 1 (0 $\Rightarrow$ 1 = 1)
+	
+	русалки существуют $\Rightarrow$ драконы существуют = 1 (0 $\Rightarrow$ 0 = 1)	
+
+	 x $\Rightarrow$ y = 0 только если x = 1, а y = 0
+
+	$f_{12}(x,y)$ ~--- это обратная импликация ($x \Leftarrow y = y \Rightarrow x$)
+	
+	$f_{9}(x,y)$ ~--- стрелка Пирса ($x \downarrow y = \overline{x \lor y}$)
+
+	$f_{15}(x,y)$ ~--- штрих Шеффера ($x | y = \overline{xy}$)
+	
+	$f_{3}(x,y)$ ~--- запрет по y ($x > y = \overline{x \Rightarrow y}$)
+
+	$f_{1}(x,y)$ ~--- 0
+
+	$f_{4}(x,y)$ ~--- $x$
+	
+	$f_{5}(x,y)$ ~--- запрет по x ($x < y = \overline{x \Leftarrow y}$)
+
+	$f_{6}(x,y)$ ~--- $y$
+	
+	$f_{11}(x,y)$ ~--- не y ($\neg y$)
+	
+	$f_{13}(x,y)$ ~--- не x ($\neg x$)
+	
+	$f_{16}(x,y)$ ~--- 1
+
+\end{example}
+
+\begin{definition} 
+	Логические выражения ~--- способ задания логических функций с помощью переменных, цифр 0 или 1 и операций:
+	
+	$\cdot \quad \lor \quad \Rightarrow \quad  \Leftrightarrow \quad + \quad \equiv \quad | \quad \downarrow \quad < \quad >$ 
+\end{definition}
+
+\begin{example} 
+	Примеры логических выражений:
+
+	$(x \lor y) = $
+	
+	$(x \Rightarrow yz) \lor (y \equiv z)$
+	
+	$(0 \Rightarrow x) \lor (1 \Rightarrow y)$
+\end{example}
+
+\begin{definition} 
+	Значения логического выражения можно записать \textbf{Таблицей истинности}
+\end{definition}
+
+\begin{example}
+	$f(x, y, z) = (x \lor y)z$
+	
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			x & y & z & f(x,y,z) \\ \hline
+			0 & 0 & 0 & 0        \\ \hline
+			0 & 0 & 1 & 0        \\ \hline
+			0 & 1 & 0 & 0        \\ \hline
+			0 & 1 & 1 & 1        \\ \hline
+			1 & 0 & 0 & 0        \\ \hline
+			1 & 0 & 1 & 1        \\ \hline
+			1 & 1 & 0 & 0        \\ \hline
+			1 & 1 & 1 & 1        \\ \hline
+		\end{tabular}
+	\end{table}
+\end{example}
+
+\begin{remark}
+	Порядок строчек в таблеце истинности может быть любым, но лучше использовать как у двоичных чисел    
+\end{remark}
+
+\begin{proposition}
+    Таблицы истинности часто считают постепенно
+	
+	\begin{table}[h!]
+		\centering		
+		\begin{tabular}{|c|c|c|c|l|}
+			\hline
+			x & y & z & $x \lor y$ & $(x \lor y)z$  \\ \hline
+			$\dots$ & $\dots$ & $\dots$ & $\dots$ & $\dots$ \\ \hline
+			$\dots$ & $\dots$ & $\dots$ & $\dots$ & $\dots$ \\ \hline
+		\end{tabular}
+	\end{table}
+\end{proposition}
+
+\subsubsection{Приоритеты операций}
+	
+	$$\neg$$
+	
+	$$\cdot$$
+	
+	$$\lor$$
+	
+	$$+ \quad \equiv$$
+	
+	$$\Rightarrow \quad \Leftarrow$$
+	
+	$$| \quad \downarrow \quad < \quad >$$
+	
+\begin{example}
+	Примеры приоритетов операций:
+	
+	$\neg x \lor y = (\neg x) \lor y$
+	
+	$x \lor y z = x \lor (y z)$
+	
+	$x \Rightarrow y \lor z = x \Rightarrow (y \lor z)$
+\end{example}	
+
+\subsubsection{Алгебраические преобразования логических выражений}
+
+\begin{definition} 
+	Алгебраические преобразования логических выражений ~--- изменяем выражения по правилам, обычно в сторону упрощения
+\end{definition}
+
+\begin{example}
+	$(0 \Rightarrow x) \lor (1 \Rightarrow y) = 1 \lor (1 \Rightarrow y) = 1$
+\end{example}
+
+\begin{proposition*}
+    $$\overline{\overline{x}} = x$$
+    
+    \textbf{Доказательство:}
+    
+    \begin{table}[h!]
+		\centering		
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$x$ & $\overline{x}$ & $\overline{\overline{x}}$ \\ \hline
+			0 & 1 & 0 \\ \hline
+			1 & 0 & 1 \\ \hline
+		\end{tabular}
+	\end{table}
+
+\end{proposition*}
+
+\begin{proposition*}
+    При $\lor$:
+    
+    $$1 \lor x = 1$$
+    
+    $$0 \lor x = x$$
+    
+    $$x \lor y = y \lor x$$
+\end{proposition*}
+
+\subsubsection{Таблица эквивалентных логических выражений}
+
+\begin{proposition}
+    $x \lor y = y \lor x $ - симметричность
+    
+
+    $x \lor 0 = x$
+    
+
+    $x \lor 1 = 1$
+    
+
+    $x \lor x = x$
+    
+
+    $x \lor \overline{x} = 1 $
+        
+        
+        $\qquad$ \textbf{Доказательство:}
+        
+        
+    \begin{table}[h!]
+		\centering		
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$x$ & $\overline{x}$ & $x \lor \overline{x}$ \\ \hline
+			0 & 1 & $0 \lor 1 = 1$ \\ \hline
+			1 & 0 & $1 \lor 0 = 1$ \\ \hline
+		\end{tabular}
+	\end{table}
+        
+    $xy = yx $
+
+    $x*0 = 0$
+    
+    $x*1 = x$
+
+    $x*x = x$
+
+    $x* \overline{x} = 0$
+
+    $x+y = y + x$
+    
+    $x + 0 = x$
+
+    $x + 1 = \overline{x}$
+
+    $x + x = 0$
+
+    $x + \overline{x} = 1 $
+
+\end{proposition}
+
+\begin{proposition}
+    
+    $x \lor (y\lor z) = (x \lor y ) \lor z$ - ассоциативность
+    
+    Ассоциативность означает,что порядок скобок не важен 
+    
+    \begin{example} $x \Rightarrow y \neq y \Rightarrow x$ - не симметричная функция
+    
+    $$$$
+    
+        \textbf{Доказательство: }
+        
+    \begin{table}[h!]
+        \centering	
+        \begin{tabular}{|l|l|l|}
+            \hline
+            x y & $x \Rightarrow y$ & $y \Rightarrow x$ \\ \hline
+            0 0 & 1 & 1 \\ \hline
+            0 1 & 1 & 0 \\ \hline
+            1 0 & 0 & 1 \\ \hline
+            1 1 & 1 & 1 \\ \hline
+        \end{tabular}
+    \end{table}
+    
+    \end{example}
+    
+    \begin{remark}
+        $x \Rightarrow y \neq y\Rightarrow x$
+    \end{remark}
+        
+$x \Rightarrow 0 = \overline{x}$
+
+$0 \Rightarrow x = 1$
+ $$$$
+
+\textbf{Доказательство: }
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+x & $x \Rightarrow 0$ \\ \hline
+0 & $0 \Rightarrow 0 = 1$ \\ \hline
+1 & $1 \Rightarrow 0 = 0$ \\ \hline
+\end{tabular}
+\end{table}
+
+$x\Rightarrow 1 = 1$
+
+$1 \Rightarrow x = x$
+
+$x \Rightarrow x = 1$
+
+$x \Rightarrow \overline{x} = \overline{x}$
+
+$\overline{x} \Rightarrow x = x$
+
+$\overline{x} \Rightarrow y \Rightarrow z$ договоримся, что это $x \Rightarrow y (y\Rightarrow z) \neq (x \Rightarrow y) \Rightarrow z$
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+x y z  & $x \Rightarrow y$ & $y \Rightarrow z$ & $x \Rightarrow (y \Rightarrow z)$ & $(x \Rightarrow y) \Rightarrow z$ \\ \hline
+0 0  0 & 1               & 1                 & 1                                 & 0                                 \\ \hline
+0 0 1  & 1               & 1                 & 1                                 & 1                                 \\ \hline
+0 1 0  & 1               & 0                 & 1                                 & 0                                 \\ \hline
+0 1 1  & 1               & 1                 & 1                                 & 1                                 \\ \hline
+1 0 0  & 0               & 1                 & 1                                 & 1                                 \\ \hline
+1 0 1  & 0               & 1                 & 1                                 & 1                                 \\ \hline
+1 1 0  & 1               & 0                 & 0                                 & 0                                 \\ \hline
+1 1 1  & 1               & 1                 & 1                                 & 1                                 \\ \hline
+\end{tabular}
+\end{table}
+
+$x \Leftrightarrow y = y \Leftrightarrow x$
+
+$x \Leftrightarrow 0 = \overline{x}$
+
+$x \Leftrightarrow 1 = x$
+
+$x \Leftrightarrow x =1$
+
+$x \Leftrightarrow \overline{x} = 0$
+
+$x \Leftrightarrow (y\Leftrightarrow z) = (x \Leftrightarrow y) \Leftrightarrow z$ - ассоциативно
+
+\end{proposition}
+
+\begin{proposition}
+
+Дистрибутивность
+
+$(x \lor y) z = xz \lor yz$
+
+$(x+y)z = xz + yz$ по таблице истинности
+
+$(x \& y ) \lor z$ ($xy \lor z = (x \lor z)(y \lor z)$
+
+$(x \lor y) \& z = (x \& z) \lor (y \& z)$
+
+$(x \& y) \lor z = (x \lor z) \& (y\lor z)$
+
+\begin{remark}
+
+$ $
+    $(x_{1} \lor x_{2} \lor x_{3}) (y_{1} \lor y_{2}) = (x_{1} \lor x_{2} \lor x_{3})y_{1} \lor (x_{1} \lor x_{2} \lor x_{3})y_{2} = x_{1}y_{1} \lor x_{2}y_{1} \lor x_{3}y_{1} \lor x_{1}y_{2} \lor x_{2}y_{2} \lor x_{3}y_{2}$
+
+    $xy \lor z = (x \lor z)(y\lor z) = xy \lor xz \lor zy \lor zz = xy \lor  xz \lor zy \lor z = xy \lor xz \lor zy \lor z*1 = xy \lor z(x\lor y \lor 1) = xy \lor z$ сошлось
+    
+\end{remark}
+
+$x+y = \overline{x\Rightarrow}y$ - смотри Таблицу истинности
+
+$(x\Rightarrow y)(y\Rightarrow x) = x \Rightarrow y$
+
+\subsubsection{Многочлены Жегалкина}
+
+    \begin{remark}
+    
+        Одну и ту же функцию можно записать по разному.
+    
+    \end{remark}
+    
+    В алгебре: $f(x) = 1 +x = x + 1 = x + 5 - 4 = sin(x-x) + x = ...$
+    
+    В логике: $f(x,y) = x \lor y = x \lor y \lor 0 = (x \lor y)(\overline{y} \lor y = x\overline{y} \lor y$ (= - дистрибутивность)
+    
+    \textbf{Многочлены Жегалкина для логической формулы}
+    
+    
+    \begin{definition}
+        $f(x_{1}......x_{n}$) - это многочлен с переменными xi, конспектами 0,1 и со степенями переменных $\leqslant$ 1. Это многочлены от xi $\mathbf{Z_{2}}$
+    \end{definition}
+    
+    \begin{example}
+    
+        $f(x,y,z) = 1 + x + yz + xyz$
+        
+        $1 + x \qquad \qquad xy+xyz$
+        
+        $1 + xy$
+    \end{example}
+    
+    Не многочлены
+    
+    $1 + x + (y \lor z)$
+    
+    $1 + x + z^{2}$ нельзя степень 2
+    
+    
+    \begin{remark}
+        В общем случае многочлен от 1 переменной ($а_{i} =$ 0 или 1)
+        
+        $a_{0} + a_{1}x$
+        
+        от 2ух: $a_{0} + a_{1}x+a{2}y+a{3}xy$
+        
+        от 3ех: $a_{0} + a_{1}x + a_{2}y + a_{3}z + a_{4}xy + a_{5}xz + a_{6}yz + a_{7}xyz$
+        
+        \end{remark}
+        
+        В общем случае $f(x1....x_{n}$) $a_{0} + a_{1}x_{1} + ... + a_{n}x_{n} + ax_{1}x_{2} + ax_{1}x_{3}$ + ... (все пары переменных) + $ ax_{1}x_{2}x_{3}+ax_{1}x_{3}x_{2} \leftarrow $все тройки перменных$ + ax_{1}x_{2}x_{3}...x_{n}$
+        
+        \begin{definition}
+            $\forall f(x_{1}...x_{n})$ - логические функция $\exists!$ многочлен Жегалкина $g(x_{1}...x_{n}) : f = g$
+        \end{definition}
+        
+        \begin{remark}
+            Всего 4 функции от 1ой переменной
+            
+            $f(x) = 0 = \overline{x} = 0 + 0x$
+            
+            $f(x) = 1 = 1 = 1 + 0x$
+            
+            $f(x) = x = x = 0 + 1x$
+            
+           $f(x) = \overline{x} = 1 + x = 1 + 1x$
+        \end{remark}
+    
+    \textbf{Докозательство:}
+    
+        \begin{definition}
+            Разные многочлены - это разные логические функции т.е. $f(x_{1} ... x_{n} = a_{0} + ... + a_{1}x_{1} ... x_{n}$
+            
+            $g(x_{1}...x_{n}) = b_{0} + ... + bx_{1} ... x_{n}$
+            
+            $\exists!$ : $a_{i} \neq b_{i}$ различающийся
+            
+        \end{definition}
+        
+        \qquad \textbf{Доказательство:}
+        
+        Возьмем индекс с самым большик количеством переменных
+        
+        $f(x,y,z) = 1 + x + xy + xyz = ... + 1x + Dy + Dz + 1xy$
+        
+        $g(x,y,z) = 1 + y + z + xyz ... + Dx + 1y + 1z$
+        
+        для переменных этого слагаемого подставим 1 0xy 
+        
+        для остальных переменных : 0
+        
+        [ В примере $x=1,y=0,z=0 : f(1,0,0) и g(1,0,0)$ ]
+        
+        и в f и в g все другие слагаемые равны 0
+        
+            Теперь f(...) и g(...) 
+            
+                $f(...) = a_{i}x{1}x_{2}x_{3} \neq b_{i}x_{1}x_{2}x_{3}$ $\Rightarrow f(x_{1}...x_{n}$) $\neq y$ 
+                
+    \qquad \textbf{Доказательство:}
+    
+    Проверим, что многочленов Жегалкина столько, сколько функций:
+    
+        Посчитаем
+        
+        $a_{0} + a_{1}x_{1}+ ... + a_{1}x_{1}x_{2}...x_{n}$
+        
+        Сколько слагаемых:
+        
+        1) 1 слагаемых без переменных
+        
+        n слагаемых с переменной
+        
+        \qquad $a_{1}x_{1} + ... + a_{n}x_{n}$
+        
+        $C_{n}^{2}$ - слагаемых с 2 - мя переменными
+        
+        $С_{n}^{3}$ - слагаемых с 3 - мя переменными
+        
+        $C_{n}^{n}$ - слагаемых с n переменными
+        
+        Всего : $ C_{n}^{0} + C_{n}^{1} + C_{n}^{2} + ... C_{n}^{n} = 2^{n}((1+1)^{2}) $
+        
+    \begin{example}
+            
+    $a_{0} + a_{1}x$ - 2 слагаемых
+            
+    $a_{0} + a_{1}x + a_{2}y+a_{3}xy - 2^2 = 4$ слагаемых
+    
+    2) Все слагаемых имею вид: $x_{1},x_{2},x_{3}...x_{n}$ (0 или 1) - $2^n$ слагаемых
+    
+    Итого: многочлен Жегалкина от n переменных 
+    \end{example}
+    
+    
+    \begin{problem}
+    Сколько разных многочленов?
+    
+    Это столько же, сколько логический функций
+    
+    Итог: 
+    
+    \textbf{Следствие:} Любая логическая функция может быть представлена в виде многочлена Жегалкина
+    
+    \end{problem}
+    
+    \begin{example}
+    
+        $f(x,y) = x \lor y$
+        
+        $f(x,y) = x*y$ - уже многочлен Жегалкина
+        
+        \textbf{Метод неопределенных коэффициентов:}
+        
+        
+        Подберем $x \lor y = a_{0} + a_{1}x + a_{2}y + a_{3}xy$
+        
+        $f(0,0) = 0$
+        
+        $f(0,0) = a_{0} + a_{1}*0 + a_{2}*0 + a_{3}...$
+        
+        $f(1,0) = 1 \lor 0 = 1$
+        
+        $f(1,0) = a_{0} + a_{1} = a_{1}$ ($a_{0} = 0, \Rightarrow a_{1} = 1$
+        
+        $f(0,1) =$ аналогично $\Rightarrow a_{1} = 1$
+        
+        $f(x,y) = x+y + a_{3}xy$
+        
+        $f(1,1) = 1 \lor 1 = 1$
+        
+        $f(1,1) = 1 + 1 + a_{3} = 0 + a_{3} = a_{3}$, $a_{3}=1$
+        
+        Ответ: $x\lor y = x+y+xy$
+        
+    \end{example}
+
+\end{proposition}
+
+\textbf{Многочлены Жегалкина от 1 переменной:}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		$f(x)$ & Мн Ж  \\ \hline
+		0    		   & 0     \\ \hline
+		1    		   & 1     \\ \hline
+		$x$          & $x$     \\ \hline
+		$\bar{x}$ & $1 + x$ \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Многочлены Жегалкина от 2 переменных:}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		$f(x)$ & Мн Ж  \\ \hline
+		0    		   & 0     \\ \hline
+		1    		   & 1     \\ \hline
+		$xy$          & $xy$     \\ \hline
+		$x + y$ & $x + y$ \\ \hline
+		$x \lor y$ & $x + y + xy$ \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Формулы:}
+
+\begin{enumerate}
+	\item 	$\overline{xy} = \neg (xy) = \overline{x} \lor \overline{y} $
+	\item $\overline{x \lor y} = \neg (x \lor y) = \overline{x} \cdot \overline{y} = \overline{x} \: \overline{y}$
+\end{enumerate}
+
+\begin{remark}
+	$\overline{xy} \neq \overline{x} \cdot \overline{y} = \overline{x} \: \overline{y}$
+\end{remark}
+
+\textbf{Докзательство формул через таблицу истинности:}
+
+\begin{table}[h!]
+	\centering	
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		$x$ & $y$ & $\overline{x \lor y}$ & $\overline{x} \cdot \overline{y}$ \\ \hline
+		0 & 0 & 1   & 1   \\ \hline
+		0 & 1 & 0   & 0   \\ \hline
+		1 & 0 & 0   & 0   \\ \hline
+		1 & 1 & 0   & 0   \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Получение многочлена Жегалкина через алгебраические упрощения}
+
+\begin{enumerate}
+	\item{
+		\textbf{Многочлен Жегалкина для $\lor$}
+
+		$x \lor y = (x = \overline{a}, y = \overline{y}) = \overline{ab} = \overline{\overline{x} \cdot \overline{y}} = \overline{(1 + x)(1 + y)} = 1 + (1 + x)(1 + y) = 1 + 1 + x + y + xy = \underline{x + y + xy}$
+	} 
+
+	\item{
+		\textbf{Многочлен Жегалкина для $\Leftrightarrow$}
+
+		$x \Leftrightarrow y = \overline{x + y} = \underline{1 + x + y}$
+	}
+
+	\item{
+		\textbf{Многочлен Жегалкина для $\Rightarrow$}	
+		
+		$x \Rightarrow y = \overline{x} \lor y = (1 + x) \lor y = (1 + x) + y + (1 + x)y = 1 + x + y + y + xy = \underline{1 + x + xy}$ 
+	}
+\end{enumerate}
+
+\begin{remark}
+
+	Если есть логическая формула, то ее можно приветси к форме многочлена Жегалкина двумя способами:
+
+\begin{enumerate}
+	\item{
+		метод неопределенных коэффициентов:
+		
+		$a_0 + a_1x + a_2y + a_3z + \dots + axyz$	
+	}
+	\item{
+		метод алгебраических преобразований	
+	}
+\end{enumerate}	
+
+\begin{example}
+	$x \lor y = \overline{\overline{x} \cdot \overline{y}} = \dots = x + y + xy$
+\end{example}
+
+\begin{example}
+	$x \Rightarrow y = \overline{x} \lor y = \dots = 1 + x + xy$
+\end{example}
+
+\begin{example}
+	$x \Rightarrow (y \lor \overline{z}) = x \Rightarrow (y + \overline{z} + y \cdot \overline{z}) = x \Rightarrow (y + (1 + z) + y \cdot (1 + z))  = x \Rightarrow (y + 1 + z + y + yz) = x \Rightarrow (1 + z + yz) = 1 + x + x(1 + z + yz) = 1 + x + x + xz + xyz = 1 + xz + xyz $
+\end{example}
+
+\end{remark}
+
+\textbf{Поймем, что:}
+	$(x \Leftrightarrow y) \Leftrightarrow z = x \Leftrightarrow (y \Leftrightarrow z)$
+	
+	$x \Leftrightarrow y \Leftrightarrow z = (1 + x + y) \Leftrightarrow z = 1 + (1 + x + y) + z  = 1 + 1 + x + y + z = x + y + z $
+	
+\textbf{Вывод:}
+
+	Заранее не ясно, сложно ли привести логическую формулу к многочлену Жегалкина	
+
+\subsubsection{Дизъюнктивно-нормальная форма (ДНФ)}
+
+\begin{definition} 
+	Литерал ~--- это переменная или отрицание переменной
+\end{definition}
+
+\begin{example}
+	$x, \overline{x}, y, \overline{y}, z, \overline{z}$
+\end{example}
+
+\begin{definition} 
+	Конъюнктор ~--- конъюнкция литералов
+\end{definition}
+
+\begin{example}
+	$x\overline{y}, xyz, \overline{x} \: \overline{y} \: \overline{z}, \overline{x}z,$ ноль (пустой конъюнкт).
+\end{example}
+
+\begin{definition} 
+	Логическое выражение имеет ДНФ, если она является дизъюнкцией конъюнкторов
+\end{definition}
+
+\begin{example}
+	$x\overline{y} \lor \overline{x} \: \overline{z} \lor z \lor \overline{x} \: \overline{y}$ ~--- ДНФ
+\end{example}
+
+\begin{example}
+	$xy \lor \overline{x} \: \overline{y}$ ~--- ДНФ
+\end{example}
+
+\begin{example}
+	$x \lor y$ ~--- ДНФ
+\end{example}
+
+\begin{example}
+	$xy$ ~--- ДНФ
+\end{example}
+
+\begin{example}
+	не ДНФ ~--- $\overline{xy} = \overline{x} \lor \overline{y}$ ~---  ДНФ
+\end{example}
+
+\begin{example}
+	не ДНФ ~--- $x \Rightarrow yz = \overline{x} \lor yz$ ~---  ДНФ
+\end{example}
+
+\textbf{Построение ДНФ по таблице истинности функции:}
+
+	алгоритм на примере трех переменных
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		$x$ & $y$ & $z$ & $f(x, y ,z)$ &     \\ \hline
+		0 & 0 & 0 & 0 &     \\ \hline
+		0 & 0 & 1 & 0 &     \\ \hline
+		0 & 1 & 0 & 1 & $\overline{x} \: y \: \overline{z}$ \\ \hline
+		0 & 1 & 1 & 1 & $\overline{x} \: yz$ \\ \hline
+		1 & 0 & 0 & 0 &     \\ \hline
+		1 & 0 & 1 & 0 &     \\ \hline
+		1 & 1 & 0 & 1 & $xy \: \overline{z}$ \\ \hline
+		1 & 1 & 1 & 0 &     \\ \hline
+	\end{tabular}
+\end{table}
+
+	Берем строки из столбца $f(x, y, z)$, где значения в столбце равны 1
+	
+	Допустим есть строка: $x = a_1, y = a_2, z = a_3$ ($a$ могут быть как 0, так и 1)
+	
+	В ответ добавляется конъюнкт $xyz$ (0 $\Rightarrow$ отрицание, 1 $\Rightarrow$ не отрицание)
+	
+	Ответ: $f(x, y, z) = \overline{x} \: y \: \overline{z} \lor \overline{x} \: yz \lor xy \: \overline{z}$
+
+\textbf{Докозательство корректности алгоритма:}
+
+Когда полученный ДНФ = 1?
+
+Когда есть конъюнкт равный 1
+
+\begin{enumerate}
+	\item{
+		Если первый конъюнкт равняется 1 (в примере 	$\overline{x} \: y \: \overline{z}  = 1)$ 
+
+		$\Rightarrow $ все литералы конъюнкта равняются 1
+
+		$\Rightarrow$ в примере $\overline{x} = 1 \quad y = 1 \quad \overline{z} = 1$
+
+		$ \qquad \qquad \qquad x = 0 \quad y = 1 \quad z = 0$	
+	}
+	\item{
+		Если второй конъюнкт равняется 1
+		
+		$\Rightarrow$ в примере $x = 0 \quad y = 1 \quad z = 1$ ~--- строка из таблицы истинности	
+	}
+	\item{
+		То же самое с третьим конъюнктом
+	}
+\end{enumerate}
+
+Посмотрим таблицу с этими конъюнктами:
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		$x$ & $y$ & $z$ & $\overline{x} \: y \: \overline{z}$ & $\overline{x} \: yz$ & $xy \: \overline{z}$ & $f(x, y, z)$ \\ \hline
+		0 & 0 & 0 & 0   & 0   & 0   & 0 \\ \hline
+		0 & 0 & 1 & 0   & 0   & 0   & 0 \\ \hline
+		0 & 1 & 0 & 1   & 0   & 0   & 1 \\ \hline
+		0 & 1 & 1 & 0   & 1   & 0   & 1 \\ \hline
+		1 & 0 & 0 & 0   & 0   & 0   & 0 \\ \hline
+		1 & 0 & 1 & 0   & 0   & 0   & 0 \\ \hline
+		1 & 1 & 0 & 0   & 0   & 1   & 1 \\ \hline
+		1 & 1 & 1 & 0   & 0   & 0   & 0 \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{remark}
+	У одной функции могут быть разные ДНФ
+\end{remark}
+
+\begin{example}
+	$\underline{\overline{x} \: y \: \overline{z} \lor \overline{x} \: yz \lor xy \: \overline{z}} = \overline{x} \: y (\overline{z} \lor z) \lor xy \: \overline{z} = \underline{\overline{x} \: y \lor xy \: \overline{z}}$ ~--- подчеркнутые выражения являются ДНФ
+\end{example}
+
+\begin{example}
+	$\underline{\overline{x} \: y \: \overline{z} \lor \overline{x} \: yz \lor xy \: \overline{z}} = \overline{z} \: y (\overline{x} \lor x) \lor zy \: \overline{x} = \underline{\overline{z} \: y \lor zy \: \overline{x}} = \underline{y \: \overline{z} \lor \overline{x} \: yz \lor \overline{x} \: x \lor z \: \overline{z}}$ ~--- подчеркнутые выражения являются ДНФ
+\end{example}
+
+Получить ДНФ для логической функции/формулы можно:
+\begin{enumerate}
+	\item по таблице истинности
+	\item с помощью алгебраических преобразований
+\end{enumerate}
+
+\begin{example}
+	\begin{enumerate}
+		\item $\overline{x} = \overline{x}$
+		\item $x \lor y = x \lor y$
+		\item $x \cdot y = x \cdot y$
+		\item $x \Rightarrow y = \overline{x} \lor y$
+		\item $x \Leftrightarrow y = (x \Rightarrow y)(y \Rightarrow x) = (\overline{x} \lor y)(\overline{y} \lor x) = \overline{x} \: \overline{y} \lor \overline{x} \: x \lor y \: \overline{y} \lor yx = \overline{x} \: \overline{y} \lor xy $
+		
+		\begin{table}[h!]
+			\centering
+			\begin{tabular}{|c|c|c|}
+				\hline
+				$x$ & $y$ & $x \Leftrightarrow y$ \\ \hline
+				0 & 0 & 1  \\ \hline
+				0 & 1 & 0  \\ \hline
+				1 & 0 & 0  \\ \hline
+				1 & 1 & 1  \\ \hline
+			\end{tabular}
+		\end{table}
+		
+		\item{ $x + y = \overline{x \Leftrightarrow y} = \overline{\overline{x} \: \overline{y} \lor xy} \dots$
+		
+			$ = \overline{\overline{x} \: y} \lor \overline{x \lor \overline{y}} = \overline{\overline{x}} \cdot \overline{y} \lor \overline{x} \cdot \overline{\overline{y}} = x \: \overline{y} \lor \overline{x} \: y$
+		}
+		\item $x \Rightarrow (y + z) = \overline{x} \lor (y + z) = \overline{x} \lor \overline{y} \: z \lor y \: \overline{z}$
+	\end{enumerate}
+\end{example}
+
+\subsubsection{Задача (не) выполнимости}
+
+Дана логическая формала в ДНФ
+
+	Проверить, бывает ли она равна 0?
+
+$\overline{x} \: \overline{y} \lor x \lor y  ?= 0$
+
+$x = 0, y = 0 \Rightarrow \overline{x} \: \overline{y} = 1$
+
+$\Rightarrow$ данный ДНФ не может быть равным 0
+
+	Эта задача обладает особенностью:
+
+\begin{enumerate}
+	\item если знать значения переменных (ответ), то их легко можно быстро проверить
+	\item подобрать значения переменных для 0 ~--- нет
+\end{enumerate}
+
+	Нет известного алгоритма, который "принципиально" быстрее полного перебора
+
+У этой задачи класс NP выполнимости (ответ легко проверить, а найти его простым способом невозможно)
+
+\begin{corollary}
+	То к чему сводится задача (не) выполнимости тоже сложна
+	\begin{enumerate}
+		\item упростить логическое выражение
+		\item поиск минимального ДНФ
+	\end{enumerate}
+\end{corollary}
+
+\subsubsection{Запись таблиц истинности в виде графика}
+
+	Формула  = $f(x, y, z) = x + y$
+
+	$$f(0, 0) = 0$$
+	
+	$$f(0, 1) = 1$$
+	
+	$$f(1, 0) = 1$$
+	
+	$$f(1, 1) = 0$$
+
+\begin{tikzpicture}[scale=3,line width=1.5mm]
+
+\draw [circle] (1,0,0) -- (1,0,1) -- (1,1,1) -- (1,1,0) -- cycle;
+\draw [circle] (0,0,0) -- (0,0,1) -- (0,1,1) -- (0,1,0) -- cycle;
+
+\draw [circle] (0,0,0)   -- (1,0,0)  -- (1,0,1)  -- (0,0,1)  -- cycle;
+\draw [circle] (0,1,0)   -- (1,1,0)  -- (1,1,1)  -- (0,1,1)  -- cycle;
+
+\draw [circle] (0,0,0)  node[draw, fill = black] (nodeA) {}  -- (1,0,0)  node[draw, fill = red, red] (nodeA) {}  -- (1,1,0)  node[draw, fill = black] (nodeA) {}  -- (0,1,0)  node[draw, fill = red, red] (nodeA) {}  -- cycle;
+\draw [circle] (0,0,1)  node[draw, fill = red, red] (nodeA) {}  -- (1,0,1)  node[draw, fill = black] (nodeA) {}  -- (1,1,1)  node[draw, fill = red, red] (nodeA) {}  -- (0,1,1)  node[draw, fill = black] (nodeA) {}  -- cycle;
+
+\end{tikzpicture}
+
+
+\subsubsection{Задача минимизации ДНФ}
+
+	Данная задача тоже является сложной, также как и задача (не) выполнимости
+	
+	Дана логическая функция (в виде ДНФ). Необходимо найти самую короткую ДНФ эквивалентную данной.
+	
+	Минимальной ДНФ считается та, где меньше количество литералов и дизъюнкций
+	
+\begin{example}
+	$\overline{x} \: \overline{y} \lor z$ короче, чем $xy \lor yz$
+\end{example}
+
+\begin{remark}
+	Далее рассматриваться все будет для функции от 3 переменных $f(x, y, z)$
+\end{remark}
+
+\begin{remark}
+	Какова таблица истинности $xyz = abc$, где $a = 0$ или $1, b = 0$ и $1, c = 0$ или $1$
+	
+	$0 \Rightarrow$ надо поставить отрицание
+	
+	$1 \Rightarrow$ нет отрицания
+\end{remark}
+
+\begin{example}
+	$f(x, y, z) = \overline{x} \: y \: \overline{z}$
+	
+	Если $\overline{x} \: y \: \overline{z} = 1$
+	
+	$\Rightarrow \overline{x} = 1,  y = 1, \overline{z} = 1$ 
+	
+	$\Rightarrow x = 0,  y = 1, z = 0$
+
+	$\Rightarrow x = a, y = b, z = c$
+
+	$\Rightarrow a = 0, b = 1, c = 0$
+
+\begin{tikzpicture}[scale=3,line width=1.5mm]
+
+\draw [circle] (1,0,0) -- (1,0,1) -- (1,1,1) -- (1,1,0) -- cycle;
+\draw [circle] (0,0,0) -- (0,0,1) -- (0,1,1) -- (0,1,0) -- cycle;
+
+\draw [circle] (0,0,0)   -- (1,0,0)  -- (1,0,1)  -- (0,0,1)  -- cycle;
+\draw [circle] (0,1,0)   -- (1,1,0)  -- (1,1,1)  -- (0,1,1)  -- cycle;
+
+\draw [circle] (0,0,0)  node[draw, fill = red, red] (nodeA) {}  -- (1,0,0)  node[draw, fill = black] (nodeA) {}  -- (1,1,0)  node[draw, fill = black] (nodeA) {}  -- (0,1,0)  node[draw, fill = black] (nodeA) {}  -- cycle;
+\draw [circle] (0,0,1)  node[draw, fill = black] (nodeA) {}  -- (1,0,1)  node[draw, fill = black] (nodeA) {}  -- (1,1,1)  node[draw, fill = black] (nodeA) {}  -- (0,1,1)  node[draw, fill = black] (nodeA) {}  -- cycle;
+
+\end{tikzpicture} 
+ 
+\end{example}
+
+
+
+\begin{example}
+	$f(x, y, z) = xy$
+	
+	Если $xy = 1$
+	
+	$\Rightarrow x = 1,  y = 1$
+
+	$\Rightarrow x = a, y = b$
+
+	$\Rightarrow a = 1, b = 1$
+	 
+\begin{tikzpicture}[scale=3,line width=1.5mm]
+
+\draw [circle] (1,0,0) -- (1,0,1) -- (1,1,1) -- (1,1,0) -- cycle;
+\draw [circle] (0,0,0) -- (0,0,1) -- (0,1,1) -- (0,1,0) -- cycle;
+
+\draw [circle] (0,0,0)   -- (1,0,0)  -- (1,0,1)  -- (0,0,1)  -- cycle;
+\draw [circle] (0,1,0)   -- (1,1,0)  -- (1,1,1)  -- (0,1,1)  -- cycle;
+
+\draw [circle] (0,0,0)  node[draw, fill = black] (nodeA) {}  -- (1,0,0)  node[draw, fill = black] (nodeA) {}  -- (1,1,0)  node[draw, fill = black] (nodeA) {}  -- (0,1,0)  node[draw, fill = black] (nodeA) {}  -- cycle;
+\draw [circle] (0,0,1)  node[draw, fill = black] (nodeA) {}  -- (1,0,1)  node[draw, fill = black] (nodeA) {}  -- (1,1,1)  node[draw, fill = black] (nodeA) {}  -- (0,1,1)  node[draw, fill = black] (nodeA) {}  -- cycle;
+
+\draw [red] (1,0,0) -- (1,1,0);
+
+\end{tikzpicture} 
+
+	Аналогично, $f(x, y, z) = \overline{y} \: \overline{z}$
+	
+	ребро: $y = 0, z = 0, x = ?$ ~--- не важно 
+
+\begin{tikzpicture}[scale=3,line width=1.5mm]
+
+\draw [circle] (1,0,0) -- (1,0,1) -- (1,1,1) -- (1,1,0) -- cycle;
+\draw [circle] (0,0,0) -- (0,0,1) -- (0,1,1) -- (0,1,0) -- cycle;
+
+\draw [circle] (0,0,0)   -- (1,0,0)  -- (1,0,1)  -- (0,0,1)  -- cycle;
+\draw [circle] (0,1,0)   -- (1,1,0)  -- (1,1,1)  -- (0,1,1)  -- cycle;
+
+\draw [circle] (0,0,0)  node[draw, fill = black] (nodeA) {}  -- (1,0,0)  node[draw, fill = black] (nodeA) {}  -- (1,1,0)  node[draw, fill = black] (nodeA) {}  -- (0,1,0)  node[draw, fill = black] (nodeA) {}  -- cycle;
+\draw [circle] (0,0,1)  node[draw, fill = black] (nodeA) {}  -- (1,0,1)  node[draw, fill = black] (nodeA) {}  -- (1,1,1)  node[draw, fill = black] (nodeA) {}  -- (0,1,1)  node[draw, fill = black] (nodeA) {}  -- cycle;
+
+\draw [red] (0,0,1) -- (1,0,1);
+
+\end{tikzpicture} 
+
+\end{example}
+
+	Последнее ~--- конъюнкт из 1 литерала:
+	
+	$x, \overline{x}, y, \overline{y}, z, \overline{z}$
+	
+\begin{example}
+
+	$f(x, y, z) = \overline{y}$
+	
+	Если $\overline{y} = 1$
+	
+	$\Rightarrow y = 0, x = ?, z = ?$
+
+\begin{tikzpicture}[scale=3,line width=1.5mm]
+
+\draw [circle] (1,0,0) -- (1,0,1) -- (1,1,1) -- (1,1,0) -- cycle;
+\draw [circle] (0,0,0) -- (0,0,1) -- (0,1,1) -- (0,1,0) -- cycle;
+
+\draw [circle] (0,0,0)   -- (1,0,0)  -- (1,0,1)  -- (0,0,1)  -- cycle;
+\draw [circle] (0,1,0)   -- (1,1,0)  -- (1,1,1)  -- (0,1,1)  -- cycle;
+
+\draw [circle] (0,0,0)  node[draw, fill = black] (nodeA) {}  -- (1,0,0)  node[draw, fill = black] (nodeA) {}  -- (1,1,0)  node[draw, fill = black] (nodeA) {}  -- (0,1,0)  node[draw, fill = black] (nodeA) {}  -- cycle;
+\draw [circle, fill = red] (0,0,1)  node[draw, fill = black] (nodeA) {}  -- (1,0,1)  node[draw, fill = black] (nodeA) {}  -- (1,1,1)  node[draw, fill = black] (nodeA) {}  -- (0,1,1)  node[draw, fill = black] (nodeA) {}  -- cycle;
+
+\end{tikzpicture} 
+
+	Или конъюнкт $x$, грань $x = 1$
+	
+\begin{tikzpicture}[scale=3,line width=1.5mm]
+
+\draw [circle, fill = red] (1,0,0) -- (1,0,1) -- (1,1,1) -- (1,1,0) -- cycle;
+\draw [circle] (0,0,0) -- (0,0,1) -- (0,1,1) -- (0,1,0) -- cycle;
+
+\draw [circle] (0,0,0)   -- (1,0,0)  -- (1,0,1)  -- (0,0,1)  -- cycle;
+\draw [circle] (0,1,0)   -- (1,1,0)  -- (1,1,1)  -- (0,1,1)  -- cycle;
+
+\draw [circle] (0,0,0)  node[draw, fill = black] (nodeA) {}  -- (1,0,0)  node[draw, fill = black] (nodeA) {}  -- (1,1,0)  node[draw, fill = black] (nodeA) {}  -- (0,1,0)  node[draw, fill = black] (nodeA) {}  -- cycle;
+\draw [circle] (0,0,1)  node[draw, fill = black] (nodeA) {}  -- (1,0,1)  node[draw, fill = black] (nodeA) {}  -- (1,1,1)  node[draw, fill = black] (nodeA) {}  -- (0,1,1)  node[draw, fill = black] (nodeA) {}  -- cycle;
+
+\end{tikzpicture} 
+
+\end{example}
+
+	\textbf{Итого:}
+	
+	$xyz$ ~--- это вершина $x = a, y = b, z = c$
+
+	$xy$ ~--- это ребро $x = a, y = b$ 	
+
+	$x$ ~--- это грань $x = a$ 	
+
+\textbf{Попробуем минимизировать ДНФ}
+
+\begin{example}
+
+	$\overline{x} \: \overline{y} \: \overline{z} \lor x \: \overline{y} \: \overline{z} \lor xy \: \overline{z}$
+	
+	Найти самый короткий ДНФ для данного выражения
+	
+	\textbf{Шаг 1: строим ТИ}
+	
+\begin{tikzpicture}[scale=3,line width=1.5mm]
+
+\draw [circle] (1,0,0) -- (1,0,1) -- (1,1,1) -- (1,1,0) -- cycle;
+\draw [circle] (0,0,0) -- (0,0,1) -- (0,1,1) -- (0,1,0) -- cycle;
+
+\draw [circle] (0,0,0)   -- (1,0,0)  -- (1,0,1)  -- (0,0,1)  -- cycle;
+\draw [circle] (0,1,0)   -- (1,1,0)  -- (1,1,1)  -- (0,1,1)  -- cycle;
+
+\draw [circle] (0,0,0)  node[draw, fill = black] (nodeA) {}  -- (1,0,0)  node[draw, fill = red, red] (nodeA) {}  -- (1,1,0)  node[draw, fill = black] (nodeA) {}  -- (0,1,0)  node[draw, fill = black] (nodeA) {}  -- cycle;
+\draw [circle] (0,0,1)  node[draw, fill = red, red] (nodeA) {}  -- (1,0,1)  node[draw, fill = red, red] (nodeA) {}  -- (1,1,1)  node[draw, fill = black] (nodeA) {}  -- (0,1,1)  node[draw, fill = black] (nodeA) {}  -- cycle;
+
+\end{tikzpicture} 
+
+	$\overline{x} \: \overline{y} \: \overline{z} = (0, 0, 0)$
+	
+	$x \: \overline{y} \: \overline{z} = (1, 0, 0)$
+	
+	$xy \: \overline{z} = (1, 1, 0)$
+
+	\textbf{Шаг 2: упрощаем}
+	
+	Чтобы упростить имеет смысл рассмотреть 2 ребра:
+	
+	$(0, 0, 0) -- (1, 0, 0) = \overline{y} \: \overline{z}$
+
+	$(1, 0, 0) -- (1, 1, 0) = x \: \overline{z}$
+	
+	$\Rightarrow$ ДНФ $ = \overline{y} \: \overline{z} \lor x \: \overline{z} = \overline{x} \: \overline{y} \: \overline{z} \lor x \: \overline{z} = xy \: \overline{z} \lor \overline{y} \: \overline{z}$
+	
+	$\Rightarrow$ самое короткое ДНФ $ = \overline{y} \: \overline{z} \lor x \: \overline{z}$
+
+\end{example}
+
+\begin{example}
+
+	$\overline{x} \: \overline{y} \: \overline{z} \lor x \: \overline{y} \lor xy$
+
+\begin{tikzpicture}[scale=3,line width=1.5mm]
+
+\draw [circle] (1,0,0) -- (1,0,1) -- (1,1,1) -- (1,1,0) -- cycle;
+\draw [circle] (0,0,0) -- (0,0,1) -- (0,1,1) -- (0,1,0) -- cycle;
+
+\draw [circle] (0,0,0)   -- (1,0,0)  -- (1,0,1)  -- (0,0,1)  -- cycle;
+\draw [circle] (0,1,0)   -- (1,1,0)  -- (1,1,1)  -- (0,1,1)  -- cycle;
+
+\draw [circle] (0,0,0)  node[draw, fill = black] (nodeA) {}  -- (1,0,0)  node[draw, fill = black] (nodeA) {}  -- (1,1,0)  node[draw, fill = black] (nodeA) {}  -- (0,1,0)  node[draw, fill = black] (nodeA) {}  -- cycle;
+\draw [circle] (0,0,1)  node[draw, fill = red, red] (nodeA) {}  -- (1,0,1)  node[draw, fill = black] (nodeA) {}  -- (1,1,1)  node[draw, fill = black] (nodeA) {}  -- (0,1,1)  node[draw, fill = black] (nodeA) {}  -- cycle;
+
+\draw [red] (1,1,1) -- (1,0,1);
+\draw [red] (1,1,0) -- (1,0,0);
+
+\end{tikzpicture} 
+
+	$\Rightarrow $ ДНФ $ = x \lor \overline{x} \: \overline{y} \: \overline{z} = x \lor \overline{y} \: \overline{z}$
+
+\end{example}
+
+\begin{remark}
+	Данный метод позволяет наглядно перебрать все ДНФ и найти минимальный
+	
+	С помощью алгебраических преобразований мы не сможем понять, что ответ самый оптимальный
+\end{remark}
+
+\begin{example}
+	Алгебраические преобразования
+	
+	$\overline{x} \: \overline{y} \: \overline{z} \lor x \: \overline{y} \: \overline{z} \lor xy \: \overline{z} = \overline{x} \: \overline{y} \: \overline{z} \lor x \: \overline{y} \: \overline{z} \lor x \: \overline{y} \: \overline{z} \lor xy \: \overline{z} = \overline{y} \: \overline{z} \lor x \: \overline{z}$
+	
+	Но тут непонятно, а вдруг можно сделать еще короче
+\end{example}
+
+\subsubsection{Двойственная функция}
+
+	Пусть есть логическая функция: $f = B^n \rightarrow B = \{0, 1\}$
+	
+	Двойственная функция: $f^* = B^n \rightarrow B = \{0, 1\}$
+	
+	$f^*(x_1, x_2, \dots, x_n) = \overline{f(\overline{x_1}, \overline{x_2}, \dots, \overline{x_n})}$
+
+\begin{remark}
+	Мир замены лжи на истину
+	
+	$$0 \leftrightarrow 1$$
+\end{remark}
+
+\begin{example}
+	$f(x, y) = x \lor y$
+	
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$x$ & $y$ & $f$ \\ \hline
+			0 & 0 & 0 \\ \hline
+			0 & 1 & 1 \\ \hline
+			1 & 0 & 1 \\ \hline
+			1 & 1 & 1 \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	Новый мир: $1 \rightarrow 0, 0 \rightarrow 1$
+
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$x$ & $y$ & $f^*$ \\ \hline
+			1 & 1 & 1 \\ \hline
+			1 & 0 & 0 \\ \hline
+			0 & 1 & 0 \\ \hline
+			0 & 0 & 0 \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	Получилось, что $(x \lor y)^* = xy$
+\end{example}
+
+\begin{example}
+	$(x \lor y)^* = \overline{\overline{x} \lor \overline{y}} = \overline{\overline{x}} \: \overline{\overline{y}} = xy$
+\end{example}
+
+\begin{example}
+	$(x + y)^* = \overline{\overline{x} + \overline{y}} = \overline{1 + x + 1 + y} = 1 + x + 1 + y + 1 = 1 + x + y = x \Leftrightarrow y$
+\end{example}
+
+\begin{remark}
+	$f^{**}(x_1, x_2 \dots x_n) = \overline{f^*(\overline{x_1}, \overline{x_2} \dots \overline{x_n})} = \overline{\overline{f(x_1, x_2 \dots x_n)}} = f(x_1, x_2 \dots x_n)$
+\end{remark}
+
+\begin{corollary}
+	$$(xy)^* = x \lor y$$
+	
+	$$(x \Leftrightarrow y)^* = x + y$$
+\end{corollary}
+
+	\textbf{Теорема о композиции:}
+	
+	$f = f_0(f_1(x_1, \dots x_n), f_2(x_1, \dots x_n), \dots f_m(x_1, \dots x_n))$
+	
+	$f_i$ ~--- это функции от n переменных $(B^n \rightarrow B) (i = 1 \dots n)$
+	
+	$f_0 = B^m \rightarrow B$
+	
+	Тогда $f^*(x_1, \dots x_n) = f^{*}_{0}(f^{*}_{1}(x_1, \dots x_n), f^{*}_{2}(x_1, \dots x_n), \dots f^{*}_{m}(x_1, \dots x_n))$
+	
+	\textbf{Доказательство:}
+	
+	$f^* = \overline{f(\overline{x_1}, \dots \overline{x_n})} =  \overline{f_0(f_1(\overline{x_1}, \dots \overline{x_n}), f_2(\overline{x_1, \dots \overline{x_n}}) \dots f_m(\overline{x_1}, \dots \overline{x_n}))} = f_0^*(\overline{f_1(\overline{x_1, \dots \overline{x_n}}), \overline{f_2(\overline{x_1}, \dots \overline{x_n})}, \dots \overline{f_m(\overline{x_1}, \dots \overline{x_n})}}) $
+
+\begin{corollary}
+	Если есть $f(x_1, \dots x_n)$ ~--- записано, как логическое выражение с $\cdot, \: \lor, \: \neg, \: +, \: \Leftrightarrow$, то $f^*$ ~--- также выражение, но связки заменяются на двойственные узлы
+	
+	$$\lor \leftrightarrow *$$
+
+	$$+ \leftrightarrow \Leftrightarrow$$
+	
+	$$\neg \leftrightarrow \neg$$
+	
+	так как $(\overline{x})^* = \overline{x}$
+\end{corollary}
+
+\begin{example}
+
+	$$f(x, y, z) = \overline{x \lor \overline{y} \: z} \Leftrightarrow (x + y + z)$$
+	
+	$$f^*(x, y, z) = (\overline{x \cdot (\overline{y} \: z)}) + (x \Leftrightarrow y \Leftrightarrow z)$$
+\end{example}
+
+\begin{example}
+
+	$$f(x_1, \dots x_n) = 1$$
+	
+	$$\Rightarrow f^*(x_1, \dots x_n) = \overline{1} = 0$$
+	
+	$$1^* = 0; 0^* = 1$$
+\end{example}
+
+\subsubsection{Конъюнктивно-нормальная форма (КНФ)}
+
+\begin{definition}
+	Конъюнктивно-нормальная форма ~--- еще одна нормальная форма, похожая на ДНФ
+\end{definition}
+
+\begin{definition}
+	Литерал ~--- это как и раньше, переменные или отрицательные переменные
+	
+	$$x, y, \overline{x}, \: \overline{y}$$
+\end{definition}
+
+\begin{definition}
+	Дизъюнкт ~--- дизъюнкция литералов
+	
+	$$x \lor y; \: x \lor y \lor \overline{z}; \: x \lor \overline{z}; \: \overline{x}$$
+	
+	$$\cancel{xy}, \cancel{x \lor yz}$$
+\end{definition}
+
+\begin{definition}
+	КНФ ~--- это конъюнкция нескольких дизъюнктов
+	
+	$$(x \lor y)(y \lor \overline{z});$$
+	
+	$$(x \lor \overline{y} \lor z)(\overline{y} \lor \overline{z})(\overline{x})$$
+	
+	$$\cancel{xy \lor z}$$
+	
+	$$x \lor y \lor z$$ ~--- 1 дизъюнкт
+	
+	$$xyz$$ ~--- 3 дизъюнкта
+\end{definition}
+
+\end{sloppypar}
+
+\end{document}
