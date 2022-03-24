@@ -8,11 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class JavaFXExampleSeveralPanels extends Application {
@@ -21,7 +20,7 @@ public class JavaFXExampleSeveralPanels extends Application {
     public void start(Stage stage) {
         //объект Stage — это окно приложения, у него есть заголок, кнопочки,
         //содержимое
-        stage.setTitle("Пример программы с несколькими кнопками по вертикали");
+        stage.setTitle("Пример программы с несколькими разноцветными панелями");
 
         //Parent — узел, который можно использовать как корень для сцены
         Parent parent = initInterface();
@@ -31,35 +30,34 @@ public class JavaFXExampleSeveralPanels extends Application {
         stage.show();
     }
 
-    private VBox initInterface() {
-        Button b1 = new Button("Нажми меня");
-        Button b2 = new Button("И меня");
-        Button b3 = new Button("Нет, меня");
-        Button b4 = new Button("Но не меня");
-        VBox v = new VBox(b1, b2, b3, b4);
+    private Parent initInterface() {
+        HBox panel0 = new HBox();
 
-        //добавим на вертикальную панель еще горизонтальную с несколькими элементами:
-        Label l1 = new Label("Здесь ничего не написано");
-        TextField tf = new TextField();
-        Slider s = new Slider(0, 10, 20);
-        HBox h = new HBox(l1, tf, s);
+        VBox panel12 = new VBox();
+        Pane panel3 = new Pane();
+        Pane panel1 = new Pane();
+        Pane panel2 = new Pane();
+        panel1.setStyle("-fx-background-color: blue");
+        panel2.setStyle("-fx-background-color: yellow");
+        panel3.setStyle("-fx-background-color: red");
+        //вообще, panel12, panel0 не будет видно, но для целей отладки лучше задать
+        panel12.setStyle("-fx-background-color: green");
+        panel0.setStyle("-fx-background-color: black");
 
-        v.getChildren().add(h);
+        panel0.getChildren().addAll(panel12, panel3);
+        panel12.getChildren().addAll(panel1, panel2);
 
-        //возможна настройка расположения элементов
-        v.setAlignment(Pos.CENTER);
-        //8 пикселей между подузлами
-        v.setSpacing(8);
+        //добавляем constraints
+        //panel12 тянем в ширину, она лежит на HBox
+        HBox.setHgrow(panel12, Priority.ALWAYS);
+        //надо сказать panel3, что у нее есть ширина. В пикселях
+        panel3.setPrefWidth(150);
 
-        //для отладки часто хочется покрасить панельки, чтобы понимать,
-        //где они находятся.
-        //h.setBackground(new Background(new BackgroundFill(Color.RED, null, null)));
-        h.setStyle("-fx-background-color: red");
+        //panel1, panel2 лежат на VBox, им нужно давать ограничения для
+        //VBox
+        VBox.setVgrow(panel1, Priority.ALWAYS);
+        VBox.setVgrow(panel2, Priority.ALWAYS);
 
-
-
-        return v;
+        return panel0;
     }
 }
-
-// Перерыв до 14:10
