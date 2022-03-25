@@ -10,6 +10,8 @@
 
 Лекция 5. HTTP запрос. Формат JSON. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/prog_basics/lecture5.ipynb) 
 
+Лекция 6. Разбор текста в формате HTML. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/prog_basics/lecture6.ipynb)
+
 
 ## Задачи
 
