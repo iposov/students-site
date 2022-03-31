@@ -37,4 +37,4 @@ x.set(56); //в этот момент сработает слушатель
 Очень много значений, которые вы можете найти в JavaFX, являются Observable, поэтому за изменением их значений можно следить.
 
 Пример. Программа с обработкой событий:
-[JavaFXExampleSeveralPanels](https://github.com/iposov/students-site/tree/master/22spring/prog_tech/src/ru/spbu/arts/javafx/JavaFXInteractionExample.java)
+[JavaFXExampleSeveralPanels](https://github.com/iposov/students-site/blob/master/22spring/prog_tech/src/ru/spbu/arts/javafx/JavaFXInteractionExample.java)

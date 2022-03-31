@@ -1,10 +1,7 @@
 package ru.spbu.arts.javafx;
 
 import javafx.application.Application;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.value.ObservableIntegerValue;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,7 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class JavaFXInterationExample extends Application {
+public class JavaFXInteractionExample extends Application {
 
     private Button button1; // первая кнопка на окне
 
