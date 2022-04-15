@@ -12,6 +12,8 @@
 
 Лекция 6. Разбор текста в формате HTML. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/prog_basics/lecture6.ipynb)
 
+Лекция 7. Jupyter блокноты. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/prog_basics/lecture7.ipynb)
+
 
 ## Задачи
 
