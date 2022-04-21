@@ -6,8 +6,9 @@
 4. Лекция 4. [Использование лямбда выражений, JavaFX](lecture4-lambdas-javafx.md)
 5. Лекция 5. [JavaFX Сцена](lecture5-scene.md)
 6. Лекция 6. [Ограничения](lecture6-constraints.md)
-6. Лекция 7. [Слушатели, наблюдаемые значения](lecture7-events-observables.md)
-6. Лекция 8. [Связывания наблюдаемых значений](lecture8-bindings.md)
+7. Лекция 7. [Слушатели, наблюдаемые значения](lecture7-events-observables.md)
+8. Лекция 8. [Связывания наблюдаемых значений](lecture8-bindings.md)
+9. Лекция 9. [Связывания наблюдаемых значений](lecture9-images.md)
 
 # Задачи для практических занятий
 
