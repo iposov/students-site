@@ -14,6 +14,7 @@
 
 Лекция 7. Jupyter блокноты. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/prog_basics/lecture7.ipynb)
 
+Лекция 8. Библиотека numpy. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/prog_basics/lecture8.ipynb)
 
 ## Задачи
 
@@ -28,3 +29,5 @@
 [Регулярные выражения](tasks-5-regexps.md) **Дедлайн** 01 апреля.
 
 [Задания на обработку данных](tasks-6-data.md) **Дедлайн** HTML: 22 апреля.
+
+[Numpy](tasks-7-data.md) **Дедлайн** 13 мая.
