@@ -10,3 +10,5 @@
 
 [Разбор задачи о делении многочленов над полем](../../18spring/dm/polynomial%20division%20over%20finite%20fields.pdf)
 
+[Перечисление слов и перестановок](../../18spring/dm/words%20and%20permutations%20enumeration.pdf)
+
