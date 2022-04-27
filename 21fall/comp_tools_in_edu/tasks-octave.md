@@ -8,7 +8,7 @@ type: tasks
 
 Solve tasks from this block in a folder named `octave-matrices`. Name files as written in the beginning of each task, files should have the `.m` extension.
 
-Each task asks you to create a certain matrix. Please, use only methods that were discussed at the lecture or in lecture notes available on this site. That is, for example, don't use loops and functions such as `repmat`. And try to find a short solution, especially, don't enter all the values manually.
+Each task asks you to create a certain matrix. Please use only methods that were discussed at the lecture or in lecture notes available on this site. That is, for example, don't use loops and functions such as `repmat`. And try to find a short solution, especially, don't enter all the values manually.
 
 1. **task_10x10**
 
@@ -121,7 +121,7 @@ Create a border-matrix \\(10\\times10\\), it should have 0s everywhere except 1s
     ``` 
 11. **task_double_chess**
 
-    This task is similar to the chess-board task, but the size of matrix should
+    This task is similar to the chess-board task, but the size of the matrix should
     be $20\times20$, and cells with ones or zero should have size $2\times2$:
 
      ```
@@ -143,7 +143,7 @@ Create a border-matrix \\(10\\times10\\), it should have 0s everywhere except 1s
     1 2 1 2 1
     ```
     Try to avoid loops.
-    Additional question. What is a determinant of this matrix? Can you explain,
+    Additional question. What is a determinant of this matrix? Can you explain 
     why the determinant is as it is?
 
 13. **task_domino**. Based on [http://www.math.cornell.edu/~levine/18.312/alg-comb-lecture-18.pdf](http://www.math.cornell.edu/~levine/18.312/alg-comb-lecture-18.pdf)
@@ -160,7 +160,7 @@ cells. There are $m\times n$ cells, they are numbered from $1$ to $m\cdot n$.
     * 0 otherwise
 
     Evaluate the determinant of $A$ and take the square root of it.
-    You will get the number of domino tilings of a $m\times n$ rectangle. 
+    You will get the number of domino tilings of an $m\times n$ rectangle. 
 
 ## Indexing `octave-indexing`
 
