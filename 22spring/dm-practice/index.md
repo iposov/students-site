@@ -4,7 +4,7 @@
 [Условие](idz1-spring-2022.pdf)
 
 ### Индивидуальное домашнее задание 2
-[Условие](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/dm-practice/idz2.ipynb)
+[Условие](idz2.md)
 
 Разборы задач:
 
