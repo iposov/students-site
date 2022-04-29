@@ -31,3 +31,5 @@
 [Задания на обработку данных](tasks-6-data.md) **Дедлайн** HTML: 22 апреля.
 
 [Numpy](tasks-7-data.md) **Дедлайн** 13 мая.
+
+[Jupyter, Javascript](tasks-8-jupyter.md) **Дедлайн** 13 мая.
