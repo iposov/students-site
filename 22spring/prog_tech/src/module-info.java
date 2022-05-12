@@ -6,4 +6,5 @@ module ru.spbu.arts.javafx {
     //разрешаем библиотеке javafx исследовать содержимое нашего пакета с кодом
     opens ru.spbu.arts.javafx;
     opens ru.spbu.arts.javafx.images;
+    opens ru.spbu.arts.fractals;
 }
