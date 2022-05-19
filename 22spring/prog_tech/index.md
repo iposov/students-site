@@ -10,7 +10,8 @@
 8. Лекция 8. [Связывания наблюдаемых значений](lecture8-bindings.md)
 9. Лекция 9. [Связывания наблюдаемых значений](lecture9-images.md)
 10. Лекция 10. [Исключения](lecture10-exceptions.md)
-10. Лекция 11. [Рисование фигур](fractal.pdf), [код](https://github.com/iposov/students-site/blob/master/22spring/prog_tech/src/ru/spbu/arts/fractals)
+11. Лекция 11. [Рисование фигур](fractal.pdf), [код](https://github.com/iposov/students-site/blob/master/22spring/prog_tech/src/ru/spbu/arts/fractals)
+12. Лекция 12. [Класс Object](lecture12-object.md),
 
 # Задачи для практических занятий
 
