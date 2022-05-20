@@ -16,6 +16,9 @@
 
 Лекция 8. Библиотека numpy. [Конспект](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/prog_basics/lecture8.ipynb)
 
+
+Разборы некоторых задач: [solutions](https://github.com/iposov/students-site/tree/master/22spring/prog_basics/solutions)
+
 ## Задачи
 
 [Вспоминаем python](tasks-1-remind.md) **Дедлайн**: 11 марта.
