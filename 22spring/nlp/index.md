@@ -9,6 +9,7 @@
 7. Классификация методом наивного байеса: [naive-bayes.pdf](naive-bayes.pdf), [naive-bayes.ipynb](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/nlp/naive-bayes.ipynb)
 8. [Кластеризация](clusterization.pdf) — пока без примеров кода
 9. [Word2Vec](word2vec.pdf) — пока без примеров кода
+10. [Conditional Random Field](crf.ipynb), пример кода [crf.ipynb](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22spring/nlp/crf.ipynb)
 
 ## Работа с текстом
 
