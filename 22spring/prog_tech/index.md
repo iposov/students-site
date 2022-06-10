@@ -12,6 +12,8 @@
 10. Лекция 10. [Исключения](lecture10-exceptions.md)
 11. Лекция 11. [Рисование фигур](fractal.pdf), [код](https://github.com/iposov/students-site/blob/master/22spring/prog_tech/src/ru/spbu/arts/fractals)
 12. Лекция 12. [Класс Object](lecture12-object.md),
+12. Лекция 13. [Многопоточное программирование](lecture13-multithreading.md), [код](https://github.
+    com/iposov/students-site/blob/master/22spring/prog_tech/src/ru/spbu/arts/multithreading)
 
 # Задачи для практических занятий
 

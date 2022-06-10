@@ -8,4 +8,5 @@ module ru.spbu.arts.javafx {
     opens ru.spbu.arts.javafx;
     opens ru.spbu.arts.javafx.images;
     opens ru.spbu.arts.fractals;
+    opens ru.spbu.arts.multithreading;
 }
