@@ -41,7 +41,7 @@ System.out.println(x); //ошибка, могло не быть инициали
 ```
 ### Область видимости переменной
 
-Переменная в Java доступна с момента опеределения до конца блока, в котором она определена. Блок — это часть программы между фигурными скобками:
+Переменная в Java доступна с момента определения до конца блока, в котором она определена. Блок — это часть программы между фигурными скобками:
 
 ```
 public static void main(String[] args) {
@@ -179,4 +179,4 @@ public class Task {
     //%f - подставь вещественно число
 ```
 
-Подробности про `%s` и другие проценты по ссылке https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Formatter.html
+Подробности про `%s` и другие проценты по ссылке [https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Formatter.html](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Formatter.html)
