@@ -164,6 +164,9 @@ print(last_digit_is_3(4))
 print(last_digit_is_3(3))
 ```
 
+### Лекция 2
+[Типы данных, строки, функции](http://nbviewer.jupyter.org/github/iposov/students-site/blob/master/22fall/python-lecture-2.ipynb)
+
 # Тестирующая система
 [Описание тестирующей системы](../21fall/prog_basics/test-system/test-system.md)
 
